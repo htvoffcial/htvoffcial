@@ -4,7 +4,7 @@
 コミットメッセージ適当だったころのも残ってますが、あんまり見ないでもろて//
 
 
-[![GitHub Streak](https://streak-stats.demolab.com/?user=htvoffcial)](https://git.io/streak-stats)
+## [![GitHub Streak](https://streak-stats.demolab.com/?user=htvoffcial)](https://git.io/streak-stats)
 
 
 <!--
