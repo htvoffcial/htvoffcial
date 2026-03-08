@@ -18,7 +18,7 @@ jobs:
         with:
           ref: main
 
-      - name: Fetch today's discussions and append to DiscussArcchive.md
+      - name: Fetch today's discussions and append to DiscussArchive.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -89,7 +89,7 @@ jobs:
             exit 0
           fi
 
-          ARCHIVE="DiscussArcchive.md"
+          ARCHIVE="DiscussArchive.md"
 
           # ファイルが存在しない場合はヘッダーを作成
           if [ ! -f "$ARCHIVE" ]; then
