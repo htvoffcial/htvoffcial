@@ -1,0 +1,112 @@
+name: Daily Discuss Archive
+
+on:
+  schedule:
+    # 毎日 JST 0:00 (UTC 15:00) に実行
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch today's discussions and append to DiscussArcchive.md
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+
+          # JST の今日の日付を取得し、UTC の範囲境界に変換（GitHub API は UTC で返す）
+          TODAY_JST=$(TZ=Asia/Tokyo date '+%Y-%m-%d')
+          UTC_START=$(date -u -d "${TODAY_JST}T00:00:00+09:00" '+%Y-%m-%dT%H:%M:%SZ')
+          UTC_END=$(date -u -d "${TODAY_JST}T23:59:59+09:00" '+%Y-%m-%dT%H:%M:%SZ')
+
+          OWNER="${{ github.repository_owner }}"
+          # github.repository は "owner/repo" 形式なのでリポジトリ名だけ抽出
+          REPO="${{ github.repository }}"
+          REPO="${REPO##*/}"
+
+          TITLES=""
+          CURSOR=""
+
+          GQL_QUERY='query($owner:String!, $repo:String!, $after:String) { repository(owner:$owner, name:$repo) { discussions(first:100, after:$after, orderBy:{field:CREATED_AT, direction:DESC}) { pageInfo { hasNextPage endCursor } nodes { title url createdAt } } } }'
+
+          while true; do
+            if [ -n "$CURSOR" ]; then
+              PAYLOAD=$(jq -n \
+                --arg q "$GQL_QUERY" \
+                --arg owner "$OWNER" \
+                --arg repo "$REPO" \
+                --arg cursor "$CURSOR" \
+                '{query: $q, variables: {owner: $owner, repo: $repo, after: $cursor}}')
+            else
+              PAYLOAD=$(jq -n \
+                --arg q "$GQL_QUERY" \
+                --arg owner "$OWNER" \
+                --arg repo "$REPO" \
+                '{query: $q, variables: {owner: $owner, repo: $repo}}')
+            fi
+
+            RESPONSE=$(curl -s -X POST https://api.github.com/graphql \
+              -H "Authorization: bearer $GH_TOKEN" \
+              -H "Content-Type: application/json" \
+              -d "$PAYLOAD")
+
+            # 当日の Discussion タイトルを抽出（UTC 範囲で比較）
+            NEW_TITLES=$(echo "$RESPONSE" | jq -r \
+              --arg start "$UTC_START" \
+              --arg end "$UTC_END" \
+              '.data.repository.discussions.nodes[] | select(.createdAt >= $start and .createdAt <= $end) | "- [" + .title + "](" + .url + ")"')
+
+            if [ -n "$NEW_TITLES" ]; then
+              TITLES="${TITLES}${NEW_TITLES}"$'\n'
+            fi
+
+            HAS_NEXT=$(echo "$RESPONSE" | jq -r '.data.repository.discussions.pageInfo.hasNextPage')
+            # ノードが空の場合は null になるため安全に取得
+            OLDEST=$(echo "$RESPONSE" | jq -r '.data.repository.discussions.nodes | if length > 0 then last.createdAt else "" end')
+
+            # 最古のエントリが当日 UTC 開始より古ければページング不要
+            if [ "$HAS_NEXT" != "true" ] || [ -z "$OLDEST" ] || [[ "$OLDEST" < "$UTC_START" ]]; then
+              break
+            fi
+
+            CURSOR=$(echo "$RESPONSE" | jq -r '.data.repository.discussions.pageInfo.endCursor')
+          done
+
+          # 追記するエントリがない場合はスキップ
+          TITLES=$(printf '%s' "$TITLES" | sed 's/[[:space:]]*$//')
+          if [ -z "$TITLES" ]; then
+            echo "No discussions found for ${TODAY_JST}. Skipping."
+            exit 0
+          fi
+
+          ARCHIVE="DiscussArcchive.md"
+
+          # ファイルが存在しない場合はヘッダーを作成
+          if [ ! -f "$ARCHIVE" ]; then
+            printf '# Discuss Archive\n\n' > "$ARCHIVE"
+          fi
+
+          # 当日セクションがまだなければ追記
+          SECTION="## ${TODAY_JST}"
+          if grep -qF "$SECTION" "$ARCHIVE"; then
+            echo "Section for ${TODAY_JST} already exists. Skipping."
+            exit 0
+          fi
+
+          printf '\n%s\n\n%s\n' "$SECTION" "$TITLES" >> "$ARCHIVE"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$ARCHIVE"
+          git commit -m "docs: add discuss archive for ${TODAY_JST}"
+          git push origin main
