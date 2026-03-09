@@ -13,7 +13,7 @@ const REPO = (process.env.GITHUB_REPOSITORY || "").split("/")[1];
 
 if (!OWNER || !REPO) throw new Error("Missing GITHUB_REPOSITORY(_OWNER) env");
 
-const CF_MODEL = "@cf/meta/llama-3-8b-instruct";
+const CF_MODEL = "@cf/google/gemma-3-12b-it";
 
 // JSTの「昨日」範囲をUTCに変換
 function getYesterdayJstRangeUtc() {
@@ -174,8 +174,8 @@ query($owner:String!, $repo:String!, $after:String) {
 今日の一言：背すじスッと、ニコッといこー！`;
     } else {
       const { source, usedChars } = buildPromptSource(nodes, {
-        maxPerBodyChars: 800,
-        maxTotalChars: 3500,
+        maxPerBodyChars: 600,
+        maxTotalChars: 2500,
       });
 
       const system = `あなたは「体操のお兄さん」風の文章を書くプロです。
@@ -192,7 +192,7 @@ query($owner:String!, $repo:String!, $after:String) {
 - 「今日の一言」（最後に「今日の一言：...」の形式で1文）
 - 固有名詞やURLは無理に入れなくてOK（入れるなら1つまで）
 - 出力は文章だけ（箇条書きや見出しは不要）
-
+- コメディアンでユーモラスに
 Discussions（抜粋、合計 ${usedChars} 文字）:
 ${source}
 `.trim();
