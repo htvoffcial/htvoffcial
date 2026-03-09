@@ -1,3 +1,199 @@
-# Discuss README Coach
+import fs from "node:fs";
 
-This script is designed to assist with discussions related to the README. It serves as a template to guide conversation and improvements.
+const GH_TOKEN = process.env.GH_TOKEN;
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+
+if (!GH_TOKEN) throw new Error("GH_TOKEN is missing");
+if (!OPENAI_API_KEY) throw new Error("OPENAI_API_KEY is missing");
+
+const OWNER = process.env.GITHUB_REPOSITORY_OWNER;
+const REPO = (process.env.GITHUB_REPOSITORY || "").split("/")[1];
+
+if (!OWNER || !REPO) throw new Error("Missing GITHUB_REPOSITORY(_OWNER) env");
+
+function getYesterdayJstRangeUtc() {
+  const now = new Date();
+  const nowJst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+  const y = new Date(Date.UTC(nowJst.getUTCFullYear(), nowJst.getUTCMonth(), nowJst.getUTCDate() - 1));
+  const yyyy = y.getUTCFullYear();
+  const mm = String(y.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(y.getUTCDate()).padStart(2, "0");
+  const dayJst = `${yyyy}-${mm}-${dd}`;
+
+  const startUtc = new Date(`${dayJst}T00:00:00+09:00`).toISOString().replace(/\.\d{3}Z$/, "Z");
+  const endUtc = new Date(`${dayJst}T23:59:59+09:00`).toISOString().replace(/\.\d{3}Z$/, "Z");
+
+  return { dayJst, startUtc, endUtc };
+}
+
+async function ghGraphql(query, variables) {
+  const res = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers: {
+      Authorization: `bearer ${GH_TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query, variables }),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`GitHub GraphQL error: ${res.status} ${text}`);
+  }
+  return res.json();
+}
+
+function clampText(s, maxChars) {
+  if (!s) return "";
+  const t = s.replace(/\r\n/g, "\n").trim();
+  if (t.length <= maxChars) return t;
+  return t.slice(0, maxChars) + "…(省略)";
+}
+
+function buildPromptSource(discussions, { maxPerBodyChars = 800, maxTotalChars = 3500 } = {}) {
+  let total = 0;
+  const lines = [];
+
+  for (const d of discussions) {
+    const body = clampText(d.bodyText || "", maxPerBodyChars);
+    const chunk =
+`【${d.title}】
+URL: ${d.url}
+本文(抜��):
+${body}
+`;
+    if (total + chunk.length > maxTotalChars) break;
+    lines.push(chunk);
+    total += chunk.length;
+  }
+
+  return { source: lines.join("\n"), usedChars: total };
+}
+
+async function openaiChat({ model, messages }) {
+  const res = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${OPENAI_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model,
+      messages,
+      temperature: 0.9,
+    }),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`OpenAI API error: ${res.status} ${text}`);
+  }
+  return res.json();
+}
+
+function replaceBlock(readme, newBlock) {
+  const start = "<!-- DISCUSS_COACH_START -->";
+  const end = "<!-- DISCUSS_COACH_END -->";
+  const s = readme.indexOf(start);
+  const e = readme.indexOf(end);
+  if (s === -1 || e === -1 || e < s) {
+    throw new Error("README.md does not contain DISCUSS_COACH_START/END markers");
+  }
+  const before = readme.slice(0, s + start.length);
+  const after = readme.slice(e);
+  return `${before}\n${newBlock}\n${after}`;
+}
+
+async function main() {
+  const { dayJst, startUtc, endUtc } = getYesterdayJstRangeUtc();
+
+  const query = `
+query($owner:String!, $repo:String!, $after:String) {
+  repository(owner:$owner, name:$repo) {
+    discussions(first:50, after:$after, orderBy:{field:CREATED_AT, direction:DESC}) {
+      pageInfo { hasNextPage endCursor }
+      nodes { title url createdAt bodyText }
+    }
+  }
+}
+`;
+
+  const nodes = [];
+  let after = null;
+
+  while (true) {
+    const data = await ghGraphql(query, { owner: OWNER, repo: REPO, after });
+    const page = data?.data?.repository?.discussions;
+    const list = page?.nodes || [];
+
+    for (const d of list) {
+      if (d.createdAt >= startUtc && d.createdAt <= endUtc) nodes.push(d);
+    }
+
+    const oldest = list.length ? list[list.length - 1].createdAt : null;
+    const hasNext = page?.pageInfo?.hasNextPage;
+
+    if (!hasNext) break;
+    if (!oldest) break;
+    if (oldest < startUtc) break;
+
+    after = page.pageInfo.endCursor;
+  }
+
+  const header = `## Discussまとめ（体操のお兄さん）
+**対象日（JST）:** ${dayJst}
+`;
+
+  let body;
+  if (nodes.length === 0) {
+    body = `昨日は投稿がなかったみたいだね！でも大丈夫、休むのも大事なトレーニング！
+今日の一言：深呼吸して、肩の力ぬいていこー！`;
+  } else {
+    const { source, usedChars } = buildPromptSource(nodes, {
+      maxPerBodyChars: 800,
+      maxTotalChars: 3500,
+    });
+
+    const system = `あなたは「体操のお兄さん」風の文章を書くプロです。
+トーンは優しめで、軽いコメディ（ツッコミ）を入れてください。
+誹謗中傷や攻撃的表現は避けてください。`;
+
+    const user = `
+以下は昨日（JST: ${dayJst}）に投稿されたGitHub Discussionsです。本文は抜粋で、長文は省略されています。
+この内容を踏まえて、次を日本語で生成してください。
+
+要件:
+- 300文字前後（±80文字くらいはOK）
+- 「昨日のまとめ」に対する優しいツッコミ
+- 「今日の一言」（最後に「今日の一言：...」の形式で1文）
+- 固有名詞やURLは無理に入れなくてOK（入れるなら1つまで）
+- 出力は文章だけ（箇条書きや見出しは不要）
+
+Discussions（抜粋、合計 ${usedChars} 文字）:
+${source}
+`.trim();
+
+    const resp = await openaiChat({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: system },
+        { role: "user", content: user },
+      ],
+    });
+
+    body = (resp.choices?.[0]?.message?.content || "").trim();
+    if (!body) throw new Error("OpenAI returned empty content");
+  }
+
+  const newBlock = `${header}\n${body}\n`;
+
+  const readme = fs.readFileSync("README.md", "utf8");
+  const updated = replaceBlock(readme, newBlock);
+
+  fs.writeFileSync("README.md", updated, "utf8");
+  console.log(`README updated for JST ${dayJst}. discussions=${nodes.length}`);
+}
+
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
