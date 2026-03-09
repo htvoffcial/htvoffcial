@@ -13,7 +13,7 @@ const REPO = (process.env.GITHUB_REPOSITORY || "").split("/")[1];
 
 if (!OWNER || !REPO) throw new Error("Missing GITHUB_REPOSITORY(_OWNER) env");
 
-const CF_MODEL = "@cf/meta/llama-3.1-8b-instruct";
+const CF_MODEL = "@cf/meta/llama-3-8b-instruct";
 
 // JSTの「昨日」範囲をUTCに変換
 function getYesterdayJstRangeUtc() {
@@ -77,8 +77,8 @@ ${body}
 }
 
 async function cfAiChat({ accountId, apiToken, model, messages }) {
-  const url = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${encodeURIComponent(model)}`;
-
+  const url = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${model}`;
+  
   const res = await fetch(url, {
     method: "POST",
     headers: {
