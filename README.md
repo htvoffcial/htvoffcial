@@ -6,6 +6,7 @@
 コミットメッセージ適当だったころのも残ってますが、あんまり見ないでもろて//
 
 
+
 <!--
 このコメントアウト見てる人少ないかもだけど、あんまりgithubでも大したことしてないです
 どうかおてやわらかいに
@@ -27,3 +28,8 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+<!-- DISCUSS_COACH_START -->
+## Discussまとめ（体操のお兄さん）
+（ここはActionsが自動更新します）
+<!-- DISCUSS_COACH_END -->
