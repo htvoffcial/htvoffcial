@@ -27,7 +27,8 @@ jobs:
       - name: Update README with yesterday discuss coach text
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
         run: |
           node scripts/discuss_readme_coach.mjs
 
