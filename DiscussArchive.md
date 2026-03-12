@@ -25,3 +25,10 @@
   - 結構進んで、テストもしてる！でもやっぱちゃんとサービスで出すなら、Workers AIとかのオープンソースAPIか、OpenAI APIとかのクローズドAPI頼“…”
 - [0幅スペースで短縮URLっていう狂気的発明してた](https://github.com/htvoffcial/htvoffcial/discussions/20)
   - 試しに遊んでみたら上手く行っておもろい。“…”
+
+## 2026-03-12
+
+- [いよいよ2年も終わってしまうのかと](https://github.com/htvoffcial/htvoffcial/discussions/26)
+  - 近い日程でもろもろ、来年度分の個人写真とか撮るのでもう3年生になってしまうんだなという実感。 3月に勝負をかけて勉強を始めていたので、2年を最後までしっかり楽し“…”
+- [つけ麺をいただきました！](https://github.com/htvoffcial/htvoffcial/discussions/25)
+  - ![IMG_1108](https://github.com/user-attachments/assets/50eb3ad1-51d3-4fb4-8d40-7“…”
