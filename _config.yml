@@ -1,0 +1,17 @@
+title: htvoffcial
+description: htvoffcialのGitHubページ
+url: "https://htvoffcial.pages.dev"
+
+# テーマ
+theme: minima
+
+# Jekyll 設定
+markdown: kramdown
+highlighter: rouge
+
+# 除外ファイル（_siteに含めたくないやつ）
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md  # index.mdにコピーするので元は除外
+  - "*.sh"
