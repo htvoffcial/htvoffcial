@@ -32,3 +32,10 @@
   - 近い日程でもろもろ、来年度分の個人写真とか撮るのでもう3年生になってしまうんだなという実感。 3月に勝負をかけて勉強を始めていたので、2年を最後までしっかり楽し“…”
 - [つけ麺をいただきました！](https://github.com/htvoffcial/htvoffcial/discussions/25)
   - ![IMG_1108](https://github.com/user-attachments/assets/50eb3ad1-51d3-4fb4-8d40-7“…”
+
+## 2026-03-13
+
+- [MacBook Neo見てきたけど、数年前のMacBook無印を思い出した](https://github.com/htvoffcial/htvoffcial/discussions/28)
+  - 実際単体で見ると品質めっちゃ高いけど、ProとかAirと並んでいると、画面の繊細さとか、デザインとしての収まりはすこし簡素化されてるきもしたけど、必要十分、満た“…”
+- [Spotifyで一気に4回も広告きてビビった](https://github.com/htvoffcial/htvoffcial/discussions/27)
+  - いやね、ロスレス対応したのが素晴らしいのはわかるよ？でももうちょっと待ってくれやSpotify、稼げるようになったら課金すっから“…”
