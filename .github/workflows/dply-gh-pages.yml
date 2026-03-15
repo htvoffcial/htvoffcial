@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build
 
 on:
   push:
@@ -14,34 +14,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 1. 変換ツール(Pandoc)をインストール
-      - name: Install Pandoc
-        run: sudo apt-get update && sudo apt-get install -y pandoc
-
       # 2. GitHub風のCSSを取得してビルド
       - name: Build site
         run: |
           mkdir dist
-          # GitHub公式に近いデザインのCSSを外部から取得
-          curl -sS https://raw.githubusercontent.com/sindresorhus/github-markdown-css/main/github-markdown.css -o dist/github.css
-          
-          # README.md を HTML化 (CSSをリンクし、bodyに markdown-body クラスを付与)
-          # --metadata title でブラウザのタブ名を設定
-          pandoc README.md -s --metadata title="r1.harutv.me" \
-            -H <(echo '<link rel="stylesheet" href="github.css"><style>.markdown-body{box-sizing:border-box;min-width:200px;max-width:980px;margin:0 auto;padding:45px;}</style>') \
-            -B <(echo '<article class="markdown-body">') \
-            -A <(echo '</article>') \
-            -o dist/index.html
-          
-          # CNAME ファイルを作成
+       
           echo "r1.harutv.me" > dist/CNAME
           # 他のファイルもコピー（あれば）
           cp DiscussArchive.md dist/ || true
 
-      # 3. gh-pagesブランチへデプロイ
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
