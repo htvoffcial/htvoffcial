@@ -139,7 +139,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-        run: node scripts/discuss_readme_coach.mjs
+        run: node .github/scripts/discuss_readme_coach.mjs
 
       # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Step 3: まとめて1回だけ push
