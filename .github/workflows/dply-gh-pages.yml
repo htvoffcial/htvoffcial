@@ -1,23 +1,43 @@
-name: Deploy Pages
+name: Build and Deploy
 
 on:
   push:
-    branches: ["main"] # mainブランチにプッシュされたら実行
+    branches: ["main"]
 
 permissions:
   contents: write
 
 jobs:
-  deploy:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 1. 公開用のディレクトリを作成
+      - name: Prepare site
+        run: |
+          mkdir _site
+          # README.md を index.md としてコピー（Jekyllがindex.htmlとして扱うため）
+          cp README.md _site/index.md
+          # 他の .md ファイルもあればコピー
+          cp DiscussArchive.md _site/ || true
+
+      # 2. Jekyllでビルド (SCSSエラーを避けるため最小構成で実行)
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: _site/
+          destination: ./dist
+
+      # 3. 独自ドメイン(CNAME)をデプロイ先に追加
+      - name: Add CNAME file
+        run: echo "r1.harutv.me" > ./dist/CNAME
+
+      # 4. gh-pagesブランチへデプロイ
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./     # リポジトリのルートを公開
-          cname: r1.harutv.me  # ここにドメインを指定（自動的にCNAMEが生成される）
-          exclude_assets: '.github' # ワークフローファイル自体は公開しない
+          publish_dir: ./dist
+          publish_branch: gh-pages
