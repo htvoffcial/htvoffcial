@@ -1,25 +1,36 @@
-name: Build
+name: Simple Sync to GitHub Pages
 
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build_and_deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout main branch
         uses: actions/checkout@v4
 
-      # 2. GitHub風のCSSを取得してビルド
-      - name: Build site
+      - name: Prepare Files for Deployment
         run: |
-          mkdir dist
-       
-          echo "r1.harutv.me" > dist/CNAME
-          # 他のファイルもコピー（あれば）
-          cp DiscussArchive.md dist/ || true
-
+          # 公開用の一時フォルダを作成
+          mkdir -p deploy_dist
+          
+          # .git や .github を除いて main の全ファイルをコピー
+          rsync -av --exclude='.git' --exclude='.github' ./ deploy_dist/
+          
+          # CNAMEファイルを強制的に作成（または上書き）
+          echo "r1.harutv.me" > deploy_dist/CNAME
+          
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy_dist
+          publish_branch: gh-pages
+          force_orphan: true
+          commit_message: "🚀 Sync from main and Update CNAME [skip ci]"
