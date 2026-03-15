@@ -6,8 +6,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   build_and_deploy:
@@ -16,23 +14,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 1. ビルド用のソースディレクトリを作成
-      - name: Prepare source
-        run: |
-          mkdir _build_src
-          # README.md を index.md としてコピー（トップページ用）
-          cp README.md _build_src/index.md
-          # 他のファイルもコピー（あれば）
-          cp DiscussArchive.md _build_src/ || true
-          # ここで CNAME ファイルを作成（権限エラーを回避）
-          echo "r1.harutv.me" > _build_src/CNAME
+      # 1. 変換ツール(Pandoc)をインストール
+      - name: Install Pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
 
-      # 2. Jekyllでビルド
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: _build_src/
-          destination: ./dist
+      # 2. 公開用ディレクトリの作成と変換
+      - name: Build site
+        run: |
+          mkdir dist
+          # README.md を HTML化 (GitHub風のシンプルなスタイル)
+          pandoc README.md -s -o dist/index.html --metadata title="r1.harutv.me"
+          # 他のファイルもコピー（あれば）
+          cp DiscussArchive.md dist/ || true
+          # CNAME ファイルを作成
+          echo "r1.harutv.me" > dist/CNAME
 
       # 3. gh-pagesブランチへデプロイ
       - name: Deploy to GitHub Pages
