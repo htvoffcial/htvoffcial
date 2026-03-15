@@ -50,3 +50,10 @@
   - [クアッカワラビー](https://www.google.com/search?q=クアッカワラビー)という動物で、常に口元の口角が上がっていて笑っているよう“…”
 - [このディスカッションの関連リンク](https://github.com/htvoffcial/htvoffcial/discussions/29)
   - - 毎日タイトルとディスカスページへのリンクをアーカイブしているページ [DiscussArchive.md](https://r1.harutv.me/Dis“…”
+
+## 2026-03-15
+
+- [わかってはいるんだけど、どうコミュ力無さすぎて](https://github.com/htvoffcial/htvoffcial/discussions/34)
+  - 話の始めは挨拶から？“…”
+- [Special Interview:Actionsについて](https://github.com/htvoffcial/htvoffcial/discussions/33)
+  - はるはる:そう、ものの昨日くらいまでPublicリポジトリはActionsの3000分カウントされないことを知らなかったんですよ はるはる:なので重い腰を上げて“…”
