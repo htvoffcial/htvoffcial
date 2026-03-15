@@ -32,5 +32,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./deploy_dist
           publish_branch: gh-pages
+          enable_jekyll: true
           force_orphan: true
           commit_message: "🚀 Sync from main and Update CNAME [skip ci]"
