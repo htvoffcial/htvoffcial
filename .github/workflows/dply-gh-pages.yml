@@ -6,6 +6,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build_and_deploy:
@@ -14,27 +16,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 1. 公開用のディレクトリを作成
-      - name: Prepare site
+      # 1. ビルド用のソースディレクトリを作成
+      - name: Prepare source
         run: |
-          mkdir _site
-          # README.md を index.md としてコピー（Jekyllがindex.htmlとして扱うため）
-          cp README.md _site/index.md
-          # 他の .md ファイルもあればコピー
-          cp DiscussArchive.md _site/ || true
+          mkdir _build_src
+          # README.md を index.md としてコピー（トップページ用）
+          cp README.md _build_src/index.md
+          # 他のファイルもコピー（あれば）
+          cp DiscussArchive.md _build_src/ || true
+          # ここで CNAME ファイルを作成（権限エラーを回避）
+          echo "r1.harutv.me" > _build_src/CNAME
 
-      # 2. Jekyllでビルド (SCSSエラーを避けるため最小構成で実行)
+      # 2. Jekyllでビルド
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: _site/
+          source: _build_src/
           destination: ./dist
 
-      # 3. 独自ドメイン(CNAME)をデプロイ先に追加
-      - name: Add CNAME file
-        run: echo "r1.harutv.me" > ./dist/CNAME
-
-      # 4. gh-pagesブランチへデプロイ
+      # 3. gh-pagesブランチへデプロイ
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
