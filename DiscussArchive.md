@@ -57,3 +57,12 @@
   - 話の始めは挨拶から？“…”
 - [Special Interview:Actionsについて](https://github.com/htvoffcial/htvoffcial/discussions/33)
   - はるはる:そう、ものの昨日くらいまでPublicリポジトリはActionsの3000分カウントされないことを知らなかったんですよ はるはる:なので重い腰を上げて“…”
+
+## 2026-03-16
+
+- [大テスト誤字集](https://github.com/htvoffcial/htvoffcial/discussions/39)
+  - | | | | - | - | | 浸水コロイド | 親水コロイド | | 謹しんで | 謹んで | | 腸わる | 賜る | | 摩薩 | 摩擦 | | 由諸“…”
+- [参考書をもらったので、歴史でしっかり勉強したい](https://github.com/htvoffcial/htvoffcial/discussions/38)
+  - 本日、テスト返却1教科目は、理系でスタート "世の中のほとんどの現象は物理で説明できる" 数字に慣れることができたのは確かに物理のおかげだったかも“…”
+- [赤点出ませんように](https://github.com/htvoffcial/htvoffcial/discussions/35)
+  - 学業成就祈願 (成績成就) “…”
