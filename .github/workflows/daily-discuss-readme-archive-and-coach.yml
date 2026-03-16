@@ -6,6 +6,8 @@ on:
     - cron: '0 15 * * *'
   workflow_dispatch:
 
+# PATを使用するため、一部の権限はトークン側に依存しますが、
+# ワークフロー自体の権限設定も残しておきます。
 permissions:
   contents: write
   discussions: read
@@ -18,18 +20,22 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
+          # 【重要】GitHub Actionsの自動実行制限を回避するため、
+          # secrets.GITHUB_TOKEN ではなく作成した PAT を使用します。
+          token: ${{ secrets.MY_PAT }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Step 1: DiscussArchive.md に昨日分を追記
-      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       - name: Fetch yesterday's discussions (JST) and append to DiscussArchive.md
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # GraphQL操作にも PAT を使用するように変更
+          GH_TOKEN: ${{ secrets.MY_PAT }}
         run: |
           set -euo pipefail
 
@@ -88,7 +94,7 @@ jobs:
 
             if echo "$RESPONSE" | jq -e '.errors? | length > 0' >/dev/null; then
               echo "GraphQL returned errors:"
-              echo "$RESPONSE" | jq -r '.errors[]?.message'
+              echo "$RESPONSE" | jq -r '.errors[].message'
               exit 1
             fi
 
@@ -101,7 +107,7 @@ jobs:
               | "- [\(.title)](\(.url))\n  - " +
                 (
                   (.body // "")
-                  | gsub("[\\r\\n]+"; " ")
+                  | gsub("[\r\n]+"; " ")
                   | gsub("[[:space:]]+"; " ")
                   | .[0:80]
                   + "\u201c\u2026\u201d"
@@ -131,19 +137,20 @@ jobs:
           printf '\n%s\n\n%s\n' "$SECTION" "$OUT" >> "$ARCHIVE"
           echo "Archive updated for ${TARGET_JST}."
 
-      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Step 2: README を Coach テキストで更新
-      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       - name: Update README with yesterday discuss coach text
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # node スクリプト内でも PAT を使用するように変更
+          GH_TOKEN: ${{ secrets.MY_PAT }}
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
         run: node .github/scripts/discuss_readme_coach.mjs
 
-      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       # Step 3: まとめて1回だけ push
-      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      # ━━━━━━━━━━━━━━━━━━━━━━━━���━━━━━━━━━━━━━━━━━━━
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
@@ -154,4 +161,6 @@ jobs:
             exit 0
           fi
           git commit -m "docs: archive + coach $(TZ=Asia/Tokyo date -d 'yesterday' '+%Y-%m-%d')"
+          # ここで push されるコミットは PAT によるものになるため、
+          # GitHub Pages デプロイ用のワークフローが自動的にトリガーされます。
           git push origin main
