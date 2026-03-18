@@ -73,3 +73,12 @@
   - ずっと見たかったから配信始まったのはありがてぇ“…”
 - [芋けんぴ😋](https://github.com/htvoffcial/htvoffcial/discussions/40)
   - 最近すごく食事がジャンクな感じするなー健康志向目ざさねば？ “…”
+
+## 2026-03-18
+
+- [午前日課神やな〜まあ、午後を何に使うかを決めねばな！](https://github.com/htvoffcial/htvoffcial/discussions/44)
+  - 何やってるんですか？勉強してください！！！ :shipit:“…”
+- [明後日3月20日は祝日！なんて嬉しい](https://github.com/htvoffcial/htvoffcial/discussions/43)
+  - 春分の日、法律で自然をたたえ、生物をいつくしむと定められた日！“…”
+- [学習の計画の立て方](https://github.com/htvoffcial/htvoffcial/discussions/42)
+  - 目標設定→不足→対策→いつかを決める“…”
