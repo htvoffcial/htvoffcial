@@ -208,7 +208,7 @@ function replaceBlock(readme, newBlock) {
 
 function buildReadmeBlock({ dayJst, text, dominantWeather }) {
   const header = `## Discussまとめ（体操のお兄さん）
-**対象日（JST）:** ${dayJst}　${dominantWeather.icon} ${dominantWeather.label}
+**対象日（JST）:** ${dayJst}
 `;
   return `${header}\n${text}\n`;
 }
@@ -287,8 +287,7 @@ query($owner:String!, $repo:String!, $after:String) {
 誹謗中傷や攻撃的表現は避けてください。`;
 
       const user = `
-昨日（JST: ${dayJst}）の松戸市の日中の天気: ${dominantWeather.icon} ${dominantWeather.label}（${dominantWeather.category}）
-日中に雨が降った時間帯: ${rainyHours.length}時間
+昨日（JST: ${dayJst}）の松戸市の日中の天気は ${dominantWeather.label} でした。
 
 以下は昨日（JST: ${dayJst}）に投稿されたGitHub Discussionsです。本文は抜粋で、長文は省略されています。
 この内容を踏まえて、次を日本語で生成してください。
@@ -301,6 +300,7 @@ query($owner:String!, $repo:String!, $after:String) {
 - 固有名詞やURLは無理に入れなくてOK（入れるなら1つまで）
 - 出力は文章だけ（箇条書きや見出しは不要）
 - コメディアンでユーモラスに
+- あなたは体操のお兄さんです！元気もりもり！
 Discussions（抜粋、合計 ${usedChars} 文字）:
 ${source}
 `.trim();
