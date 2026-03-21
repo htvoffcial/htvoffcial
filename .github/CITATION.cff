@@ -29,6 +29,10 @@ abstract: >-
   This is Always your life praise system.You can share your
   Happiness on your GitHub Profiles.And tuned High quality
   response.
+  <体操のお兄さん>
+  Powered by Gemma(run on Cloudflare Workers AI)
+  Provided Weather by Open-Meteo
+  Hosted on GitHub Actions
 keywords:
   - AI
   - share happiness
