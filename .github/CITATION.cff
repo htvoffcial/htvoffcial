@@ -1,0 +1,39 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: AI Taisou no Oniisan
+message: >-
+  If you use this software on your paper, let it utilization
+  this file.
+type: software
+authors:
+  - name: Haruharu Television Group
+    address: Kamihongo
+    city: Matsudo-shi
+    country: JP
+    website: 'https://www.htvgr.com'
+    tel: '+815017921181'
+    region: Chiba
+    email: contact@haruharutv.jp
+    alias: HTVG
+    date-start: '2014-04-01'
+  - given-names: Haruharu
+    family-names: GitHubUser
+    email: 61141911+htvoffcial@users.noreply.github.com
+    affiliation: General Affairs Department
+    orcid: 'https://orcid.org/0009-0006-0296-2993'
+repository-code: 'https://github.com/htvoffcial/htvoffcial'
+url: 'https://r1.harutv.me'
+abstract: >-
+  This is Always your life praise system.You can share your
+  Happiness on your GitHub Profiles.And tuned High quality
+  response.
+keywords:
+  - AI
+  - share happiness
+  - Life
+license: SSPL-1.0
+commit: fa02bcd8a1268b900955edcae3e31dc457391fd6
+version: v1.0.1-stableMonster
+date-released: '2026-03-18'
