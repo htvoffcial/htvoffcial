@@ -96,3 +96,10 @@
 
 - [まずい！今日何もしてない！](https://github.com/htvoffcial/htvoffcial/discussions/48)
   - お兄さんに伝えることがない！困ったなぁ😅“…”
+
+## 2026-03-21
+
+- [Spotifyで突然流れてきたサカナクション 雨は気まぐれ、なかなか良い曲](https://github.com/htvoffcial/htvoffcial/discussions/50)
+  - 2008年か〜“…”
+- [本日は完全に糖尿病まっしぐらな1.5Lのオレンジジュースを2本持って帰ってきました](https://github.com/htvoffcial/htvoffcial/discussions/49)
+  - 今日で飲み干すのはやめておこう。そして、**しっかり歯を磨かねば！**“…”
