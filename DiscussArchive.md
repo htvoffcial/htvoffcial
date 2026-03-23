@@ -112,3 +112,8 @@
   - ちょっとアイデア募集してみよ“…”
 - [秋葉原駅周辺パケ詰まり酷くて話にならない(物理)](https://github.com/htvoffcial/htvoffcial/discussions/51)
   - まともにチャットも使えないことは困るなぁ“…”
+
+## 2026-03-23
+
+- [江戸川を走ってきた(軽め)](https://github.com/htvoffcial/htvoffcial/discussions/54)
+  - 運動不足解消！少し雨があたりながらも後半は晴れてきて、1時間くらい気持ちよくて走り続けてた！ ![IMG_20260323_113340](https://gi“…”
