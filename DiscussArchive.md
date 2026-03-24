@@ -117,3 +117,8 @@
 
 - [江戸川を走ってきた(軽め)](https://github.com/htvoffcial/htvoffcial/discussions/54)
   - 運動不足解消！少し雨があたりながらも後半は晴れてきて、1時間くらい気持ちよくて走り続けてた！ ![IMG_20260323_113340](https://gi“…”
+
+## 2026-03-24
+
+- [疲れすぎて家帰って即睡6h](https://github.com/htvoffcial/htvoffcial/discussions/55)
+  - 眠たすぎて何も手につかず、そのままベッドイン“…”
