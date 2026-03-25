@@ -122,3 +122,8 @@
 
 - [疲れすぎて家帰って即睡6h](https://github.com/htvoffcial/htvoffcial/discussions/55)
   - 眠たすぎて何も手につかず、そのままベッドイン“…”
+
+## 2026-03-25
+
+- [春休み始まり](https://github.com/htvoffcial/htvoffcial/discussions/56)
+  - 受験生になるため時間はないのが本来...頑張ります❤️‍🔥“…”
