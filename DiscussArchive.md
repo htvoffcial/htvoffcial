@@ -127,3 +127,8 @@
 
 - [春休み始まり](https://github.com/htvoffcial/htvoffcial/discussions/56)
   - 受験生になるため時間はないのが本来...頑張ります❤️‍🔥“…”
+
+## 2026-03-26
+
+- [専松甲子園勝ったらしいね](https://github.com/htvoffcial/htvoffcial/discussions/57)
+  - 専修松戸は毎年つよいな“…”
