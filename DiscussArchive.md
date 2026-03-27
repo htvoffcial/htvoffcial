@@ -132,3 +132,8 @@
 
 - [専松甲子園勝ったらしいね](https://github.com/htvoffcial/htvoffcial/discussions/57)
   - 専修松戸は毎年つよいな“…”
+
+## 2026-03-27
+
+- [お兄さんうどんはお好き？](https://github.com/htvoffcial/htvoffcial/discussions/58)
+  - 最近うどんを食べることが増えた私です！“…”
