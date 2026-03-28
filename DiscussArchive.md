@@ -137,3 +137,8 @@
 
 - [お兄さんうどんはお好き？](https://github.com/htvoffcial/htvoffcial/discussions/58)
   - 最近うどんを食べることが増えた私です！“…”
+
+## 2026-03-28
+
+- [Photosensitive Epilepsy Analysis Tool (PEAT)という物があるそう](https://github.com/htvoffcial/htvoffcial/discussions/59)
+  - 個人の商業的でない映像やウェブコンテンツ向けに利用できる光刺激によるリスクの分析を支援してくれるシステムらしい https://trace.umd.edu/pe“…”
