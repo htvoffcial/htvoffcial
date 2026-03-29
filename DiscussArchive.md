@@ -142,3 +142,8 @@
 
 - [Photosensitive Epilepsy Analysis Tool (PEAT)という物があるそう](https://github.com/htvoffcial/htvoffcial/discussions/59)
   - 個人の商業的でない映像やウェブコンテンツ向けに利用できる光刺激によるリスクの分析を支援してくれるシステムらしい https://trace.umd.edu/pe“…”
+
+## 2026-03-29
+
+- [ちょっとまともなパソコン買わんとあかんな](https://github.com/htvoffcial/htvoffcial/discussions/60)
+  - 動画編集“…”
