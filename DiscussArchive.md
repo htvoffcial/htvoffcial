@@ -147,3 +147,8 @@
 
 - [ちょっとまともなパソコン買わんとあかんな](https://github.com/htvoffcial/htvoffcial/discussions/60)
   - 動画編集“…”
+
+## 2026-03-30
+
+- [今朝はしっかりラジオ体操したよ！](https://github.com/htvoffcial/htvoffcial/discussions/61)
+  - フルコーラスしっかり踊り抜いてスッキリ“…”
