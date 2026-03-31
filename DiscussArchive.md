@@ -152,3 +152,8 @@
 
 - [今朝はしっかりラジオ体操したよ！](https://github.com/htvoffcial/htvoffcial/discussions/61)
   - フルコーラスしっかり踊り抜いてスッキリ“…”
+
+## 2026-03-31
+
+- [プレビュー重すぎて画と音が意図したとおりに合わん、、](https://github.com/htvoffcial/htvoffcial/discussions/62)
+  - 一旦書き出すのまき“…”
