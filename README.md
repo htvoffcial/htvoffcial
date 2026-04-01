@@ -5,7 +5,7 @@
 
 コミットメッセージ適当だったころのも残ってますが、あんまり見ないでもろて//
 
-[site version](https://harutv.me)
+[site version](https://r1.harutv.me)
 
 <!--
 このコメントアウト見てる人少ないかもだけど、あんまりgithubでも大したことしてないです
