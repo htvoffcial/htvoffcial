@@ -157,3 +157,10 @@
 
 - [プレビュー重すぎて画と音が意図したとおりに合わん、、](https://github.com/htvoffcial/htvoffcial/discussions/62)
   - 一旦書き出すのまき“…”
+
+## 2026-04-02
+
+- [長いようで、短かい春休み。残すところあと3日！](https://github.com/htvoffcial/htvoffcial/discussions/64)
+  - ええ、小論文完成するかなぁ“…”
+- [あぶねーギリギリアウトだわ、お兄さんに読んでもらえないこれ多分](https://github.com/htvoffcial/htvoffcial/discussions/63)
+  - 昨日書くの忘れてた“…”
