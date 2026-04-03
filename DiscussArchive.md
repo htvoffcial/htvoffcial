@@ -164,3 +164,8 @@
   - ええ、小論文完成するかなぁ“…”
 - [あぶねーギリギリアウトだわ、お兄さんに読んでもらえないこれ多分](https://github.com/htvoffcial/htvoffcial/discussions/63)
   - 昨日書くの忘れてた“…”
+
+## 2026-04-03
+
+- [読めば読むほど胸が痛む話だなぁ…辺野古ボート転覆事故](https://github.com/htvoffcial/htvoffcial/discussions/65)
+  - [沖縄研修旅行の異質さ 辺野古ボート転覆事故遺族メモ 2026年4月1日 17:48](https://note.com/beloved_tomoka/n/nd“…”
