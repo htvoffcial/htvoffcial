@@ -169,3 +169,8 @@
 
 - [読めば読むほど胸が痛む話だなぁ…辺野古ボート転覆事故](https://github.com/htvoffcial/htvoffcial/discussions/65)
   - [沖縄研修旅行の異質さ 辺野古ボート転覆事故遺族メモ 2026年4月1日 17:48](https://note.com/beloved_tomoka/n/nd“…”
+
+## 2026-04-04
+
+- [音楽サブスクの歌詞みたいにお兄さんのポッドキャスト的に聴けるシステムを完成させた](https://github.com/htvoffcial/htvoffcial/discussions/66)
+  - フォームから試してみる ちなみに、Actionsで音声素材も生成し、HLS技術でそのページを見る・聞くユーザの帯域を節約しながら利用できるように！ HLS.js“…”
