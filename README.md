@@ -42,4 +42,4 @@ Here are some ideas to get you started:
 
 <!-- DISCUSS_COACH_END -->
 
-<script src="//accaii.com/harutv/script.js" async></script><noscript><img src="//accaii.com/harutv/script?guid=on"></noscript>
+<noscript><img src="//accaii.com/harutv/script?guid=on"></noscript>
