@@ -41,3 +41,5 @@ Here are some ideas to get you started:
 今日の一言： 報道の正確さは、私たちみんなの未来を守る、大切なリボンです！
 
 <!-- DISCUSS_COACH_END -->
+
+<script src="//accaii.com/harutv/script.js" async></script><noscript><img src="//accaii.com/harutv/script?guid=on"></noscript>
