@@ -1,0 +1,105 @@
+name: Discussion → LLM2 Reply Bot
+on:
+  discussion:
+    types: [created]
+
+permissions:
+  contents: read
+  discussions: write
+
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call LLM2 and post reply
+        uses: actions/github-script@v6
+        env:
+          LLM2_API_BASE: ${{ secrets.LLM2_API_BASE }}   # 任意。未設定時はデフォルトを使います
+          LLM2_API_KEY: ${{ secrets.LLM2_API_KEY }}     # 任意。API にキーが必要なら設定してください
+        with:
+          script: |
+            // 取得環境・イベント情報
+            const apiBase = process.env.LLM2_API_BASE || 'https://harutv.stars.ne.jp/LLM2/api';
+            const apiKey  = process.env.LLM2_API_KEY || '';
+            const discussion = context.payload.discussion;
+            if (!discussion) {
+              core.info('No discussion payload — skipping.');
+              return;
+            }
+
+            // ユーザーが Bot の場合は無視（無限ループ防止）
+            if (discussion.user && discussion.user.type && discussion.user.type.toLowerCase() === 'bot') {
+              core.info(`Creator is a bot (${discussion.user.login}) — skipping.`);
+              return;
+            }
+
+            const owner = context.repo.owner;
+            const repo  = context.repo.repo;
+            const discussion_number = discussion.number;
+            const question = (discussion.body || discussion.title || '').trim();
+            if (!question) {
+              core.info('Empty discussion body/title — skipping.');
+              return;
+            }
+
+            // 重複投稿防止：既に llm2-bot マーカーがあるコメントがあったら終了
+            const commentsRes = await github.request('GET /repos/{owner}/{repo}/discussions/{discussion_number}/comments', {
+              owner, repo, discussion_number
+            });
+            const comments = commentsRes.data || [];
+            const already = comments.some(c => (c.body || '').includes('<!-- llm2-bot -->'));
+            if (already) {
+              core.info('Bot has already replied (marker found) — skipping.');
+              return;
+            }
+
+            // LLM2 に問い合わせ
+            const payload = {
+              question: question,
+              history: [],     // 必要なら履歴を渡す（ステートレスなのでクライアント側で保持）
+              kb_id: 'default',
+              tone: 'casual',
+              format: 'markdown'
+            };
+            const headers = { 'Content-Type': 'application/json' };
+            if (apiKey) headers['Authorization'] = `Bearer ${apiKey}`;
+
+            core.info(`Calling LLM2 at ${apiBase}/chat`);
+            const resp = await fetch(`${apiBase}/chat`, {
+              method: 'POST',
+              headers,
+              body: JSON.stringify(payload),
+            });
+
+            if (!resp.ok) {
+              const text = await resp.text();
+              core.setFailed(`LLM2 API returned ${resp.status}: ${text}`);
+              return;
+            }
+            const data = await resp.json();
+            if (!data.ok) {
+              core.setFailed(`LLM2 API error: ${data.error || JSON.stringify(data)}`);
+              return;
+            }
+
+            const answer = data.answer ?? data.clarify_question ?? data.tool_result?.output ?? '';
+            if (!answer) {
+              core.info('LLM2 returned no answer — skipping comment.');
+              return;
+            }
+
+            // コメントを投稿（マーカー付き）
+            const commentBody = [
+              '<!-- llm2-bot -->',
+              `こんにちは @${discussion.user.login}、自動応答です。`,
+              '',
+              answer,
+              '',
+              '_このコメントは LLM2 により自動生成されています。問題がある場合は削除してください。_'
+            ].join('\n');
+
+            await github.request('POST /repos/{owner}/{repo}/discussions/{discussion_number}/comments', {
+              owner, repo, discussion_number, body: commentBody
+            });
+
+            core.info('Posted reply to discussion.');
