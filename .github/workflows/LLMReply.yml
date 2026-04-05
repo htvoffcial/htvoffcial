@@ -18,9 +18,9 @@ jobs:
           LLM2_API_KEY: ${{ secrets.LLM2_API_KEY }}     # 任意。API にキーが必要なら設定してください
         with:
           script: |
-            // 取得環境・イベント情報
             const apiBase = process.env.LLM2_API_BASE || 'https://harutv.stars.ne.jp/LLM2/api';
             const apiKey  = process.env.LLM2_API_KEY || '';
+
             const discussion = context.payload.discussion;
             if (!discussion) {
               core.info('No discussion payload — skipping.');
@@ -28,39 +28,69 @@ jobs:
             }
 
             // ユーザーが Bot の場合は無視（無限ループ防止）
-            if (discussion.user && discussion.user.type && discussion.user.type.toLowerCase() === 'bot') {
+            if (discussion.user?.type?.toLowerCase() === 'bot') {
               core.info(`Creator is a bot (${discussion.user.login}) — skipping.`);
               return;
             }
 
             const owner = context.repo.owner;
             const repo  = context.repo.repo;
-            const discussion_number = discussion.number;
+            const discussionNumber = discussion.number;
+
             const question = (discussion.body || discussion.title || '').trim();
             if (!question) {
               core.info('Empty discussion body/title — skipping.');
               return;
             }
 
-            // 重複投稿防止：既に llm2-bot マーカーがあるコメントがあったら終了
-            const commentsRes = await github.request('GET /repos/{owner}/{repo}/discussions/{discussion_number}/comments', {
-              owner, repo, discussion_number
+            // -----------------------------
+            // 1) 既に投稿済みか（<!-- llm2-bot -->）を GraphQL で確認
+            // -----------------------------
+            const marker = '<!-- llm2-bot -->';
+
+            const checkQuery = `
+              query($owner: String!, $repo: String!, $number: Int!) {
+                repository(owner: $owner, name: $repo) {
+                  discussion(number: $number) {
+                    id
+                    comments(first: 50) {
+                      nodes { body }
+                    }
+                  }
+                }
+              }
+            `;
+
+            const checkRes = await github.graphql(checkQuery, {
+              owner,
+              repo,
+              number: discussionNumber,
             });
-            const comments = commentsRes.data || [];
-            const already = comments.some(c => (c.body || '').includes('<!-- llm2-bot -->'));
+
+            const discussionNode = checkRes?.repository?.discussion;
+            if (!discussionNode?.id) {
+              core.setFailed('Could not resolve discussion via GraphQL (missing discussion id).');
+              return;
+            }
+
+            const existingComments = discussionNode.comments?.nodes || [];
+            const already = existingComments.some(c => (c?.body || '').includes(marker));
             if (already) {
               core.info('Bot has already replied (marker found) — skipping.');
               return;
             }
 
-            // LLM2 に問い合わせ
+            // -----------------------------
+            // 2) LLM2 に問い合わせ
+            // -----------------------------
             const payload = {
-              question: question,
-              history: [],     // 必要なら履歴を渡す（ステートレスなのでクライアント側で保持）
+              question,
+              history: [],
               kb_id: 'default',
               tone: 'casual',
               format: 'markdown'
             };
+
             const headers = { 'Content-Type': 'application/json' };
             if (apiKey) headers['Authorization'] = `Bearer ${apiKey}`;
 
@@ -76,21 +106,29 @@ jobs:
               core.setFailed(`LLM2 API returned ${resp.status}: ${text}`);
               return;
             }
+
             const data = await resp.json();
-            if (!data.ok) {
-              core.setFailed(`LLM2 API error: ${data.error || JSON.stringify(data)}`);
+            if (!data?.ok) {
+              core.setFailed(`LLM2 API error: ${data?.error || JSON.stringify(data)}`);
               return;
             }
 
-            const answer = data.answer ?? data.clarify_question ?? data.tool_result?.output ?? '';
+            const answer =
+              data.answer ??
+              data.clarify_question ??
+              data.tool_result?.output ??
+              '';
+
             if (!answer) {
               core.info('LLM2 returned no answer — skipping comment.');
               return;
             }
 
-            // コメントを投稿（マーカー付き）
+            // -----------------------------
+            // 3) GraphQL で Discussion にコメント投稿
+            // -----------------------------
             const commentBody = [
-              '<!-- llm2-bot -->',
+              marker,
               `こんにちは @${discussion.user.login}、自動応答です。`,
               '',
               answer,
@@ -98,8 +136,17 @@ jobs:
               '_このコメントは LLM2 により自動生成されています。問題がある場合は削除してください。_'
             ].join('\n');
 
-            await github.request('POST /repos/{owner}/{repo}/discussions/{discussion_number}/comments', {
-              owner, repo, discussion_number, body: commentBody
+            const addCommentMutation = `
+              mutation($discussionId: ID!, $body: String!) {
+                addDiscussionComment(input: {discussionId: $discussionId, body: $body}) {
+                  comment { id url }
+                }
+              }
+            `;
+
+            const addRes = await github.graphql(addCommentMutation, {
+              discussionId: discussionNode.id,
+              body: commentBody,
             });
 
-            core.info('Posted reply to discussion.');
+            core.info(`Posted reply: ${addRes?.addDiscussionComment?.comment?.url || '(url unavailable)'}`);
