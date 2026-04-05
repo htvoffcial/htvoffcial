@@ -174,3 +174,14 @@
 
 - [音楽サブスクの歌詞みたいにお兄さんのポッドキャスト的に聴けるシステムを完成させた](https://github.com/htvoffcial/htvoffcial/discussions/66)
   - フォームから試してみる ちなみに、Actionsで音声素材も生成し、HLS技術でそのページを見る・聞くユーザの帯域を節約しながら利用できるように！ HLS.js“…”
+
+## 2026-04-05
+
+- [Voy a experimentar con mi hermano mayor.](https://github.com/htvoffcial/htvoffcial/discussions/73)
+  - ¿Puedes entenderlo en un idioma extranjero?“…”
+- [Haruharu RIM1に聞いてみる](https://github.com/htvoffcial/htvoffcial/discussions/72)
+  - 織田信長ってどんな人？“…”
+- [こんにちは！みなさん元気？](https://github.com/htvoffcial/htvoffcial/discussions/71)
+  - こんにちは！AI応答のテストです！“…”
+- [明日から新学期！](https://github.com/htvoffcial/htvoffcial/discussions/67)
+  - 新たなクラスどうなるか不安だけど 自分、日本史研究と日本史探究両方取っちゃってるから、どっちかで気まずくならないことを祈る🫡“…”
