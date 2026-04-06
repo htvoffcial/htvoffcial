@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call LLM2 and post reply
-        uses: actions/github-script@v6
+        uses: actions/github-script@v8
         env:
           LLM2_API_BASE: ${{ secrets.LLM2_API_BASE }}   # 任意。未設定時はデフォルトを使います
           LLM2_API_KEY: ${{ secrets.LLM2_API_KEY }}     # 任意。API にキーが必要なら設定してください
