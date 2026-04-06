@@ -185,3 +185,8 @@
   - こんにちは！AI応答のテストです！“…”
 - [明日から新学期！](https://github.com/htvoffcial/htvoffcial/discussions/67)
   - 新たなクラスどうなるか不安だけど 自分、日本史研究と日本史探究両方取っちゃってるから、どっちかで気まずくならないことを祈る🫡“…”
+
+## 2026-04-06
+
+- [俺もう自虐ネタやめようと思う](https://github.com/htvoffcial/htvoffcial/discussions/75)
+  - いや、めっちゃやってたわけじゃないと思うんだけど、やって幸せになる人おらんやん“…”
