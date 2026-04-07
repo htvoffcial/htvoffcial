@@ -190,3 +190,8 @@
 
 - [俺もう自虐ネタやめようと思う](https://github.com/htvoffcial/htvoffcial/discussions/75)
   - いや、めっちゃやってたわけじゃないと思うんだけど、やって幸せになる人おらんやん“…”
+
+## 2026-04-07
+
+- [最近雨多いなー](https://github.com/htvoffcial/htvoffcial/discussions/76)
+  - 外出してたけど、季節を感じれていいね！舞い散る桜、まさに芸術作品のように。 今日も勉強がんばろ。 あと、自家製ジンジャーエール美味しかった“…”
