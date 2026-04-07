@@ -18,7 +18,7 @@ jobs:
           HaruharuRIM1_API_KEY: ${{ secrets.HaruharuRIM1_API_KEY }}     # 任意。API にキーが必要なら設定してください
         with:
           script: |
-            const apiBase = process.env.HaruharuRIM1_API_BASE || 'https://harutv.stars.ne.jp/HaruharuRIM1/api';
+            const apiBase = process.env.HaruharuRIM1_API_BASE || 'https://harutv.stars.ne.jp/LLM2/api';
             const apiKey  = process.env.HaruharuRIM1_API_KEY || '';
 
             const discussion = context.payload.discussion;
