@@ -1,4 +1,4 @@
-name: Discussion → LLM2 Reply Bot
+name: Discussion → HaruharuRIM1 Reply Bot
 on:
   discussion:
     types: [created]
@@ -11,15 +11,15 @@ jobs:
   reply:
     runs-on: ubuntu-latest
     steps:
-      - name: Call LLM2 and post reply
+      - name: Call HaruharuRIM1 and post reply
         uses: actions/github-script@v6
         env:
-          LLM2_API_BASE: ${{ secrets.LLM2_API_BASE }}   # 任意。未設定時はデフォルトを使います
-          LLM2_API_KEY: ${{ secrets.LLM2_API_KEY }}     # 任意。API にキーが必要なら設定してください
+          HaruharuRIM1_API_BASE: ${{ secrets.HaruharuRIM1_API_BASE }}   # 任意。未設定時はデフォルトを使います
+          HaruharuRIM1_API_KEY: ${{ secrets.HaruharuRIM1_API_KEY }}     # 任意。API にキーが必要なら設定してください
         with:
           script: |
-            const apiBase = process.env.LLM2_API_BASE || 'https://harutv.stars.ne.jp/LLM2/api';
-            const apiKey  = process.env.LLM2_API_KEY || '';
+            const apiBase = process.env.HaruharuRIM1_API_BASE || 'https://harutv.stars.ne.jp/HaruharuRIM1/api';
+            const apiKey  = process.env.HaruharuRIM1_API_KEY || '';
 
             const discussion = context.payload.discussion;
             if (!discussion) {
@@ -81,7 +81,7 @@ jobs:
             }
 
             // -----------------------------
-            // 2) LLM2 に問い合わせ
+            // 2) HaruharuRIM1 に問い合わせ
             // -----------------------------
             const payload = {
               question,
@@ -94,7 +94,7 @@ jobs:
             const headers = { 'Content-Type': 'application/json' };
             if (apiKey) headers['Authorization'] = `Bearer ${apiKey}`;
 
-            core.info(`Calling LLM2 at ${apiBase}/chat`);
+            core.info(`Calling HaruharuRIM1 at ${apiBase}/chat`);
             const resp = await fetch(`${apiBase}/chat`, {
               method: 'POST',
               headers,
@@ -103,13 +103,13 @@ jobs:
 
             if (!resp.ok) {
               const text = await resp.text();
-              core.setFailed(`LLM2 API returned ${resp.status}: ${text}`);
+              core.setFailed(`HaruharuRIM1 API returned ${resp.status}: ${text}`);
               return;
             }
 
             const data = await resp.json();
             if (!data?.ok) {
-              core.setFailed(`LLM2 API error: ${data?.error || JSON.stringify(data)}`);
+              core.setFailed(`HaruharuRIM1 API error: ${data?.error || JSON.stringify(data)}`);
               return;
             }
 
@@ -120,7 +120,7 @@ jobs:
               '';
 
             if (!answer) {
-              core.info('LLM2 returned no answer — skipping comment.');
+              core.info('HaruharuRIM1 returned no answer — skipping comment.');
               return;
             }
 
@@ -133,7 +133,7 @@ jobs:
               '',
               answer,
               '',
-              '_このコメントは LLM2 により自動生成されています。問題がある場合は削除してください。_'
+              '_このコメントは HaruharuRIM1 により自動生成されています。問題がある場合は削除してください。_'
             ].join('\n');
 
             const addCommentMutation = `
