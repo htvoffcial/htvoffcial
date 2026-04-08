@@ -195,3 +195,8 @@
 
 - [最近雨多いなー](https://github.com/htvoffcial/htvoffcial/discussions/76)
   - 外出してたけど、季節を感じれていいね！舞い散る桜、まさに芸術作品のように。 今日も勉強がんばろ。 あと、自家製ジンジャーエール美味しかった“…”
+
+## 2026-04-08
+
+- [あーもう！](https://github.com/htvoffcial/htvoffcial/discussions/80)
+  - 頭皮が乾燥する季節になってまいりました💢“…”
