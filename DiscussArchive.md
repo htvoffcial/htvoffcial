@@ -200,3 +200,8 @@
 
 - [あーもう！](https://github.com/htvoffcial/htvoffcial/discussions/80)
   - 頭皮が乾燥する季節になってまいりました💢“…”
+
+## 2026-04-09
+
+- [心変わり？](https://github.com/htvoffcial/htvoffcial/discussions/81)
+  - なんか、憑いていた物が落ちたようにスッキリした気分になったな 自分は動画編集はしなくてもいいんだって、あの部活はもう廃部するんだって、諦めがついたのかね。 とり“…”
