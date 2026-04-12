@@ -210,3 +210,10 @@
 
 - [割と運が味方してる気がする](https://github.com/htvoffcial/htvoffcial/discussions/82)
   - 久しぶりに弁当で食べた春巻きが美味しすぎて、帰りに春巻きの惣菜か冷凍食品を買いにスーパーに寄った♪ たまに食べるといいんよね！カニクリームコロッケとかも似たよう“…”
+
+## 2026-04-12
+
+- [マカダミアくちどけホワイト&ショコラうまし](https://github.com/htvoffcial/htvoffcial/discussions/84)
+  - こういうフィルム剥がしたら見えるタイプのチョコって濃厚で美味いんよな“…”
+- [やべ、お兄さんの改修に時間かけすぎて投稿してなかったー！](https://github.com/htvoffcial/htvoffcial/discussions/83)
+  - 4月11日、間に合わず…“…”
