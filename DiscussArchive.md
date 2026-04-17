@@ -232,3 +232,10 @@
 
 - [結局、自分の仕事は変わらないけど](https://github.com/htvoffcial/htvoffcial/discussions/88)
   - 勤め上げるために、最後の力を絞り、そして果てたい。 コンピューター部がたとえ廃部しようとも。“…”
+
+## 2026-04-17
+
+- [あと、昨日も投稿忘れてんじゃん](https://github.com/htvoffcial/htvoffcial/discussions/90)
+  - まじで部活でパワー使い果たしてきてるからなー“…”
+- [差し押さえ画面って謎の高揚感ある](https://github.com/htvoffcial/htvoffcial/discussions/89)
+  - たまに資料とかで、各国の機関による取り締まりのものを見ますね。 自分もAIに作らせてみたら、なぜか猫がついてきて可愛かったので載せます (普段は全然AI画像は載“…”
