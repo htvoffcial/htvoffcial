@@ -69,14 +69,9 @@ async function main() {
 
   const outPath = path.join(outDir, "README.md");
 
-  const headerLines = [
-    START,
-    "## Discuss Summary (Gymnastics Coach)",
-    sourceDate ? `**Source date (JST):** ${sourceDate}` : "",
-    "",
-  ].filter(Boolean);
 
-  const out = `${headerLines.join("\n")}
+
+  const out = `
 ${english}
 ${END}
 `;
