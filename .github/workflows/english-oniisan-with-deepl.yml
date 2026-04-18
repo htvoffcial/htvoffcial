@@ -1,0 +1,48 @@
+name: Translate Discuss Coach to English (DeepL)
+
+on:
+  schedule:
+    # 03:00 JST = 18:00 UTC (previous day)
+    - cron: "0 18 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: translate-discuss-coach
+  cancel-in-progress: false
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Translate section and write .github/English/README.md
+        env:
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+          # Freeプランは https://api-free.deepl.com
+          # Proプランは  https://api.deepl.com
+          DEEPL_API_BASE_URL: ${{ secrets.DEEPL_API_BASE_URL }}
+        run: |
+          node .github/scripts/translate-discuss-coach-deepl.mjs
+
+      - name: Commit and push if changed
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .github/English/README.md
+            git commit -m "Update English Discuss summary (DeepL)"
+            git push
+          else
+            echo "No changes."
+          fi
