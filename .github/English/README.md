@@ -1,14 +1,14 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-04-17
+**Date (JST):** 2026-04-18
 
-Hey, everyone! It’s the Gymnastics Guy! Full of energy, I’m ready to jump high again today!
+Good morning! It’s the Gymnastics Guy! How’s everyone doing?
 
-Yesterday’s GitHub Discussions were fun, weren’t they~! “You forgot to post!”—it’s just like I suddenly forgot a move during practice! (lol) But I’m worried you might be using up all your energy in club activities! Make sure to get plenty of rest!
+Yesterday in Matsudo, the weather was sunny with occasional clouds—a bit of a mixed bag, wasn’t it? It felt just like being in a club activity!
 
-And, "There's an oddly exhilarating feeling about government-seized website notice screens." !? Hmm, I see~. As for the AI creating a cute cat—that’s typical of AI, isn’t it! I know you don’t usually post AI-generated images, but I can tell this one’s special! Maybe it was a sunny day, so your mood was bright and things just went smoothly?
+Anyway, I saw your post on GitHub Discussions titled “I’m so pissed off I want to tear up every single piece of paper in my house”! That’s some serious stress—that must be rough! Tearing up all your papers might be a bit much, though, don’t you think? (lol) But I totally get how you feel! It’s important not to bottle things up—let it all out! Take a deep breath, do some exercises, and clear your head!
 
-Let’s all do our exercises with smiles today, too!
+…Though, coming from me, that might sound a bit hypocritical! (lol)
 
-Today’s Message: It’s okay to fail! Even if you fall down, just get back up again!
+Today’s Thought: Problems are like onions—peel away the layers and solve them while crying!
 <!-- DISCUSS_COACH_END -->
