@@ -44,4 +44,5 @@ Here are some ideas to get you started:
 
 <!-- DISCUSS_COACH_END -->
 
-<noscript><img src="//accaii.com/harutv/script?guid=on"></noscript>
+<img src="//accaii.com/harutv/script?guid=on">
+<a href=".github/English/README.md">English</a>
