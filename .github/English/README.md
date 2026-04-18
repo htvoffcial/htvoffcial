@@ -1,6 +1,4 @@
-<!-- DISCUSS_COACH_START -->
-## Discuss Summary (Gymnastics Coach)
-**Source date (JST):** 2026-04-17
+
 ## Discuss Roundup (The Gymnastics Guy)
 **Date (JST):** 2026-04-17
 
