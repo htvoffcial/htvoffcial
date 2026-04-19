@@ -244,3 +244,10 @@
 
 - [ブチギレすぎて家にあるプリント全部破り捨てたい](https://github.com/htvoffcial/htvoffcial/discussions/91)
   - 最近になって部活がえっぐいストレスになるのなんなん？“…”
+
+## 2026-04-19
+
+- [お兄さんが毎日アーカイブされるようになったよ！](https://github.com/htvoffcial/htvoffcial/discussions/93)
+  - 本日より、Internet Archiveが運営するWayback MachineのSPN(SavePageNOW)との連携を始めました！ 毎日11:08にお兄“…”
+- [だしまき玉子 is supreme](https://github.com/htvoffcial/htvoffcial/discussions/92)
+  - 食パンにだし巻き卵とウインナーを挟んで堪能するひととき“…”
