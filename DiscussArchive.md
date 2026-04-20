@@ -251,3 +251,10 @@
   - 本日より、Internet Archiveが運営するWayback MachineのSPN(SavePageNOW)との連携を始めました！ 毎日11:08にお兄“…”
 - [だしまき玉子 is supreme](https://github.com/htvoffcial/htvoffcial/discussions/92)
   - 食パンにだし巻き卵とウインナーを挟んで堪能するひととき“…”
+
+## 2026-04-20
+
+- [月曜日から段取り悪すぎて気分駄々下がり](https://github.com/htvoffcial/htvoffcial/discussions/95)
+  - 数年やってなかったから、ペーパー委員長(代理)すぎたな“…”
+- [弁当のうどん](https://github.com/htvoffcial/htvoffcial/discussions/94)
+  - 味付け忘れててただのうどんとおかずになってた...“…”
