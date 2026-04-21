@@ -258,3 +258,10 @@
   - 数年やってなかったから、ペーパー委員長(代理)すぎたな“…”
 - [弁当のうどん](https://github.com/htvoffcial/htvoffcial/discussions/94)
   - 味付け忘れててただのうどんとおかずになってた...“…”
+
+## 2026-04-21
+
+- [自分の縄文人説&お兄さんのDeepL翻訳対応](https://github.com/htvoffcial/htvoffcial/discussions/97)
+  - 今日日本史で習ったけど、縄文人と弥生人を見分ける上では、結構わかりやすい点として耳垢の状態があるんだけど。 それで検討したらどちらかといえば「縄文人」でした！！“…”
+- [I’m perfectly won!!](https://github.com/htvoffcial/htvoffcial/discussions/96)
+  - まじでスッキリ、吹き飛べ！部活と委員会！！！！(単に今日両方ともなかっただけ) やっぱさ、過度に詰められると金をもらう仕事でもなければ一緒にやる気も吹き飛ぶよね“…”
