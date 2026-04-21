@@ -16,7 +16,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          filename: .github/English/Metrics.md
+          filename: .github/assets/Metrics.svg
 
           # Minimal useful defaults (you can tweak later)
           base: header, activity, community, repositories, metadata
