@@ -45,6 +45,7 @@ Here are some ideas to get you started:
 今日の一言：失敗してもいい、大切なのは諦めない心と、美味しい味付けですよ！
 
 <!-- DISCUSS_COACH_END -->
-
-<img src="//accaii.com/harutv/script?guid=on">
 <a href=".github/English/README.md">English</a>
+
+<img src="//accaii.com/harutv/script?guid=on" style="height:1px;" height="1px">
+
