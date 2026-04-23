@@ -270,3 +270,12 @@
 
 - [会うは別れの始め](https://github.com/htvoffcial/htvoffcial/discussions/98)
   - 4月になって、ずっとバタバタと文字通り動き回っていた。 年度替わりの学校生活も、いろいろ大変なことがあったことで、自分の中で別れる悲しさも忘れていた。 これまで“…”
+
+## 2026-04-23
+
+- [文転したので電子辞書を取得](https://github.com/htvoffcial/htvoffcial/discussions/101)
+  - 中古でかなり手が出しやすい金額だったSR4700 ひび割れも使用感もほぼない奇跡 <img width="4032" height="3024" alt="IM“…”
+- [8.8秒50m走【人生最後】](https://github.com/htvoffcial/htvoffcial/discussions/100)
+  - ついに高3、人生最後の50m走を駆け抜けてまいりました。 高校生3年間初めての記録を叩き出したことで気分がすごく上がった、共に走ってくれた仲間に感謝を込めた全力“…”
+- [今日、自分が持っている最後の旧500円玉を使って](https://github.com/htvoffcial/htvoffcial/discussions/99)
+  - 部活動の体験入部のポスターを印刷してから残った30円、コンビニ印刷だったけど、スケール的には正解だったかなと。やっぱね、些細というか普通だけどレーザープリンター“…”
