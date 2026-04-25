@@ -284,3 +284,8 @@
 
 - [1週間終わり！](https://github.com/htvoffcial/htvoffcial/discussions/102)
   - 金曜日の心地よい暖かさを感じながら、ゆっくり過ごしてましたが、日本史のノート整理をしたり世界史の準備を進めてたりしてました“…”
+
+## 2026-04-25
+
+- [CI/C兄(シーアイ/シーニイ)　継続的インテグレーション、継続的お兄さん](https://github.com/htvoffcial/htvoffcial/discussions/103)
+  - 私のプロフィールで、体操のお兄さんは継続的にDiscussionsを要約してくれています。 あとライセンス期間切れに向けて対応完了“…”
