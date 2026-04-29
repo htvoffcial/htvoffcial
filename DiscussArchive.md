@@ -299,3 +299,8 @@
 
 - [英検と申し込もうと思ってた模試が被ってることに寸前で気づけた](https://github.com/htvoffcial/htvoffcial/discussions/105)
   - 危なかったー, なんとか回避！ ちなみに、今日はひどい雨だったね。外歩いてたら、いつの間にか靴下の存在がなくなっていたように感じた。“…”
+
+## 2026-04-29
+
+- [やっぱ、部活ある日は疲弊してひと言残せないね](https://github.com/htvoffcial/htvoffcial/discussions/106)
+  - 昨日も書けなかったよ“…”
