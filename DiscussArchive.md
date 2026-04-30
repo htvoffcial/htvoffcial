@@ -304,3 +304,8 @@
 
 - [やっぱ、部活ある日は疲弊してひと言残せないね](https://github.com/htvoffcial/htvoffcial/discussions/106)
   - 昨日も書けなかったよ“…”
+
+## 2026-04-30
+
+- [最近ははちみつと刻んだ生姜が好き](https://github.com/htvoffcial/htvoffcial/discussions/107)
+  - 流石に明日は学校休校にならん？大雨らしいぞ？“…”
