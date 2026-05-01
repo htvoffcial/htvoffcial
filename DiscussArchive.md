@@ -309,3 +309,8 @@
 
 - [最近ははちみつと刻んだ生姜が好き](https://github.com/htvoffcial/htvoffcial/discussions/107)
   - 流石に明日は学校休校にならん？大雨らしいぞ？“…”
+
+## 2026-05-01
+
+- [中間管理職のうた Chukankanrishoku no uta](https://github.com/htvoffcial/htvoffcial/discussions/108)
+  - 中間管理職のうた (♪) 美しいプロジェクトが今 重なり響き始めない！ 過労！過労、過労、過労！ 始業時間 心やすまらぬ君たち すでに動いているその手はなんだ？“…”
