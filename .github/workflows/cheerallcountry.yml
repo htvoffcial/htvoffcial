@@ -27,7 +27,7 @@ jobs:
 
           README_FILE=".github/English/README.md"
           OUT_FILE=".github/content/cheerallcountry.csv"
-          COUNTRY_FILE=".github/content/countries.csv"
+          COUNTRY_FILE=".github/assets/countries.csv"
 
           if [[ ! -f "$README_FILE" ]]; then
             echo "README file not found: $README_FILE" >&2
