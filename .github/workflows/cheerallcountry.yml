@@ -58,19 +58,19 @@ jobs:
           EOF
           fi
 
-          # Get content after the last ':' on the last non-empty line
-          last_non_empty_line="$(grep -v -E '^[[:space:]]*$' "$README_FILE" | tail -n 1)"
-          if [[ -z "$last_non_empty_line" ]]; then
-            echo "README has no non-empty lines." >&2
+          # Get content after the last ':' on the 2nd-to-last non-empty line
+          second_last_non_empty_line="$((grep -v -E '^[[:space:]]*$' "$README_FILE" || true) | tail -n 2 | head -n 1)"
+          if [[ -z "$second_last_non_empty_line" ]]; then
+            echo "README has fewer than 2 non-empty lines." >&2
             exit 1
           fi
 
-          if [[ "$last_non_empty_line" != *:* ]]; then
-            echo "Last non-empty line does not contain ':' -> '$last_non_empty_line'" >&2
+          if [[ "$second_last_non_empty_line" != *:* ]]; then
+            echo "Second-to-last non-empty line does not contain ':' -> '$second_last_non_empty_line'" >&2
             exit 1
           fi
 
-          value="${last_non_empty_line##*:}"
+          value="${second_last_non_empty_line##*:}"
           # trim leading/trailing whitespace
           value="$(echo "$value" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
 
