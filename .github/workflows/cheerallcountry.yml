@@ -1,0 +1,113 @@
+name: Record README colon content to CSV
+
+on:
+  schedule:
+    # 17:50 JST = 08:50 UTC
+    - cron: "50 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cheerallcountry-csv
+  cancel-in-progress: false
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update cheerallcountry.csv
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          README_FILE=".github/English/README.md"
+          OUT_FILE=".github/content/cheerallcountry.csv"
+          COUNTRY_FILE=".github/content/countries.csv"
+
+          if [[ ! -f "$README_FILE" ]]; then
+            echo "README file not found: $README_FILE" >&2
+            exit 1
+          fi
+
+          mkdir -p "$(dirname "$OUT_FILE")"
+
+          # Ensure output exists with header
+          if [[ ! -f "$OUT_FILE" ]]; then
+            echo "code,content" > "$OUT_FILE"
+          fi
+
+          # Ensure countries list exists. If absent, create a minimal ISO3166-1 alpha-2 list.
+          if [[ ! -f "$COUNTRY_FILE" ]]; then
+            cat > "$COUNTRY_FILE" <<'EOF'
+          name,code
+          Japan,jp
+          United States,us
+          United Kingdom,gb
+          Canada,ca
+          Australia,au
+          Germany,de
+          France,fr
+          Italy,it
+          Spain,es
+          Russian Federation, ru
+          EOF
+          fi
+
+          # Get content after the last ':' on the last non-empty line
+          last_non_empty_line="$(grep -v -E '^[[:space:]]*$' "$README_FILE" | tail -n 1)"
+          if [[ -z "$last_non_empty_line" ]]; then
+            echo "README has no non-empty lines." >&2
+            exit 1
+          fi
+
+          if [[ "$last_non_empty_line" != *:* ]]; then
+            echo "Last non-empty line does not contain ':' -> '$last_non_empty_line'" >&2
+            exit 1
+          fi
+
+          value="${last_non_empty_line##*:}"
+          # trim leading/trailing whitespace
+          value="$(echo "$value" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+
+          # Randomly choose one country code from countries.csv (skip header)
+          code="$(tail -n +2 "$COUNTRY_FILE" | awk -F',' 'NF>=2 {print $2}' | shuf -n 1 | tr '[:upper:]' '[:lower:]' | tr -d '\r')"
+          if [[ -z "$code" ]]; then
+            echo "Failed to select a country code." >&2
+            exit 1
+          fi
+
+          # Upsert row: replace existing line for code, else append.
+          tmp="$(mktemp)"
+          awk -F',' -v OFS=',' -v code="$code" -v content="$value" '
+            BEGIN{found=0}
+            NR==1 {print; next}
+            $1==code {print code, content; found=1; next}
+            {print}
+            END{ if(!found) print code, content }
+          ' "$OUT_FILE" > "$tmp"
+          mv "$tmp" "$OUT_FILE"
+
+          echo "Recorded: $code -> $value"
+
+      - name: Commit and push
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com]"
+
+          git add .github/content/cheerallcountry.csv .github/content/countries.csv
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update cheerallcountry.csv"
+          git push
