@@ -314,3 +314,10 @@
 
 - [中間管理職のうた Chukankanrishoku no uta](https://github.com/htvoffcial/htvoffcial/discussions/108)
   - 中間管理職のうた (♪) 美しいプロジェクトが今 重なり響き始めない！ 過労！過労、過労、過労！ 始業時間 心やすまらぬ君たち すでに動いているその手はなんだ？“…”
+
+## 2026-05-02
+
+- [文化部では説明のつかない](https://github.com/htvoffcial/htvoffcial/discussions/110)
+  - 現在20km自転車で走行した分のデータがある,平均勾配9% やっぱコンピューター部は運動部であり、放送委員会は体育会系委員会である。 委員会では、即座に駆けつけ“…”
+- [受験生ってネットで私生活晒しがちだよね](https://github.com/htvoffcial/htvoffcial/discussions/109)
+  - というごく一般論“…”
