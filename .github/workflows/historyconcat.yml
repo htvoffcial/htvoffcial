@@ -8,6 +8,9 @@ on:
         required: true
         default: "README.md"
 
+permissions:
+  contents: read
+
 jobs:
   concat-history:
     runs-on: ubuntu-latest
