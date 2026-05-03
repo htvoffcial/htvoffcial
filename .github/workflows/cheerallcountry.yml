@@ -58,37 +58,47 @@ jobs:
           EOF
           fi
 
-          # Get content after the last ':' on the 2nd-to-last non-empty line
-          second_last_non_empty_line="$((grep -v -E '^[[:space:]]*$' "$README_FILE" || true) | tail -n 2 | head -n 1)"
-          if [[ -z "$second_last_non_empty_line" ]]; then
-            echo "README has fewer than 2 non-empty lines." >&2
+          # Extract "Today’s Message:" line content from README.
+          # - We look for the last line containing ':' before the end marker.
+          # - Fall back to the last non-empty line containing ':' if marker isn't present.
+          if grep -q "DISCUSS_COACH_END" "$README_FILE"; then
+            value_line="$(awk '
+              /DISCUSS_COACH_END/ {exit}
+              /:/ {last=$0}
+              END {print last}
+            ' "$README_FILE")"
+          else
+            value_line="$(grep -v -E '^[[:space:]]*$' "$README_FILE" | grep ':' | tail -n 1 || true)"
+          fi
+
+          if [[ -z "${value_line:-}" ]]; then
+            echo "Failed to find a message line containing ':' in $README_FILE" >&2
             exit 1
           fi
 
-          if [[ "$second_last_non_empty_line" != *:* ]]; then
-            echo "Second-to-last non-empty line does not contain ':' -> '$second_last_non_empty_line'" >&2
-            exit 1
-          fi
-
-          value="${second_last_non_empty_line##*:}"
+          value="${value_line##*:}"
           # trim leading/trailing whitespace
           value="$(echo "$value" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
 
+          # CSV-escape the content (double-quote wrap + escape internal quotes)
+          value_escaped="$(printf '%s' "$value" | sed 's/"/""/g')"
+
           # Randomly choose one country code from countries.csv (skip header)
-          code="$(tail -n +2 "$COUNTRY_FILE" | awk -F',' 'NF>=2 {print $2}' | shuf -n 1 | tr '[:upper:]' '[:lower:]' | tr -d '\r')"
+          # countries.csv is "code,country" so code is column 1.
+          code="$(tail -n +2 "$COUNTRY_FILE" | awk -F',' 'NF>=2 {print $1}' | shuf -n 1 | tr '[:upper:]' '[:lower:]' | tr -d '\r')"
           if [[ -z "$code" ]]; then
             echo "Failed to select a country code." >&2
             exit 1
           fi
 
-          # Upsert row: replace existing line for code, else append.
+          # Upsert row with proper CSV quoting for content.
           tmp="$(mktemp)"
-          awk -F',' -v OFS=',' -v code="$code" -v content="$value" '
+          awk -F',' -v OFS=',' -v code="$code" -v content="$value_escaped" '
             BEGIN{found=0}
             NR==1 {print; next}
-            $1==code {print code, content; found=1; next}
+            $1==code {print code, "\"" content "\""; found=1; next}
             {print}
-            END{ if(!found) print code, content }
+            END{ if(!found) print code, "\"" content "\"" }
           ' "$OUT_FILE" > "$tmp"
           mv "$tmp" "$OUT_FILE"
 
@@ -100,7 +110,7 @@ jobs:
           set -euo pipefail
 
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add .github/content/cheerallcountry.csv .github/assets/countries.csv
 
