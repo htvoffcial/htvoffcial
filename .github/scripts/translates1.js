@@ -159,19 +159,41 @@
       textNodes.add(node);
     }
   }
-  const cache = new Map();
+
+  const baseIndexCache = new Map();
+  function hashString(value) {
+    let hash = 0;
+    for (let i = 0; i < value.length; i += 1) {
+      hash = ((hash << 5) - hash) + value.charCodeAt(i);
+      hash |= 0;
+    }
+    return hash;
+  }
+
   function scramble(text, charSet, langKey) {
-    return text.split("").map(char => {
+    const jitterRange = Math.min(64, Math.max(5, Math.floor(charSet.length / 8)));
+    let lastMapped = "";
+
+    return text.split("").map((char, index) => {
       if (/([\s.,!?;:！？。、「」()0-9])/.test(char)) return char;
-      const cacheKey = `${langKey}|${char}`;
-      if (cache.has(cacheKey)) return cache.get(cacheKey);
 
-      const code = char.charCodeAt(0);
-      let hash = ((code << 5) - code) + code;
-      const index = Math.abs(hash) % charSet.length;
-      const mapped = charSet[index];
+      const baseKey = `${langKey}|${char}`;
+      let baseIndex = baseIndexCache.get(baseKey);
+      if (baseIndex === undefined) {
+        baseIndex = Math.abs(hashString(baseKey)) % charSet.length;
+        baseIndexCache.set(baseKey, baseIndex);
+      }
 
-      cache.set(cacheKey, mapped);
+      const jitter = Math.abs(hashString(`${baseKey}|${index}`)) % jitterRange;
+      let mappedIndex = (baseIndex + jitter) % charSet.length;
+      let mapped = charSet[mappedIndex];
+
+      if (mapped === lastMapped && charSet.length > 1) {
+        mappedIndex = (mappedIndex + 1) % charSet.length;
+        mapped = charSet[mappedIndex];
+      }
+
+      lastMapped = mapped;
       return mapped;
     }).join("");
   }
