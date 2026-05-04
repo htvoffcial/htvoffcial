@@ -163,26 +163,56 @@
     }
   }
 
+  const baseIndexCache = new Map();
   function hashString(value) {
     let hash = 0;
     for (let i = 0; i < value.length; i += 1) {
       hash = ((hash << 5) - hash) + value.charCodeAt(i);
       hash |= 0;
     }
-    return Math.abs(hash);
+    return hash;
+  }
+
+  function mapWithJitter(charSet, baseKey, jitterSeed, jitterRange, lastMapped) {
+    let baseIndex = baseIndexCache.get(baseKey);
+    if (baseIndex === undefined) {
+      baseIndex = Math.abs(hashString(baseKey)) % charSet.length;
+      baseIndexCache.set(baseKey, baseIndex);
+    }
+
+    const jitter = Math.abs(hashString(jitterSeed)) % jitterRange;
+    let mappedIndex = (baseIndex + jitter) % charSet.length;
+    let mapped = charSet[mappedIndex];
+
+    if (mapped === lastMapped && charSet.length > 1) {
+      mappedIndex = (mappedIndex + 1) % charSet.length;
+      mapped = charSet[mappedIndex];
+    }
+
+    return mapped;
   }
 
   function scramble(text, charSet, langKey) {
+    const jitterRange = Math.min(128, Math.max(8, Math.floor(charSet.length / 4)));
+    let lastMapped = "";
+    let wordIndex = 0;
     let output = "";
 
     for (let index = 0; index < text.length; index += 1) {
       const char = text[index];
-      if (/\s/.test(char) || /([.,!?;:！？。、「」()0-9])/.test(char)) {
+      if (/\s/.test(char)) {
+        output += char;
+        wordIndex += 1;
+        lastMapped = "";
+        continue;
+      }
+      if (/([.,!?;:！？。、「」()0-9])/.test(char)) {
         output += char;
         continue;
       }
 
-      const baseKey = `${langKey}|${char}`;
+      const baseKey = `${langKey}|${char}|${wordIndex}`;
+      const jitterSeed = `${baseKey}|${index}`;
       let activeCharSet = charSet;
       let mapped;
 
@@ -190,12 +220,13 @@
         const lower = char.toLowerCase();
         const isVowel = englishVowels.includes(lower);
         activeCharSet = isVowel ? englishVowelPool : englishConsonantPool;
-        mapped = activeCharSet[hashString(`${langKey}|${lower}`) % activeCharSet.length];
+        mapped = mapWithJitter(activeCharSet, baseKey, jitterSeed, jitterRange, lastMapped);
         if (char !== lower) mapped = mapped.toUpperCase();
       } else {
-        mapped = activeCharSet[hashString(baseKey) % activeCharSet.length];
+        mapped = mapWithJitter(activeCharSet, baseKey, jitterSeed, jitterRange, lastMapped);
       }
 
+      lastMapped = mapped;
       output += mapped;
     }
 
@@ -246,8 +277,8 @@
       background: gainsboro; padding: 12px;
       border: 2px solid #333;
       width:fit-content;
-      justify-content: center;
-      align-items: center;
+ justify-content: center;
+  align-items: center;
       z-index: 100000; font-family: sans-serif;
     `;
 
