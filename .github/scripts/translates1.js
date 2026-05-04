@@ -1,5 +1,5 @@
 (() => {
-  const STORAGE_KEY = "fake_lang_barrier_v2";
+  const STORAGE_KEY = "certinaly_lang_barrier_v2";
 
   // === 170+ Countries (ISO 3166-1 alpha-2) ===
   const ALL_COUNTRIES = [
@@ -70,9 +70,9 @@
 
   // === Language configs ===
   const LANG_META = {
-    ja: { label: "日本語 (Safe Zone)", chars: null, font: "sans-serif", dir: "ltr" },
-    en: { label: "English (Alphabet)", chars: latinChars, font: "sans-serif", dir: "ltr" },
-    latin: { label: "Latin (Alphabet)", chars: latinChars, font: "sans-serif", dir: "ltr" },
+    ja: { label: "日本語", chars: null, font: "sans-serif", dir: "ltr" },
+    en: { label: "English", chars: latinChars, font: "sans-serif", dir: "ltr" },
+    latin: { label: "Latin", chars: latinChars, font: "sans-serif", dir: "ltr" },
     es: { label: "Español", chars: latinChars, font: "sans-serif", dir: "ltr" },
     fr: { label: "Français", chars: latinChars, font: "sans-serif", dir: "ltr" },
     pt: { label: "Português", chars: latinChars, font: "sans-serif", dir: "ltr" },
@@ -206,15 +206,18 @@
     const container = document.createElement("div");
     container.id = "barrier-container";
     container.style.cssText = `
-      position: fixed; top: 10px; right: 10px;
-      background: rgba(240,240,240,0.95); padding: 12px;
-      border: 2px solid #333; box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      display:flex;
+      background: gainsboro; padding: 12px;
+      border: 2px solid #333;
+      width:fit-content;
+ justify-content: center;
+  align-items: center;
       z-index: 100000; font-family: sans-serif;
     `;
 
     const label = document.createElement("label");
     label.htmlFor = "lang-select";
-    label.textContent = "Language (絶望): ";
+    label.textContent = "Language: ";
     container.appendChild(label);
 
     const select = document.createElement("select");
