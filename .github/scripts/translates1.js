@@ -114,7 +114,16 @@
 
   // === Load fonts (once) ===
   const fontsHref =
-    "https://fonts.googleapis.com/css2?family=Amiri&family=Ruslan+Display&family=Zhi+Mang+Xing&family=Noto+Sans+KR&family=Noto+Sans+Thai&family=Noto+Sans+Devanagari&family=Noto+Serif+Hebrew&family=Not[...]
+    "https://fonts.googleapis.com/css2" +
+    "?family=Amiri" +
+    "&family=Ruslan+Display" +
+    "&family=Zhi+Mang+Xing" +
+    "&family=Noto+Sans+KR" +
+    "&family=Noto+Sans+Thai" +
+    "&family=Noto+Sans+Devanagari" +
+    "&family=Noto+Serif+Hebrew" +
+    "&family=Noto+Serif+Greek" +
+    "&display=swap";
   if (!document.querySelector(`link[href="${fontsHref}"]`)) {
     const link = document.createElement("link");
     link.rel = "stylesheet";
