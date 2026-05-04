@@ -57,9 +57,10 @@
 
   // === Character sets ===
   const latinChars =
-    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-    "áàâäãåāçčćďéèêëēěğíìîïīłñńóòôöõōřśšşťúùûüūýÿžźżÆæØøÅåßÐðÞþ";
-  const cyrillicChars = Array.from({ length: 256 }, (_, i) => String.fromCharCode(0x0400 + i)).join("");
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const cyrillicChars =
+    "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ" +
+    "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
   const arabicChars = Array.from({ length: 256 }, (_, i) => String.fromCharCode(0x0600 + i)).join("");
   const hanChars = Array.from({ length: 1500 }, (_, i) => String.fromCharCode(0x4E00 + i)).join("");
   const devanagariChars = Array.from({ length: 128 }, (_, i) => String.fromCharCode(0x0900 + i)).join("");
@@ -113,7 +114,7 @@
 
   // === Load fonts (once) ===
   const fontsHref =
-    "https://fonts.googleapis.com/css2?family=Amiri&family=Ruslan+Display&family=Zhi+Mang+Xing&family=Noto+Sans+KR&family=Noto+Sans+Thai&family=Noto+Sans+Devanagari&family=Noto+Serif+Hebrew&family=Noto+Serif+Greek&display=swap";
+    "https://fonts.googleapis.com/css2?family=Amiri&family=Ruslan+Display&family=Zhi+Mang+Xing&family=Noto+Sans+KR&family=Noto+Sans+Thai&family=Noto+Sans+Devanagari&family=Noto+Serif+Hebrew&family=Not[...]
   if (!document.querySelector(`link[href="${fontsHref}"]`)) {
     const link = document.createElement("link");
     link.rel = "stylesheet";
@@ -152,7 +153,7 @@
   const cache = new Map();
   function scramble(text, charSet, langKey) {
     return text.split("").map(char => {
-      if (/[\s.,!?;:！？。、「」()0-9]/.test(char)) return char;
+      if (/([\s.,!?;:！？。、「」()0-9])/.test(char)) return char;
       const cacheKey = `${langKey}|${char}`;
       if (cache.has(cacheKey)) return cache.get(cacheKey);
 
