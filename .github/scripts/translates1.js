@@ -68,6 +68,9 @@
   const hebrewChars = Array.from({ length: 96 }, (_, i) => String.fromCharCode(0x0590 + i)).join("");
   const greekChars = Array.from({ length: 96 }, (_, i) => String.fromCharCode(0x0370 + i)).join("");
   const hangulChars = Array.from({ length: 512 }, (_, i) => String.fromCharCode(0xAC00 + i)).join("");
+  const englishVowelPool = "eeeeaaaaiiiooouuuy";
+  const englishConsonantPool = "ttttrrrrssssnnnlllccchhddmmffggppbbvvkkjxxqqzz";
+  const englishVowels = "aeiouy";
 
   // === Language configs ===
   const LANG_META = {
@@ -170,32 +173,64 @@
     return hash;
   }
 
+  function mapWithJitter(charSet, baseKey, jitterSeed, jitterRange, lastMapped) {
+    let baseIndex = baseIndexCache.get(baseKey);
+    if (baseIndex === undefined) {
+      baseIndex = Math.abs(hashString(baseKey)) % charSet.length;
+      baseIndexCache.set(baseKey, baseIndex);
+    }
+
+    const jitter = Math.abs(hashString(jitterSeed)) % jitterRange;
+    let mappedIndex = (baseIndex + jitter) % charSet.length;
+    let mapped = charSet[mappedIndex];
+
+    if (mapped === lastMapped && charSet.length > 1) {
+      mappedIndex = (mappedIndex + 1) % charSet.length;
+      mapped = charSet[mappedIndex];
+    }
+
+    return mapped;
+  }
+
   function scramble(text, charSet, langKey) {
-    const jitterRange = Math.min(64, Math.max(5, Math.floor(charSet.length / 8)));
+    const jitterRange = Math.min(128, Math.max(8, Math.floor(charSet.length / 4)));
     let lastMapped = "";
+    let wordIndex = 0;
+    let output = "";
 
-    return text.split("").map((char, index) => {
-      if (/([\s.,!?;:！？。、「」()0-9])/.test(char)) return char;
-
-      const baseKey = `${langKey}|${char}`;
-      let baseIndex = baseIndexCache.get(baseKey);
-      if (baseIndex === undefined) {
-        baseIndex = Math.abs(hashString(baseKey)) % charSet.length;
-        baseIndexCache.set(baseKey, baseIndex);
+    for (let index = 0; index < text.length; index += 1) {
+      const char = text[index];
+      if (/\s/.test(char)) {
+        output += char;
+        wordIndex += 1;
+        lastMapped = "";
+        continue;
+      }
+      if (/([.,!?;:！？。、「」()0-9])/.test(char)) {
+        output += char;
+        continue;
       }
 
-      const jitter = Math.abs(hashString(`${baseKey}|${index}`)) % jitterRange;
-      let mappedIndex = (baseIndex + jitter) % charSet.length;
-      let mapped = charSet[mappedIndex];
+      const baseKey = `${langKey}|${char}|${wordIndex}`;
+      const jitterSeed = `${baseKey}|${index}`;
+      let activeCharSet = charSet;
+      let mapped;
 
-      if (mapped === lastMapped && charSet.length > 1) {
-        mappedIndex = (mappedIndex + 1) % charSet.length;
-        mapped = charSet[mappedIndex];
+      if (langKey === "en") {
+        const lower = char.toLowerCase();
+        const isVowel = englishVowels.includes(lower);
+        activeCharSet = isVowel ? englishVowelPool : englishConsonantPool;
+        mapped = mapWithJitter(activeCharSet, baseKey, jitterSeed, jitterRange, lastMapped);
+        if (char !== lower) mapped = mapped.toUpperCase();
+      } else {
+        mapped = mapWithJitter(activeCharSet, baseKey, jitterSeed, jitterRange, lastMapped);
       }
 
       lastMapped = mapped;
-      return mapped;
-    }).join("");
+      output += mapped;
+    }
+
+    return output;
   }
 
   // === Apply language ===
