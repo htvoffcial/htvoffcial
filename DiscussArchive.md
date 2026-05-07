@@ -343,3 +343,8 @@
 
 - [老いと衰えの、はる爺](https://github.com/htvoffcial/htvoffcial/discussions/117)
   - いやー、カレンダーを読み間違えるとか、ほんと老いと衰えを感じる。 流石に寝る前に画面見るのやめたい。“…”
+
+## 2026-05-07
+
+- [シャーペン強く握りすぎて指痛い](https://github.com/htvoffcial/htvoffcial/discussions/118)
+  - どうすればええ？ とりあえず冷やしたい 追伸、太めのグリップをシャーペンのつけてみるのもいいらしい“…”
