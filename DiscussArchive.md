@@ -348,3 +348,8 @@
 
 - [シャーペン強く握りすぎて指痛い](https://github.com/htvoffcial/htvoffcial/discussions/118)
   - どうすればええ？ とりあえず冷やしたい 追伸、太めのグリップをシャーペンのつけてみるのもいいらしい“…”
+
+## 2026-05-08
+
+- [日常会話で、相手が聞き取りにくい喋り方になっちゃうんだけど、どうすればいい？](https://github.com/htvoffcial/htvoffcial/discussions/119)
+  - お兄さんアドバイスちょうだい“…”
