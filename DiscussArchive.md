@@ -353,3 +353,10 @@
 
 - [日常会話で、相手が聞き取りにくい喋り方になっちゃうんだけど、どうすればいい？](https://github.com/htvoffcial/htvoffcial/discussions/119)
   - お兄さんアドバイスちょうだい“…”
+
+## 2026-05-09
+
+- [We’ve Released Taiso-no-oniisan major versions](https://github.com/htvoffcial/htvoffcial/discussions/121)
+  - ## What's Changed * Translate to english with DeepLAPI * We included cheer all c“…”
+- [5月ももうすぐ1/3に差し迫るが、時は待ってくれない。テストがーーーー](https://github.com/htvoffcial/htvoffcial/discussions/120)
+  - 期末考査が少しずつ迫ってくる ひとまず、今週は期末勉強に全部かけようかな。化学の化学平衡の反応速度とかしっかり演習しないと… v=−Δ[A]/Δt=k[A]^m“…”
