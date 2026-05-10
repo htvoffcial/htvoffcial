@@ -360,3 +360,8 @@
   - ## What's Changed * Translate to english with DeepLAPI * We included cheer all c“…”
 - [5月ももうすぐ1/3に差し迫るが、時は待ってくれない。テストがーーーー](https://github.com/htvoffcial/htvoffcial/discussions/120)
   - 期末考査が少しずつ迫ってくる ひとまず、今週は期末勉強に全部かけようかな。化学の化学平衡の反応速度とかしっかり演習しないと… v=−Δ[A]/Δt=k[A]^m“…”
+
+## 2026-05-10
+
+- [I spent a lot of time on the study…Hum… No,](https://github.com/htvoffcial/htvoffcial/discussions/122)
+  - 今日は勉強サボり気味で英単語と漢字しかやってなかった、、 にしても 単語練習800問、後半普通に頭回らなくなってたな 日英、英日、タイピング、並べ替え いろんな“…”
