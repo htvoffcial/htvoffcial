@@ -365,3 +365,8 @@
 
 - [I spent a lot of time on the study…Hum… No,](https://github.com/htvoffcial/htvoffcial/discussions/122)
   - 今日は勉強サボり気味で英単語と漢字しかやってなかった、、 にしても 単語練習800問、後半普通に頭回らなくなってたな 日英、英日、タイピング、並べ替え いろんな“…”
+
+## 2026-05-11
+
+- [家で二重ルーターを改善し、レイテンシも半減で良き](https://github.com/htvoffcial/htvoffcial/discussions/123)
+  - Wifi5の方も80MHz幅にしてやっと有線と同じ速度出るね しかしVDSL,100M….(お察し身)“…”
