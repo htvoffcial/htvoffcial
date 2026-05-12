@@ -21,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Show file at target timestamp
+      - name: Show file at target timestamp (merge output)
         shell: bash
         run: |
           set -euo pipefail
@@ -57,18 +57,15 @@ jobs:
 
           echo "========== search-oniisan =========="
           echo "Target date: $TARGET_DATE"
-          echo "README.md at COMMIT: $COMMIT_A"
-          echo ".github/English/README.md at COMMIT: $COMMIT_B"
-          echo
 
+          CONTENTS=""
           if [[ -n "$COMMIT_A" ]]; then
-            echo "--- README.md ---"
-            git show "${COMMIT_A}:${FILE_A}"
-            echo
+            CONTENTS+="<<<< 原文 >>>>\n"
+            CONTENTS+="$(git show "${COMMIT_A}:${FILE_A}")\n\n"
+          fi
+          if [[ -n "$COMMIT_B" ]]; then
+            CONTENTS+="<<<< 英語版 >>>>\n"
+            CONTENTS+="$(git show "${COMMIT_B}:${FILE_B}")\n\n"
           fi
 
-          if [[ -n "$COMMIT_B" ]]; then
-            echo "--- .github/English/README.md ---"
-            git show "${COMMIT_B}:${FILE_B}"
-            echo
-          fi
+          echo -e "$CONTENTS"
