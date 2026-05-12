@@ -1,3 +1,4 @@
+yaml name=.github/workflows/search-oniisan.yml url=https://github.com/htvoffcial/htvoffcial/blob/main/.github/workflows/search-oniisan.yml
 name: Search Oniisan
 
 on:
@@ -21,7 +22,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Show simple merged diff log
+      - name: Show file at target timestamp
         shell: bash
         run: |
           set -euo pipefail
@@ -42,12 +43,6 @@ jobs:
             exit 1
           fi
 
-          NORMALIZED_DATE="$(date -d "${TARGET_DATE//\//-}" +%Y/%m/%d)"
-          if [[ "$NORMALIZED_DATE" != "$TARGET_DATE" ]]; then
-            echo "Invalid calendar date: $TARGET_DATE"
-            exit 1
-          fi
-
           TARGET_TS="$(date -u -d "${TARGET_DATE//\//-} 23:59:59" +"%Y-%m-%dT%H:%M:%SZ")"
 
           FILE_A="README.md"
@@ -56,67 +51,25 @@ jobs:
           COMMIT_A="$(git log -1 --format=%H --before="$TARGET_TS" -- "$FILE_A" || true)"
           COMMIT_B="$(git log -1 --format=%H --before="$TARGET_TS" -- "$FILE_B" || true)"
 
-          if [[ -z "$COMMIT_A" || -z "$COMMIT_B" ]]; then
-            echo "Could not find past commit for one or both files at/before $TARGET_DATE"
-            echo "README.md commit: ${COMMIT_A:-not found}"
-            echo ".github/English/README.md commit: ${COMMIT_B:-not found}"
+          if [[ -z "$COMMIT_A" && -z "$COMMIT_B" ]]; then
+            echo "Could not find past commit for either file at/before $TARGET_DATE"
             exit 1
           fi
 
-          OLD_A="/tmp/old_readme.md"
-          OLD_B="/tmp/old_english_readme.md"
-          CUR_A="/tmp/current_readme.md"
-          CUR_B="/tmp/current_english_readme.md"
-          DIFF_A="/tmp/diff_readme.txt"
-          DIFF_B="/tmp/diff_english_readme.txt"
-          NORM_A="/tmp/norm_readme.txt"
-          NORM_B="/tmp/norm_english_readme.txt"
-          COMMON="/tmp/common_diff_lines.txt"
-
-          git show "${COMMIT_A}:${FILE_A}" > "$OLD_A"
-          git show "${COMMIT_B}:${FILE_B}" > "$OLD_B"
-          cat "$FILE_A" > "$CUR_A"
-          cat "$FILE_B" > "$CUR_B"
-
-          diff -u "$OLD_A" "$CUR_A" > "$DIFF_A" || true
-          diff -u "$OLD_B" "$CUR_B" > "$DIFF_B" || true
-
-          normalize_diff_lines() {
-            local input_file="$1"
-            local output_file="$2"
-            grep -E '^[+-]' "$input_file" \
-              | grep -Ev '^\+\+\+|^---' \
-              | sed 's/^[+-]//' \
-              | sed 's/[[:space:]]\+/ /g' \
-              | sed 's/^ //; s/ $//' \
-              | sed '/^$/d' \
-              | sort -u > "$output_file" || true
-          }
-
-          normalize_diff_lines "$DIFF_A" "$NORM_A"
-          normalize_diff_lines "$DIFF_B" "$NORM_B"
-
-          # comm -12: extract common lines from two sorted files
-          comm -12 "$NORM_A" "$NORM_B" > "$COMMON" || true
-
           echo "========== search-oniisan =========="
           echo "Target date: $TARGET_DATE"
-          echo "Target timestamp(UTC): $TARGET_TS"
-          echo "README.md base commit: $COMMIT_A"
-          echo ".github/English/README.md base commit: $COMMIT_B"
+          echo "README.md at COMMIT: $COMMIT_A"
+          echo ".github/English/README.md at COMMIT: $COMMIT_B"
           echo
 
-          echo "--- README.md diff (past -> current) ---"
-          cat "$DIFF_A"
-          echo
+          if [[ -n "$COMMIT_A" ]]; then
+            echo "--- README.md ---"
+            git show "${COMMIT_A}:${FILE_A}"
+            echo
+          fi
 
-          echo "--- .github/English/README.md diff (past -> current) ---"
-          cat "$DIFF_B"
-          echo
-
-          echo "--- Merged matched diff lines ---"
-          if [[ -s "$COMMON" ]]; then
-            cat "$COMMON"
-          else
-            echo "(No matched diff lines)"
+          if [[ -n "$COMMIT_B" ]]; then
+            echo "--- .github/English/README.md ---"
+            git show "${COMMIT_B}:${FILE_B}"
+            echo
           fi
