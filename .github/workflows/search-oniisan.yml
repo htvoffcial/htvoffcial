@@ -8,6 +8,9 @@ on:
         required: true
         default: "01/01"
 
+permissions:
+  contents: read
+
 jobs:
   search-oniisan:
     runs-on: ubuntu-latest
@@ -25,10 +28,10 @@ jobs:
 
           RAW_DATE='${{ github.event.inputs.target_date }}'
 
-          if [[ "$RAW_DATE" =~ ^[0-9]{4}/[0-9]{2}/[0-9]{2}$ ]]; then
+          if [[ "$RAW_DATE" =~ ^[0-9]{4}/(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])$ ]]; then
             TARGET_DATE="$RAW_DATE"
-          elif [[ "$RAW_DATE" =~ ^[0-9]{2}/[0-9]{2}$ ]]; then
-            TARGET_DATE="$(date +%Y)/$RAW_DATE"
+          elif [[ "$RAW_DATE" =~ ^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])$ ]]; then
+            TARGET_DATE="$(date -u +%Y)/$RAW_DATE"
           else
             echo "Input format error: use yyyy/mm/dd or mm/dd"
             exit 1
@@ -72,9 +75,22 @@ jobs:
           diff -u "$OLD_A" "$CUR_A" > "$DIFF_A" || true
           diff -u "$OLD_B" "$CUR_B" > "$DIFF_B" || true
 
-          grep -E '^[+-]' "$DIFF_A" | grep -Ev '^\+\+\+|^---' | sed 's/^[+-]//' | sed 's/[[:space:]]\+/ /g' | sed 's/^ //; s/ $//' | sed '/^$/d' | sort -u > "$NORM_A" || true
-          grep -E '^[+-]' "$DIFF_B" | grep -Ev '^\+\+\+|^---' | sed 's/^[+-]//' | sed 's/[[:space:]]\+/ /g' | sed 's/^ //; s/ $//' | sed '/^$/d' | sort -u > "$NORM_B" || true
+          normalize_diff_lines() {
+            local input_file="$1"
+            local output_file="$2"
+            grep -E '^[+-]' "$input_file" \
+              | grep -Ev '^\+\+\+|^---' \
+              | sed 's/^[+-]//' \
+              | sed 's/[[:space:]]\+/ /g' \
+              | sed 's/^ //; s/ $//' \
+              | sed '/^$/d' \
+              | sort -u > "$output_file" || true
+          }
 
+          normalize_diff_lines "$DIFF_A" "$NORM_A"
+          normalize_diff_lines "$DIFF_B" "$NORM_B"
+
+          # comm -12: sort済み2ファイルの共通行のみを抽出
           comm -12 "$NORM_A" "$NORM_B" > "$COMMON" || true
 
           echo "========== search-oniisan =========="
