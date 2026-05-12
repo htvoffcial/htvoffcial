@@ -21,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Show file at target timestamp (merge output)
+      - name: Show file at target timestamp (DISCUSS_COACH extraction & merge output)
         shell: bash
         run: |
           set -euo pipefail
@@ -59,10 +59,17 @@ jobs:
           echo "Target date: $TARGET_DATE"
 
           CONTENTS=""
+
           if [[ -n "$COMMIT_A" ]]; then
-            CONTENTS+="<<<< 原文 >>>>\n"
-            CONTENTS+="$(git show "${COMMIT_A}:${FILE_A}")\n\n"
+            COACH_PART="$(git show "${COMMIT_A}:${FILE_A}" | awk '/<!-- DISCUSS_COACH_START -->/{flag=1;next}/<!-- DISCUSS_COACH_END -->/{flag=0}flag')"
+            if [[ -n "$COACH_PART" ]]; then
+              CONTENTS+="<<<< 原文 >>>>\n"
+              CONTENTS+="$COACH_PART\n\n"
+            else
+              CONTENTS+="<<<< お兄さん以外 >>>>\n\n"
+            fi
           fi
+
           if [[ -n "$COMMIT_B" ]]; then
             CONTENTS+="<<<< 英語版 >>>>\n"
             CONTENTS+="$(git show "${COMMIT_B}:${FILE_B}")\n\n"
