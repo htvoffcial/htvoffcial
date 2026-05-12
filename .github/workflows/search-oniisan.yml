@@ -1,4 +1,3 @@
-yaml name=.github/workflows/search-oniisan.yml url=https://github.com/htvoffcial/htvoffcial/blob/main/.github/workflows/search-oniisan.yml
 name: Search Oniisan
 
 on:
