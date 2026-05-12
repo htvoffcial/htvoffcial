@@ -42,6 +42,12 @@ jobs:
             exit 1
           fi
 
+          NORMALIZED_DATE="$(date -d "${TARGET_DATE//\//-}" +%Y/%m/%d)"
+          if [[ "$NORMALIZED_DATE" != "$TARGET_DATE" ]]; then
+            echo "Invalid calendar date: $TARGET_DATE"
+            exit 1
+          fi
+
           TARGET_TS="$(date -u -d "${TARGET_DATE//\//-} 23:59:59" +"%Y-%m-%dT%H:%M:%SZ")"
 
           FILE_A="README.md"
@@ -90,7 +96,7 @@ jobs:
           normalize_diff_lines "$DIFF_A" "$NORM_A"
           normalize_diff_lines "$DIFF_B" "$NORM_B"
 
-          # comm -12: sort済み2ファイルの共通行のみを抽出
+          # comm -12: extract common lines from two sorted files
           comm -12 "$NORM_A" "$NORM_B" > "$COMMON" || true
 
           echo "========== search-oniisan =========="
