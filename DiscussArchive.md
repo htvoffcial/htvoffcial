@@ -370,3 +370,8 @@
 
 - [家で二重ルーターを改善し、レイテンシも半減で良き](https://github.com/htvoffcial/htvoffcial/discussions/123)
   - Wifi5の方も80MHz幅にしてやっと有線と同じ速度出るね しかしVDSL,100M….(お察し身)“…”
+
+## 2026-05-13
+
+- [英単語テスト、合格で課題回避](https://github.com/htvoffcial/htvoffcial/discussions/125)
+  - ちゃんとやった甲斐があったな。 漢字テストも1問ミス(『賜杯』)に抑えられた！ ちなみに今年は、シャトルラン、83回。 今年もよろしくお願いします“…”
