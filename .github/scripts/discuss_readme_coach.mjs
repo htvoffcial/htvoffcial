@@ -181,10 +181,16 @@ async function cfAiChat({ accountId, apiToken, model, messages }) {
   }
 
   // 代表的な取り方（モデルで形が揺れるので複数候補）
+  // - 旧: result.response / result.output_text / result.text
+  // - 新: OpenAI互換っぽい result.choices[0].message.content
   const text =
     json?.result?.response ??
     json?.result?.output_text ??
     json?.result?.text ??
+    json?.result?.choices?.[0]?.message?.content ??
+    json?.result?.choices?.[0]?.text ??
+    json?.choices?.[0]?.message?.content ??
+    json?.choices?.[0]?.text ??
     null;
 
   if (!text) {
