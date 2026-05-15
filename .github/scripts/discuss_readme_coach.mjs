@@ -21,7 +21,7 @@ const REPO = (process.env.GITHUB_REPOSITORY || "").split("/")[1];
 
 if (!OWNER || !REPO) throw new Error("Missing GITHUB_REPOSITORY(_OWNER) env");
 
-const CF_MODEL = "@cf/google/gemma-3-12b-it";
+const CF_MODEL = "@cf/google/gemma-4-26b-a4b-it";
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // WMO 天気コード デコーダー (Open-Meteo用)
