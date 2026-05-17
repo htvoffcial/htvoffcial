@@ -390,3 +390,8 @@
 
 - [ポーチドエッグは、本当に美味しかったです。](https://github.com/htvoffcial/htvoffcial/discussions/128)
   - ところで、私のプロフィールのリポジトリにいる「体操のお兄さん」は、Gemma 3からGemma 4へリプレースされました。リプレースには、テストも含めて2分もか“…”
+
+## 2026-05-17
+
+- [レシートスキャンアプリでレシートを管理](https://github.com/htvoffcial/htvoffcial/discussions/129)
+  - これまで紙でやっていたことが面倒になり、せっかくなのでデジタル化。T芝さんのアプリですが、UXもOCR精度も申し分なし。さすが日本企業の誇り“…”
