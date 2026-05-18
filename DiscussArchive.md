@@ -395,3 +395,8 @@
 
 - [レシートスキャンアプリでレシートを管理](https://github.com/htvoffcial/htvoffcial/discussions/129)
   - これまで紙でやっていたことが面倒になり、せっかくなのでデジタル化。T芝さんのアプリですが、UXもOCR精度も申し分なし。さすが日本企業の誇り“…”
+
+## 2026-05-18
+
+- [そろそろだね、テストが近いね](https://github.com/htvoffcial/htvoffcial/discussions/130)
+  - 中間のこれ乗り越えてもすぐ英検やら、小テストやら。でも授業の小テストはモチベあるし突っ走れると思ってる。“…”
