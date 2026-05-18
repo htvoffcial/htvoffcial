@@ -1,14 +1,14 @@
 
-## Discuss Summary (The Gymnastics Instructor)
-**Date (JST):** 2026-05-17
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-05-18
 
-Alright, everyone! Are you all full of energy!? Let’s join the instructor for a look back at yesterday!
+Hey everyone, how are you doing!? It’s me, the Gymnastics Guy!
+Yesterday in Matsudo City, the sky was sparkling and the weather was absolutely beautiful! It was such a wonderful day that it made you want to run around outside!
 
-Yesterday in Matsudo City, the sun was beaming! It was mostly sunny, and it felt so great, didn’t it!
+So, I took a peek at everyone’s posts from yesterday… and oh my! It looks like a wave of tests is coming at you one after another, just like a jungle gym!
+Just when you thought you’d made it through midterms, next up is the Eiken test, followed by quizzes… Wait a minute! Tests, tests, tests! Where’s the break time?! (lol)
 
-Now, on GitHub, an app for scanning receipts was all the rage. Believe it or not, people were leaving super enthusiastic comments like, “This is the pride of Japanese companies!”
+But you know what? I think that positive energy you have—saying you can “go all out” for those quizzes—is really cool! Let’s keep that momentum going, stretch out both our minds and bodies, and take it one step at a time!
 
-Oh, come on, that’s a bit too much praise! (lol) I know I might think that, but it just shows how easy it is to use! Even I’d be surprised to see a mountain of paper receipts piled up. Let’s manage them digitally in a snap and aim for a smarter lifestyle! Everyone, be careful not to get buried under a mountain of receipts!
-
-Today’s Tip: Keeping things organized clears your mind and refreshes your body!
+Today’s Thought: Let’s get through this string of tests with a big, beaming smile!
 <!-- DISCUSS_COACH_END -->
