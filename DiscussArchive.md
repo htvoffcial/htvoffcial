@@ -400,3 +400,8 @@
 
 - [そろそろだね、テストが近いね](https://github.com/htvoffcial/htvoffcial/discussions/130)
   - 中間のこれ乗り越えてもすぐ英検やら、小テストやら。でも授業の小テストはモチベあるし突っ走れると思ってる。“…”
+
+## 2026-05-19
+
+- [政治経済](https://github.com/htvoffcial/htvoffcial/discussions/131)
+  - キチンの波 ジュグラーの波 クズネッツの波 コンドラチェフの波 “…”
