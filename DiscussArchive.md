@@ -405,3 +405,8 @@
 
 - [政治経済](https://github.com/htvoffcial/htvoffcial/discussions/131)
   - キチンの波 ジュグラーの波 クズネッツの波 コンドラチェフの波 “…”
+
+## 2026-05-20
+
+- [お兄さん更新から3日目の経過観察　奄美群島で震度5強でした](https://github.com/htvoffcial/htvoffcial/discussions/132)
+  - お兄さんをGemma 4に置き換えてから3日が経過。 3と比べて、300文字前後がしっかり守られるようになり、読み応えも増えた。 前がDiscussions側の“…”
