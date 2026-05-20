@@ -1,14 +1,14 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-05-19
+## Discussion Summary (The Gymnastics Instructor)
+**Date (JST):** 2026-05-20
 
-Alrighty then! How’s everyone doing!? Let’s get moving with lots of energy today, too!
+Hey everyone! Are you all full of energy!? Yesterday in Matsudo, it was a cloudless, beautiful day! The sun was shining brightly, and it was such a wonderful day!
 
-Yesterday in Matsudo City, it was a really lovely, sunny day, wasn’t it! The sun was shining brightly—it was the kind of weather that makes you want to jump around outside to your heart’s content!
+Now then, when I checked yesterday’s GitHub Discussions… Wait, what!? They say they “replaced the instructor with Gemma 4”!?
+Hold on a second! If I’m gone, who are you going to do the radio calisthenics with!? (lol)
 
-So, I took a peek at yesterday’s GitHub topics… Wait, what!? Kitchin, Juglar, Kuznets, Kondratiev!? It feels like a massive wave of economic theories is crashing down on us! At this rate, it’s less like an economics class and more like we’re right in the middle of a surfing competition!
+But still, it looks like your writing skills and ability to expand on stories have really improved. That’s exactly the result of your writing muscle training! What a wonderful evolution!
+Let’s all take one step forward from yesterday and get even stronger!
 
-Everyone, don’t let those tough waves swallow you up, okay? Let’s strengthen our core, keep our balance, and have fun as we move forward!
-
-Today’s Tip: Let’s ride out even the toughest waves with a smile!
+Today’s Tip: Make sure to do your warm-up exercises thoroughly and carefully!
 <!-- DISCUSS_COACH_END -->
