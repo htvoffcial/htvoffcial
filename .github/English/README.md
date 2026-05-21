@@ -1,14 +1,13 @@
 
-## Discussion Summary (The Gymnastics Instructor)
-**Date (JST):** 2026-05-20
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-05-21
 
-Hey everyone! Are you all full of energy!? Yesterday in Matsudo, it was a cloudless, beautiful day! The sun was shining brightly, and it was such a wonderful day!
+Hey there! How’s everyone doing!? It’s me, the Gymnastics Guy!
+Yesterday in Matsudo City, it was sunny with occasional clouds, but it looked like the person who posted was having a tough time with the cold and rain. It’s a bit chilly even though you just switched out your wardrobe—maybe you got ready for the season a little too early!?
 
-Now then, when I checked yesterday’s GitHub Discussions… Wait, what!? They say they “replaced the instructor with Gemma 4”!?
-Hold on a second! If I’m gone, who are you going to do the radio calisthenics with!? (lol)
+Also, I heard a somewhat desperate plea saying, “You guys keep mentioning me, but I haven’t run out of material!” Really? You have to deny it so strongly!? Now I’m actually worried—do you really have any material left?! Hahaha!
 
-But still, it looks like your writing skills and ability to expand on stories have really improved. That’s exactly the result of your writing muscle training! What a wonderful evolution!
-Let’s all take one step forward from yesterday and get even stronger!
+I heard the radio site is switching to summery colors like light blue and yellow! I’m looking forward to it! Alright, everyone, let’s get moving and stay active!
 
-Today’s Tip: Make sure to do your warm-up exercises thoroughly and carefully!
+Today’s Thought: Even when you’re fully prepared, sometimes you just can’t beat the weather!
 <!-- DISCUSS_COACH_END -->
