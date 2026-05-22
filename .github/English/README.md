@@ -1,13 +1,14 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-05-21
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-05-22
 
-Hey there! How’s everyone doing!? It’s me, the Gymnastics Guy!
-Yesterday in Matsudo City, it was sunny with occasional clouds, but it looked like the person who posted was having a tough time with the cold and rain. It’s a bit chilly even though you just switched out your wardrobe—maybe you got ready for the season a little too early!?
+Hey there, everyone! How are you all doing!? It’s me, the Gymnastics Guy!
+Yesterday in Matsudo City, it was drizzling, so it was a bit of a damp day, wasn’t it?
+Despite that, someone took on their very first trip to Disney! They were lucky enough to catch a break in the rain, and it looks like they had a heart-pounding time on lots of rides!
 
-Also, I heard a somewhat desperate plea saying, “You guys keep mentioning me, but I haven’t run out of material!” Really? You have to deny it so strongly!? Now I’m actually worried—do you really have any material left?! Hahaha!
+But wait a minute! The title says “For now, 0 points!”…! Zero points out of 10 shots at the shooting gallery!? No, no, no! That’s way too blunt! (lol)
+But you know, even those kinds of failures are all sparkling, wonderful memories! Even with 0 points, your heart is full marks! I’m going to take a cue from that positivity!
+Alright, let’s spend today with a smile on our faces!
 
-I heard the radio site is switching to summery colors like light blue and yellow! I’m looking forward to it! Alright, everyone, let’s get moving and stay active!
-
-Today’s Thought: Even when you’re fully prepared, sometimes you just can’t beat the weather!
+Today’s Quote: If you turn failures into laughter, they become the best memories!
 <!-- DISCUSS_COACH_END -->
