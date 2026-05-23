@@ -24,7 +24,7 @@ if (!OWNER || !REPO) throw new Error("Missing GITHUB_REPOSITORY(_OWNER) env");
 const CF_MODEL = "@cf/google/gemma-4-26b-a4b-it";
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// WMO 天気コード デコーダー (Open-Meteo用)
+// WMO 天気コード デ���ーダー (Open-Meteo用)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const WMO_MAP = {
   0:  { label: "快晴",             icon: "☀️",  category: "sunny"  },
@@ -221,10 +221,18 @@ function dominantWeatherFromAmedas(hourly) {
 /**
  * AQC付きの値配列から数値を取り出す。
  * bosai/amedas の多くの要素は [value, aqc] 形式。
+ *
+ * ただしフィールド/時期によっては「直値(number)」で返ることがある。
+ * 例: precipitation1h: 0
+ *
  * @param {unknown} v
  * @returns {number|null}
  */
 function readAmedasNumber(v) {
+  // 直値(例: 0, 1.5)に対応
+  if (typeof v === "number") return v;
+
+  // 従来: [value, aqc]
   if (!Array.isArray(v)) return null;
   const value = v[0];
   const aqc = v[1];
