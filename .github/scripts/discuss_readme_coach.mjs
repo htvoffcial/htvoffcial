@@ -99,6 +99,179 @@ function getDominantWeather(weatherList) {
 }
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// 気象庁アメダス（bosai）簡易ユーティリティ
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/**
+ * 気象庁アメダス bosai の point データは 3時間ごとのファイルに分割されている。
+ * 例) YYYYMMDD_00,03,06,...,21
+ * @param {string} yyyymmdd
+ * @returns {string[]}
+ */
+function amedasH3List(yyyymmdd) {
+  return ["00", "03", "06", "09", "12", "15", "18", "21"].map((hh) => `${yyyymmdd}_${hh}`);
+}
+
+/**
+ * @param {string} s
+ * @returns {string}
+ */
+function pad2(s) {
+  return String(s).padStart(2, "0");
+}
+
+/**
+ * JST日付(YYYY-MM-DD) → 気象庁アメダス用(YYYYMMDD)
+ * @param {string} dayJst
+ */
+function toYyyymmdd(dayJst) {
+  return dayJst.replaceAll("-", "");
+}
+
+/**
+ * ざっくり「代表天気」を作る。
+ * アメダスは WMO weathercode を返さないので、
+ * 日中(6-18時)の1時間降水量の有無で晴/雨を判定し、
+ * 欠測が多い場合は unknown。
+ *
+ * @param {{hour:number, precipitation1hMm:number|null}[]} hourly
+ * @returns {{code:number, label:string, icon:string, category:string, isSunny:boolean, isRainy:boolean, isCloudy:boolean, isSnowy:boolean, isStormy:boolean}}
+ */
+function dominantWeatherFromAmedas(hourly) {
+  const daytime = hourly.filter((x) => x.hour >= 6 && x.hour <= 18);
+
+  const valid = daytime.filter((x) => typeof x.precipitation1hMm === "number");
+  const rainy = valid.filter((x) => (x.precipitation1hMm ?? 0) > 0);
+
+  // 欠測だらけの場合
+  if (valid.length < 6) {
+    return {
+      code: -1,
+      label: "不明",
+      icon: "❓",
+      category: "unknown",
+      isSunny: false,
+      isRainy: false,
+      isCloudy: false,
+      isSnowy: false,
+      isStormy: false,
+    };
+  }
+
+  if (rainy.length >= 1) {
+    return {
+      code: 61,
+      label: "雨（アメダス判定）",
+      icon: "🌧️",
+      category: "rain",
+      isSunny: false,
+      isRainy: true,
+      isCloudy: false,
+      isSnowy: false,
+      isStormy: false,
+    };
+  }
+
+  return {
+    code: 0,
+    label: "晴（アメダス判定）",
+    icon: "☀️",
+    category: "sunny",
+    isSunny: true,
+    isRainy: false,
+    isCloudy: false,
+    isSnowy: false,
+    isStormy: false,
+  };
+}
+
+/**
+ * AQC付きの値配列から数値を取り出す。
+ * bosai/amedas の多くの要素は [value, aqc] 形式。
+ * @param {unknown} v
+ * @returns {number|null}
+ */
+function readAmedasNumber(v) {
+  if (!Array.isArray(v)) return null;
+  const value = v[0];
+  const aqc = v[1];
+
+  if (value == null) return null;
+  if (typeof value !== "number") return null;
+
+  // AQC: 0 が正常という説明が広く使われているため、それ以外は欠測扱い。
+  // （必要なら後で閾値や扱いを拡張）
+  if (typeof aqc === "number" && aqc !== 0) return null;
+
+  return value;
+}
+
+/**
+ * 気象庁 bosai アメダス から、指定日の時系列(10分刻み)を取得し、1時間降水量ベースの簡易サマリーを返す。
+ *
+ * @param {{amedasPoint:string, dayJst:string}} params
+ * @returns {Promise<{dominantWeather: ReturnType<typeof dominantWeatherFromAmedas>, rainyHoursCount:number}>}
+ */
+async function getAmedasDominantWeatherForDay({ amedasPoint, dayJst }) {
+  const yyyymmdd = toYyyymmdd(dayJst);
+
+  const base = "https://www.jma.go.jp/bosai/amedas/data/point";
+
+  // 3時間ごとのJSONを全部取ってマージする
+  const urls = amedasH3List(yyyymmdd).map((h3) => `${base}/${amedasPoint}/${h3}.json`);
+
+  /** @type {Record<string, any>} */
+  const merged = {};
+
+  for (const url of urls) {
+    const res = await fetch(url);
+
+    // 過去データが保持期間外などで404になることがあるので、ここは「失敗しても進む」
+    if (!res.ok) {
+      console.warn(`AMeDAS fetch skipped: ${res.status} ${url}`);
+      continue;
+    }
+
+    const json = await res.json().catch(() => null);
+    if (!json || typeof json !== "object") continue;
+
+    // 各ファイルは { "2026-05-22T00:00:00+09:00": { ... }, ... } のように時刻キーでぶら下がる
+    for (const [t, v] of Object.entries(json)) merged[t] = v;
+  }
+
+  // 10分刻みの precipitation1h を1時間単位に集約する
+  // （同一hour内で「最後に出てくる値」を代表として採用）
+  /** @type {Map<number, number|null>} */
+  const precipByHour = new Map();
+
+  for (const t of Object.keys(merged).sort()) {
+    const dt = new Date(t);
+    // dt は ISO (with +09:00) なので getHours() はローカル環境依存になり得る。
+    // ただし Actions の TZ がUTCでも Dateはタイムゾーンオフセットを解釈してUTCに変換するため、
+    // JSTのhourを得るにはオフセット込み文字列からのローカル時刻がズレる可能性がある。
+    // ここでは文字列から "T..:" 部分を読む。
+    const m = t.match(/T(\d{2}):/);
+    const hourJst = m ? Number(m[1]) : dt.getUTCHours();
+
+    const p1h = readAmedasNumber(merged[t]?.precipitation1h);
+    precipByHour.set(hourJst, p1h);
+  }
+
+  const hourly = [];
+  for (let h = 0; h < 24; h++) {
+    hourly.push({ hour: h, precipitation1hMm: precipByHour.has(h) ? precipByHour.get(h) : null });
+  }
+
+  const dominantWeather = dominantWeatherFromAmedas(hourly);
+
+  const rainyHoursCount = hourly.filter((x) => x.hour >= 6 && x.hour <= 18).filter((x) => (x.precipitation1hMm ?? 0) > 0).length;
+
+  return { dominantWeather, rainyHoursCount };
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 // JSTの「昨日」範囲をUTCに変換
 function getYesterdayJstRangeUtc() {
   const now = new Date();
@@ -213,7 +386,7 @@ function replaceBlock(readme, newBlock) {
 }
 
 function buildReadmeBlock({ dayJst, text, dominantWeather }) {
-  const header = `## Discussまとめ（体操のお兄さん）
+  const header = `## Discuss��とめ（体操のお兄さん）
 **対象日（JST）:** ${dayJst}
 `;
   return `${header}\n${text}\n`;
@@ -222,24 +395,18 @@ function buildReadmeBlock({ dayJst, text, dominantWeather }) {
 async function main() {
   const { dayJst, startUtc, endUtc } = getYesterdayJstRangeUtc();
 
-  // 前日の日付を動的に計算
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-  const date = yesterday.toISOString().split("T")[0]; // 例: "2026-03-17"
+  // ── 天気（アメダス） ─────────────────────────
+  // NOTE: 松戸市に近いアメダス地点コードを固定で指定。
+  // もし地点を変えたい場合は、気象庁アメダス画面の amdno=xxxxx を参照。
+  // https://www.jma.go.jp/bosai/amedas/
+  const AMEDAS_POINT = process.env.AMEDAS_POINT || "44132";
 
-  // 天気データ取得
-  const weatherUrl = `https://archive-api.open-meteo.com/v1/archive?latitude=35.79264&longitude=139.90621&start_date=${date}&end_date=${date}&hourly=weathercode&timezone=Asia%2FTokyo`;
-  const weatherRes  = await fetch(weatherUrl);
-  const weatherData = await weatherRes.json();
+  const { dominantWeather, rainyHoursCount } = await getAmedasDominantWeatherForDay({
+    amedasPoint: AMEDAS_POINT,
+    dayJst,
+  });
 
-  // 日中のみ取得 (6:00〜18:00) → デコード → 代表天気
-  const daytimeCodes   = weatherData.hourly.weathercode.slice(6, 19);
-  const daytimeWeather = decodeWeatherAll(daytimeCodes);
-  const dominantWeather = getDominantWeather(daytimeWeather);
-
-  // 雨が降った時間帯の件数もログに残す
-  const rainyHours = daytimeWeather.filter(w => w.isRainy);
-  console.log(`天気サマリー: ${dominantWeather.icon} ${dominantWeather.label} (雨: ${rainyHours.length}h)`);
+  console.log(`天気サマリー(AMeDAS): ${dominantWeather.icon} ${dominantWeather.label} (雨: ${rainyHoursCount}h)`);
 
   const query = `
 query($owner:String!, $repo:String!, $after:String) {
