@@ -144,8 +144,39 @@ function dominantWeatherFromAmedas(hourly) {
   const valid = daytime.filter((x) => typeof x.precipitation1hMm === "number");
   const rainy = valid.filter((x) => (x.precipitation1hMm ?? 0) > 0);
 
-  // 欠測だらけの場合
+  // ベストエフォート判定
+  // - validが1つでもあり、雨が1回でもあれば「雨」
+  // - validがある程度(>=3)あり、雨が0なら「晴」
+  // - それ以外は「不明」
   if (valid.length < 6) {
+    if (rainy.length >= 1) {
+      return {
+        code: 61,
+        label: "雨（アメダス判定・簡易）",
+        icon: "🌧️",
+        category: "rain",
+        isSunny: false,
+        isRainy: true,
+        isCloudy: false,
+        isSnowy: false,
+        isStormy: false,
+      };
+    }
+
+    if (valid.length >= 3) {
+      return {
+        code: 0,
+        label: "晴（アメダス判定・簡易）",
+        icon: "☀️",
+        category: "sunny",
+        isSunny: true,
+        isRainy: false,
+        isCloudy: false,
+        isSnowy: false,
+        isStormy: false,
+      };
+    }
+
     return {
       code: -1,
       label: "不明",
@@ -159,6 +190,7 @@ function dominantWeatherFromAmedas(hourly) {
     };
   }
 
+  // データが十分ある場合は従来通り
   if (rainy.length >= 1) {
     return {
       code: 61,
@@ -223,6 +255,8 @@ async function getAmedasDominantWeatherForDay({ amedasPoint, dayJst }) {
 
   /** @type {Record<string, any>} */
   const merged = {};
+  let okCount = 0;
+  let skipCount = 0;
 
   for (const url of urls) {
     const res = await fetch(url);
@@ -230,8 +264,10 @@ async function getAmedasDominantWeatherForDay({ amedasPoint, dayJst }) {
     // 過去データが保持期間外などで404になることがあるので、ここは「失敗しても進む」
     if (!res.ok) {
       console.warn(`AMeDAS fetch skipped: ${res.status} ${url}`);
+      skipCount++;
       continue;
     }
+    okCount++;
 
     const json = await res.json().catch(() => null);
     if (!json || typeof json !== "object") continue;
@@ -240,32 +276,50 @@ async function getAmedasDominantWeatherForDay({ amedasPoint, dayJst }) {
     for (const [t, v] of Object.entries(json)) merged[t] = v;
   }
 
+  console.log(
+    `AMeDAS fetch summary: ok=${okCount}/${urls.length} skipped=${skipCount} mergedKeys=${Object.keys(merged).length}`
+  );
+
   // 10分刻みの precipitation1h を1時間単位に集約する
-  // （同一hour内で「最後に出てくる値」を代表として採用）
+  // - 同一hour内では「最後の有効値」を採用
+  // - 欠測(null)では既存の有効値を潰さない
   /** @type {Map<number, number|null>} */
   const precipByHour = new Map();
 
   for (const t of Object.keys(merged).sort()) {
     const dt = new Date(t);
+
     // dt は ISO (with +09:00) なので getHours() はローカル環境依存になり得る。
-    // ただし Actions の TZ がUTCでも Dateはタイムゾーンオフセットを解釈してUTCに変換するため、
-    // JSTのhourを得るにはオフセット込み文字列からのローカル時刻がズレる可能性がある。
-    // ここでは文字列から "T..:" 部分を読む。
+    // ここでは文字列から "T..:" を読むことで JST の hour を安定して取り出す。
     const m = t.match(/T(\d{2}):/);
     const hourJst = m ? Number(m[1]) : dt.getUTCHours();
 
     const p1h = readAmedasNumber(merged[t]?.precipitation1h);
-    precipByHour.set(hourJst, p1h);
+
+    if (typeof p1h === "number") {
+      precipByHour.set(hourJst, p1h);
+    } else {
+      if (!precipByHour.has(hourJst)) precipByHour.set(hourJst, null);
+    }
   }
 
   const hourly = [];
   for (let h = 0; h < 24; h++) {
-    hourly.push({ hour: h, precipitation1hMm: precipByHour.has(h) ? precipByHour.get(h) : null });
+    hourly.push({
+      hour: h,
+      precipitation1hMm: precipByHour.has(h) ? precipByHour.get(h) : null,
+    });
   }
+
+  const daytime = hourly.filter((x) => x.hour >= 6 && x.hour <= 18);
+  const daytimeValid = daytime.filter((x) => typeof x.precipitation1hMm === "number").length;
+  console.log(`AMeDAS daytime valid points: ${daytimeValid}/13`);
 
   const dominantWeather = dominantWeatherFromAmedas(hourly);
 
-  const rainyHoursCount = hourly.filter((x) => x.hour >= 6 && x.hour <= 18).filter((x) => (x.precipitation1hMm ?? 0) > 0).length;
+  const rainyHoursCount = hourly
+    .filter((x) => x.hour >= 6 && x.hour <= 18)
+    .filter((x) => (x.precipitation1hMm ?? 0) > 0).length;
 
   return { dominantWeather, rainyHoursCount };
 }
