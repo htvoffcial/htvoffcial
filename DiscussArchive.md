@@ -420,3 +420,8 @@
 
 - [とりあえず、0points!](https://github.com/htvoffcial/htvoffcial/discussions/134)
   - 本日午前中雨で、午後に晴れてきた人生初ディズニー スプラッシュマウンテンやスターツアーズ、ジャングルクルーズやウェスタンリバー鉄道、プーさんのハニーハントどれも“…”
+
+## 2026-05-23
+
+- [今日も今日とて、明日は日曜日](https://github.com/htvoffcial/htvoffcial/discussions/135)
+  - 英検の問題用紙って開けにくくない？焦って少し破いてしまった。“…”
