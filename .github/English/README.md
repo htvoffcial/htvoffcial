@@ -1,14 +1,18 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-05-22
+## Discuss Summary (The Gymnastics Instructor)
+**Date (JST):** 2026-05-23
 
-Hey there, everyone! How are you all doing!? It’s me, the Gymnastics Guy!
-Yesterday in Matsudo City, it was drizzling, so it was a bit of a damp day, wasn’t it?
-Despite that, someone took on their very first trip to Disney! They were lucky enough to catch a break in the rain, and it looks like they had a thrilling time on lots of rides!
+Hey there! How’s everyone doing!? It’s your instructor here!
+Looks like the weather in Matsudo City was “unpredictable” yesterday. Were you all able to jump around outside with energy?
 
-But wait a minute! The title says “For Now, 0 Points!”…! Zero points out of 10 shots at the shooting gallery!? No, no, no! That’s way too blunt! (lol)
-But you know, even those kinds of failures are all sparkling, wonderful memories! Even with 0 points, your heart is full marks! I’m going to take a cue from that positivity!
-Alright, let’s spend today with a smile on our faces!
+Now then, looking at yesterday’s posts… there was a really heartbreaking concern: “The Eiken test booklet was hard to open, and I got so flustered I tore it!”
+Oh no, that’s terrible! But that’s exactly when you need to take a deep breath and stay calm with a “One, two, three!” mindset!
 
-Today’s Quote: If you turn your failures into laughter, they become the best memories!
+...Wait a minute!
+The post’s title is “Tomorrow is Sunday”—that has absolutely nothing to do with it!
+The connection between test panic and Sunday? I can’t even keep up with the puns here! Hahaha!
+
+Everyone, let’s not rush, keep a positive attitude, and live each day with energy!
+
+Today’s tip: When you’re feeling flustered, take a deep breath and stretch first!
 <!-- DISCUSS_COACH_END -->
