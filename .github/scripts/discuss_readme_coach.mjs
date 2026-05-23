@@ -386,7 +386,7 @@ function replaceBlock(readme, newBlock) {
 }
 
 function buildReadmeBlock({ dayJst, text, dominantWeather }) {
-  const header = `## Discuss��とめ（体操のお兄さん）
+  const header = `## Discussまとめ（体操のお兄さん）
 **対象日（JST）:** ${dayJst}
 `;
   return `${header}\n${text}\n`;
