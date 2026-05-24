@@ -138,6 +138,7 @@ function dominantWeatherFromAmedas(hourly) {
     isRainy: false,
     isCloudy: false,
     isSnowy: false,
+    isSnowy: false,
     isStormy: false,
   };
 }
@@ -265,7 +266,7 @@ function getYesterdayJstRangeUtc() {
   const dayJst = `${yyyy}-${mm}-${dd}`;
 
   const startUtc = new Date(`${dayJst}T00:00:00+09:00`).toISOString().replace(/\.\d{3}Z$/, "Z");
-  const endUtc   = new Date(`${dayJst}T23:59:59+09:00`).toISOString().replace(/\.\d{3}Z$/, "Z");
+  const endUtc = new Date(`${dayJst}T23:59:59+09:00`).toISOString().replace(/\.\d{3}Z$/, "Z");
 
   return { dayJst, startUtc, endUtc };
 }
@@ -301,8 +302,7 @@ function buildPromptSource(discussions, { maxPerBodyChars = 800, maxTotalChars =
 
   for (const d of discussions) {
     const body = clampText(d.bodyText || "", maxPerBodyChars);
-    const chunk =
-`【${d.title}】
+    const chunk = `【${d.title}】
 URL: ${d.url}
 本文(抜粋):
 ${body}
@@ -351,16 +351,19 @@ async function cfAiChat({ accountId, apiToken, model, messages }) {
 }
 
 function replaceBlock(readme, newBlock) {
-  const start = "";
-  const end   = "";
+  const start = "<!-- DISCUSS_COACH_START -->";
+  const end = "<!-- DISCUSS_COACH_END -->";
   const s = readme.indexOf(start);
   const e = readme.indexOf(end);
   if (s === -1 || e === -1 || e < s) {
     throw new Error("README.md does not contain DISCUSS_COACH_START/END markers");
   }
+
   const before = readme.slice(0, s + start.length);
-  const after  = readme.slice(e);
-  return `${before}\n${newBlock}\n${after}`;
+  const after = readme.slice(e);
+
+  // Always overwrite content between markers (idempotent)
+  return `${before}\n${newBlock.trim()}\n\n${after}`;
 }
 
 function buildReadmeBlock({ dayJst, text, dominantWeather }) {
@@ -413,7 +416,7 @@ query($owner:String!, $repo:String!, $after:String) {
     const hasNext = page?.pageInfo?.hasNextPage;
 
     if (!hasNext) break;
-    if (!oldest)  break;
+    if (!oldest) break;
     if (oldest < startUtc) break;
 
     after = page.pageInfo.endCursor;
@@ -458,11 +461,11 @@ ${source}
 
       const text = await cfAiChat({
         accountId: CF_ACCOUNT_ID,
-        apiToken:  CF_API_TOKEN,
-        model:     CF_MODEL,
+        apiToken: CF_API_TOKEN,
+        model: CF_MODEL,
         messages: [
           { role: "system", content: system },
-          { role: "user",   content: user   },
+          { role: "user", content: user },
         ],
       });
 
@@ -479,7 +482,7 @@ ${source}
 
   const newBlock = buildReadmeBlock({ dayJst, text: finalText, dominantWeather });
 
-  const readme  = fs.readFileSync("README.md", "utf8");
+  const readme = fs.readFileSync("README.md", "utf8");
   const updated = replaceBlock(readme, newBlock);
   fs.writeFileSync("README.md", updated, "utf8");
 
