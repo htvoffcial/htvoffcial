@@ -24,82 +24,6 @@ if (!OWNER || !REPO) throw new Error("Missing GITHUB_REPOSITORY(_OWNER) env");
 const CF_MODEL = "@cf/google/gemma-4-26b-a4b-it";
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// WMO 天気コード デ���ーダー (Open-Meteo用)
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const WMO_MAP = {
-  0:  { label: "快晴",             icon: "☀️",  category: "sunny"  },
-  1:  { label: "ほぼ晴れ",         icon: "🌤️", category: "sunny"  },
-  2:  { label: "晴れ時々曇り",     icon: "⛅",  category: "cloudy" },
-  3:  { label: "曇り",             icon: "☁️",  category: "cloudy" },
-  45: { label: "霧",               icon: "🌫️", category: "fog"    },
-  48: { label: "霧（着氷性）",     icon: "🌫️", category: "fog"    },
-  51: { label: "霧雨（弱）",       icon: "🌦️", category: "rain"   },
-  53: { label: "霧雨（中）",       icon: "🌦️", category: "rain"   },
-  55: { label: "霧雨（強）",       icon: "🌧️", category: "rain"   },
-  56: { label: "着氷性霧雨（弱）", icon: "🌧️", category: "rain"   },
-  57: { label: "着氷性霧雨（強）", icon: "🌧️", category: "rain"   },
-  61: { label: "雨（弱）",         icon: "🌧️", category: "rain"   },
-  63: { label: "雨（中）",         icon: "🌧️", category: "rain"   },
-  65: { label: "雨（強）",         icon: "🌧️", category: "rain"   },
-  66: { label: "着氷性の雨（弱）", icon: "🌨️", category: "sleet"  },
-  67: { label: "着氷性の雨（強）", icon: "🌨️", category: "sleet"  },
-  71: { label: "雪（弱）",         icon: "🌨️", category: "snow"   },
-  73: { label: "雪（中）",         icon: "❄️",  category: "snow"   },
-  75: { label: "雪（強）",         icon: "❄️",  category: "snow"   },
-  77: { label: "霰",               icon: "🌨️", category: "snow"   },
-  80: { label: "にわか雨（弱）",   icon: "🌦️", category: "rain"   },
-  81: { label: "にわか雨（中）",   icon: "🌧️", category: "rain"   },
-  82: { label: "にわか雨（強）",   icon: "⛈️",  category: "rain"   },
-  85: { label: "にわか雪（弱）",   icon: "🌨️", category: "snow"   },
-  86: { label: "にわか雪（強）",   icon: "❄️",  category: "snow"   },
-  95: { label: "雷雨",             icon: "⛈️",  category: "storm"  },
-  96: { label: "雷雨＋雹（小）",   icon: "⛈️",  category: "storm"  },
-  99: { label: "雷雨＋雹（大）",   icon: "⛈️",  category: "storm"  },
-};
-
-/**
- * WMOコードをデコードして天気情報を返す
- * @param {number} code - weathercode の値
- * @returns {{ code, label, icon, category, isSunny, isRainy, isCloudy, isSnowy, isStormy }}
- */
-function decodeWeather(code) {
-  const entry = WMO_MAP[code] ?? { label: "不明", icon: "❓", category: "unknown" };
-  return {
-    code,
-    label:    entry.label,
-    icon:     entry.icon,
-    category: entry.category,
-    isSunny:  entry.category === "sunny",
-    isRainy:  entry.category === "rain",
-    isCloudy: entry.category === "cloudy",
-    isSnowy:  entry.category === "snow",
-    isStormy: entry.category === "storm",
-  };
-}
-
-/**
- * 時間帯ごとの weathercode 配列を一括デコード
- * @param {number[]} codes
- * @returns {ReturnType<typeof decodeWeather>[]}
- */
-function decodeWeatherAll(codes) {
-  return codes.map(decodeWeather);
-}
-
-/**
- * デコード済み天気配列から代表天気（最頻カテゴリ）を返す
- * @param {ReturnType<typeof decodeWeather>[]} weatherList
- * @returns {ReturnType<typeof decodeWeather>}
- */
-function getDominantWeather(weatherList) {
-  const freq = {};
-  for (const w of weatherList) freq[w.category] = (freq[w.category] ?? 0) + 1;
-  const dominantCategory = Object.entries(freq).sort((a, b) => b[1] - a[1])[0][0];
-  return weatherList.find(w => w.category === dominantCategory);
-}
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // 気象庁アメダス（bosai）簡易ユーティリティ
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -229,10 +153,8 @@ function dominantWeatherFromAmedas(hourly) {
  * @returns {number|null}
  */
 function readAmedasNumber(v) {
-  // 直値(例: 0, 1.5)に対応
   if (typeof v === "number") return v;
 
-  // 従来: [value, aqc]
   if (!Array.isArray(v)) return null;
   const value = v[0];
   const aqc = v[1];
@@ -240,8 +162,6 @@ function readAmedasNumber(v) {
   if (value == null) return null;
   if (typeof value !== "number") return null;
 
-  // AQC: 0 が正常という説明が広く使われているため、それ以外は欠測扱い。
-  // （必要なら後で閾値や扱いを拡張）
   if (typeof aqc === "number" && aqc !== 0) return null;
 
   return value;
@@ -269,7 +189,6 @@ async function getAmedasDominantWeatherForDay({ amedasPoint, dayJst }) {
   for (const url of urls) {
     const res = await fetch(url);
 
-    // 過去データが保持期間外などで404になることがあるので、ここは「失敗しても進む」
     if (!res.ok) {
       console.warn(`AMeDAS fetch skipped: ${res.status} ${url}`);
       skipCount++;
@@ -280,7 +199,6 @@ async function getAmedasDominantWeatherForDay({ amedasPoint, dayJst }) {
     const json = await res.json().catch(() => null);
     if (!json || typeof json !== "object") continue;
 
-    // 各ファイルは { "2026-05-22T00:00:00+09:00": { ... }, ... } のように時刻キーでぶら下がる
     for (const [t, v] of Object.entries(json)) merged[t] = v;
   }
 
@@ -288,19 +206,21 @@ async function getAmedasDominantWeatherForDay({ amedasPoint, dayJst }) {
     `AMeDAS fetch summary: ok=${okCount}/${urls.length} skipped=${skipCount} mergedKeys=${Object.keys(merged).length}`
   );
 
-  // 10分刻みの precipitation1h を1時間単位に集約する
-  // - 同一hour内では「最後の有効値」を採用
-  // - 欠測(null)では既存の有効値を潰さない
   /** @type {Map<number, number|null>} */
   const precipByHour = new Map();
 
   for (const t of Object.keys(merged).sort()) {
-    const dt = new Date(t);
-
-    // dt は ISO (with +09:00) なので getHours() はローカル環境依存になり得る。
-    // ここでは文字列から "T..:" を読むことで JST の hour を安定して取り出す。
-    const m = t.match(/T(\d{2}):/);
-    const hourJst = m ? Number(m[1]) : dt.getUTCHours();
+    // 気象庁のpointデータのキーは "YYYYMMDDHHMMSS" (例: "20260523090000") の形式
+    let hourJst;
+    if (/^\d{14}$/.test(t)) {
+      // 8文字目から2文字分（時間）を取得
+      hourJst = Number(t.substring(8, 10));
+    } else {
+      // 万が一将来フォーマットが変わったときのフォールバック用
+      const dt = new Date(t);
+      const m = t.match(/T(\d{2}):/);
+      hourJst = m ? Number(m[1]) : dt.getUTCHours();
+    }
 
     const p1h = readAmedasNumber(merged[t]?.precipitation1h);
 
@@ -409,15 +329,11 @@ async function cfAiChat({ accountId, apiToken, model, messages }) {
 
   const json = await res.json().catch(() => null);
 
-  // Cloudflareは success=false の場合もあるので両方見る
   if (!res.ok || json?.success === false) {
     const err = JSON.stringify(json ?? { status: res.status }, null, 2);
     throw new Error(`Cloudflare AI error: ${res.status} ${err}`);
   }
 
-  // 代表的な取り方（モデルで形が揺れるので複数候補）
-  // - 旧: result.response / result.output_text / result.text
-  // - 新: OpenAI互換っぽい result.choices[0].message.content
   const text =
     json?.result?.response ??
     json?.result?.output_text ??
@@ -435,8 +351,8 @@ async function cfAiChat({ accountId, apiToken, model, messages }) {
 }
 
 function replaceBlock(readme, newBlock) {
-  const start = "<!-- DISCUSS_COACH_START -->";
-  const end   = "<!-- DISCUSS_COACH_END -->";
+  const start = "";
+  const end   = "";
   const s = readme.indexOf(start);
   const e = readme.indexOf(end);
   if (s === -1 || e === -1 || e < s) {
@@ -503,7 +419,6 @@ query($owner:String!, $repo:String!, $after:String) {
     after = page.pageInfo.endCursor;
   }
 
-  // ここから「生成が失敗してもREADMEは上書き」方針
   let finalText;
 
   try {
@@ -554,7 +469,6 @@ ${source}
       finalText = text;
     }
   } catch (e) {
-    // 失敗時：READMEを「今日はお休み」文で上書き（運用重視）
     console.warn("Generation failed. Falling back to rest message.");
     console.warn(String(e?.message || e));
 
