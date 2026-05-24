@@ -5,8 +5,8 @@
 Hey there! How’s everyone doing!? It’s your instructor here!
 Looks like the weather in Matsudo City was “unpredictable” yesterday. Were you all able to jump around outside with energy?
 
-Now then, looking at yesterday’s posts… there was a really heartbreaking concern: “The Eiken test booklet was hard to open, and I got so flustered I tore it!”
-Oh no, that’s terrible! But that’s exactly when you need to take a deep breath and stay calm with a “One, two, three!” mindset!
+Now then, looking at yesterday’s posts… there was a really heartbreaking concern: “My Eiken test booklet was hard to open, and I got so flustered I tore it!”
+Oh no, that’s terrible! But that’s exactly when you need to take a deep breath and stay calm with the “One, two, three!” spirit!
 
 ...Wait a minute!
 The post’s title is “Tomorrow is Sunday”—that has absolutely nothing to do with it!
