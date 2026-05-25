@@ -425,3 +425,10 @@
 
 - [今日も今日とて、明日は日曜日](https://github.com/htvoffcial/htvoffcial/discussions/135)
   - 英検の問題用紙って開けにくくない？焦って少し破いてしまった。“…”
+
+## 2026-05-25
+
+- [ありえねぇ化学とかどうなるんやろ](https://github.com/htvoffcial/htvoffcial/discussions/137)
+  - 高3中間で80点未満取っててマジでまずい“…”
+- [お兄さんの天気ソースはOpen-MeteoからJMAのAPIにリプレースされました！](https://github.com/htvoffcial/htvoffcial/discussions/136)
+  - 朝見たら実行エラー起きてて、無料APIの方は稼働率が19%へ低下していたため、リプレースしました。 最近置き換え多いな…2.5ヶ月で4個くらいコアのSaaS置き“…”
