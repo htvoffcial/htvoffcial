@@ -1,14 +1,14 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-05-25
+## Discussion Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-05-26
 
-Hey everyone! How are you doing!?
-Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, clear day! It was the perfect weather for getting some exercise outdoors!
+Hey there! How’s everyone doing!?
+Yesterday in Matsudo City, the weather was absolutely beautiful and sunny! Did you stretch your arms up toward the sun and give a big stretch?
 
-Now, let’s take a look at yesterday’s summary!
-First up, the concern about getting “less than 80 points” on a chemistry test. …Wait a minute! 80 points is actually pretty amazing!! Calm down, take a deep breath, and let’s start with some brain training!
+Now, let’s take a look at yesterday’s GitHub Discussions!
+Starting Duolingo to “make the most of screen time” is the perfect warm-up to get your brain in shape!
+Plus, the work environments of professional engineers are just amazing! Packing that many tools onto an iPad is like a gymnastics routine in the digital world!
+But wait a minute! Resetting the device once a year… that’s way too much of a “full-body stretch” for an iPad! It’s such a drastic refresh that the iPad might end up feeling like a completely different device!
 
-Next up, the API replacement! A 19% uptime rate? That’s like a gymnast teetering on the edge! Replacing four of them in just 2.5 months—that’s a grueling workout worthy of a pro athlete! Let’s all work together to overcome the high wall that is the reality of the freemium model!
-
-Today’s Thought: Failure is an important step in learning new moves!
+Today’s Tip: When trying something new, start by taking a deep breath!
 <!-- DISCUSS_COACH_END -->
