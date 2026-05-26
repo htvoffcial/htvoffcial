@@ -432,3 +432,10 @@
   - 高3中間で80点未満取っててマジでまずい“…”
 - [お兄さんの天気ソースはOpen-MeteoからJMAのAPIにリプレースされました！](https://github.com/htvoffcial/htvoffcial/discussions/136)
   - 朝見たら実行エラー起きてて、無料APIの方は稼働率が19%へ低下していたため、リプレースしました。 最近置き換え多いな…2.5ヶ月で4個くらいコアのSaaS置き“…”
+
+## 2026-05-26
+
+- [ちなみにデュオリンゴ始めてみた](https://github.com/htvoffcial/htvoffcial/discussions/139)
+  - スクリーンタイムかけてくれるっていうのを知って試しにね“…”
+- [プロエンジニアの作業環境紹介](https://github.com/htvoffcial/htvoffcial/discussions/138)
+  - - メインPC iPad 10th Gen 64GB,Magic Keyboard Folio,Apple Pencil(AppleCare+月額更新中) - “…”
