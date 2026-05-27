@@ -1,14 +1,17 @@
 
-## Discussion Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-05-26
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-05-27
 
-Hey there! How’s everyone doing!?
-Yesterday in Matsudo City, the weather was absolutely beautiful and sunny! Did you stretch your arms up toward the sun and give a big stretch?
+Alright! Everyone! How are you doing!?
+Yesterday in Matsudo City, the sun was shining brightly and the sky was clear! It was such a wonderful day, wasn't it!
 
-Now, let’s take a look at yesterday’s GitHub Discussions!
-Starting Duolingo to “make the most of screen time” is the perfect warm-up to get your brain in shape!
-Plus, the work environments of professional engineers are just amazing! Packing that many tools onto an iPad is like a gymnastics routine in the digital world!
-But wait a minute! Resetting the device once a year… that’s way too much of a “full-body stretch” for an iPad! It’s such a drastic refresh that the iPad might end up feeling like a completely different device!
+Well then, let’s take a look at yesterday’s recap!
+“It looks like someone’s pouring water into a pond with a hose,” you say?
+You call it “quite an interesting sight,” but come on…!
+If the hose is so thin that you can’t even tell the water level is changing, that’s not “work” anymore—it’s “ascetic training”!
+I’m amazed by your positivity—calling something “interesting” just because nothing’s changing!
+But having the patience to wait quietly while things progress slowly is really important, isn’t it!
+So, everyone, let’s not rush and take it one step at a time!
 
-Today’s Tip: When trying something new, start by taking a deep breath!
+Today’s Thought: Let’s learn to enjoy even the smallest changes!
 <!-- DISCUSS_COACH_END -->
