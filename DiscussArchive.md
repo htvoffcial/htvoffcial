@@ -439,3 +439,8 @@
   - スクリーンタイムかけてくれるっていうのを知って試しにね“…”
 - [プロエンジニアの作業環境紹介](https://github.com/htvoffcial/htvoffcial/discussions/138)
   - - メインPC iPad 10th Gen 64GB,Magic Keyboard Folio,Apple Pencil(AppleCare+月額更新中) - “…”
+
+## 2026-05-27
+
+- [池にホースで水を入れてる様子](https://github.com/htvoffcial/htvoffcial/discussions/140)
+  - なかなかに面白い眺め ホースも普通の細いやつだから溜まってるのか、水面を見てもはっきりした変化がないね“…”
