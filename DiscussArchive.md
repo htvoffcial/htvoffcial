@@ -444,3 +444,8 @@
 
 - [池にホースで水を入れてる様子](https://github.com/htvoffcial/htvoffcial/discussions/140)
   - なかなかに面白い眺め ホースも普通の細いやつだから溜まってるのか、水面を見てもはっきりした変化がないね“…”
+
+## 2026-05-28
+
+- [5月下旬からエアコンついててほんま神](https://github.com/htvoffcial/htvoffcial/discussions/141)
+  - ありがてぇ。 廊下出ると蒸し暑さを感じるのはさすがに季節を感じる“…”
