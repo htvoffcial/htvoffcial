@@ -449,3 +449,8 @@
 
 - [5月下旬からエアコンついててほんま神](https://github.com/htvoffcial/htvoffcial/discussions/141)
   - ありがてぇ。 廊下出ると蒸し暑さを感じるのはさすがに季節を感じる“…”
+
+## 2026-05-29
+
+- [風強かったな](https://github.com/htvoffcial/htvoffcial/discussions/142)
+  - 自転車乗ってるときだいぶ風に煽られた。 学校も、範囲で分担して、生徒がしっかり準備してから授業をし合うという活動、なかなか新鮮な感覚だった。“…”
