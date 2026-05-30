@@ -454,3 +454,8 @@
 
 - [風強かったな](https://github.com/htvoffcial/htvoffcial/discussions/142)
   - 自転車乗ってるときだいぶ風に煽られた。 学校も、範囲で分担して、生徒がしっかり準備してから授業をし合うという活動、なかなか新鮮な感覚だった。“…”
+
+## 2026-05-30
+
+- [GreenExpoを感じながら](https://github.com/htvoffcial/htvoffcial/discussions/143)
+  - 神奈川県では、数百日後に開催されるgreenexpoにむけて、地域の公園などに植物を植えたりしていたようです。 植えられた花を見ながら、どこかホッとした気分にな“…”
