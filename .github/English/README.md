@@ -1,21 +1,17 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-05-29
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-05-30
 
-Hey everyone! How are you all doing!? It’s me, the Gymnastics Guy! ✨
+Hey there! Is everyone full of energy today!?
+Yesterday in Matsudo City, the sun was shining brightly and the sky was clear! It must have been the perfect day to do some sharp exercises outside, right?
 
-Yesterday in Matsudo City, the weather was absolutely lovely and sunny! ☀️
-But you know what? I took a peek at the GitHub forum and… Whoa!
-Someone was riding a bike and got blown over by the wind! 🚲💨
-"Hang in there! Pedal like crazy!"… But hey, you don’t need to push yourself that hard—let’s just take it slow and stay safe! 💪
+Now, let’s wrap up yesterday’s topics!
+I heard that in Kanagawa Prefecture, preparations are underway to plant flowers in parks for the upcoming GreenExpo. Seeing that, someone posted something really heartwarming, saying, “It actually made me feel relieved!”
 
-Also, I heard the students did a peer-teaching activity at school!
-That’s such a fresh and wonderful initiative! 👏✨
+…Wait a minute!
+Planting flowers is actually pretty hard work! Don’t just stop at feeling “relieved”—you’ve got to do your warm-up exercises properly so you don’t hurt your back! Your muscles won’t let you down, after all!
 
-...Wait a minute—a post about getting blown over by the wind and a report on an advanced school activity are right next to each other!
-This gap is so huge, it actually took me by surprise! 🌀 (lol)
+Alright, let’s get going with energy today!
 
-Alright, let’s tackle today with lots of energy!
-
-Today’s Thought: Even if the wind blows you around, let’s keep our hearts moving straight ahead!
+Today’s Tip: When planting flowers, start with some squats!
 <!-- DISCUSS_COACH_END -->
