@@ -56,10 +56,13 @@ jobs:
           JA_BODY=""
 
           if [[ -n "$COMMIT_JA" ]]; then
-            # 行の途中や前後にスペース・CRLFがあってもマッチするよう正規表現を強化
-            COACH_PART="$(git show "${COMMIT_JA}:${FILE_JA}" | awk '//{flag=1;next}//{flag=0}flag')"
+            echo "=== DEBUG: JA File content preview (First 30 lines) ==="
+            git show "${COMMIT_JA}:${FILE_JA}" | head -n 30 || true
+            echo "====================================================="
+
+            # 大文字小文字の無視(IGNORECASE)、前後のスペースの揺らぎ([[:space:]]*)に完全対応
+            COACH_PART="$(git show "${COMMIT_JA}:${FILE_JA}" | awk 'BEGIN { IGNORECASE = 1 } //{flag=1;next} //{flag=0} flag')"
             
-            # 空白や改行を除去しても中身があるかチェック
             if [[ -n "$(echo "$COACH_PART" | tr -d '[:space:]')" ]]; then
               JA_BODY="$(printf '%s' "$COACH_PART" | pandoc -f markdown -t html)"
             else
@@ -74,8 +77,8 @@ jobs:
           EN_BODY=""
 
           if [[ -n "$COMMIT_EN" ]]; then
-            # ENDタグが含まれる行に到達したら終了
-            EN_TEXT="$(git show "${COMMIT_EN}:${FILE_EN}" | awk '//{exit} {print}')"
+            # ENDタグの表記揺れ・大文字小文字に対応して、見つかったらそこで終了
+            EN_TEXT="$(git show "${COMMIT_EN}:${FILE_EN}" | awk 'BEGIN { IGNORECASE = 1 } //{exit} {print}')"
             
             if [[ -n "$(echo "$EN_TEXT" | tr -d '[:space:]')" ]]; then
               EN_BODY="$(printf '%s' "$EN_TEXT" | pandoc -f markdown -t html)"
