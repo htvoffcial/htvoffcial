@@ -16,6 +16,7 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
+
     env:
       TZ: Asia/Tokyo
       BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
@@ -24,12 +25,17 @@ jobs:
       BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
 
     steps:
-      - name: Checkout (full history)
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Build JA/EN post content from repository history
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Build JA and EN content
         id: build
         shell: bash
         run: |
@@ -47,112 +53,144 @@ jobs:
           COMMIT_EN="$(git log -1 --format=%H --before="$TARGET_TS" -- "$FILE_EN" || true)"
 
           if [[ -z "$COMMIT_JA" && -z "$COMMIT_EN" ]]; then
-            echo "Could not find past commit for either file at/before $TARGET_DATE" >&2
+            echo "No historical content found."
             exit 1
           fi
 
-          # --- JA (STARTとENDの間を抽出) ---
+          ##################################################
+          # 日本語版
+          ##################################################
+
           JA_TITLE="お兄さんアーカイブ ${TARGET_DATE}"
           JA_BODY=""
 
           if [[ -n "$COMMIT_JA" ]]; then
-            echo "=== DEBUG: JA File content preview (First 30 lines) ==="
-            git show "${COMMIT_JA}:${FILE_JA}" | head -n 30 || true
-            echo "====================================================="
 
-            # 大文字小文字の無視(IGNORECASE)、前後のスペースの揺らぎ([[:space:]]*)に完全対応
-            COACH_PART="$(git show "${COMMIT_JA}:${FILE_JA}" | awk 'BEGIN { IGNORECASE = 1 } //{flag=1;next} //{flag=0} flag')"
-            
-            if [[ -n "$(echo "$COACH_PART" | tr -d '[:space:]')" ]]; then
-              JA_BODY="$(printf '%s' "$COACH_PART" | pandoc -f markdown -t html)"
+            JA_TEXT="$(
+              git show "${COMMIT_JA}:${FILE_JA}" |
+              awk '
+                /<!-- DISCUSS_COACH_START -->/ {
+                  flag=1
+                  next
+                }
+
+                /<!-- DISCUSS_COACH_END -->/ {
+                  flag=0
+                }
+
+                flag
+              '
+            )"
+
+            if [[ -n "$JA_TEXT" ]]; then
+              JA_BODY="$(printf '%s' "$JA_TEXT" | pandoc -f markdown -t html)"
             else
-              JA_BODY="<p>（この日のREADMEには、お兄さん部分が見つかりませんでした）</p>"
+              JA_BODY="<p>この日の日本語コンテンツが見つかりませんでした。</p>"
             fi
+
           else
-            JA_BODY="<p>（この日のREADMEが見つかりませんでした）</p>"
+            JA_BODY="<p>この日のREADME.mdが見つかりませんでした。</p>"
           fi
 
-          # --- EN (最初からENDの直前までを抽出) ---
+          ##################################################
+          # 英語版
+          #
+          # STARTタグなし
+          # 先頭～ENDタグまで
+          ##################################################
+
           EN_TITLE="Oniisan Archive ${TARGET_DATE} (English)"
           EN_BODY=""
 
           if [[ -n "$COMMIT_EN" ]]; then
-            # ENDタグの表記揺れ・大文字小文字に対応して、見つかったらそこで終了
-            EN_TEXT="$(git show "${COMMIT_EN}:${FILE_EN}" | awk 'BEGIN { IGNORECASE = 1 } //{exit} {print}')"
-            
-            if [[ -n "$(echo "$EN_TEXT" | tr -d '[:space:]')" ]]; then
+
+            EN_TEXT="$(
+              git show "${COMMIT_EN}:${FILE_EN}" |
+              awk '
+                /<!-- DISCUSS_COACH_END -->/ {
+                  exit
+                }
+
+                {
+                  print
+                }
+              '
+            )"
+
+            if [[ -n "$EN_TEXT" ]]; then
               EN_BODY="$(printf '%s' "$EN_TEXT" | pandoc -f markdown -t html)"
             else
-              EN_BODY="<p>(English archive is empty before the END tag)</p>"
+              EN_BODY="<p>English content not found.</p>"
             fi
+
           else
-            EN_BODY="<p>(English archive not found for this date)</p>"
+            EN_BODY="<p>English README not found.</p>"
           fi
 
           printf '%s' "$JA_TITLE" > title_ja.txt
           printf '%s' "$JA_BODY"  > content_ja.html
+
           printf '%s' "$EN_TITLE" > title_en.txt
           printf '%s' "$EN_BODY"  > content_en.html
 
-      - name: Get OAuth access token (Blogger)
+      - name: Get Blogger OAuth token
         id: token
         shell: bash
         run: |
           set -euo pipefail
 
-          if [[ -z "${BLOGGER_CLIENT_ID:-}" || -z "${BLOGGER_CLIENT_SECRET:-}" || -z "${BLOGGER_REFRESH_TOKEN:-}" ]]; then
-            echo "Missing required secrets: BLOGGER_CLIENT_ID / BLOGGER_CLIENT_SECRET / BLOGGER_REFRESH_TOKEN" >&2
-            exit 1
-          fi
+          RESPONSE="$(
+            curl -sS \
+              -X POST \
+              https://oauth2.googleapis.com/token \
+              -H "Content-Type: application/x-www-form-urlencoded" \
+              --data-urlencode "client_id=${BLOGGER_CLIENT_ID}" \
+              --data-urlencode "client_secret=${BLOGGER_CLIENT_SECRET}" \
+              --data-urlencode "refresh_token=${BLOGGER_REFRESH_TOKEN}" \
+              --data-urlencode "grant_type=refresh_token"
+          )"
 
-          RESP="$(curl -sS -X POST https://oauth2.googleapis.com/token \
-            -H 'Content-Type: application/x-www-form-urlencoded' \
-            --data-urlencode "client_id=$BLOGGER_CLIENT_ID" \
-            --data-urlencode "client_secret=$BLOGGER_CLIENT_SECRET" \
-            --data-urlencode "refresh_token=$BLOGGER_REFRESH_TOKEN" \
-            --data-urlencode 'grant_type=refresh_token')"
+          ACCESS_TOKEN="$(echo "$RESPONSE" | jq -r '.access_token')"
 
-          ACCESS_TOKEN="$(echo "$RESP" | jq -r '.access_token // empty')"
-
-          if [[ -z "$ACCESS_TOKEN" ]]; then
-            echo "Failed to obtain access_token. Response:" >&2
-            echo "$RESP" >&2
+          if [[ -z "$ACCESS_TOKEN" || "$ACCESS_TOKEN" == "null" ]]; then
+            echo "$RESPONSE"
             exit 1
           fi
 
           echo "access_token=$ACCESS_TOKEN" >> "$GITHUB_OUTPUT"
 
-      - name: Create Blogger posts (JA and EN with labels)
+      - name: Create Blogger posts
         shell: bash
+        env:
+          ACCESS_TOKEN: ${{ steps.token.outputs.access_token }}
         run: |
           set -euo pipefail
 
-          if [[ -z "${BLOG_ID:-}" ]]; then
-            echo "Missing required secret: BLOGGER_BLOG_ID" >&2
-            exit 1
-          fi
+          create_post() {
 
-          post() {
-            local title_file="$1"
-            local content_file="$2"
-            local label="$3"
+            local TITLE_FILE="$1"
+            local CONTENT_FILE="$2"
+            local LABEL="$3"
 
             jq -n \
-              --arg title "$(cat "$title_file")" \
-              --arg content "$(cat "$content_file")" \
-              --arg label "$label" \
+              --arg title "$(cat "$TITLE_FILE")" \
+              --arg content "$(cat "$CONTENT_FILE")" \
+              --arg label "$LABEL" \
               '{
                 kind: "blogger#post",
                 title: $title,
                 content: $content,
                 labels: [$label]
-              }' > payload.json
+              }' \
+              > payload.json
 
-            curl -sS -X POST "https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts/" \
-              -H "Authorization: Bearer ${{ steps.token.outputs.access_token }}" \
+            curl -sS \
+              -X POST \
+              "https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts/" \
+              -H "Authorization: Bearer ${ACCESS_TOKEN}" \
               -H "Content-Type: application/json; charset=utf-8" \
-              -d @payload.json | jq .
+              -d @payload.json
           }
 
-          post title_ja.txt content_ja.html "日本語"
-          post title_en.txt content_en.html "English"
+          create_post title_ja.txt content_ja.html "日本語"
+          create_post title_en.txt content_en.html "English"
