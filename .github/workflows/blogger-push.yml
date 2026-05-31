@@ -59,7 +59,7 @@ jobs:
           JA_BODY=""
 
           if [[ -n "$COMMIT_JA" ]]; then
-            COACH_PART="$(git show "${COMMIT_JA}:${FILE_JA}" | awk '/<!-- DISCUSS_COACH_START -->/{flag=1;next}/<!-- DISCUSS_COACH_END -->/{flag=0}flag')"
+            COACH_PART="$(git show "${COMMIT_JA}:${FILE_JA}" | awk '//{flag=1;next}//{flag=0}flag')"
             if [[ -n "$COACH_PART" ]]; then
               JA_BODY="<pre>$(printf '%s' "$COACH_PART" | esc)</pre>"
             else
@@ -103,7 +103,7 @@ jobs:
             --data-urlencode "refresh_token=$BLOGGER_REFRESH_TOKEN" \
             --data-urlencode 'grant_type=refresh_token')"
 
-          ACCESS_TOKEN="$(python3 -c 'import json,sys; j=json.load(sys.stdin); print(j.get("access_token",""))' <<< "$RESP")"
+          ACCESS_TOKEN="$(echo "$RESP" | jq -r '.access_token // empty')"
 
           if [[ -z "$ACCESS_TOKEN" ]]; then
             echo "Failed to obtain access_token. Response:" >&2
@@ -128,22 +128,21 @@ jobs:
             local content_file="$2"
             local label="$3"
 
-            python3 - <<PY > payload.json
-import json
-title = open("${title_file}","r",encoding="utf-8").read()
-content = open("${content_file}","r",encoding="utf-8").read()
-print(json.dumps({
-  "kind":"blogger#post",
-  "title": title,
-  "content": content,
-  "labels": ["${label}"]
-}, ensure_ascii=False))
-PY
+            jq -n \
+              --arg title "$(cat "$title_file")" \
+              --arg content "$(cat "$content_file")" \
+              --arg label "$label" \
+              '{
+                kind: "blogger#post",
+                title: $title,
+                content: $content,
+                labels: [$label]
+              }' > payload.json
 
             curl -sS -X POST "https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts/" \
               -H "Authorization: Bearer ${{ steps.token.outputs.access_token }}" \
               -H "Content-Type: application/json; charset=utf-8" \
-              -d @payload.json | python3 -m json.tool
+              -d @payload.json | jq .
           }
 
           post title_ja.txt content_ja.html "日本語"
