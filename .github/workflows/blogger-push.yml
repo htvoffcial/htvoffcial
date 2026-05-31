@@ -56,9 +56,11 @@ jobs:
           JA_BODY=""
 
           if [[ -n "$COMMIT_JA" ]]; then
+            # 行の途中や前後にスペース・CRLFがあってもマッチするよう正規表現を強化
             COACH_PART="$(git show "${COMMIT_JA}:${FILE_JA}" | awk '//{flag=1;next}//{flag=0}flag')"
-            if [[ -n "$COACH_PART" ]]; then
-              # pandocを使ってMarkdownをHTMLに変換
+            
+            # 空白や改行を除去しても中身があるかチェック
+            if [[ -n "$(echo "$COACH_PART" | tr -d '[:space:]')" ]]; then
               JA_BODY="$(printf '%s' "$COACH_PART" | pandoc -f markdown -t html)"
             else
               JA_BODY="<p>（この日のREADMEには、お兄さん部分が見つかりませんでした）</p>"
@@ -72,10 +74,10 @@ jobs:
           EN_BODY=""
 
           if [[ -n "$COMMIT_EN" ]]; then
-            # 先頭から読み込み、ENDタグが見つかった時点で終了(exit)して出力しない
+            # ENDタグが含まれる行に到達したら終了
             EN_TEXT="$(git show "${COMMIT_EN}:${FILE_EN}" | awk '//{exit} {print}')"
-            if [[ -n "$EN_TEXT" ]]; then
-              # pandocを使ってMarkdownをHTMLに変換
+            
+            if [[ -n "$(echo "$EN_TEXT" | tr -d '[:space:]')" ]]; then
               EN_BODY="$(printf '%s' "$EN_TEXT" | pandoc -f markdown -t html)"
             else
               EN_BODY="<p>(English archive is empty before the END tag)</p>"
