@@ -29,12 +29,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Python & Install Markdown library
-        shell: bash
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install markdown
-
       - name: Build JA/EN post content from repository history
         id: build
         shell: bash
@@ -57,15 +51,15 @@ jobs:
             exit 1
           fi
 
-          # --- JA ---
+          # --- JA (STARTとENDの間を抽出) ---
           JA_TITLE="お兄さんアーカイブ ${TARGET_DATE}"
           JA_BODY=""
 
           if [[ -n "$COMMIT_JA" ]]; then
             COACH_PART="$(git show "${COMMIT_JA}:${FILE_JA}" | awk '//{flag=1;next}//{flag=0}flag')"
             if [[ -n "$COACH_PART" ]]; then
-              # MarkdownをBloggerに合うHTML書式に自動変換
-              JA_BODY="$(printf '%s' "$COACH_PART" | python3 -m markdown)"
+              # pandocを使ってMarkdownをHTMLに変換
+              JA_BODY="$(printf '%s' "$COACH_PART" | pandoc -f markdown -t html)"
             else
               JA_BODY="<p>（この日のREADMEには、お兄さん部分が見つかりませんでした）</p>"
             fi
@@ -73,18 +67,18 @@ jobs:
             JA_BODY="<p>（この日のREADMEが見つかりませんでした）</p>"
           fi
 
-          # --- EN ---
+          # --- EN (最初からENDの直前までを抽出) ---
           EN_TITLE="Oniisan Archive ${TARGET_DATE} (English)"
           EN_BODY=""
 
           if [[ -n "$COMMIT_EN" ]]; then
-            # 英語版のバグ対応：ファイルの先頭から の手前までを切り出す
-            EN_TEXT="$(git show "${COMMIT_EN}:${FILE_EN}" | awk '//{exit}1')"
+            # 先頭から読み込み、ENDタグが見つかった時点で終了(exit)して出力しない
+            EN_TEXT="$(git show "${COMMIT_EN}:${FILE_EN}" | awk '//{exit} {print}')"
             if [[ -n "$EN_TEXT" ]]; then
-              # 英語版もMarkdownをHTMLに自動変換
-              EN_BODY="$(printf '%s' "$EN_TEXT" | python3 -m markdown)"
+              # pandocを使ってMarkdownをHTMLに変換
+              EN_BODY="$(printf '%s' "$EN_TEXT" | pandoc -f markdown -t html)"
             else
-              EN_BODY="<p>(English archive content was empty)</p>"
+              EN_BODY="<p>(English archive is empty before the END tag)</p>"
             fi
           else
             EN_BODY="<p>(English archive not found for this date)</p>"
