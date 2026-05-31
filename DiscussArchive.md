@@ -459,3 +459,8 @@
 
 - [GreenExpoを感じながら](https://github.com/htvoffcial/htvoffcial/discussions/143)
   - 神奈川県では、数百日後に開催されるgreenexpoにむけて、地域の公園などに植物を植えたりしていたようです。 植えられた花を見ながら、どこかホッとした気分にな“…”
+
+## 2026-05-31
+
+- [なんとお兄さんがBlogger API経由で自動でブログにも登場！](https://github.com/htvoffcial/htvoffcial/discussions/144)
+  - このリポジトリではお馴染みの、GitHub Actionsがまた増えまして。 今日から分のお兄さんをブログで読めるようになりました！ [blog.convers“…”
