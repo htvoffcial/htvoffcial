@@ -51,39 +51,39 @@ jobs:
             exit 1
           fi
 
-          # HTML escape helper (minimal)
-          esc() { sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g'; }
-
           # --- JA ---
           JA_TITLE="お兄さんアーカイブ ${TARGET_DATE}"
-          JA_BODY=""
-
           if [[ -n "$COMMIT_JA" ]]; then
             COACH_PART="$(git show "${COMMIT_JA}:${FILE_JA}" | awk '//{flag=1;next}//{flag=0}flag')"
             if [[ -n "$COACH_PART" ]]; then
-              JA_BODY="<pre>$(printf '%s' "$COACH_PART" | esc)</pre>"
+              echo "$COACH_PART" > temp_ja.md
+              # MarkdownをBlogger用のHTMLに変換
+              npx -y marked -i temp_ja.md -o content_ja.html
             else
-              JA_BODY="<p>（この日のREADMEには、お兄さん部分が見つかりませんでした）</p>"
+              echo "<p>（この日のREADMEには、お兄さん部分が見つかりませんでした）</p>" > content_ja.html
             fi
           else
-            JA_BODY="<p>（この日のREADMEが見つかりませんでした）</p>"
+            echo "<p>（この日のREADMEが見つかりませんでした）</p>" > content_ja.html
           fi
 
           # --- EN ---
           EN_TITLE="Oniisan Archive ${TARGET_DATE} (English)"
-          EN_BODY=""
-
           if [[ -n "$COMMIT_EN" ]]; then
-            EN_TEXT="$(git show "${COMMIT_EN}:${FILE_EN}")"
-            EN_BODY="<pre>$(printf '%s' "$EN_TEXT" | esc)</pre>"
+            # 英語版バグ対策：START以降を全部取得し、最後に残るENDタグを消去する
+            EN_PART="$(git show "${COMMIT_EN}:${FILE_EN}" | awk '//{flag=1;next}flag' | sed 's///g')"
+            if [[ -n "$EN_PART" ]]; then
+              echo "$EN_PART" > temp_en.md
+              # MarkdownをBlogger用のHTMLに変換
+              npx -y marked -i temp_en.md -o content_en.html
+            else
+              echo "<p>(English archive content not found)</p>" > content_en.html
+            fi
           else
-            EN_BODY="<p>(English archive not found for this date)</p>"
+            echo "<p>(English archive not found for this date)</p>" > content_en.html
           fi
 
           printf '%s' "$JA_TITLE" > title_ja.txt
-          printf '%s' "$JA_BODY"  > content_ja.html
           printf '%s' "$EN_TITLE" > title_en.txt
-          printf '%s' "$EN_BODY"  > content_en.html
 
       - name: Get OAuth access token (Blogger)
         id: token
