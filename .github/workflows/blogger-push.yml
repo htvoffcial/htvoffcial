@@ -1,0 +1,155 @@
+name: Post Oniisan to Blogger (Daily JA+EN)
+
+on:
+  schedule:
+    # 16:30 JST = 07:30 UTC
+    - cron: "30 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: post-oniisan-to-blogger
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Tokyo
+      BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+      BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+      BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+      BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build JA/EN post content from repository history
+        id: build
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          TARGET_DATE="$(date -d 'yesterday' +%Y/%m/%d)"
+          echo "TARGET_DATE=$TARGET_DATE"
+
+          TARGET_TS="$(date -u -d "${TARGET_DATE//\//-} 23:59:59" +"%Y-%m-%dT%H:%M:%SZ")"
+
+          FILE_JA="README.md"
+          FILE_EN=".github/English/README.md"
+
+          COMMIT_JA="$(git log -1 --format=%H --before="$TARGET_TS" -- "$FILE_JA" || true)"
+          COMMIT_EN="$(git log -1 --format=%H --before="$TARGET_TS" -- "$FILE_EN" || true)"
+
+          if [[ -z "$COMMIT_JA" && -z "$COMMIT_EN" ]]; then
+            echo "Could not find past commit for either file at/before $TARGET_DATE" >&2
+            exit 1
+          fi
+
+          # HTML escape helper (minimal)
+          esc() { sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g'; }
+
+          # --- JA ---
+          JA_TITLE="お兄さんアーカイブ ${TARGET_DATE}"
+          JA_BODY=""
+
+          if [[ -n "$COMMIT_JA" ]]; then
+            COACH_PART="$(git show "${COMMIT_JA}:${FILE_JA}" | awk '/<!-- DISCUSS_COACH_START -->/{flag=1;next}/<!-- DISCUSS_COACH_END -->/{flag=0}flag')"
+            if [[ -n "$COACH_PART" ]]; then
+              JA_BODY="<pre>$(printf '%s' "$COACH_PART" | esc)</pre>"
+            else
+              JA_BODY="<p>（この日のREADMEには、お兄さん部分が見つかりませんでした）</p>"
+            fi
+          else
+            JA_BODY="<p>（この日のREADMEが見つかりませんでした）</p>"
+          fi
+
+          # --- EN ---
+          EN_TITLE="Oniisan Archive ${TARGET_DATE} (English)"
+          EN_BODY=""
+
+          if [[ -n "$COMMIT_EN" ]]; then
+            EN_TEXT="$(git show "${COMMIT_EN}:${FILE_EN}")"
+            EN_BODY="<pre>$(printf '%s' "$EN_TEXT" | esc)</pre>"
+          else
+            EN_BODY="<p>(English archive not found for this date)</p>"
+          fi
+
+          printf '%s' "$JA_TITLE" > title_ja.txt
+          printf '%s' "$JA_BODY"  > content_ja.html
+          printf '%s' "$EN_TITLE" > title_en.txt
+          printf '%s' "$EN_BODY"  > content_en.html
+
+      - name: Get OAuth access token (Blogger)
+        id: token
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${BLOGGER_CLIENT_ID:-}" || -z "${BLOGGER_CLIENT_SECRET:-}" || -z "${BLOGGER_REFRESH_TOKEN:-}" ]]; then
+            echo "Missing required secrets: BLOGGER_CLIENT_ID / BLOGGER_CLIENT_SECRET / BLOGGER_REFRESH_TOKEN" >&2
+            exit 1
+          fi
+
+          RESP="$(curl -sS -X POST https://oauth2.googleapis.com/token \
+            -H 'Content-Type: application/x-www-form-urlencoded' \
+            --data-urlencode "client_id=$BLOGGER_CLIENT_ID" \
+            --data-urlencode "client_secret=$BLOGGER_CLIENT_SECRET" \
+            --data-urlencode "refresh_token=$BLOGGER_REFRESH_TOKEN" \
+            --data-urlencode 'grant_type=refresh_token')"
+
+          ACCESS_TOKEN="$(python3 - <<'PY'
+import json,sys
+j=json.load(sys.stdin)
+print(j.get('access_token',''))
+PY
+          <<< "$RESP")"
+
+          if [[ -z "$ACCESS_TOKEN" ]]; then
+            echo "Failed to obtain access_token. Response:" >&2
+            echo "$RESP" >&2
+            exit 1
+          fi
+
+          echo "access_token=$ACCESS_TOKEN" >> "$GITHUB_OUTPUT"
+
+      - name: Create Blogger posts (JA and EN with labels)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${BLOG_ID:-}" ]]; then
+            echo "Missing required secret: BLOGGER_BLOG_ID" >&2
+            exit 1
+          fi
+
+          post() {
+            local title_file="$1"
+            local content_file="$2"
+            local label="$3"
+
+            python3 - <<PY > payload.json
+import json
+title = open("${title_file}","r",encoding="utf-8").read()
+content = open("${content_file}","r",encoding="utf-8").read()
+print(json.dumps({
+  "kind":"blogger#post",
+  "title": title,
+  "content": content,
+  "labels": ["${label}"]
+}, ensure_ascii=False))
+PY
+
+            curl -sS -X POST "https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts/" \
+              -H "Authorization: Bearer ${{ steps.token.outputs.access_token }}" \
+              -H "Content-Type: application/json; charset=utf-8" \
+              -d @payload.json | python3 -m json.tool
+          }
+
+          post title_ja.txt content_ja.html "日本語"
+          post title_en.txt content_en.html "English"
