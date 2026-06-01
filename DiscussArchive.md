@@ -464,3 +464,8 @@
 
 - [なんとお兄さんがBlogger API経由で自動でブログにも登場！](https://github.com/htvoffcial/htvoffcial/discussions/144)
   - このリポジトリではお馴染みの、GitHub Actionsがまた増えまして。 今日から分のお兄さんをブログで読めるようになりました！ [blog.convers“…”
+
+## 2026-06-01
+
+- [美味しそうな2時間目](https://github.com/htvoffcial/htvoffcial/discussions/145)
+  - ある食品を顕微鏡で観察、香りはなかなかいい感じでした“…”
