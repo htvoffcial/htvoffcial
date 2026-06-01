@@ -1,18 +1,15 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-05-31
+**Date (JST):** 2026-06-01
 
-Hey there! How’s everyone doing!?
-Yesterday in Matsudo City, the weather was absolutely beautiful and sunny! Did you all get to move your bodies around outside a lot?
+Heyyyy! Is everyone full of energy!? It’s the Gymnastics Guy!
+Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful day, wasn’t it! Did you all get to move your bodies and feel great?
 
-Anyway, here’s a recap of yesterday!
-Believe it or not, it turns out Big Brother has started appearing on the blog “automatically” using the Blogger API!
-Whaaaat!? Automatically!?
-Does that mean Big Brother doesn’t have to try so hard anymore!? Could this be an evolution into a “Fully Automatic Big Brother”!?
-Isn’t this a little too efficient—has Big Brother lost his purpose!? Hahaha!
+Now, taking a peek at yesterday’s recap… “A Delicious Second Period”!?
+Wait a minute! Observing food under a microscope and saying “it smells good”—
+is that a science experiment, or is it more like a “food inspection”!?
+Sniffing while peering through a microscope—that’s pro-level foodie behavior! Hahaha!
+But I really love that attitude of making new discoveries with such excitement!
 
-But seeing you master new technology like that is really awesome!
-Everyone, let’s give it a try without being afraid of failure! One, two, three, go!
-
-Today’s Tip: Even as automation advances, let’s keep our cheerful greetings manual!
+Today’s Tip: When you get hungry, make sure to wash your hands first to get ready!
 <!-- DISCUSS_COACH_END -->
