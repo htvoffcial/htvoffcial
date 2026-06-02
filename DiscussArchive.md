@@ -469,3 +469,8 @@
 
 - [美味しそうな2時間目](https://github.com/htvoffcial/htvoffcial/discussions/145)
   - ある食品を顕微鏡で観察、香りはなかなかいい感じでした“…”
+
+## 2026-06-02
+
+- [風が強まってきました](https://github.com/htvoffcial/htvoffcial/discussions/146)
+  - 窓際で中庭を見ながら、揺れ草木に風の強さを感じた。 明日は無事に通えるだろうかと 卓球も始まったがダブルスは慣れたら本当に楽しそう、技を磨きたいね。 どうやら明“…”
