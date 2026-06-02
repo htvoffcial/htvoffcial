@@ -1,15 +1,17 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-06-01
+**Date (JST):** 2026-06-02
 
-Heyyyy! Is everyone full of energy!? It’s the Gymnastics Guy!
-Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful day, wasn’t it! Did you all get to move your bodies and feel great?
+Hey there, everyone! How are you all doing? It’s me, the Gymnastics Guy!
+Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, sunny day! It looked so pleasant!
 
-Now, taking a peek at yesterday’s recap… “A Delicious Second Period”!?
-Wait a minute! Observing food under a microscope and saying “it smells good”—
-is that a science experiment, or is it more like a “food inspection”!?
-Sniffing while peering through a microscope—that’s pro-level foodie behavior! Hahaha!
-But I really love that attitude of making new discoveries with such excitement!
+Now then, looking back at yesterday’s summary…
+We were all on edge about the strong winds and worried about the typhoon hitting us head-on—the mood was pretty serious…
+Wait, what!? Suddenly talking about doubles table tennis!?
+With a typhoon coming, you want to hone your skills? What’s going on with your overly positive focus?! Haha
+But refreshing yourself through sports is a wonderful thing, isn’t it!
 
-Today’s Tip: When you get hungry, make sure to wash your hands first to get ready!
+It looks like a typhoon is coming tomorrow, so everyone, let’s take it easy and relax at home! Promise!
+
+Today’s Tip: When you’re in a pinch, stay as calm as a table tennis serve!
 <!-- DISCUSS_COACH_END -->
