@@ -474,3 +474,10 @@
 
 - [風が強まってきました](https://github.com/htvoffcial/htvoffcial/discussions/146)
   - 窓際で中庭を見ながら、揺れ草木に風の強さを感じた。 明日は無事に通えるだろうかと 卓球も始まったがダブルスは慣れたら本当に楽しそう、技を磨きたいね。 どうやら明“…”
+
+## 2026-06-03
+
+- [台風一過、晴れ渡ったそれは美しく、雲がいつもより映えた景色](https://github.com/htvoffcial/htvoffcial/discussions/148)
+  - 質問、お兄さんはどんな天気が好きですか？“…”
+- [自分にくるお問合せのメールは1つにまとめたい欲](https://github.com/htvoffcial/htvoffcial/discussions/147)
+  - 私は、ありがたいことに数個のドメインを持っていますが、メールを送受信可能にすること(SPF,DKIM,DMARC,MX)は技術的には非常に容易です。 しかし、始“…”
