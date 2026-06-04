@@ -481,3 +481,8 @@
   - 質問、お兄さんはどんな天気が好きですか？“…”
 - [自分にくるお問合せのメールは1つにまとめたい欲](https://github.com/htvoffcial/htvoffcial/discussions/147)
   - 私は、ありがたいことに数個のドメインを持っていますが、メールを送受信可能にすること(SPF,DKIM,DMARC,MX)は技術的には非常に容易です。 しかし、始“…”
+
+## 2026-06-04
+
+- [予告していたお兄さんの衣替え完了！夏を感じる輝く水色](https://github.com/htvoffcial/htvoffcial/discussions/149)
+  - 6月4日、はるはる体操のお兄さんのメインステージ(conversations.harutv.me)にて、お兄さんが衣替えをしました。 ぜひ、新しいテーマでお楽し“…”
