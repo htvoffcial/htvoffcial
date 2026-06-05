@@ -486,3 +486,8 @@
 
 - [予告していたお兄さんの衣替え完了！夏を感じる輝く水色](https://github.com/htvoffcial/htvoffcial/discussions/149)
   - 6月4日、はるはる体操のお兄さんのメインステージ(conversations.harutv.me)にて、お兄さんが衣替えをしました。 ぜひ、新しいテーマでお楽し“…”
+
+## 2026-06-05
+
+- [思ったより肌寒い](https://github.com/htvoffcial/htvoffcial/discussions/150)
+  - 朝起きる時普通に布団から出られなかった あと書きたかったこと忘れた...“…”
