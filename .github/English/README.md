@@ -1,14 +1,15 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-06-05
+**Date (JST):** 2026-06-06
 
-Hey there! How’s everyone doing? It’s me, the Gymnastics Guy!
-Yesterday in Matsudo City, the sun was shining brightly, but it seems it was a bit chilly out.
-I saw comments on the GitHub forum saying things like, “I couldn’t get out of bed,” and I totally thought, “I know exactly how you feel!”
-But you know, the biggest thing I want to point out is… “I forgot what I wanted to write!”
-Whaaaat?! You mustered up the courage to post, but if you forget what you wanted to say, the most important part won’t get across!
-Hahaha! Well, that kind of clumsiness is very human and actually pretty charming!
-Alright, let’s warm up our hearts and bodies today and tackle the day with energy!
+Hey everyone! How are you all doing!? Alright, let’s get into yesterday’s recap!
 
-Today’s Tip: If you forget something, it’s okay—just remember it tomorrow!
+Yesterday in Matsudo City, the sun was shining brightly—it was a really pleasant, sunny day!
+On GitHub, there was a great post that captured the season, saying, “It’s still light out even at 7 PM! Summer is definitely on its way.”
+
+Man, I totally get that! But you know, if you start thinking, “It’s still light out, so let’s stay up late and play!” I’m going to call you out on it with everything I’ve got! Because then you won’t have any energy left for tomorrow! Ugh, come on—letting your guard down is the worst!
+
+Let’s soak up the sunshine and get our bodies moving with a lively “1, 2, 3!” today!
+
+Today’s Tip: Get plenty of exercise while it’s still light out, and then get a good night’s sleep!
 <!-- DISCUSS_COACH_END -->
