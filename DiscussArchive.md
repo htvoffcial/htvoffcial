@@ -491,3 +491,8 @@
 
 - [思ったより肌寒い](https://github.com/htvoffcial/htvoffcial/discussions/150)
   - 朝起きる時普通に布団から出られなかった あと書きたかったこと忘れた...“…”
+
+## 2026-06-06
+
+- [外を歩くといい景色](https://github.com/htvoffcial/htvoffcial/discussions/151)
+  - 夏が近づき、日照時間も伸びてきた。19:00でもまだ空は薄明るかった“…”
