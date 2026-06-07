@@ -496,3 +496,8 @@
 
 - [外を歩くといい景色](https://github.com/htvoffcial/htvoffcial/discussions/151)
   - 夏が近づき、日照時間も伸びてきた。19:00でもまだ空は薄明るかった“…”
+
+## 2026-06-07
+
+- [はるはるって誰？](https://github.com/htvoffcial/htvoffcial/discussions/152)
+  - @htvoffcial は、ソフトウェア、ハードウェアの開発、インフラ運用などをする一般男性だ！“…”
