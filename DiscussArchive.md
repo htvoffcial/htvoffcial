@@ -501,3 +501,8 @@
 
 - [はるはるって誰？](https://github.com/htvoffcial/htvoffcial/discussions/152)
   - @htvoffcial は、ソフトウェア、ハードウェアの開発、インフラ運用などをする一般男性だ！“…”
+
+## 2026-06-08
+
+- [自分が猫が好きな理由わかった](https://github.com/htvoffcial/htvoffcial/discussions/153)
+  - 犬よりも猫の方が筋肉質すぎないというか、謎の太り方をするのがかわいいのかもしれない“…”
