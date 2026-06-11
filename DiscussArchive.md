@@ -516,3 +516,8 @@
 
 - [丹波、丹後が出てこんかった..](https://github.com/htvoffcial/htvoffcial/discussions/155)
   - 旧国名(県名)の小テストで前半行けたけど、紀伊とか丹波がスッこ抜けてもう..ねぇ！ 今日1/2やったので、明日は2/2後半戦だ“…”
+
+## 2026-06-11
+
+- [午前中1度もスマホ触ってなかった](https://github.com/htvoffcial/htvoffcial/discussions/156)
+  - 短縮で帰れるししっかり勉強しないと 今日の学習時間:6h“…”
