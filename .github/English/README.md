@@ -1,17 +1,18 @@
 
-## Discuss Summary (The Gymnastics Instructor)
-**Date (JST):** 2026-06-10
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-06-11
 
 Alright! How’s everyone doing!?
-Yesterday in Matsudo City, the sun was shining brightly and the sky was clear! It was such a wonderful day, wasn’t it!
+Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, clear day! Perfect weather for doing laundry—it was awesome!
 
-Now then, let’s take a look at yesterday’s recap!
-In the quiz on old provincial names, the first half went perfectly… but apparently “Tamba” and “Tango” just slipped right out of your heads!?
-Whoa, wait a minute! Saying “slipped right out” makes it sound like your hands slipped while you were doing a handstand! You can’t just let those names run away so suddenly!
+Now then, let’s take a look at yesterday’s summary!
+“Didn’t touch my phone once all morning” and “6 hours of study time”!?
+……Whaaaat!? That’s incredible!!
+Staying focused for 6 straight hours—that’s a superhuman feat, on par with a series of spins on the horizontal bar!
+If it were me, my hand would reach for my phone within 5 minutes, thinking, “Oh, did I get a notification?”!
+That stoic attitude of studying efficiently so you can go home early!
+You’re truly a champion with both mind and body in top shape!
+Keep it up, and let’s keep building up both your knowledge and your muscles!
 
-But it’s okay! The second half is waiting for us tomorrow!
-Turn that frustration into energy, and tomorrow, let’s jump high, high toward our goal!
-Are your warm-up exercises all set? Alright then, let’s go all out tomorrow!
-
-Today’s quote: Failure is just a warm-up for your next success!
+Tip of the Day: After focusing too hard, take a deep breath and relax!
 <!-- DISCUSS_COACH_END -->
