@@ -521,3 +521,10 @@
 
 - [午前中1度もスマホ触ってなかった](https://github.com/htvoffcial/htvoffcial/discussions/156)
   - 短縮で帰れるししっかり勉強しないと 今日の学習時間:6h“…”
+
+## 2026-06-12
+
+- [帰宅！よー](https://github.com/htvoffcial/htvoffcial/discussions/158)
+  - お昼ごばはカマンベールチーズを2個乗せたビーフカレー、至高である“…”
+- [久々のプレゼン](https://github.com/htvoffcial/htvoffcial/discussions/157)
+  - 話はまとまったと思うけど、練習不足だった スマホを参考に読むときは、画面の回転ロックは必須な“…”
