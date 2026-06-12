@@ -1,18 +1,15 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-06-11
+**Date (JST):** 2026-06-12
 
-Alright! How’s everyone doing!?
-Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, clear day! Perfect weather for doing laundry—it was awesome!
+Hey everyone! How are you doing!? It’s me, the Gymnastics Guy!
+It was raining in Matsudo yesterday, wasn’t it? It’s drizzling outside, but let’s keep our hearts warm!
 
-Now then, let’s take a look at yesterday’s summary!
-“Didn’t touch my phone once all morning” and “6 hours of study time”!?
-……Whaaaat!? That’s incredible!!
-Staying focused for 6 straight hours—that’s a superhuman feat, on par with a series of spins on the horizontal bar!
-If it were me, my hand would reach for my phone within 5 minutes, thinking, “Oh, did I get a notification?”!
-That stoic attitude of studying efficiently so you can go home early!
-You’re truly a champion with both mind and body in top shape!
-Keep it up, and let’s keep building up both your knowledge and your muscles!
+Now, here’s a recap of yesterday! First up, lunch! Putting two whole pieces of Camembert cheese on top of beef curry—what a luxurious power-up! If you add that much cheese, your stomach might get so surprised it’ll bounce around on the mat!
 
-Tip of the Day: After focusing too hard, take a deep breath and relax!
+And then the presentation! It’s frustrating that we didn’t practice enough, but let’s nail it next time! Forgetting to lock the screen rotation on your phone so it keeps spinning around… it’s almost like we’re practicing rotational movement! (lol) Make sure to lock it properly and stay calm as we move forward!
+
+Alright, let’s tackle today with energy!
+
+Today’s Tip: Don’t forget your warm-up exercises!
 <!-- DISCUSS_COACH_END -->
