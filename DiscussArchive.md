@@ -528,3 +528,8 @@
   - お昼ごばはカマンベールチーズを2個乗せたビーフカレー、至高である“…”
 - [久々のプレゼン](https://github.com/htvoffcial/htvoffcial/discussions/157)
   - 話はまとまったと思うけど、練習不足だった スマホを参考に読むときは、画面の回転ロックは必須な“…”
+
+## 2026-06-13
+
+- [Duolingoギリギリゴール](https://github.com/htvoffcial/htvoffcial/discussions/159)
+  - 18日連続でできてるし、なんとか続けたい“…”
