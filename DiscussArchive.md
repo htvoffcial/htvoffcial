@@ -533,3 +533,8 @@
 
 - [Duolingoギリギリゴール](https://github.com/htvoffcial/htvoffcial/discussions/159)
   - 18日連続でできてるし、なんとか続けたい“…”
+
+## 2026-06-14
+
+- [最近投稿が23:50台がおおい](https://github.com/htvoffcial/htvoffcial/discussions/160)
+  - 滑り込みすぎるな、お兄さんのカットオフが0:00だからわかりやすいけど。 今日は共テ模試を受けてきて、帰宅後自己採点で落胆して立ち直れないです。ボーダー70%と“…”
