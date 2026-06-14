@@ -1,16 +1,14 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-06-13
+## Discuss Roundup (The Gymnastics Instructor)
+**Date (JST):** 2026-06-14
 
-Hey, everyone! How are you doing!? It’s me, the Gymnastics Guy!
-Yesterday in Matsudo City, the sun was shining brightly and the sky was clear! Wasn’t that the perfect weather to go outside and really stretch your legs?
+Alright! How’s everyone doing!?
+Yesterday in Matsudo City, the weather was absolutely beautiful and sunny! It really makes you want to get outside and move your body!
 
-Now, let’s take a look at yesterday’s recap!
-There was a passionate post on GitHub saying, “I’m barely keeping up with Duolingo!”
-It’s really amazing that you’ve been at it for 18 days straight! Way to go!
-...Wait a minute! What do you mean by “barely”?
-Are you hanging on by a thread every single time!? That kind of high-stakes learning would give me a heart attack!
-Next time, let’s take it easy and clear our goals with plenty of room to spare! Haha!
+Now, let’s take a look at yesterday’s GitHub Discussions!
+“There’s a spike in posts at 11:50 PM”? Hold on a sec! You guys are sprinting way too hard toward the deadline! It’s like a 100-meter dash right before the finish line! Be careful not to trip while you’re rushing so fast!
 
-Today’s Tip: Let’s keep going with a smile, a little bit every day!
+It seems some of you are feeling down about your mock exam results, but it’s okay! That 50% score is just the “run-up” to jump even higher! Turn that frustration into power, and let’s jump even higher next time! I’m always cheering you on!
+
+Today’s quote: Frustration is just the warm-up for your next leap!
 <!-- DISCUSS_COACH_END -->
