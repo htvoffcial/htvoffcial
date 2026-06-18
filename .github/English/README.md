@@ -1,13 +1,16 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-06-17
+**Date (JST):** 2026-06-18
 
-Hey everyone! How are you all doing!? It’s me, the Gymnastics Guy! ☀️
-The weather was absolutely beautiful in Matsudo City yesterday, wasn’t it! Face the sun, and… ready? Stretch!
+Hey there, everyone! Are you all full of energy!?
+Unfortunately, it rained in Matsudo yesterday! It was gloomy outside, but let’s keep our spirits bright and cheerful!
 
-Now then, here’s yesterday’s news! Apparently, someone tried playing online chess for the first time! But you know what? It seems they got stuck because there was no “resign” function. What?! They were totally ready to admit defeat, but is the system not keeping up yet?! (lol) It seems it ended in a draw in the end—what a strange conclusion!
+Now, here’s a recap of yesterday!
+The club activity trial session was a huge success! They said, “We did absolutely everything we could!”
+……Wait a minute! “Did everything we could”? That’s practically the level of a monk in training! lol
+But it’s truly amazing that people actually came out to join us!
+I’d like to give a big round of applause from me to everyone on the Student Council who helped make this event happen! Clap clap clap!
+I’m cheering for all of your passion with everything I’ve got!
 
-Also, there was a report that people had a constructive discussion for the first time in a while! Ohhh, that’s wonderful! It’s so important to work together and make decisions as a group. With that refreshing feeling after a good debate, I bet you won’t be able to stop doing squats!
-
-Today’s Tip: When in doubt, take a big, deep breath first!
+Today’s Tip: After giving it your all, be sure to stretch thoroughly and let your body rest!
 <!-- DISCUSS_COACH_END -->
