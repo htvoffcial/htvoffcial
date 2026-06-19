@@ -557,3 +557,10 @@
 
 - [部活の未来](https://github.com/htvoffcial/htvoffcial/discussions/165)
   - 無事体験入部を終え、やれることはやり尽くせましたし、実際人が来てくれました。企画してくれた生徒会に心から感謝。“…”
+
+## 2026-06-19
+
+- [ヤオコーのレバニラ美味い](https://github.com/htvoffcial/htvoffcial/discussions/167)
+  - 昨日買った、足首テーピングを試してみた“…”
+- [窓際族最高すぎる](https://github.com/htvoffcial/htvoffcial/discussions/166)
+  - 目に入ってくるものが全て癒し クサフジとかたんぽぽとか 雲が退くと、優しい光を“…”
