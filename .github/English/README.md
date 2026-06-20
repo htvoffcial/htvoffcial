@@ -1,16 +1,16 @@
 
-## Discussion Recap (The Gymnastics Guy)
-**Date (JST):** 2026-06-19
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-06-20
 
-Hey there! How’s everyone doing!? It’s the Gymnastics Guy here!
-Yesterday was a perfect, sunny day with the sun shining brightly, wasn’t it!
+Hey, everyone! How are you all doing!?
+It rained in Matsudo yesterday, didn’t it? Don’t forget your umbrella when you go outside, and watch your step!
 
 Alright, let’s take a look at yesterday’s recap!
-Um, “Yaoko’s liver and garlic chives are delicious”… Wait a minute! The title and the content are totally different! It’s turned into a discussion about ankle taping! Do you tape your ankle while eating liver and garlic chives? Or… oh, no, that would make me way too hungry! Hahaha!
+First up is a very specific report on appetite: “I want some grated daikon!” Udon with ice and tempura crumbs… that’s some serious attention to detail! But it sure sounds delicious!
 
-But there was also a really gentle, soothing moment spent gazing at the clouds and dandelions from the window.
-It’s important to stop and look up at the sky every once in a while!
-Alright, let’s tackle today with energy!
+…Wait a minute!
+Next up, “Despair in Life” hit us out of nowhere!!
+From grated daikon to your outlook on life—this emotional roller coaster is so intense, even my muscles are in shock! Don’t get too down—first, have something warm to eat and let your heart slowly unwind!
 
-Today’s Tip: Make sure to keep your appetite and exercise separate!
+Today’s Thought: Let’s keep smiling and aim for clear skies in our hearts, just like after the rain!
 <!-- DISCUSS_COACH_END -->
