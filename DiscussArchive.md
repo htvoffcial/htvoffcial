@@ -564,3 +564,10 @@
   - 昨日買った、足首テーピングを試してみた“…”
 - [窓際族最高すぎる](https://github.com/htvoffcial/htvoffcial/discussions/166)
   - 目に入ってくるものが全て癒し クサフジとかたんぽぽとか 雲が退くと、優しい光を“…”
+
+## 2026-06-20
+
+- [あー、無性に大根おろししたくなってきた](https://github.com/htvoffcial/htvoffcial/discussions/169)
+  - うどんにかけて、氷と鰹節と天かすを乗せて… 昼飯は温かいうどんでした。“…”
+- [進路、マジで夢も希望もねぇな](https://github.com/htvoffcial/htvoffcial/discussions/168)
+  - シンプルに絶望 2008Early - 2009 Early 人生詰みベースで始まってたからな、ご愁傷様です。“…”
