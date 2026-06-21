@@ -571,3 +571,8 @@
   - うどんにかけて、氷と鰹節と天かすを乗せて… 昼飯は温かいうどんでした。“…”
 - [進路、マジで夢も希望もねぇな](https://github.com/htvoffcial/htvoffcial/discussions/168)
   - シンプルに絶望 2008Early - 2009 Early 人生詰みベースで始まってたからな、ご愁傷様です。“…”
+
+## 2026-06-21
+
+- [志望校判定帰ってきた。](https://github.com/htvoffcial/htvoffcial/discussions/170)
+  - D判定になりたい。でも思ったより難しい問題解けてたらしい、逆に解けるはずの問題が解けてなかったからそこ復習と。“…”
