@@ -576,3 +576,8 @@
 
 - [志望校判定帰ってきた。](https://github.com/htvoffcial/htvoffcial/discussions/170)
   - D判定になりたい。でも思ったより難しい問題解けてたらしい、逆に解けるはずの問題が解けてなかったからそこ復習と。“…”
+
+## 2026-06-22
+
+- [英検準2級の一次試験合格！](https://github.com/htvoffcial/htvoffcial/discussions/171)
+  - 二次試験に向けて、確実にできるように文法とか発音とか勉強しないと！ ほんとによかった“…”
