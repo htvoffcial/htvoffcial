@@ -1,18 +1,17 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-06-21
+## Discuss Summary (Gymnastics Instructor)
+**Date (JST):** 2026-06-22
 
-Hey, everyone! How are you all doing!?
-Yesterday, the weather in Matsudo City was absolutely beautiful and sunny, wasn’t it! Was it a day that sparkled just like the sun? ☀️
+Hey, everyone! How are you all doing? 💪
+Yesterday in Matsudo City, the sun was shining brightly—it was a really lovely, sunny day, wasn’t it? ☀️
 
-Now, let’s take a look at yesterday’s recap!
-……What!? “I want to get a D grade”!?
-Hold on a sec! Isn’t that supposed to be the part where you cheerfully shout, “I want to get an A grade!”? (lol)
+I got some really exciting news yesterday!
+Believe it or not, I passed the first round of the Eiken Pre-Level 2 exam!
+Woohoo! Let’s all give a big round of applause! 👏👏👏
 
-Being able to solve difficult problems is a wonderful talent, but missing a problem you should have been able to solve is such a shame—it’s like taking a big leap off the vaulting horse only to fall flat on your face when you land!
-But don’t worry! If you review that part thoroughly, you’ll be able to land perfectly next time!
+But you know what? The joy of passing was short-lived—he’s already going all out preparing for the next step, saying, “Next up, I’m going to perfect my grammar and pronunciation for the second-stage exam!” 😂
+Isn’t that a little too strict!? Saying “I have to study!” right after passing—you’re just like a monk in training! Haha
+But I think that positive drive to improve is really cool, big bro!
 
-Alright, let’s tackle today with a smile! Ready, go!
-
-Today’s Quote: If you solidify your fundamentals, you’ll be able to jump even higher!
+Today’s Tip: After passing the exam, let’s start by eating something delicious to recharge both our minds and bodies!
 <!-- DISCUSS_COACH_END -->
