@@ -581,3 +581,8 @@
 
 - [英検準2級の一次試験合格！](https://github.com/htvoffcial/htvoffcial/discussions/171)
   - 二次試験に向けて、確実にできるように文法とか発音とか勉強しないと！ ほんとによかった“…”
+
+## 2026-06-23
+
+- [外出てて思った](https://github.com/htvoffcial/htvoffcial/discussions/172)
+  - みんな自転車のサドル高くね？“…”
