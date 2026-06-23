@@ -1,17 +1,16 @@
 
-## Discuss Summary (Gymnastics Instructor)
-**Date (JST):** 2026-06-22
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-06-23
 
-Hey, everyone! How are you all doing? 💪
-Yesterday in Matsudo City, the sun was shining brightly—it was a really lovely, sunny day, wasn’t it? ☀️
+Alright! How’s everyone doing!?
+Yesterday in Matsudo City was a really nice, sunny day, wasn’t it? It was the perfect weather for getting outside, don’t you think?
 
-I got some really exciting news yesterday!
-Believe it or not, I passed the first round of the Eiken Pre-Level 2 exam!
-Woohoo! Let’s all give a big round of applause! 👏👏👏
+Now, looking at yesterday’s recap… someone said, “Aren’t everyone’s bike saddles too high?”
+Wait a minute! While we’re out refreshing ourselves in the sunshine, is that really what you’re focusing on!?
+It looks like you’re all practicing bike jumps or something! (lol)
+But it would be a real problem if your saddle were so high that your feet couldn’t reach the ground, so let’s all ride safely and make sure to keep both feet firmly on the ground as we go!
 
-But you know what? The joy of passing was short-lived—he’s already going all out preparing for the next step, saying, “Next up, I’m going to perfect my grammar and pronunciation for the second-stage exam!” 😂
-Isn’t that a little too strict!? Saying “I have to study!” right after passing—you’re just like a monk in training! Haha
-But I think that positive drive to improve is really cool, big bro!
+Alright, let’s get moving and stay full of energy all day today!
 
-Today’s Tip: After passing the exam, let’s start by eating something delicious to recharge both our minds and bodies!
+Today’s Tip: Before worrying about the saddle, let’s make sure to keep our backs straight first!
 <!-- DISCUSS_COACH_END -->
