@@ -586,3 +586,8 @@
 
 - [外出てて思った](https://github.com/htvoffcial/htvoffcial/discussions/172)
   - みんな自転車のサドル高くね？“…”
+
+## 2026-06-24
+
+- [英単語頑張るぞ](https://github.com/htvoffcial/htvoffcial/discussions/173)
+  - タンゴスタ、電波弱い人向けにアプリ化したら便利そう、公式さんよろしく“…”
