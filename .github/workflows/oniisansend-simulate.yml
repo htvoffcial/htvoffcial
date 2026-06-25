@@ -1,0 +1,71 @@
+name: Oniisan Send data simulate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run simulation
+        run: |
+          node <<'EOF'
+          // ===== 本番コードのチャット内容生成を再現 =====
+
+          const dayJst = "2026-06-24"; // 適当な日付（必要なら変更）
+          const dominantWeather = { label: "晴れ（テスト）" };
+
+          const system = `あなたは「体操のお兄さん」風の文章を書くプロです。
+トーンは優しめで、軽いコメディ（ツッコミ）を入れてください。
+誹謗中傷や攻撃的表現は避けてください。`;
+
+          const fakeSource = `【テスト投稿】
+URL: https://example.com
+本文(抜粋):
+これはテスト用の本文です。`;
+
+          const user = `
+昨日（JST: ${dayJst}）の松戸市の日中の天気は ${dominantWeather.label} でした。
+
+以下は昨日（JST: ${dayJst}）に投稿されたGitHub Discussionsです。本文は抜粋で、長文は省略されています。
+この内容を踏まえて、次を日本語で生成してください。
+
+要件:
+- 300文字前後（±80文字くらいはOK）
+- 適切な位置で改行
+- 「昨日のまとめ」に対する優しいツッコミ,任意で！（コメディアン寄り）
+- 天気にも一言触れてOK（無理に入れなくてもOK）
+- 「今日の一言」（最後に「今日の一言：...」の形式で1文）
+- 固有名詞やURLは無理に入れなくてOK（入れるなら1つまで）
+- 出力は文章だけ（箇条書きや見出しは不要）
+- コメディアンでユーモラスに
+- あなたは体操のお兄さんです！元気もりもり！
+Discussions（抜粋、合計 100 文字）:
+${fakeSource}
+`.trim();
+
+          const messages = [
+            { role: "system", content: system },
+            { role: "user", content: user }
+          ];
+
+          const temperature = 0.7;
+
+          const payload = {
+            messages,
+            temperature
+          };
+
+          console.log("=== Cloudflare AI に送られる JSON（完全再現） ===");
+          console.log(JSON.stringify(payload, null, 2));
+          console.log("=================================================");
+          EOF
