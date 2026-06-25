@@ -1,17 +1,13 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-06-24
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-06-25
 
-Hey there! How’s everyone doing!?
-Yesterday was a really lovely, sunny day in Matsudo City, wasn’t it! Let’s face the sun and—here we go! Stretch way up high!
+Hey everyone! How are you all doing!? It rained in Matsudo City yesterday, didn’t it? Since you couldn’t go outside, maybe your bodies feel a little sluggish? But don’t worry—just do some stretches in your room and you’ll be fine! Alright, let’s go over yesterday’s recap!
 
-Now then, let’s take a look at yesterday’s GitHub Discussions!
-The title was “I’m going to work hard on English vocabulary!”—sounding super motivated…
-But when I read the post, it actually said, “I want this turned into an app!”—a completely different request!
+First up, table tennis! If you can’t return fast balls, there’s only one solution: practice! Okay, everyone, let’s all strike a racket-swinging pose! Whoosh! Whoosh!
+Also, I see you tweaked the parameters to make me more entertaining! Thanks! But even after raising the temperature, you still didn’t get “Tangosta”… Huh? So it’s not my personality—it’s the AI’s search function that’s the problem!? There are so many things to point out here! Hahaha!
 
-Whaaaat!? Where did the English vocabulary go!? (lol)
-You’re motivated, but you’ve lost your way just a little bit!
-Still, I’m really rooting for that kind-hearted desire to make things easier for everyone!
+Even when it comes to tricky technical stuff, you can get through it as long as you’ve got the energy! Alright, let’s keep smiling today too!
 
-Today’s Takeaway: Even if your goal and the actual content don’t match, just take that first step!
+Today’s Tip: Instead of diving into complicated settings, let’s start with a deep breath!
 <!-- DISCUSS_COACH_END -->
