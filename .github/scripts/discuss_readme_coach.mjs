@@ -324,7 +324,7 @@ async function cfAiChat({ accountId, apiToken, model, messages }) {
       Authorization: `Bearer ${apiToken}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ messages }),
+    body: JSON.stringify({ messages, temperature }),
   });
 
   const json = await res.json().catch(() => null);
@@ -448,7 +448,7 @@ query($owner:String!, $repo:String!, $after:String) {
 要件:
 - 300文字前後（±80文字くらいはOK）
 - 適切な位置で改行
-- 「昨日のまとめ」に対する優しいツッコミ（コメディアン寄り）
+- 「昨日のまとめ」に対する優しいツッコミ,任意で！（コメディアン寄り）
 - 天気にも一言触れてOK（無理に入れなくてもOK）
 - 「今日の一言」（最後に「今日の一言：...」の形式で1文）
 - 固有名詞やURLは無理に入れなくてOK（入れるなら1つまで）
@@ -467,6 +467,7 @@ ${source}
           { role: "system", content: system },
           { role: "user", content: user },
         ],
+       temperature:0.7,
       });
 
       finalText = text;
