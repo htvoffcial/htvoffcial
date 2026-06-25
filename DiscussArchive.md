@@ -591,3 +591,10 @@
 
 - [英単語頑張るぞ](https://github.com/htvoffcial/htvoffcial/discussions/173)
   - タンゴスタ、電波弱い人向けにアプリ化したら便利そう、公式さんよろしく“…”
+
+## 2026-06-25
+
+- [卓球上手くなりたいよ！](https://github.com/htvoffcial/htvoffcial/discussions/175)
+  - 早い球を返せないー“…”
+- [お兄さんが最近面白くなくなったから](https://github.com/htvoffcial/htvoffcial/discussions/174)
+  - Temperature爆上げと、コンテキストを調整したぞ！面白いことを言って！ 追伸:さっき、プロンプトと温度のパラメタを変えてみたけど、変わんなかったんだよね“…”
