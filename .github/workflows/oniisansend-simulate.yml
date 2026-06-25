@@ -1,4 +1,4 @@
-name: Oniisan Send data simulate
+name: Simulate Oniisan Send datas
 
 on:
   workflow_dispatch:
@@ -17,41 +17,123 @@ jobs:
           node-version: 20
 
       - name: Run simulation
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
         run: |
+          # 念のため node-fetch をローカルインストール
+          npm install node-fetch
+          
           node <<'EOF'
-          // ===== 本番コードのチャット内容生成を再現 =====
+          import fetch from "node-fetch";
 
-          const dayJst = "2026-06-24"; // 適当な日付（必要なら変更）
-          const dominantWeather = { label: "晴れ（テスト）" };
+          // ====== GitHub GraphQL から Discussions を取得 ======
+
+          const GH_TOKEN = process.env.GH_TOKEN;
+          const OWNER = process.env.OWNER;
+          const REPO = process.env.REPO;
+
+          if (!GH_TOKEN) {
+            console.error("GH_TOKEN が設定されていません");
+            process.exit(1);
+          }
+
+          const query = `
+          query($owner:String!, $repo:String!, $after:String) {
+            repository(owner:$owner, name:$repo) {
+              discussions(first:20, after:$after, orderBy:{field:CREATED_AT, direction:DESC}) {
+                pageInfo { hasNextPage endCursor }
+                nodes { title url createdAt bodyText }
+              }
+            }
+          }
+          `;
+
+          async function ghGraphql(after = null) {
+            const res = await fetch("https://api.github.com/graphql", {
+              method: "POST",
+              headers: {
+                Authorization: `bearer ${GH_TOKEN}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ query, variables: { owner: OWNER, repo: REPO, after } }),
+            });
+
+            if (!res.ok) {
+              console.error("GitHub GraphQL error", await res.text());
+              process.exit(1);
+            }
+            return res.json();
+          }
+
+          // ====== 昨日(JST)の範囲を計算 ======
+
+          function getYesterdayJstRangeUtc() {
+            const now = new Date();
+            const nowJst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+            const y = new Date(Date.UTC(nowJst.getUTCFullYear(), nowJst.getUTCMonth(), nowJst.getUTCDate() - 1));
+            const yyyy = y.getUTCFullYear();
+            const mm = String(y.getUTCMonth() + 1).padStart(2, "0");
+            const dd = String(y.getUTCDate()).padStart(2, "0");
+            const dayJst = `${yyyy}-${mm}-${dd}`;
+
+            const startUtc = new Date(`${dayJst}T00:00:00+09:00`).toISOString().replace(/\.\d{3}Z$/, "Z");
+            const endUtc = new Date(`${dayJst}T23:59:59+09:00`).toISOString().replace(/\.\d{3}Z$/, "Z");
+
+            return { dayJst, startUtc, endUtc };
+          }
+
+          const { dayJst, startUtc, endUtc } = getYesterdayJstRangeUtc();
+
+          // ====== Discussions を取得 ======
+
+          let after = null;
+          const nodes = [];
+
+          while (true) {
+            const data = await ghGraphql(after);
+            const page = data?.data?.repository?.discussions;
+            const list = page?.nodes || [];
+
+            for (const d of list) {
+              if (d.createdAt >= startUtc && d.createdAt <= endUtc) nodes.push(d);
+            }
+
+            if (!page || !page.pageInfo.hasNextPage) break;
+            after = page.pageInfo.endCursor;
+          }
+
+          // ====== プロンプト生成（本番と同じ構造） ======
 
           const system = `あなたは「体操のお兄さん」風の文章を書くプロです。
-トーンは優しめで、軽いコメディ（ツッコミ）を入れてください。
-誹謗中傷や攻撃的表現は避けてください。`;
+          トーンは優しめで、軽いコメディ（ツッコミ）を入れてください。
+          誹謗中傷や攻撃的表現は避けてください。`;
 
-          const fakeSource = `【テスト投稿】
-URL: https://example.com
-本文(抜粋):
-これはテスト用の本文です。`;
+          const fakeWeather = { label: "晴れ（テスト）" };
+
+          let source = "";
+          for (const d of nodes) {
+            source += `【${d.title}】\nURL: ${d.url}\n本文(抜粋):\n${d.bodyText.slice(0, 300)}\n\n`;
+          }
 
           const user = `
-昨日（JST: ${dayJst}）の松戸市の日中の天気は ${dominantWeather.label} でした。
+          昨日（JST: ${dayJst}）の松戸市の日中の天気は ${fakeWeather.label} でした。
 
-以下は昨日（JST: ${dayJst}）に投稿されたGitHub Discussionsです。本文は抜粋で、長文は省略されています。
-この内容を踏まえて、次を日本語で生成してください。
+          以下は昨日（JST: ${dayJst}）に投稿されたGitHub Discussionsです。本文は抜粋で、長文は省略されています。
+          この内容を踏まえて、次を日本語で生成してください。
 
-要件:
-- 300文字前後（±80文字くらいはOK）
-- 適切な位置で改行
-- 「昨日のまとめ」に対する優しいツッコミ,任意で！（コメディアン寄り）
-- 天気にも一言触れてOK（無理に入れなくてもOK）
-- 「今日の一言」（最後に「今日の一言：...」の形式で1文）
-- 固有名詞やURLは無理に入れなくてOK（入れるなら1つまで）
-- 出力は文章だけ（箇条書きや見出しは不要）
-- コメディアンでユーモラスに
-- あなたは体操のお兄さんです！元気もりもり！
-Discussions（抜粋、合計 100 文字）:
-${fakeSource}
-`.trim();
+          要件:
+          - 300文字前後（±80文字くらいはOK）
+          - 適切な位置で改行
+          - 「昨日のまとめ」に対する優しいツッコミ（任意）
+          - 天気にも一言触れてOK
+          - 「今日の一言」を最後に
+          - コメディアンでユーモラスに
+          - あなたは体操のお兄さんです！
+          Discussions（抜粋）:
+          ${source}
+          `.trim();
 
           const messages = [
             { role: "system", content: system },
