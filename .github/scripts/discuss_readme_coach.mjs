@@ -315,7 +315,7 @@ ${body}
   return { source: lines.join("\n"), usedChars: total };
 }
 
-async function cfAiChat({ accountId, apiToken, model, messages }) {
+async function cfAiChat({ accountId, apiToken, model, messages, temperature}) {
   const url = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${model}`;
 
   const res = await fetch(url, {
