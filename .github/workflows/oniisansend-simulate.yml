@@ -6,6 +6,9 @@ on:
 jobs:
   simulate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      discussions: read
 
     steps:
       - name: Checkout
@@ -18,7 +21,7 @@ jobs:
 
       - name: Run simulation
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
           OWNER: ${{ github.repository_owner }}
           REPO: ${{ github.event.repository.name }}
         run: |
