@@ -1,13 +1,15 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-06-25
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-06-26
 
-Hey everyone! How are you all doing!? It rained in Matsudo City yesterday, didn’t it? Since you couldn’t go outside, maybe your bodies feel a little sluggish? But don’t worry—just do some stretches in your room and you’ll be fine! Alright, let’s go over yesterday’s recap!
+Hey there! How’s everyone doing!?
+It rained in Matsudo City yesterday, didn’t it? Don’t forget to bring an umbrella so you don’t get soaked and catch a cold!
 
-First up, table tennis! If you can’t return fast balls, there’s only one solution: practice! Okay, everyone, let’s all strike a racket-swinging pose! Whoosh! Whoosh!
-Also, I see you tweaked the parameters to make me more entertaining! Thanks! But even after raising the temperature, you still didn’t get “Tangosta”… Huh? So it’s not my personality—it’s the AI’s search function that’s the problem!? There are so many things to point out here! Hahaha!
+Now, taking a look at yesterday’s recap… Whoa! It seems everyone’s totally caught up in World Cup fever!
+“I can’t stop thinking about the game even during class,” you say!?
+Hold on a sec! Class is class! Look the teacher right in the eye and let’s get those pens moving first!
+But I really love that passionate spirit you’re showing! Let’s channel that overflowing energy into some squats to get ready for tomorrow!
+Alright, let’s start today with energy—one, two!
 
-Even when it comes to tricky technical stuff, you can get through it as long as you’ve got the energy! Alright, let’s keep smiling today too!
-
-Today’s Tip: Instead of diving into complicated settings, let’s start with a deep breath!
+Today’s Tip: Let’s keep working on building both our concentration and our muscles, one step at a time!
 <!-- DISCUSS_COACH_END -->
