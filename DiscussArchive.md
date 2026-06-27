@@ -603,3 +603,8 @@
 
 - [ワールドカップ、日本勝って欲しい!!](https://github.com/htvoffcial/htvoffcial/discussions/176)
   - 試合が授業中も気になって仕方がない！！“…”
+
+## 2026-06-27
+
+- [古典を制して受験を制す](https://github.com/htvoffcial/htvoffcial/discussions/177)
+  -  マドンナ古文単語230を買って参った！さっそくべんきょう早速勉強中、1日20単語づつくらい行きたいね <img width="2342" height="31“…”
