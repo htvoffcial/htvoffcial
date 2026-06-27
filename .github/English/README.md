@@ -1,15 +1,23 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-06-26
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-06-27
 
 Hey there! How’s everyone doing!?
-It rained in Matsudo City yesterday, didn’t it? Don’t forget to bring an umbrella so you don’t get soaked and catch a cold!
+Let’s stretch our minds and bodies with energy again today!
 
-Now, taking a look at yesterday’s recap… Whoa! It seems everyone’s totally caught up in World Cup fever!
-“I can’t stop thinking about the game even during class,” you say!?
-Hold on a sec! Class is class! Look the teacher right in the eye and let’s get those pens moving first!
-But I really love that passionate spirit you’re showing! Let’s channel that overflowing energy into some squats to get ready for tomorrow!
-Alright, let’s start today with energy—one, two!
+It rained in Matsudo City yesterday, didn’t it?
+It was drizzling outside—maybe perfect weather for taking it easy at home?
 
-Today’s Tip: Let’s keep working on building both our concentration and our muscles, one step at a time!
+Now, let’s take a look at yesterday’s recap!
+…Wait, the title is “Master the Classics to Master the Entrance Exams”!?
+That sounds like a super intense, almost ascetic title!
+But the actual content says, “I bought a vocabulary book and am studying!”
+The title and the level of determination are way too different! Hahaha!
+Still, your goal of 20 words a day is really great!
+Let’s work on building up our brains too!
+
+Alright, let’s tackle today with a smile!
+Ready, go!
+
+Today’s Quote: You’re the coolest person in the world for taking on new challenges!
 <!-- DISCUSS_COACH_END -->
