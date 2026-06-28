@@ -608,3 +608,10 @@
 
 - [古典を制して受験を制す](https://github.com/htvoffcial/htvoffcial/discussions/177)
   -  マドンナ古文単語230を買って参った！さっそくべんきょう早速勉強中、1日20単語づつくらい行きたいね <img width="2342" height="31“…”
+
+## 2026-06-28
+
+- [古典単語1](https://github.com/htvoffcial/htvoffcial/discussions/179)
+  - かたはらいたし、恥ずかしい・見苦しい わりなし、どうしようもない・筋道が立たない・無理だ めやすし、見苦しくない・見た目が良い まめなり、真面目な様・誠実な様 “…”
+- [ひじきって何でこんなに美味しいんだ](https://github.com/htvoffcial/htvoffcial/discussions/178)
+  - ひじき毎日お弁当にも入れてるけど、無くなると禁断症状でそう(言い過ぎ)“…”
