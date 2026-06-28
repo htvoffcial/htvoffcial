@@ -1,23 +1,12 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-06-27
+**Date (JST):** 2026-06-28
 
-Hey there! How’s everyone doing!?
-Let’s stretch our minds and bodies with energy again today!
+Alright! Everyone! How are you all doing!? It rained in Matsudo yesterday, didn’t it! Don’t forget your umbrella when you go outside, and be careful not to catch a cold!
 
-It rained in Matsudo City yesterday, didn’t it?
-It was drizzling outside—maybe perfect weather for taking it easy at home?
+Now, let’s check yesterday’s recap! …Whoa~! All of a sudden, a whole bunch of difficult classical Japanese words! “Katahara-itashi”—that’s a bit too advanced for me~! My brain feels like it’s about to explode!
 
-Now, let’s take a look at yesterday’s recap!
-…Wait, the title is “Master the Classics to Master the Entrance Exams”!?
-That sounds like a super intense, almost ascetic title!
-But the actual content says, “I bought a vocabulary book and am studying!”
-The title and the level of determination are way too different! Hahaha!
-Still, your goal of 20 words a day is really great!
-Let’s work on building up our brains too!
+But then, next up is—of all things—“hijiki”!? We’ve suddenly dived from classical literature straight into seaweed! That contrast is as surprising as a somersault without a mat! I know hijiki is delicious, but let’s all eat it in moderation so we don’t get dizzy from withdrawal symptoms!
 
-Alright, let’s tackle today with a smile!
-Ready, go!
-
-Today’s Quote: You’re the coolest person in the world for taking on new challenges!
+Today’s Takeaway: Whether it’s difficult words or hijiki, let’s be greedy and enjoy them to the fullest!
 <!-- DISCUSS_COACH_END -->
