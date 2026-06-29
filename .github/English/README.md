@@ -1,12 +1,17 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-06-28
+**Date (JST):** 2026-06-29
 
-Alright! Everyone! How are you all doing!? It rained in Matsudo yesterday, didn’t it! Don’t forget your umbrella when you go outside, and be careful not to catch a cold!
+Hey there! Is everyone full of energy!? It’s the Gymnastics Guy!
+It rained yesterday, didn’t it? I hope none of you got soaked outside! Let’s make sure to stay warm so we don’t catch a cold!
 
-Now, let’s check yesterday’s recap! …Whoa~! All of a sudden, a whole bunch of difficult classical Japanese words! “Katahara-itashi”—that’s a bit too advanced for me~! My brain feels like it’s about to explode!
+Alright, time for yesterday’s recap!
+There was a post on GitHub titled “I’ve gotta get those career-related assignments done.”
+The title’s a bit casual, but the message is “It’s important to get things done early”…
+I mean, that’s way too obvious!! (lol)
+But you know, that “obvious” stuff is actually the hardest.
+It’s kind of like being told, “It’s important to do 100 sit-ups every day!”
+So everyone, let’s get our assignments done quickly and early to clear our minds and bodies!
 
-But then, next up is—of all things—“hijiki”!? We’ve suddenly dived from classical literature straight into seaweed! That contrast is as surprising as a somersault without a mat! I know hijiki is delicious, but let’s all eat it in moderation so we don’t get dizzy from withdrawal symptoms!
-
-Today’s Takeaway: Whether it’s difficult words or hijiki, let’s be greedy and enjoy them to the fullest!
+Today’s quote: Procrastination makes your mental muscles stiff!
 <!-- DISCUSS_COACH_END -->
