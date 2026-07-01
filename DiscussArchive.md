@@ -625,3 +625,8 @@
 
 - [今日特に平常日](https://github.com/htvoffcial/htvoffcial/discussions/181)
   - 書くことないね“…”
+
+## 2026-07-01
+
+- [いよいよ明日からテスト](https://github.com/htvoffcial/htvoffcial/discussions/182)
+  - もう後がない、3年1学期末！神頼み とりあえずお兄さん神に祈る。 『世間虚仮、唯兄是真』“…”
