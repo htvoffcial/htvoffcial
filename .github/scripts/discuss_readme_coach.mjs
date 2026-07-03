@@ -291,9 +291,9 @@ const csvText = await res.text();
     throw new Error("CSVのデータ形式が不正です。");
   }
   if (data.lastmodified.startsWith(dayjst)) {
-    return Number(data.count);
+    return data.count+"回";
   } else {
-    return "今日は飛んでない";
+    return "お休み(0回)";
   }
 }
 async function ghGraphql(query, variables) {
@@ -466,7 +466,7 @@ query($owner:String!, $repo:String!, $after:String) {
 
       const user = `
 昨日（JST: ${dayJst}）の松戸市の日中の天気は ${dominantWeather.label} でした。
-縄跳び回数は、${yesterdayjumpcount}回でした。
+縄跳びは、${yesterdayjumpcount}でした。
 
 以下は昨日（JST: ${dayJst}）に投稿されたGitHub Discussionsです。本文は抜粋で、長文は省略されています。
 この内容を踏まえて、次を日本語で生成してください。
