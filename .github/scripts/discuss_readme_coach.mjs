@@ -413,9 +413,7 @@ async function main() {
     amedasPoint: AMEDAS_POINT,
     dayJst,
   });
-const { yesterdayjumpcount } = await getNawatobi({
-    dayJst
-  });
+  const yesterdayjumpcount = await getNawatobi(dayJst);
   console.log(`天気サマリー(AMeDAS): ${dominantWeather.icon} ${dominantWeather.label} (雨: ${rainyHoursCount}h)`);
 
   const query = `
