@@ -274,12 +274,10 @@ async function getNawatobi(dayjst) {
   const res = await fetch("https://harutv.stars.ne.jp/jumprope/count.csv", {
     method: "GET"
   });
-
+const csvText = await res.text();
   if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`NawatobiGetError error: ${res.status} ${text}`);
+    throw new Error(`NawatobiGetError error: ${res.status} ${csvText}`);
   }
-  const csvText = await res.text();
   const data = {};
   const lines = csvText.split(/\r?\n/);
   for (const line of lines) {
