@@ -270,7 +270,7 @@ function getYesterdayJstRangeUtc() {
 
   return { dayJst, startUtc, endUtc };
 }
-async function getNawatobi(startUtc) {
+async function getNawatobi(dayJst) {
   const res = await fetch("https://harutv.stars.ne.jp/jumprope/count.csv", {
     method: "GET"
   });
@@ -278,6 +278,7 @@ async function getNawatobi(startUtc) {
   if (!res.ok) {
     throw new Error(`NawatobiGetError error: ${res.status} ${csvText}`);
   }
+  
   const data = {};
   const lines = csvText.split(/\r?\n/);
   for (const line of lines) {
@@ -291,24 +292,14 @@ async function getNawatobi(startUtc) {
     throw new Error("CSVのデータ形式が不正です。");
   }
 
-  // 1. CSVの日時（JST想定）をDateオブジェクトに変換（スラッシュをハイフンに置換してパースしやすくする）
-  const normalizedDateStr = data.lastmodified.replaceAll("/", "-");
-  const modifiedDate = new Date(normalizedDateStr);
+  // 1. CSVの "2026/07/04 18:03(+09:00)" から日付部分（スペースより前）だけを切り出す
+  const csvDatePart = data.lastmodified.split(" ")[0]; // -> "2026/07/04"
 
-  // 2. 判定対象となる昨日（JST）の日付文字列（YYYY-MM-DD）を startUtc（ISO形式）の先頭から切り出す
-  // 例: "2026-07-04T15:00:00Z" -> "2026-07-04"
-  const targetDayJst = startUtc.substring(0, 10);
+  // 2. スラッシュをハイフンに変換して形式を統一する
+  const csvDateJst = csvDatePart.replaceAll("/", "-"); // -> "2026-07-04"
 
-  // 3. CSVの更新日時を「日本時間の YYYY-MM-DD」形式にする
-  const modifiedDayJst = modifiedDate.toLocaleDateString('ja-JP', {
-    timeZone: 'Asia/Tokyo',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit'
-  }).replaceAll("/", "-"); // "2026/07/04" -> "2026-07-04"
-
-  // 4. 同じ日付（JST）であれば回数を、違っていればお休みを返す
-  if (modifiedDayJst === targetDayJst) {
+  // 3. 対象日（dayJst）とCSVの更新日が完全に一致するか判定する
+  if (csvDateJst === dayJst) {
     return data.count + "回";
   } else {
     return "お休み(0回)";
@@ -429,7 +420,7 @@ async function main() {
     amedasPoint: AMEDAS_POINT,
     dayJst,
   });
-  const yesterdayjumpcount = await getNawatobi(startUtc);
+  const yesterdayjumpcount = await getNawatobi(dayJst);
   console.log(`天気サマリー(AMeDAS): ${dominantWeather.icon} ${dominantWeather.label} (雨: ${rainyHoursCount}h)`);
 
   const query = `
