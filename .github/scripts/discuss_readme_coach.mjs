@@ -274,7 +274,7 @@ async function getNawatobi(startUtc) {
   const res = await fetch("https://harutv.stars.ne.jp/jumprope/count.csv", {
     method: "GET"
   });
-const csvText = await res.text();
+  const csvText = await res.text();
   if (!res.ok) {
     throw new Error(`NawatobiGetError error: ${res.status} ${csvText}`);
   }
@@ -290,24 +290,29 @@ const csvText = await res.text();
   if (!data.lastmodified || !data.count) {
     throw new Error("CSVのデータ形式が不正です。");
   }
- // 1. data.lastmodified（ミリ秒または日時文字列）から9時間分のミリ秒を引く
-const modifiedTime = new Date(data.lastmodified).getTime() - (9 * 60 * 60 * 1000);
-const adjustedDate = new Date(modifiedTime);
 
-// 2. 計算後の日付を "YYYY/MM/DD" の形式の文字列に変換する
-const formattedDate = adjustedDate.toLocaleDateString('ja-JP', {
-  year: 'numeric',
-  month: '2-digit',
-  day: '2-digit'
-});
+  // 1. CSVの日時（JST想定）をDateオブジェクトに変換（スラッシュをハイフンに置換してパースしやすくする）
+  const normalizedDateStr = data.lastmodified.replaceAll("/", "-");
+  const modifiedDate = new Date(normalizedDateStr);
 
-// 3. 変換した文字列が、指定した判定基準（startUtc）で始まるか比較する
-if (formattedDate.startsWith(startUtc)) {
-  return data.count + "回";
-} else {
-  return "お休み(0回)";
-}
- 
+  // 2. 判定対象となる昨日（JST）の日付文字列（YYYY-MM-DD）を startUtc（ISO形式）の先頭から切り出す
+  // 例: "2026-07-04T15:00:00Z" -> "2026-07-04"
+  const targetDayJst = startUtc.substring(0, 10);
+
+  // 3. CSVの更新日時を「日本時間の YYYY-MM-DD」形式にする
+  const modifiedDayJst = modifiedDate.toLocaleDateString('ja-JP', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).replaceAll("/", "-"); // "2026/07/04" -> "2026-07-04"
+
+  // 4. 同じ日付（JST）であれば回数を、違っていればお休みを返す
+  if (modifiedDayJst === targetDayJst) {
+    return data.count + "回";
+  } else {
+    return "お休み(0回)";
+  }
 }
 async function ghGraphql(query, variables) {
   const res = await fetch("https://api.github.com/graphql", {
