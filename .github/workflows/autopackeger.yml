@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 22
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
@@ -37,7 +37,14 @@ jobs:
       - name: Test
         run: npm test --if-present
 
-      - name: Publish to npm
-        run: npm publish --access public
+      - name: Verify npm auth and registry
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm whoami
+          npm config get registry
+
+      - name: Publish to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public
