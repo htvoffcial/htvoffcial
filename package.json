@@ -1,13 +1,14 @@
 {
-  "name": "@htvoffcial/htvoffcial",
-  "version": "1.0.0",
+  "name": "htvoffcial",
+  "version": "1.1.1.2",
   "description": "はるはるの憩",
   "main": ".github/scripts/discuss_readme_coach.mjs",
   "files": [
     ""
   ],
   "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "license": "MIT"
+  "license": "SSPL-1.0"
 }
