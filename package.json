@@ -1,0 +1,13 @@
+{
+  "name": "@htvoffcial/htvoffcial",
+  "version": "1.0.0",
+  "description": "はるはるの憩",
+  "main": ".github/scripts/",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
+}
