@@ -270,7 +270,7 @@ function getYesterdayJstRangeUtc() {
 
   return { dayJst, startUtc, endUtc };
 }
-async function getNawatobi(dayjst) {
+async function getNawatobi(startUtc) {
   const res = await fetch("https://harutv.stars.ne.jp/jumprope/count.csv", {
     method: "GET"
   });
@@ -290,11 +290,24 @@ const csvText = await res.text();
   if (!data.lastmodified || !data.count) {
     throw new Error("CSVのデータ形式が不正です。");
   }
-  if (data.lastmodified.startsWith(dayjst)) {
-    return data.count+"回";
-  } else {
-    return "お休み(0回)";
-  }
+ // 1. data.lastmodified（ミリ秒または日時文字列）から9時間分のミリ秒を引く
+const modifiedTime = new Date(data.lastmodified).getTime() - (9 * 60 * 60 * 1000);
+const adjustedDate = new Date(modifiedTime);
+
+// 2. 計算後の日付を "YYYY/MM/DD" の形式の文字列に変換する
+const formattedDate = adjustedDate.toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit'
+});
+
+// 3. 変換した文字列が、指定した判定基準（startUtc）で始まるか比較する
+if (formattedDate.startsWith(startUtc)) {
+  return data.count + "回";
+} else {
+  return "お休み(0回)";
+}
+ 
 }
 async function ghGraphql(query, variables) {
   const res = await fetch("https://api.github.com/graphql", {
@@ -411,7 +424,7 @@ async function main() {
     amedasPoint: AMEDAS_POINT,
     dayJst,
   });
-  const yesterdayjumpcount = await getNawatobi(dayJst);
+  const yesterdayjumpcount = await getNawatobi(startUtc);
   console.log(`天気サマリー(AMeDAS): ${dominantWeather.icon} ${dominantWeather.label} (雨: ${rainyHoursCount}h)`);
 
   const query = `
