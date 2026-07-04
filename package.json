@@ -1,6 +1,6 @@
 {
   "name": "htvoffcial",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "はるはるの憩",
   "main": ".github/scripts/discuss_readme_coach.mjs",
   "files": [
