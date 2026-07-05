@@ -1,20 +1,20 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-07-04
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-07-05
 
-Hey there, everyone! Are you all full of energy!?
+Hey, everyone! How’s it going!?
+Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, clear day!
+372 skips! Amazing! That’s so awesome!
 
-Yesterday in Matsudo City, it was bright and sunny! …Or so it should have been,
-but it looks like you got caught in a little rain, didn’t you?
-Maybe the weather forecast took a little break!? Just kidding! Haha!
+But wait a minute!
+Even though yesterday’s recap was so full of energy,
+there was a post on the GitHub forum that made me go, “Oh no!”
+Someone forgot about an exam and ended up paying 6,000 yen…
+Oops—that must be a real shock.
 
-Also, zero skips on the jump rope! But you said you “moved around quite a bit”…
-Could that be a new event called “Stealth Jump Rope”!?
-I can’t keep up with all the jokes! Hahaha!
+But don’t be too hard on yourself!
+That frustration is proof that you’re giving it your all.
+Take a deep breath, smile, and tell yourself, “Next time, I’ll definitely get it right!”
 
-It was tough waking up to the buzzing of mosquitoes,
-but whether you went to school or out and about, your muscles are happy because you got some exercise!
-Alright, let’s go with a smile today too!
-
-Today’s Quote: Let’s laugh so loudly it drowns out the sound of mosquitoes!
+Today’s quote: Failure is just the running start you need to jump even higher!
 <!-- DISCUSS_COACH_END -->
