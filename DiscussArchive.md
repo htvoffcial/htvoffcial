@@ -645,3 +645,8 @@
 
 - [期末考査とかオープンキャンパス立て込んでて管理しきれずに英検二次の予定忘れてた](https://github.com/htvoffcial/htvoffcial/discussions/185)
   - まじで怒り狂いそう、何より6千円無駄にしたのが親に申し訳ない“…”
+
+## 2026-07-06
+
+- [お兄さんのライブラリ化](https://github.com/htvoffcial/htvoffcial/discussions/186)
+  - npmパッケージ化するのむずい“…”
