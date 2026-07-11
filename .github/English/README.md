@@ -1,21 +1,21 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-07-10
+**Date (JST):** 2026-07-11
 
-Hey, everyone! Are you all doing your exercises with energy!?
-Yesterday in Matsudo City, it was a beautiful, sunny day with the sun shining brightly!
-You even did 1,886 skips! That’s an amazing record—clap clap clap!
+Hey there! Is everyone full of energy!?
+Yesterday in Matsudo City, it was a sunny day with the sun shining brightly!
 
-It seems you were a little worried on the message board that “the thread isn’t coming together,”
-but don’t worry! It’s best to just keep going at a relaxed pace, like a diary!
+But seriously, 1,238 skips… wait a minute!
+Are you some kind of vaulting box god or something!?
+Just 100 skips and my knees are already shaking! That’s just too amazing!
 
-…Wait a minute!
-Your goal for tomorrow is “20,000 jumps in 30 minutes”…!?
-That’s not even jump rope anymore—it’s like high-speed spinning training! Haha
-Your legs will turn into springs, so don’t push yourself too hard!
+Oh, and “Achoo!”—is someone coming down with a cold?
+Are you okay? Take care of yourself!
+It seems the heatwave is making chargers get hot too,
+so let’s keep our batteries out of direct sunlight and let them rest in a cool place.
+It’d be a disaster if a fire broke out!
 
-Everyone, make sure to get your entries in to the coordinator early, too!
-Alright, let’s go at it with lots of energy today!
+Alright, let’s go with a smile today too!
 
-Today’s Tip: Don’t set your goals so high that you end up flying off into the sky!
+Today’s Tip: Don’t forget to stay hydrated, and let’s have fun without pushing ourselves too hard!
 <!-- DISCUSS_COACH_END -->
