@@ -689,3 +689,8 @@
 
 - [暑いね、夏休みも近づいてまいりました。](https://github.com/htvoffcial/htvoffcial/discussions/195)
   - ハンディーファンを買おうかと、ネットショッピングに指が伸びる…“…”
+
+## 2026-07-15
+
+- [手に豆](https://github.com/htvoffcial/htvoffcial/discussions/196)
+  - 最近手にずっとマメできてるけど、球技のラケットを持っているのが原因だと思ったら、自転車のハンドル強く握りすぎてたのが原因だったっぽい。“…”
