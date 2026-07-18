@@ -704,3 +704,8 @@
 
 - [校長先生の話で釣りの話始まって](https://github.com/htvoffcial/htvoffcial/discussions/198)
   - ドライフライフィッシング(フライフィッシング)を久々に夏休みにやるそう。静かに針を下ろし、そこに生きた虫が弱って落ちたように見せる必要がある。何気ないものも、よ“…”
+
+## 2026-07-18
+
+- [夏休み一日目](https://github.com/htvoffcial/htvoffcial/discussions/199)
+  - 部屋が相変わらず汚いので片付けから始まってしまった..“…”
