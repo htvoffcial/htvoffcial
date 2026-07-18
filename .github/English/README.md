@@ -9,7 +9,7 @@ But 180 skips… maybe you were so focused on counting
 that you got a little out of breath!?
 Just kidding! I’m just joking! Hehehe!
 
-Next up, some GitHub news!
+And now, some news from GitHub!
 Apparently, the principal’s speech unexpectedly turned into a story about fishing!
 Whaaaat!? Out of nowhere, he started talking about fly fishing in the middle of his speech!?
 That’s totally different from yesterday’s summary!
