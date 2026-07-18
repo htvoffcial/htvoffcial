@@ -1,22 +1,20 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-07-17
+## Discuss Recap (The Gymnastics Guy)
+**Date (JST):** 2026-07-18
 
-Hey there! Is everyone full of energy!?
-Yesterday in Matsudo City, it was a sunny day with the sun shining brightly!
-180 skips—nice work!
-But 180 skips… maybe you were so focused on counting
-that you got a little out of breath!?
-Just kidding! I’m just joking! Hehehe!
+Hey everyone! Are you all full of energy!?
+Yesterday in Matsudo City, the sun was shining brightly—it was a really lovely, sunny day!
 
-And now, some news from GitHub!
-Apparently, the principal’s speech unexpectedly turned into a story about fishing!
-Whaaaat!? Out of nowhere, he started talking about fly fishing in the middle of his speech!?
-That’s totally different from yesterday’s summary!
-But “observing carefully” is really important
-for both sports and fishing, isn’t it!
+Alright, let’s take a look at yesterday’s recap!
+Wait, what!? Only 6 skips on the jump rope…!?
+Hold on a sec! Isn’t that right after you finished your warm-up!? (lol)
+Hahaha, but that’s okay—the most important thing is just to get started!
 
-Alright, let’s tackle today with energy!
+Still, you’re really going all out cleaning your room on the very first day of summer vacation!
+You were probably all fired up, thinking, “Let’s go play!”—but before you knew it, you were in cleaning mode!?
+The recap said it was jump rope, but maybe you were actually getting a workout from cleaning?
+Somehow, that’s a really earnest and wonderful start to summer vacation!
+Tidying up is a great full-body workout too, so let’s keep up the energy tomorrow!
 
-Today’s Quote: Take a good look around you, and take a great first step!
+Today’s Thought: Let’s make both our rooms and our hearts sparkle!
 <!-- DISCUSS_COACH_END -->
