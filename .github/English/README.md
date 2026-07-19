@@ -1,20 +1,23 @@
 
-## Discuss Recap (The Gymnastics Guy)
-**Date (JST):** 2026-07-18
+## Discuss Summary (Gymnastics Instructor)
+**Date (JST):** 2026-07-19
 
-Hey everyone! Are you all full of energy!?
-Yesterday in Matsudo City, the sun was shining brightly—it was a really lovely, sunny day, wasn’t it!
+Alright! Everyone! How are you all doing!?
+Yesterday in Matsudo City, it was a sunny day with the sun shining brightly!
 
-Alright, let’s take a look at yesterday’s recap!
-Wait, what!? Only 6 skips on the jump rope…!?
-Hold on a sec! Isn’t that right after you finished your warm-up!? (lol)
-Hahaha, but that’s okay—the most important thing is just to get started!
+Um, let’s take a look at yesterday’s summary…
+“Skip rope: 0 times”!?
+Wait a minute! Is that even possible!? (lol)
+Maybe the jump rope went off to play somewhere?
 
-Still, you’re really going all out cleaning your room on the very first day of summer vacation!
-You were probably all fired up, thinking, “Let’s go play!”—but before you knew it, you were in cleaning mode!?
-The recap said it was jump rope, but maybe you were actually getting your body moving by cleaning?
-Somehow, that’s a really earnest and wonderful start to summer vacation!
-Tidying up is a great full-body workout too, so let’s keep up the energy tomorrow!
+But hey, but hey!
+You walked briskly all the way to Shinagawa Station and really got your body moving!
+That’s already a great workout!
+It’s so cool that you’re strengthening your legs and lower body instead of skipping rope!
 
-Today’s Quote: Let’s make both our rooms and our hearts sparkle!
+Just remember, it’s really hot outside, so please be extra careful not to get heatstroke.
+Use a handheld fan to your advantage and stay cool and energetic!
+Don’t push yourself too hard! Promise me!
+
+Today’s Tip: Instead of pushing yourself too hard, make sure to stay well-hydrated first!
 <!-- DISCUSS_COACH_END -->
