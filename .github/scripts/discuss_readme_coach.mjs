@@ -270,38 +270,75 @@ function getYesterdayJstRangeUtc() {
 
   return { dayJst, startUtc, endUtc };
 }
-async function getNawatobi(dayJst) {
-  const res = await fetch("https://harutv.stars.ne.jp/jumprope/count.csv", {
-    method: "GET"
-  });
-  const csvText = await res.text();
-  if (!res.ok) {
-    throw new Error(`NawatobiGetError error: ${res.status} ${csvText}`);
-  }
-  
-  const data = {};
-  const lines = csvText.split(/\r?\n/);
-  for (const line of lines) {
-    const [key, ...valueParts] = line.split(':');
-    if (key && valueParts.length > 0) {
-      data[key.trim()] = valueParts.join(':').trim();
+
+async function safeFetchText(url, { timeoutMs = 10000, retries = 2 } = {}) {
+  let lastErr;
+
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+      const res = await fetch(url, {
+        method: "GET",
+        signal: controller.signal,
+      });
+
+      const text = await res.text();
+      return { res, text };
+    } catch (e) {
+      lastErr = e;
+
+      if (attempt < retries) {
+        const backoffMs = 500 * (attempt + 1);
+        await new Promise((r) => setTimeout(r, backoffMs));
+      }
+    } finally {
+      clearTimeout(timer);
     }
   }
 
-  if (!data.lastmodified || !data.count) {
-    throw new Error("CSVのデータ形式が不正です。");
-  }
+  throw lastErr;
+}
 
-  // 1. CSVの "2026/07/04 18:03(+09:00)" から日付部分（スペースより前）だけを切り出す
-  const csvDatePart = data.lastmodified.split(" ")[0]; // -> "2026/07/04"
+async function getNawatobi(dayJst) {
+  try {
+    const { res, text: csvText } = await safeFetchText("https://harutv.stars.ne.jp/jumprope/count.csv", {
+      timeoutMs: 12000,
+      retries: 2,
+    });
 
-  // 2. スラッシュをハイフンに変換して形式を統一する
-  const csvDateJst = csvDatePart.replaceAll("/", "-"); // -> "2026-07-04"
+    if (!res.ok) {
+      throw new Error(`NawatobiGetError error: ${res.status} ${csvText}`);
+    }
 
-  // 3. 対象日（dayJst）とCSVの更新日が完全に一致するか判定する
-  if (csvDateJst === dayJst) {
-    return data.count + "回";
-  } else {
+    const data = {};
+    const lines = csvText.split(/\r?\n/);
+    for (const line of lines) {
+      const [key, ...valueParts] = line.split(":");
+      if (key && valueParts.length > 0) {
+        data[key.trim()] = valueParts.join(":").trim();
+      }
+    }
+
+    if (!data.lastmodified || !data.count) {
+      throw new Error("CSVのデータ形式が不正です。");
+    }
+
+    // 1. CSVの "2026/07/04 18:03(+09:00)" から日付部分（スペースより前）だけを切り出す
+    const csvDatePart = data.lastmodified.split(" ")[0]; // -> "2026/07/04"
+
+    // 2. スラッシュをハイフンに変換して形式を統一する
+    const csvDateJst = csvDatePart.replaceAll("/", "-"); // -> "2026-07-04"
+
+    // 3. 対象日（dayJst）とCSVの更新日が完全に一致するか判定する
+    if (csvDateJst === dayJst) {
+      return data.count + "回";
+    } else {
+      return "お休み(0回)";
+    }
+  } catch (e) {
+    console.warn(`Nawatobi fetch/parse failed. fallback=お休み(0回) reason=${String(e?.message || e)}`);
     return "お休み(0回)";
   }
 }
