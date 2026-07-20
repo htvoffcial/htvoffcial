@@ -13,9 +13,9 @@ Maybe the jump rope went off to play somewhere?
 But hey, but hey!
 You walked briskly all the way to Shinagawa Station and really got your body moving!
 That’s already a great workout!
-It’s so cool that you’re strengthening your legs and lower body instead of skipping rope!
+It’s so cool that you’re strengthening your legs and core instead of skipping rope!
 
-Just remember, it’s really hot outside, so please be extra careful not to get heatstroke.
+Just be really careful about heatstroke—it’s super hot outside.
 Use a handheld fan to your advantage and stay cool and energetic!
 Don’t push yourself too hard! Promise me!
 
