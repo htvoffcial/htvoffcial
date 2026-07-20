@@ -714,3 +714,8 @@
 
 - [スケジュール上縄跳びできない分](https://github.com/htvoffcial/htvoffcial/discussions/200)
   - 健康づくりのため、いた場所から品川駅まで早歩き、いい運動になりました。 熱中症まじで気をつけてほしい、今日は扇子だったけどハンディファンも届いたし積極的に使おう“…”
+
+## 2026-07-20
+
+- [久々にCloudflareのログ見た](https://github.com/htvoffcial/htvoffcial/discussions/201)
+  - BotFightモード踏み抜きまくるDoS攻撃者多くて、ほんと驚くよね。“…”
