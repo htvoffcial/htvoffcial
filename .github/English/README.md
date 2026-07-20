@@ -1,23 +1,19 @@
 
-## Discuss Summary (Gymnastics Instructor)
-**Date (JST):** 2026-07-19
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-07-20
 
-Alright! Everyone! How are you all doing!?
-Yesterday in Matsudo City, it was a sunny day with the sun shining brightly!
+Hey, everyone! How’s everyone doing?
+Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, sunny day!
+Wasn’t it the perfect day for exercise?
 
-Um, let’s take a look at yesterday’s summary…
-“Skip rope: 0 times”!?
-Wait a minute! Is that even possible!? (lol)
-Maybe the jump rope went off to play somewhere?
+…Wait a minute!
+3,100 skips? Are you some kind of superhuman?!
+If I jumped that much, my legs would be shaking so much tomorrow morning that I wouldn’t even be able to stand up!
+That’s amazing—but it’s just too much!
 
-But hey, but hey!
-You walked briskly all the way to Shinagawa Station and really got your body moving!
-That’s already a great workout!
-It’s so cool that you’re strengthening your legs and core instead of skipping rope!
+Oh, and it looks like a monster called a DoS attack is running rampant in the online world.
+I hope you’ll take it down for good in BotFight mode!
+Let’s make sure to take good care of both our bodies and our security!
 
-Just be really careful about heatstroke—it’s super hot outside.
-Use a handheld fan to your advantage and stay cool and energetic!
-Don’t push yourself too hard! Promise me!
-
-Today’s Tip: Instead of pushing yourself too hard, make sure to stay well-hydrated first!
+Today’s Tip: If you’re planning any crazy jumps, make sure to check with your big brother first!
 <!-- DISCUSS_COACH_END -->
