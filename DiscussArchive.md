@@ -719,3 +719,8 @@
 
 - [久々にCloudflareのログ見た](https://github.com/htvoffcial/htvoffcial/discussions/201)
   - BotFightモード踏み抜きまくるDoS攻撃者多くて、ほんと驚くよね。“…”
+
+## 2026-07-22
+
+- [文化祭、1人でやってたら決して見えない世界](https://github.com/htvoffcial/htvoffcial/discussions/202)
+  - 受験ずくめのこの夏休み一番楽しい最後の文化祭準備。ダンボール頂いたお店の方、有難うございました！ “…”
