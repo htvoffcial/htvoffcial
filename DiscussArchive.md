@@ -734,3 +734,8 @@
 
 - [縄跳びシステム逝ってます](https://github.com/htvoffcial/htvoffcial/discussions/204)
   - 厳密に言えばお兄さんに情報を渡す手前の判定でやらかしてる。じっさい、今日も縄跳びできなかった。けど三千何百回とか、お兄さんが読み込んで言ってしまうのは、分岐処理“…”
+
+## 2026-07-25
+
+- [氷を冷やし続けると](https://github.com/htvoffcial/htvoffcial/discussions/205)
+  - 氷って圧力をかけて冷やし続けると氷Ⅻとかに変化するらしい“…”
