@@ -739,3 +739,10 @@
 
 - [氷を冷やし続けると](https://github.com/htvoffcial/htvoffcial/discussions/205)
   - 氷って圧力をかけて冷やし続けると氷Ⅻとかに変化するらしい“…”
+
+## 2026-07-26
+
+- [親知らず抜いた？](https://github.com/htvoffcial/htvoffcial/discussions/207)
+  - ストレスの歯軋りみたいなことになってて、親知らずがグラついて、スポッと抜ける夢見た“…”
+- [地名の読み方](https://github.com/htvoffcial/htvoffcial/discussions/206)
+  - San Jose(サンノゼ)のことを今まで「サンジョーズ」って読んでた“…”
