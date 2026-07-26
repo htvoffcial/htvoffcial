@@ -1,22 +1,14 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-07-25
+**Date (JST):** 2026-07-26
 
-Hey there! Is everyone full of energy!?
-Yesterday in Matsudo City, it was a sunny day with the sun shining brightly!
+Hey, everyone! How’s it going!? It’s me, the Gymnastics Guy!
 
-But wait a minute!
-You said you did “0 jumps” with the jump rope yesterday…
-Whaaaat?! No way~!
-I was so surprised, I almost fell over!
-Even just one jump—just one is fine! Let’s jump together next time!
+It rained in Matsudo City yesterday, didn’t it? The roundup said I didn’t do a single jump rope rep… but wait a minute!? The content of the discussions is totally different~!? It’s turned into a conversation about wisdom teeth and place names! (lol) But those kinds of unexpected twists are part of what makes every day fun, right?
 
-Also, I stumbled upon a mysterious story about ice!
-Apparently, when pressure is applied, it transforms into “Ice XII”!
-Ice evolving? That’s so cool—it’s just like a superhero!
-I’m going to do my best to have a smile as sparkling as ice, too!
+Dreaming about a wisdom tooth popping right out might be a little scary, but be careful not to grind your teeth! Also, calling San Jose “Sanjoz” actually has a kind of stylish ring to it—I think it’s pretty cool!
 
-Alright, let’s tackle today with energy!
+Alright, let’s tackle today with a smile! Ready, go!
 
-Today’s Tip: Let’s start with some warm-up exercises!
+Today’s Quote: It’s on days when things don’t go as planned that you make the most new discoveries!
 <!-- DISCUSS_COACH_END -->
