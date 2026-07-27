@@ -106,7 +106,7 @@ def cleanup_timestamp_workflows():
 def call_cf_generate(prompt, system_prompt="あなたは丁寧で簡潔な日本語アシスタントです。"):
     account = os.getenv("CF_ACCOUNT_ID", "")
     token = os.getenv("CF_API_TOKEN", "")
-    model = os.getenv("CF_MODEL", DEFAULT_CF_MODEL)
+    model = (os.getenv("CF_MODEL") or DEFAULT_CF_MODEL).strip()
 
     if not account or not token:
         print("[WARN] CF creds missing; fallback text.")
@@ -121,23 +121,70 @@ def call_cf_generate(prompt, system_prompt="あなたは丁寧で簡潔な日本
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt}
-        ]
+        ],
+        "max_tokens": 220,
+        "temperature": 0.7
     }
 
     try:
         r = requests.post(url, headers=headers, json=body, timeout=40)
         r.raise_for_status()
         data = r.json()
-        result = data.get("result", {})
+
+        # デバッグ（トークン等は含まない）
+        print("[DEBUG] CF response keys:", list(data.keys()))
+        if "result" in data:
+            print("[DEBUG] CF result type:", type(data["result"]).__name__)
+            try:
+                print("[DEBUG] CF result preview:", str(data["result"])[:500])
+            except Exception:
+                pass
+
+        result = data.get("result")
+
+        # 1) result が文字列
+        if isinstance(result, str) and result.strip():
+            return result.strip()
+
+        # 2) dict パターン
         if isinstance(result, dict):
-            if isinstance(result.get("response"), str):
-                return result["response"].strip()
-            if isinstance(result.get("text"), str):
-                return result["text"].strip()
-        return "おはようございます！よい一日を。"
+            # よくある候補
+            for k in ["response", "text", "output", "generated_text"]:
+                v = result.get(k)
+                if isinstance(v, str) and v.strip():
+                    return v.strip()
+
+            # OpenAI互換ぽい候補
+            choices = result.get("choices")
+            if isinstance(choices, list) and choices:
+                c0 = choices[0]
+                if isinstance(c0, dict):
+                    msg = c0.get("message")
+                    if isinstance(msg, dict):
+                        content = msg.get("content")
+                        if isinstance(content, str) and content.strip():
+                            return content.strip()
+                    txt = c0.get("text")
+                    if isinstance(txt, str) and txt.strip():
+                        return txt.strip()
+
+        # 3) result が list
+        if isinstance(result, list) and result:
+            first = result[0]
+            if isinstance(first, str) and first.strip():
+                return first.strip()
+            if isinstance(first, dict):
+                for k in ["response", "text", "output", "generated_text"]:
+                    v = first.get(k)
+                    if isinstance(v, str) and v.strip():
+                        return v.strip()
+
+        print("[WARN] CF response parsed but no text found; fallback.")
+        return "こんにちは！今日も無理なくいきましょう。"
+
     except Exception as e:
         print(f"[WARN] CF generate failed: {e}")
-        return "おはようございます！よい一日を。"
+        return "こんにちは！今日も無理なくいきましょう。"
 
 def post_discord(text):
     webhook = os.getenv("DISCORD_WEBHOOK_URL", "")
