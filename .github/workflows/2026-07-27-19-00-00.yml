@@ -17,7 +17,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.MY_PAT }}
           REPO: ${{ github.repository }}
-          WORKFLOW_ID: "main-greet.yml"
+          WORKFLOW_ID: "main_greet.yml"
         run: |
           curl -sS -X POST \
             -H "Authorization: Bearer $GH_TOKEN" \
