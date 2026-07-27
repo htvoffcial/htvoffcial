@@ -274,10 +274,10 @@ def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False,
         r.raise_for_status()
         data = r.json()
 
-        print("[DEBUG] CF response keys:", list(data.keys()))
+        # print("[DEBUG] CF response keys:", list(data.keys()))
         if "result" in data:
-            print("[DEBUG] CF result type:", type(data["result"]).__name__)
-            print("[DEBUG] CF result preview:", str(data["result"])[:500])
+            # print("[DEBUG] CF result type:", type(data["result"]).__name__)
+            # print("[DEBUG] CF result preview:", str(data["result"])[:500])
 
         text = extract_text_from_cf_result(
             data,
