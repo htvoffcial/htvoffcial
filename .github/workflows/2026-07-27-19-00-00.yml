@@ -17,10 +17,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           REPO: ${{ github.repository }}
-          WORKFLOW_ID: main-greet
+          WORKFLOW_ID: .github/workflows/main-greet.yml
         run: |
           curl -sS -X POST \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             https://api.github.com/repos/$REPO/actions/workflows/$WORKFLOW_ID/dispatches \
             -d '{"ref":"main"}'
+          echo $REPO
