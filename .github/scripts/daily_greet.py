@@ -60,6 +60,30 @@ def fetch_matsudo_weather():
     return {"temperature_c": temp, "humidity_pct": hum}
 
 
+def fetch_task_titles():
+    token = os.getenv("TASKS_TOKEN", "")
+    if not token:
+        print("[WARN] TASKS_TOKEN missing.")
+        return []
+
+    url = f"https://harutv.stars.ne.jp/tasks?token={token}"
+    data = safe_get_json(url)
+    if not isinstance(data, dict):
+        return []
+
+    tasks = data.get("tasks", [])
+    if not isinstance(tasks, list):
+        return []
+
+    titles = []
+    for t in tasks:
+        if isinstance(t, dict):
+            title = str(t.get("title", "")).strip()
+            if title:
+                titles.append(title)
+    return titles
+
+
 def list_timestamp_workflows_local():
     files = glob.glob(f"{WF_DIR}/*.yml")
     return sorted([p for p in files if TIMESTAMP_RE.match(os.path.basename(p))])
@@ -279,15 +303,19 @@ def post_discord(text):
 
 
 def generate_greeting(now_dt, weather, today_label):
+    task_titles = fetch_task_titles()
+    tasks_text = " / ".join(task_titles) if task_titles else "なし"
+
     prompt = (
         f"現在時刻(JST): {now_dt.strftime('%Y-%m-%d %H:%M')}\n"
         f"松戸市の気温(参考): {weather['temperature_c']}\n"
         f"松戸市の湿度(参考): {weather['humidity_pct']}\n"
         f"今日は何の日: {today_label}\n"
+        f"今日のタスク: {tasks_text}\n"
         "120文字以内の自然な日本語挨拶を1行だけ出力。"
     )
     system_prompt = (
-        "今日は何の日かは、記載があり朝の場合のみ読むこと、勝手に知識から回答しない。夕方の時間帯だけは想像力を持って、楽しませる文章を考えること。"
+        "今日は何の日かは、記載があり朝の場合のみ読むこと、勝手に知識から回答しない。夕方の時間帯だけは想像力を持って、楽しませる文章を。"
         "あなたは私の公設秘書です。立場をわきまえること。"
         "内部推論は出力せず、最終回答のみで返すこと。適切な場所で改行すること。"
         "思考過程・注釈・JSONは禁止。"
