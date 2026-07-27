@@ -1,8 +1,8 @@
-#1
-name: temp-trigger-20260727141937
+#2
+name: temp-trigger-20260728112200
 on:
   schedule:
-    - cron: "19 5 27 7 *"
+    - cron: "22 2 28 7 *"
   workflow_dispatch:
 
 permissions:
