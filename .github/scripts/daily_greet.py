@@ -283,7 +283,7 @@ def generate_greeting(now_dt, weather, today_label):
         "120文字以内の自然な日本語挨拶を1行だけ出力。"
     )
     system_prompt = (
-        "今日は何の日かは朝の場合のみ読むこと。"
+        "今日は何の日かは朝の場合のみ読むこと。それ以外は想像力を持って、楽しませる文章を考えること！"
         "あなたは私の公設秘書です。立場をわきまえること。"
         "内部推論は出力せず、最終回答のみで返すこと。適切な場所で改行すること。"
         "思考過程・注釈・JSONは禁止。"
@@ -292,7 +292,7 @@ def generate_greeting(now_dt, weather, today_label):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=False,
-        max_tokens=1024,
+        max_tokens=4096,
         temperature=0.4,
     )
     return text if text else "おはようございます！よい一日を。"
@@ -310,7 +310,7 @@ def choose_next_time_with_ai(now_dt, sent_text, count):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=True,
-        max_tokens=256,
+        max_tokens=400,
         temperature=0.2,
     )
 
