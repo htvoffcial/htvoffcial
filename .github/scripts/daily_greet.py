@@ -372,7 +372,7 @@ def write_temp_workflow(next_dt_jst, count):
     minute, hour, day, month = cron_utc_for_jst(next_dt_jst)
     fname = next_dt_jst.strftime("%Y-%m-%d-%H-%M-%S.yml")
     path = os.path.join(WF_DIR, fname)
-    workflow_id = os.getenv("WORKFLOW_ID", "main-greet.yml")
+    workflow_id = os.getenv("WORKFLOW_ID", "main-greet")
 
     content = f"""#{count}
 name: temp-trigger-{next_dt_jst.strftime("%Y%m%d%H%M%S")}
