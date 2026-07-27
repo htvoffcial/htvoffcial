@@ -746,3 +746,8 @@
   - ストレスの歯軋りみたいなことになってて、親知らずがグラついて、スポッと抜ける夢見た“…”
 - [地名の読み方](https://github.com/htvoffcial/htvoffcial/discussions/206)
   - San Jose(サンノゼ)のことを今まで「サンジョーズ」って読んでた“…”
+
+## 2026-07-27
+
+- [タスク管理の助っ人](https://github.com/htvoffcial/htvoffcial/discussions/208)
+  - 花の水やりとか、最近園芸始めたばかりだから習慣づいてないのもあり、忘れないためにもタスクとして入れておこうと。“…”
