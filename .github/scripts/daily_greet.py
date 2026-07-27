@@ -254,7 +254,7 @@ def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False,
             # print("[DEBUG] CF result type:", type(data["result"]).__name__)
             # print("[DEBUG] CF result preview:", str(data["result"])[:500])
 
-        text = extract_text_from_cf_result(data, allow_reasoning_time_fallback=allow_reasoning_time_fallback)
+            text = extract_text_from_cf_result(data, allow_reasoning_time_fallback=allow_reasoning_time_fallback)
         if text.strip():
             return text.strip()
 
@@ -263,7 +263,6 @@ def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False,
     except Exception as e:
         print(f"[WARN] CF generate failed: {e}")
         return ""
-
 
 def post_discord(text):
     webhook = os.getenv("DISCORD_WEBHOOK_URL", "")
