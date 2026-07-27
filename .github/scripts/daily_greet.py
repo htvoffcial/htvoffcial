@@ -296,7 +296,7 @@ def generate_greeting(now_dt, weather, today_label):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=False,
-        max_tokens=2008,
+        max_tokens=4096,
         temperature=0.4,
     )
     return text if text else "おはようございます！よい一日を。"
