@@ -37,50 +37,36 @@ def fetch_today_label():
 
 def fetch_matsudo_weather():
     """
-    JMA time series data (Chiba area) with fallback.
-    We attempt to read temperature/humidity fields if present.
+    気象庁公開JSONから松戸市相当(千葉エリア)の情報を可能な範囲で取得。
+    厳密な観測点マッピングは将来拡張し、ここでは失敗時フォールバック優先。
     """
-    # Chiba forecast endpoint (official JMA JSON format)
     url = "https://www.jma.go.jp/bosai/forecast/data/forecast/120000.json"
     data = safe_get_json(url)
-    temp = None
-    hum = None
+    temp = ""
+    hum = ""
 
     try:
-        if isinstance(data, list) and len(data) > 0:
-            # structure can vary; attempt robust extraction
-            ts = data[0].get("timeSeries", [])
-            # humidity often in area weather text tables; temperature often in second day section
-            dump = json.dumps(ts, ensure_ascii=False)
-            # very rough fallback parse
-            m_temp = re.search(r'(-?\d+)\s*℃', dump)
-            if m_temp:
-                temp = m_temp.group(1)
-            m_hum = re.search(r'湿度[^0-9]{0,10}(\d{1,3})', dump)
-            if m_hum:
-                hum = m_hum.group(1)
+        dump = json.dumps(data, ensure_ascii=False)
+        m_temp = re.search(r'(-?\d+)\s*℃', dump)
+        if m_temp:
+            temp = m_temp.group(1)
+        m_hum = re.search(r'湿度[^0-9]{0,10}(\d{1,3})', dump)
+        if m_hum:
+            hum = m_hum.group(1)
     except Exception as e:
         print(f"[WARN] parse weather failed: {e}")
 
-    return {
-        "temperature_c": temp if temp is not None else "",
-        "humidity_pct": hum if hum is not None else ""
-    }
+    return {"temperature_c": temp, "humidity_pct": hum}
 
 def list_timestamp_workflows():
     files = glob.glob(f"{WF_DIR}/*.yml")
     out = []
     for p in files:
-        name = os.path.basename(p)
-        if TIMESTAMP_RE.match(name):
+        if TIMESTAMP_RE.match(os.path.basename(p)):
             out.append(p)
     return sorted(out)
 
 def parse_count_and_date_from_file(path):
-    """
-    first line: #1
-    filename: yyyy-mm-dd-hh-mm-ss.yml
-    """
     count = 0
     fname = os.path.basename(path)
     m = TIMESTAMP_RE.match(fname)
@@ -95,7 +81,7 @@ def parse_count_and_date_from_file(path):
             if cm:
                 count = int(cm.group(1))
     except Exception as e:
-        print(f"[WARN] reading {path}: {e}")
+        print(f"[WARN] read count failed: {path} -> {e}")
 
     return count, file_date
 
@@ -117,13 +103,14 @@ def cleanup_timestamp_workflows():
         except Exception as e:
             print(f"[WARN] failed removing {p}: {e}")
 
-def call_cf_generate(prompt):
+def call_cf_generate(prompt, system_prompt="あなたは丁寧で簡潔な日本語アシスタントです。"):
     account = os.getenv("CF_ACCOUNT_ID", "")
     token = os.getenv("CF_API_TOKEN", "")
     model = os.getenv("CF_MODEL", DEFAULT_CF_MODEL)
+
     if not account or not token:
-        print("[WARN] Cloudflare credentials missing; return fallback text")
-        return "おはようございます！今日もよい一日をお過ごしください。"
+        print("[WARN] CF creds missing; fallback text.")
+        return "こんにちは！今日も無理なくいきましょう。"
 
     url = f"https://api.cloudflare.com/client/v4/accounts/{account}/ai/run/{model}"
     headers = {
@@ -132,59 +119,62 @@ def call_cf_generate(prompt):
     }
     body = {
         "messages": [
-            {"role": "system", "content": "あなたは丁寧で簡潔な日本語アシスタントです。120文字以内で挨拶文を作成してください。"},
+            {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt}
         ]
     }
+
     try:
-        r = requests.post(url, headers=headers, json=body, timeout=30)
+        r = requests.post(url, headers=headers, json=body, timeout=40)
         r.raise_for_status()
         data = r.json()
-        # generic extraction
         result = data.get("result", {})
         if isinstance(result, dict):
-            if "response" in result and isinstance(result["response"], str):
+            if isinstance(result.get("response"), str):
                 return result["response"].strip()
-            if "text" in result and isinstance(result["text"], str):
+            if isinstance(result.get("text"), str):
                 return result["text"].strip()
-        return "こんにちは！今日も無理なくいきましょう。"
+        return "おはようございます！よい一日を。"
     except Exception as e:
         print(f"[WARN] CF generate failed: {e}")
-        return "こんにちは！今日も無理なくいきましょう。"
+        return "おはようございます！よい一日を。"
 
-def post_google_chat(text):
-    webhook = os.getenv("GOOGLE_CHAT_WEBHOOK_URL", "")
+def post_discord(text):
+    webhook = os.getenv("DISCORD_WEBHOOK_URL", "")
     if not webhook:
-        raise RuntimeError("GOOGLE_CHAT_WEBHOOK_URL is missing")
-    payload = {"text": text}
+        raise RuntimeError("DISCORD_WEBHOOK_URL is missing")
+    payload = {"content": text[:2000]}  # Discord message limit
     r = requests.post(webhook, json=payload, timeout=20)
     r.raise_for_status()
-    print("[INFO] posted to Google Chat")
+    print("[INFO] posted to Discord")
 
 def choose_next_time_with_ai(now_dt, sent_text, count):
-    base_prompt = (
+    prompt = (
         f"現在JST: {now_dt.strftime('%Y-%m-%d %H:%M:%S')}\n"
         f"本日送信回数: {count}\n"
         f"直前送信文(80字): {truncate80(sent_text)}\n"
-        "次回送信時刻をJSTで1つ決めてください。条件: 今日または明日、06:00〜22:00。"
-        "出力は HH:MM のみ。"
+        "次回送信時刻をJSTで1つ決めてください。条件:\n"
+        "- 06:00〜22:00\n"
+        "- 現在時刻より未来\n"
+        "- 出力は HH:MM のみ"
     )
-    out = call_cf_generate(base_prompt)
+    out = call_cf_generate(prompt, system_prompt="あなたは時刻計画アシスタントです。指定形式だけを返してください。")
     m = re.search(r"\b([01]\d|2[0-3]):([0-5]\d)\b", out)
+
     if m:
-        hh = int(m.group(1)); mm = int(m.group(2))
+        hh = int(m.group(1))
+        mm = int(m.group(2))
         hh = min(max(hh, 6), 22)
         candidate = now_dt.replace(hour=hh, minute=mm, second=0, microsecond=0)
         if candidate <= now_dt:
-            candidate = candidate + timedelta(days=1)
-        # bound next day too
+            candidate += timedelta(days=1)
         if candidate.hour < 6:
             candidate = candidate.replace(hour=6, minute=0)
         if candidate.hour > 22:
             candidate = candidate.replace(hour=22, minute=0)
         return candidate
 
-    # fallback: +3h in range
+    # fallback
     candidate = now_dt + timedelta(hours=3)
     if candidate.hour < 6:
         candidate = candidate.replace(hour=6, minute=0, second=0, microsecond=0)
@@ -235,40 +225,43 @@ jobs:
 
 def main():
     os.makedirs(WF_DIR, exist_ok=True)
+
     now = now_jst()
     today_str = now.strftime("%Y-%m-%d")
 
     prev_count = read_latest_count_for_today(today_str)
     next_count = prev_count + 1
 
-    # まず既存仮設workflowを掃除
+    # 0. 既存 yyyy-mm-dd-hh-mm-ss.yml を消す
     cleanup_timestamp_workflows()
 
+    # 1日5回制限
     if next_count > MAX_PER_DAY:
-        print(f"[INFO] daily cap reached: {prev_count} -> skip send")
+        print(f"[INFO] daily cap reached ({prev_count}/5). skip send.")
         return
 
-    w = fetch_matsudo_weather()
+    weather = fetch_matsudo_weather()
     today_label = fetch_today_label()
 
     prompt = (
         f"現在時刻(JST): {now.strftime('%Y-%m-%d %H:%M')}\n"
-        f"松戸市の気温(参考): {w['temperature_c']}\n"
-        f"松戸市の湿度(参考): {w['humidity_pct']}\n"
+        f"松戸市の気温(参考): {weather['temperature_c']}\n"
+        f"松戸市の湿度(参考): {weather['humidity_pct']}\n"
         f"今日は何の日: {today_label}\n"
-        "上を参考に、自然で短い日本語の挨拶を1つ作成してください。"
+        "これらを自然に織り込み、120文字以内の日本語の挨拶文を1つ作ってください。"
     )
     message = call_cf_generate(prompt)
-    if len(message) > 200:
-        message = message[:200]
+    message = message[:2000]
 
-    post_google_chat(message)
+    # 1. 挨拶をDiscordへ送信
+    post_discord(message)
 
+    # 2. 次時刻をAIで決めて仮設workflow作成
     next_dt = choose_next_time_with_ai(now, message, next_count)
 
-    # 同日5回目ならこれ以上スケジュールしない
+    # 同日5回目に達したら同日の追加予約はしない
     if next_count >= MAX_PER_DAY and next_dt.strftime("%Y-%m-%d") == today_str:
-        print("[INFO] reached 5th send today; no more schedule for today")
+        print("[INFO] reached 5th send today. no further schedule today.")
         return
 
     write_temp_workflow(next_dt, next_count)
