@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Tokyo
-      GH_TOKEN: ${{ secrets.GH_MPT }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
       CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
       CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
       CF_MODEL: ${{ secrets.CF_MODEL }}
