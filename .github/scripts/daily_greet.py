@@ -383,22 +383,32 @@ def git_commit_and_push(message):
         return
 
     actor = os.getenv("GITHUB_ACTOR", "github-actions[bot]")
-    repo_url = f"https://x-access-token:{token}@github.com/{repo}.git"
 
-    subprocess.run(["git", "config", "user.name", actor], check=False)
-    subprocess.run(["git", "config", "user.email", f"{actor}@users.noreply.github.com"], check=False)
+    try:
+        subprocess.run(["git", "config", "user.name", actor], check=True)
+        subprocess.run(["git", "config", "user.email", f"{actor}@users.noreply.github.com"], check=True)
 
-    # 変更がある時だけcommit
-    status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=False)
-    if not status.stdout.strip():
-        print("[INFO] no git changes to commit.")
+        status = subprocess.run(
+            ["git", "status", "--porcelain"],
+            capture_output=True, text=True, check=True
+        )
+        if not status.stdout.strip():
+            print("[INFO] no git changes to commit.")
+            return
+
+        subprocess.run(["git", "add", "-A"], check=True)
+        subprocess.run(["git", "commit", "-m", message], check=True)
+
+        # ★ origin に依存せず、PAT付きURLへ直接 push
+        push_url = f"https://x-access-token:{token}@github.com/{repo}.git"
+        print(f"[DEBUG] pushing to https://x-access-token:***@github.com/{repo}.git")
+        subprocess.run(["git", "push", push_url, "HEAD:main"], check=True)
+
+        print("[INFO] pushed workflow changes to remote.")
+    except subprocess.CalledProcessError as e:
+        print(f"[WARN] git push failed (non-fatal): {e}")
+        # 運用優先: 送信自体は成功しているためジョブは落とさない
         return
-
-    subprocess.run(["git", "add", "-A"], check=True)
-    subprocess.run(["git", "commit", "-m", message], check=True)
-    subprocess.run(["git", "remote", "set-url", "origin", repo_url], check=True)
-    subprocess.run(["git", "push", "origin", "HEAD"], check=True)
-    print("[INFO] pushed workflow changes to remote.")
 
 
 def main():
