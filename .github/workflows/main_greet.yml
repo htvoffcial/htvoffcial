@@ -16,7 +16,7 @@ jobs:
       CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
       CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
       CF_MODEL: ${{ secrets.CF_MODEL }}
-      GOOGLE_CHAT_WEBHOOK_URL: ${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
       REPO: ${{ github.repository }}
       WORKFLOW_ID: main-greet.yml
     steps:
@@ -27,6 +27,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
+      - name: Install deps
+        run: pip install -r .github/scripts/requirements.txt
 
       - name: Run scheduler + sender
         run: python .github/scripts/daily_greet.py
