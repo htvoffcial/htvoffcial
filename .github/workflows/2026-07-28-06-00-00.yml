@@ -1,8 +1,8 @@
-#3
-name: temp-trigger-20260727190000
+#4
+name: temp-trigger-20260728060000
 on:
   schedule:
-    - cron: "0 10 27 7 *"
+    - cron: "0 21 27 7 *"
   workflow_dispatch:
 
 permissions:
@@ -15,9 +15,9 @@ jobs:
     steps:
       - name: Trigger main workflow
         env:
-          GH_TOKEN: ${{ secrets.MY_PAT }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           REPO: ${{ github.repository }}
-          WORKFLOW_ID: "main_greet.yml"
+          WORKFLOW_ID: main-greet.yml
         run: |
           curl -sS -X POST \
             -H "Authorization: Bearer $GH_TOKEN" \
