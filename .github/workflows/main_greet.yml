@@ -6,7 +6,8 @@ on:
 
 permissions:
   contents: write
-
+  actions: write
+  
 jobs:
   greet:
     runs-on: ubuntu-latest
