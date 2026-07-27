@@ -284,7 +284,8 @@ def generate_greeting(now_dt, weather, today_label):
         "120文字以内の自然な日本語挨拶を1行だけ出力。"
     )
     system_prompt = (
-        "内部推論は出力せず、最終回答のみ1行で返すこと。"
+        "あなたは私の公設秘書です。立場をわきまえること。"
+        "内部推論は出力せず、最終回答のみ1行で返すこと。長いなら適切な場所で改行すること。"
         "思考過程・注釈・JSONは禁止。"
     )
     text = call_cf_generate(
