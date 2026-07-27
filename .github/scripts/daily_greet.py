@@ -324,7 +324,7 @@ def generate_greeting(now_dt, weather, today_label):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=False,
-        max_tokens=4096,
+        max_tokens=2500,
         temperature=0.4,
     )
     return text if text else "おはようございます！よい一日を。"
@@ -372,7 +372,7 @@ def write_temp_workflow(next_dt_jst, count):
     minute, hour, day, month = cron_utc_for_jst(next_dt_jst)
     fname = next_dt_jst.strftime("%Y-%m-%d-%H-%M-%S.yml")
     path = os.path.join(WF_DIR, fname)
-    workflow_id = os.getenv("WORKFLOW_ID", "main-greet")
+    workflow_id = os.getenv("WORKFLOW_ID", "main_greet.yml")
 
     content = f"""#{count}
 name: temp-trigger-{next_dt_jst.strftime("%Y%m%d%H%M%S")}
