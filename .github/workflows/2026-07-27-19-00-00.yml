@@ -15,13 +15,12 @@ jobs:
     steps:
       - name: Trigger main workflow
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.MY_PAT }}
           REPO: ${{ github.repository }}
-          WORKFLOW_ID: .github/workflows/main-greet.yml
+          WORKFLOW_ID: "main-greet.yml"
         run: |
           curl -sS -X POST \
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             https://api.github.com/repos/$REPO/actions/workflows/$WORKFLOW_ID/dispatches \
             -d '{"ref":"main"}'
-          echo $REPO
