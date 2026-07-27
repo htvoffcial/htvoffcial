@@ -3,6 +3,7 @@ import re
 import json
 import glob
 import requests
+import subprocess
 from datetime import datetime, timedelta, timezone
 
 JST = timezone(timedelta(hours=9))
@@ -40,10 +41,6 @@ def fetch_today_label():
 
 
 def fetch_matsudo_weather():
-    """
-    気象庁公開JSONから松戸市相当(千葉エリア)の情報を可能な範囲で取得。
-    失敗しても空値で継続する。
-    """
     url = "https://www.jma.go.jp/bosai/forecast/data/forecast/120000.json"
     data = safe_get_json(url)
     temp = ""
@@ -51,7 +48,6 @@ def fetch_matsudo_weather():
 
     try:
         dump = json.dumps(data, ensure_ascii=False)
-        # ざっくり抽出（将来必要なら地点コードで厳密化）
         m_temp = re.search(r'(-?\d+)\s*℃', dump)
         if m_temp:
             temp = m_temp.group(1)
@@ -64,71 +60,134 @@ def fetch_matsudo_weather():
     return {"temperature_c": temp, "humidity_pct": hum}
 
 
-def list_timestamp_workflows():
+def list_timestamp_workflows_local():
     files = glob.glob(f"{WF_DIR}/*.yml")
     return sorted([p for p in files if TIMESTAMP_RE.match(os.path.basename(p))])
 
 
-def parse_count_and_date_from_file(path):
-    count = 0
-    fname = os.path.basename(path)
-    m = TIMESTAMP_RE.match(fname)
-    file_date = None
-    if m:
-        file_date = f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
+def parse_count_and_date_from_filename(filename):
+    m = TIMESTAMP_RE.match(filename)
+    if not m:
+        return None
+    return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
 
+
+def read_count_from_first_line(path):
     try:
         with open(path, "r", encoding="utf-8") as f:
             first = f.readline().strip()
-            cm = re.match(r"^#\s*(\d+)\s*$", first)
-            if cm:
-                count = int(cm.group(1))
+        cm = re.match(r"^#\s*(\d+)\s*$", first)
+        if cm:
+            return int(cm.group(1))
     except Exception as e:
-        print(f"[WARN] read count failed: {path} -> {e}")
-
-    return count, file_date
-
-
-def read_latest_count_for_today(today_str):
-    files = list_timestamp_workflows()
-    if not files:
-        return 0
-    latest = files[-1]
-    count, file_date = parse_count_and_date_from_file(latest)
-    if file_date == today_str:
-        return count
+        print(f"[WARN] failed to read first line count from {path}: {e}")
     return 0
 
 
-def cleanup_timestamp_workflows():
-    for p in list_timestamp_workflows():
+def get_remote_timestamp_files_via_api():
+    """
+    repo上の .github/workflows をGitHub APIで列挙し、
+    yyyy-mm-dd-hh-mm-ss.yml のみ返す。
+    """
+    token = os.getenv("GH_TOKEN", "")
+    repo = os.getenv("REPO", "")
+    if not token or not repo:
+        print("[WARN] GH_TOKEN or REPO missing; cannot list remote workflow files.")
+        return []
+
+    url = f"https://api.github.com/repos/{repo}/contents/.github/workflows"
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+    }
+    try:
+        r = requests.get(url, headers=headers, timeout=20)
+        r.raise_for_status()
+        items = r.json()
+        out = []
+        if isinstance(items, list):
+            for it in items:
+                name = it.get("name", "")
+                if TIMESTAMP_RE.match(name):
+                    out.append({
+                        "name": name,
+                        "path": it.get("path"),
+                        "sha": it.get("sha"),
+                        "download_url": it.get("download_url")
+                    })
+        return sorted(out, key=lambda x: x["name"])
+    except Exception as e:
+        print(f"[WARN] failed to list remote workflow files: {e}")
+        return []
+
+
+def get_remote_today_count(today_str):
+    """
+    remoteの timestamp workflow から最新1件を見て、
+    同日なら先頭 #count を返す。異日なら0。
+    """
+    files = get_remote_timestamp_files_via_api()
+    if not files:
+        return 0
+
+    latest = files[-1]
+    file_date = parse_count_and_date_from_filename(latest["name"])
+    if file_date != today_str:
+        return 0
+
+    # 先頭行取得
+    dl = latest.get("download_url")
+    if not dl:
+        return 0
+    try:
+        txt = requests.get(dl, timeout=20).text
+        first = txt.splitlines()[0].strip() if txt else ""
+        m = re.match(r"^#\s*(\d+)\s*$", first)
+        if m:
+            return int(m.group(1))
+    except Exception as e:
+        print(f"[WARN] failed to read remote temp workflow first line: {e}")
+    return 0
+
+
+def cleanup_timestamp_workflows_local():
+    for p in list_timestamp_workflows_local():
         try:
             os.remove(p)
-            print(f"[INFO] removed old temp workflow: {p}")
+            print(f"[INFO] removed local temp workflow: {p}")
         except Exception as e:
-            print(f"[WARN] failed removing {p}: {e}")
+            print(f"[WARN] failed removing local {p}: {e}")
+
+
+def cleanup_timestamp_workflows_remote():
+    """
+    remote上の timestamp yml をgit rmし、後でコミット対象にする。
+    """
+    files = get_remote_timestamp_files_via_api()
+    removed = 0
+    for f in files:
+        p = f["path"]
+        try:
+            subprocess.run(["git", "rm", "-f", p], check=False)
+            removed += 1
+            print(f"[INFO] staged remove remote temp workflow: {p}")
+        except Exception as e:
+            print(f"[WARN] failed git rm {p}: {e}")
+    return removed
 
 
 def extract_text_from_cf_result(data, allow_reasoning_time_fallback=False):
-    """
-    Cloudflare Workers AI の揺れるレスポンス形式からテキスト抽出。
-    allow_reasoning_time_fallback=True の場合のみ、reasoning_content から HH:MM を救済。
-    """
     result = data.get("result")
 
-    # 1) result が文字列
     if isinstance(result, str) and result.strip():
         return result.strip()
 
-    # 2) result が dict
     if isinstance(result, dict):
-        # 直接キー候補
         for k in ["response", "text", "output", "generated_text"]:
             v = result.get(k)
             if isinstance(v, str) and v.strip():
                 return v.strip()
 
-        # OpenAI互換 choices
         choices = result.get("choices")
         if isinstance(choices, list) and choices:
             c0 = choices[0]
@@ -139,7 +198,6 @@ def extract_text_from_cf_result(data, allow_reasoning_time_fallback=False):
                     if isinstance(content, str) and content.strip():
                         return content.strip()
 
-                    # 時刻決定時のみ rescue
                     if allow_reasoning_time_fallback:
                         rc = msg.get("reasoning_content")
                         if isinstance(rc, str):
@@ -151,7 +209,6 @@ def extract_text_from_cf_result(data, allow_reasoning_time_fallback=False):
                 if isinstance(txt, str) and txt.strip():
                     return txt.strip()
 
-    # 3) result が list
     if isinstance(result, list) and result:
         first = result[0]
         if isinstance(first, str) and first.strip():
@@ -165,17 +222,14 @@ def extract_text_from_cf_result(data, allow_reasoning_time_fallback=False):
     return ""
 
 
-def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False):
+def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False, max_tokens=1024, temperature=0.4):
     account = os.getenv("CF_ACCOUNT_ID", "")
     token = os.getenv("CF_API_TOKEN", "")
     model = (os.getenv("CF_MODEL") or DEFAULT_CF_MODEL).strip()
 
     if not account or not token:
-        print("[WARN] CF creds missing; fallback text.")
+        print("[WARN] CF creds missing.")
         return ""
-
-    if not model:
-        model = DEFAULT_CF_MODEL
 
     url = f"https://api.cloudflare.com/client/v4/accounts/{account}/ai/run/{model}"
     headers = {
@@ -187,28 +241,24 @@ def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False)
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt},
         ],
-        "max_tokens": 512,
-        "temperature": 0.7,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
     }
 
     try:
-        r = requests.post(url, headers=headers, json=body, timeout=45)
+        r = requests.post(url, headers=headers, json=body, timeout=60)
         r.raise_for_status()
         data = r.json()
-
-        # debug
         print("[DEBUG] CF response keys:", list(data.keys()))
         if "result" in data:
             print("[DEBUG] CF result type:", type(data["result"]).__name__)
             print("[DEBUG] CF result preview:", str(data["result"])[:500])
 
-        text = extract_text_from_cf_result(
-            data, allow_reasoning_time_fallback=allow_reasoning_time_fallback
-        )
+        text = extract_text_from_cf_result(data, allow_reasoning_time_fallback=allow_reasoning_time_fallback)
         if text.strip():
             return text.strip()
 
-        print("[WARN] CF response parsed but no usable text.")
+        print("[WARN] CF parsed but no usable text.")
         return ""
     except Exception as e:
         print(f"[WARN] CF generate failed: {e}")
@@ -231,22 +281,20 @@ def generate_greeting(now_dt, weather, today_label):
         f"松戸市の気温(参考): {weather['temperature_c']}\n"
         f"松戸市の湿度(参考): {weather['humidity_pct']}\n"
         f"今日は何の日: {today_label}\n"
-        "条件:\n"
-        "- 120文字以内\n"
-        "- 自然な日本語の挨拶\n"
-        "- 出力は挨拶文そのもの1行のみ\n"
-        "- 思考過程・注釈・JSONは禁止"
+        "120文字以内の自然な日本語挨拶を1行だけ出力。"
     )
     system_prompt = (
-        "あなたは日本語アシスタントです。"
-        "内部推論は出力せず、最終回答のみを返してください。"
-        "説明や前置きは禁止。"
+        "内部推論は出力せず、最終回答のみ1行で返すこと。"
+        "思考過程・注釈・JSONは禁止。"
     )
-
-    text = call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False)
-    if not text:
-        return "おはようございます！よい一日を。"
-    return text[:2000]
+    text = call_cf_generate(
+        prompt,
+        system_prompt,
+        allow_reasoning_time_fallback=False,
+        max_tokens=1024,
+        temperature=0.4,
+    )
+    return text if text else "おはようございます！よい一日を。"
 
 
 def choose_next_time_with_ai(now_dt, sent_text, count):
@@ -254,45 +302,32 @@ def choose_next_time_with_ai(now_dt, sent_text, count):
         f"現在JST: {now_dt.strftime('%Y-%m-%d %H:%M:%S')}\n"
         f"本日送信回数: {count}\n"
         f"直前送信文(80字): {truncate80(sent_text)}\n"
-        "次回送信時刻をJSTで1つ決めてください。\n"
-        "条件:\n"
-        "- 06:00〜22:00\n"
-        "- 現在時刻より未来\n"
-        "- 出力は HH:MM のみ\n"
-        "- 余計な説明は禁止"
+        "次回送信時刻をJSTで1つ。06:00〜22:00、現在より未来、HH:MMのみ。"
     )
-    system_prompt = (
-        "あなたは時刻計画アシスタントです。"
-        "内部推論は出力せず、最終回答のみを返してください。"
-        "必ず HH:MM 形式のみを返してください。"
+    system_prompt = "内部推論を出さず、HH:MMのみ返すこと。"
+    out = call_cf_generate(
+        prompt,
+        system_prompt,
+        allow_reasoning_time_fallback=True,
+        max_tokens=256,
+        temperature=0.2,
     )
 
-    out = call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=True)
     m = re.search(r"\b([01]\d|2[0-3]):([0-5]\d)\b", out or "")
-
     if m:
-        hh = int(m.group(1))
-        mm = int(m.group(2))
+        hh, mm = int(m.group(1)), int(m.group(2))
         hh = min(max(hh, 6), 22)
-
         candidate = now_dt.replace(hour=hh, minute=mm, second=0, microsecond=0)
         if candidate <= now_dt:
             candidate += timedelta(days=1)
-        if candidate.hour < 6:
-            candidate = candidate.replace(hour=6, minute=0)
-        if candidate.hour > 22:
-            candidate = candidate.replace(hour=22, minute=0)
         return candidate
 
-    # fallback
-    candidate = now_dt + timedelta(hours=3)
-    if candidate.hour < 6:
-        candidate = candidate.replace(hour=6, minute=0, second=0, microsecond=0)
-    elif candidate.hour > 22:
-        candidate = (candidate + timedelta(days=1)).replace(
-            hour=6, minute=0, second=0, microsecond=0
-        )
-    return candidate
+    fallback = now_dt + timedelta(hours=3)
+    if fallback.hour < 6:
+        fallback = fallback.replace(hour=6, minute=0, second=0, microsecond=0)
+    if fallback.hour > 22:
+        fallback = (fallback + timedelta(days=1)).replace(hour=6, minute=0, second=0, microsecond=0)
+    return fallback
 
 
 def cron_utc_for_jst(dt_jst):
@@ -327,15 +362,42 @@ jobs:
           REPO: ${{{{ github.repository }}}}
           WORKFLOW_ID: {workflow_id}
         run: |
-          curl -sS -X POST \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/$REPO/actions/workflows/$WORKFLOW_ID/dispatches \
+          curl -sS -X POST \\
+            -H "Authorization: Bearer $GH_TOKEN" \\
+            -H "Accept: application/vnd.github+json" \\
+            https://api.github.com/repos/$REPO/actions/workflows/$WORKFLOW_ID/dispatches \\
             -d '{{"ref":"main"}}'
 """
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
-    print(f"[INFO] wrote next temp workflow: {path}")
+    print(f"[INFO] wrote local temp workflow: {path}")
+    return path
+
+
+def git_commit_and_push(message):
+    token = os.getenv("GH_TOKEN", "")
+    repo = os.getenv("REPO", "")
+    if not token or not repo:
+        print("[WARN] GH_TOKEN or REPO missing; skip push.")
+        return
+
+    actor = os.getenv("GITHUB_ACTOR", "github-actions[bot]")
+    repo_url = f"https://x-access-token:{token}@github.com/{repo}.git"
+
+    subprocess.run(["git", "config", "user.name", actor], check=False)
+    subprocess.run(["git", "config", "user.email", f"{actor}@users.noreply.github.com"], check=False)
+
+    # 変更がある時だけcommit
+    status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=False)
+    if not status.stdout.strip():
+        print("[INFO] no git changes to commit.")
+        return
+
+    subprocess.run(["git", "add", "-A"], check=True)
+    subprocess.run(["git", "commit", "-m", message], check=True)
+    subprocess.run(["git", "remote", "set-url", "origin", repo_url], check=True)
+    subprocess.run(["git", "push", "origin", "HEAD"], check=True)
+    print("[INFO] pushed workflow changes to remote.")
 
 
 def main():
@@ -344,33 +406,34 @@ def main():
     now = now_jst()
     today_str = now.strftime("%Y-%m-%d")
 
-    prev_count = read_latest_count_for_today(today_str)
+    # 回数は remote を基準に判定（手動実行でもぶれにくい）
+    prev_count = get_remote_today_count(today_str)
     next_count = prev_count + 1
+    print(f"[INFO] today count(remote): {prev_count} -> next: {next_count}")
 
-    # 0. 既存の timestamp workflow を掃除
-    cleanup_timestamp_workflows()
+    # 0) local / remote の timestamp yml を掃除
+    cleanup_timestamp_workflows_local()
+    removed_remote = cleanup_timestamp_workflows_remote()
+    print(f"[INFO] staged remote removals: {removed_remote}")
 
-    # 1日5回上限
     if next_count > MAX_PER_DAY:
-        print(f"[INFO] daily cap reached ({prev_count}/5). skip send.")
+        print(f"[INFO] daily cap reached ({prev_count}/5). skip send/schedule.")
+        git_commit_and_push(f"chore: cleanup temp workflows ({today_str})")
         return
 
     weather = fetch_matsudo_weather()
     today_label = fetch_today_label()
 
-    # 1. 挨拶生成＆送信
-    message = generate_greeting(now, weather, today_label)
-    post_discord(message)
+    # 1) Discord送信
+    msg = generate_greeting(now, weather, today_label)
+    post_discord(msg)
 
-    # 2. 次回時刻決定＆仮設workflow作成
-    next_dt = choose_next_time_with_ai(now, message, next_count)
-
-    # 同日5回目ならそれ以上同日予約しない
-    if next_count >= MAX_PER_DAY and next_dt.strftime("%Y-%m-%d") == today_str:
-        print("[INFO] reached 5th send today. no further schedule today.")
-        return
-
+    # 2) 次回時刻＆temp yml作成
+    next_dt = choose_next_time_with_ai(now, msg, next_count)
     write_temp_workflow(next_dt, next_count)
+
+    # 3) commit/push して実際に repo に残す
+    git_commit_and_push(f"chore: schedule next greet #{next_count} ({next_dt.strftime('%Y-%m-%d %H:%M:%S JST')})")
 
 
 if __name__ == "__main__":
