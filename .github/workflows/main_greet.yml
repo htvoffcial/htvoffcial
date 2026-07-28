@@ -19,6 +19,7 @@ jobs:
       CF_MODEL: ${{ secrets.CF_MODEL }}
       DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
       REPO: ${{ github.repository }}
+      TASKS_TOKEN: ${{ secrets.TASKS_TOKEN }}
       WORKFLOW_ID: main_greet.yml
     steps:
       - name: Checkout
