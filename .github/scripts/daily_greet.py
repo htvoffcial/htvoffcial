@@ -89,7 +89,7 @@ def fetch_task_titles():
         if attempt < max_attempts:
             time.sleep(2)
 
-    print(data)
+    # print(data)
     if not isinstance(data, dict):
         return []
 
