@@ -77,7 +77,7 @@ def fetch_task_titles():
         print("[WARN] TASKS_TOKEN missing.")
         return []
 
-    url = f"https://harutv.stars.ne.jp/tasks?token={token}"
+    url = f"https://harutv.stars.ne.jp/tasks?token={token}&api=1"
 
     data = None
     max_attempts = 3
@@ -85,7 +85,7 @@ def fetch_task_titles():
         data = safe_get_json(url)
         if isinstance(data, dict):
             break
-        print(f"[WARN] retrying tasks fetch (attempt {attempt}/{max_attempts})")
+        # print(f"[WARN] retrying tasks fetch (attempt {attempt}/{max_attempts})")
         if attempt < max_attempts:
             time.sleep(2)
 
