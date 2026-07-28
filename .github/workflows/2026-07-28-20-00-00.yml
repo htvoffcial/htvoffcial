@@ -1,0 +1,26 @@
+#1
+name: temp-trigger-20260728200000
+on:
+  schedule:
+    - cron: "0 11 28 7 *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger main workflow
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPO: ${{ github.repository }}
+          WORKFLOW_ID: main_greet.yml
+        run: |
+          curl -sS -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/$REPO/actions/workflows/$WORKFLOW_ID/dispatches \
+            -d '{"ref":"main"}'
