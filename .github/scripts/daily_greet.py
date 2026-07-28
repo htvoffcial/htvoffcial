@@ -2,6 +2,7 @@ import os
 import re
 import json
 import glob
+import time
 import requests
 import subprocess
 from datetime import datetime, timedelta, timezone
@@ -18,12 +19,22 @@ def now_jst():
 
 
 def safe_get_json(url, timeout=15):
+    """
+    GETしてJSONを返す。失敗時はstatus/bodyの一部をログに出して原因特定しやすくする。
+    """
+    status = None
+    body_preview = ""
     try:
         r = requests.get(url, timeout=timeout)
+        status = r.status_code
+        body_preview = (r.text or "")[:200]
         r.raise_for_status()
+        if not r.text.strip():
+            print(f"[WARN] empty body from {url} (status={status})")
+            return None
         return r.json()
     except Exception as e:
-        print(f"[WARN] GET JSON failed: {url} -> {e}")
+        print(f"[WARN] GET JSON failed: {url} -> {e} | status={status} body={body_preview!r}")
         return None
 
 
@@ -67,7 +78,17 @@ def fetch_task_titles():
         return []
 
     url = f"https://harutv.stars.ne.jp/tasks?token={token}"
-    data = safe_get_json(url)
+
+    data = None
+    max_attempts = 3
+    for attempt in range(1, max_attempts + 1):
+        data = safe_get_json(url)
+        if isinstance(data, dict):
+            break
+        print(f"[WARN] retrying tasks fetch (attempt {attempt}/{max_attempts})")
+        if attempt < max_attempts:
+            time.sleep(2)
+
     print(data)
     if not isinstance(data, dict):
         return []
@@ -275,23 +296,24 @@ def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False,
         r.raise_for_status()
         data = r.json()
 
-        # print("[DEBUG] CF response keys:", list(data.keys()))
+        text = ""  # 未定義エラー防止のため初期化
         if "result" in data:
-            # print("[DEBUG] CF result type:", type(data["result"]).__name__)
-            # print("[DEBUG] CF result preview:", str(data["result"])[:500])
-
             text = extract_text_from_cf_result(
                 data,
                 allow_reasoning_time_fallback=allow_reasoning_time_fallback
             )
+        else:
+            print(f"[WARN] CF response has no 'result' key. keys={list(data.keys())}")
+
         if text.strip():
             return text.strip()
 
-        print("[WARN] CF parsed but no usable text.")
+        print(f"[WARN] CF parsed but no usable text. raw_result={str(data.get('result'))[:300]!r}")
         return ""
     except Exception as e:
         print(f"[WARN] CF generate failed: {e}")
         return ""
+
 
 def post_discord(text):
     webhook = os.getenv("DISCORD_WEBHOOK_URL", "")
@@ -434,7 +456,7 @@ def git_commit_and_push(message):
         subprocess.run(["git", "add", "-A"], check=True)
         subprocess.run(["git", "commit", "-m", message], check=True)
 
-        # ★ origin に依存せず、PAT付きURLへ直接 push
+        # origin に依存せず、PAT付きURLへ直接 push
         push_url = f"https://x-access-token:{token}@github.com/{repo}.git"
         print(f"[DEBUG] pushing to https://x-access-token:***@github.com/{repo}.git")
         subprocess.run(["git", "push", push_url, "HEAD:main"], check=True)
