@@ -314,6 +314,7 @@ def generate_greeting(now_dt, weather, today_label):
         f"今日のタスク: {tasks_text}\n"
         "120文字以内の自然な日本語挨拶を1行だけ出力。"
     )
+    print(tasks_text)
     system_prompt = (
         "今日は何の日かは、記載があり朝の場合のみ読むこと、勝手に知識から回答しない。夕方の時間帯だけは想像力を持って、楽しませる文章を。"
         "あなたは私の公設秘書です。立場をわきまえること。"
