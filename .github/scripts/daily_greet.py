@@ -68,6 +68,7 @@ def fetch_task_titles():
 
     url = f"https://harutv.stars.ne.jp/tasks?token={token}"
     data = safe_get_json(url)
+    print(data)
     if not isinstance(data, dict):
         return []
 
