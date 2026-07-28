@@ -337,9 +337,10 @@ def generate_greeting(now_dt, weather, today_label):
         f"今日のタスク: {tasks_text}\n"
         "120文字以内の自然な日本語挨拶を1行だけ出力。"
     )
-    print(tasks_text)
+    # print(tasks_text)
     system_prompt = (
-        "今日は何の日かは、記載があり朝の場合のみ読むこと、勝手に知識から回答しない。夕方の時間帯だけは想像力を持って、楽しませる文章を。"
+        "今日は何の日かは、記載があり朝の場合のみ読むこと、勝手に知識から回答しない。"
+        "夕方の時間帯だけは想像力を持って、楽しませる文章にすること。"
         "あなたは私の公設秘書です。立場をわきまえること。"
         "内部推論は出力せず、最終回答のみで返すこと。適切な場所で改行すること。"
         "思考過程・注釈・JSONは禁止。"
@@ -348,8 +349,8 @@ def generate_greeting(now_dt, weather, today_label):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=False,
-        max_tokens=2500,
-        temperature=0.4,
+        max_tokens=2100,
+        temperature=0.9,
     )
     return text if text else "おはようございます！よい一日を。"
 
@@ -359,8 +360,7 @@ def choose_next_time_with_ai(now_dt, sent_text, count):
         f"現在JST: {now_dt.strftime('%Y-%m-%d %H:%M:%S')}\n"
         f"本日送信回数: {count}\n"
         f"直前送信文(80字): {truncate80(sent_text)}\n"
-        "次回送信時刻をJSTで1つ。06:00〜22:00、HH:MMのみ。"
-        "実行までに5分程遅延することを考慮すること"
+        "次回送信時刻をJSTで1つ。06:00〜22:00、現在より未来、HH:MMのみ。
     )
     system_prompt = "内部推論を出さず、HH:MMのみ返すこと。"
     out = call_cf_generate(
