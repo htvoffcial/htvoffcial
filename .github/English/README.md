@@ -1,21 +1,20 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-07-29
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-07-30
 
-Hey there! How’s everyone doing!?
-It was a really nice, sunny day in Matsudo yesterday, wasn’t it!
+Hey, everyone! How are you all doing!?
+Unfortunately, it rained in Matsudo City yesterday.
 
-120 skips! Nice work!
-…Wait a minute—isn’t that a little too few!? Hahaha!
-But the most important thing is that you took that first step!
+"0 jumps" on the jump rope...
+That’s not so much a “summary” as it is a report saying, “I didn’t do it at all!” lol
+But taking a break on rainy days without pushing yourself too hard is an important part of training, too!
 
-On GitHub, someone posted a really deep—and somewhat grown-up—concern:
-“A lack of communication makes me feel anxious about life.”
-Whoa, things just got really philosophical all of a sudden!
-Let’s not overthink it—let’s just jump together first
-and refresh both our minds and bodies!
+On GitHub, there was a really serious discussion about how to write a statement of purpose.
+Figuring out how to connect your own experiences to personal growth—that’s truly “mental strength training”!
+Everyone was working so hard to find their own unique “strengths”—it really moved me!
 
-Alright, let’s tackle today with energy!
+It’s okay to take a step back when you’re stuck.
+Let’s keep honing our writing skills, one step at a time!
 
-Today’s Tip: When you’re feeling anxious, take a big, deep breath first, and then do one jump!
+Today’s Tip: When you’re stuck, take a big, deep breath first—then jump up with energy!
 <!-- DISCUSS_COACH_END -->
