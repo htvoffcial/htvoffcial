@@ -766,3 +766,8 @@
 
 - [志望理由書](https://github.com/htvoffcial/htvoffcial/discussions/211)
   - 自己PRとか、志望理由書って書くの大変よね。まず、自分がそこに惹かれたのか、そして自分にはどんな経験があり、それでどんな成長をして、その中で気づいたこととか。“…”
+
+## 2026-07-31
+
+- [校閲機能の使い方を覚えた](https://github.com/htvoffcial/htvoffcial/discussions/212)
+  - Wordで普段あまり使っていなかった、版管理ができる校閲機能をの使い方を、志望理由書書きながら覚えた！“…”
