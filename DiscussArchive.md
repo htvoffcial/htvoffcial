@@ -771,3 +771,8 @@
 
 - [校閲機能の使い方を覚えた](https://github.com/htvoffcial/htvoffcial/discussions/212)
   - Wordで普段あまり使っていなかった、版管理ができる校閲機能をの使い方を、志望理由書書きながら覚えた！“…”
+
+## 2026-08-01
+
+- [頑張れ熊本](https://github.com/htvoffcial/htvoffcial/discussions/213)
+  - 令和8年に発生した熊本地震で被災された方々に、謹んでお見舞い申し上げます。少額ながら、インターネット募金で寄付をすでにしました。今度、市役所が空いている時に、そ“…”
