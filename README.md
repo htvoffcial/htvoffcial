@@ -51,6 +51,11 @@ Wordの校閲機能をマスターして、志望理由書に挑むなんて…�
 今日の一言：まずは1回、深呼吸から始めてみよう！
 
 <!-- DISCUSS_COACH_END -->
+
+```
+2602:fd6f:1d::9f:301:1342:9dd
+```
+
 <a href=".github/English/README.md">English</a>
 
 <img src="//accaii.com/harutv/script?guid=on" style="height:1px;" height="1px">
