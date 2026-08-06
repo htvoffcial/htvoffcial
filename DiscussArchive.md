@@ -791,3 +791,8 @@
 
 - [滑り込み！](https://github.com/htvoffcial/htvoffcial/discussions/216)
   - 23：59投稿！ 今日は運動しなかったけど、出掛けてました！“…”
+
+## 2026-08-06
+
+- [進路活動停滞&部活](https://github.com/htvoffcial/htvoffcial/discussions/217)
+  - まじで事前レポート進まない、息抜き(実際にはならない)部活では、今日はアクティブノイズキャンセリングを作ってた“…”
