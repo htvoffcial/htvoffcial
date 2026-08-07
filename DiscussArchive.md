@@ -796,3 +796,8 @@
 
 - [進路活動停滞&部活](https://github.com/htvoffcial/htvoffcial/discussions/217)
   - まじで事前レポート進まない、息抜き(実際にはならない)部活では、今日はアクティブノイズキャンセリングを作ってた“…”
+
+## 2026-08-07
+
+- [朝にGitHub Actionsで障害が起きていたらしい](https://github.com/htvoffcial/htvoffcial/discussions/218)
+  - 毎朝、お兄さんをActionsで呼び出しているから、処理できていなくて手動で再試行してた“…”
