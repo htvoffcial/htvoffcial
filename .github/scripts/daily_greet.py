@@ -358,9 +358,9 @@ def generate_greeting(now_dt, weather, today_label):
 def choose_next_time_with_ai(now_dt, sent_text, count):
     prompt = (
         f"現在JST: {now_dt.strftime('%Y-%m-%d %H:%M:%S')}\n"
-        f"本日送信回数: {count}\n"
+        f"本日送信数(５回まで可能): {count}\n"
         f"直前送信文(80字): {truncate80(sent_text)}\n"
-        "次回送信時刻をJSTで1つ。06:00〜22:00、現在より未来、HH:MMのみ。日を跨ぐ場合は翌日朝6時から。"
+        "次回送信時刻をJSTで1つ。06:00〜22:00、現在より未来、HH:MMのみ。"
     )
     system_prompt = "内部推論を出さず、HH:MMのみ返すこと。"
     out = call_cf_generate(
