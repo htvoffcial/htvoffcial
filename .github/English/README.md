@@ -1,20 +1,18 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-08-08
+**Date (JST):** 2026-08-09
 
-Hey, everyone! How are you all doing!? It’s me, the Gymnastics Guy!
-Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, clear day, wasn’t it!
-But zero skips on the jump rope!?
-With such great weather, I really wanted you guys to jump at least a little bit~!
-Maybe you were taking a nap in the sunshine? (lol)
+Hey, everyone! How are you doing!?
+Yesterday in Matsudo City, it was a beautiful, sunny day with the sun shining brightly!
+But wait a minute! Your jump rope record is “0 jumps”… What?!
+It’s such a beautiful day—you could at least jump once, right?!
+Haha, just kidding! Taking a break without pushing yourself too hard is an important part of training, too!
 
-Also, I found an amazing question on GitHub!
-It said, “Teach me how to levitate!”
-Whoa, wait a minute!
-This is a place for programming! It’s not a school of magic!
-If you really want to fly, let’s start by practicing jumping high with a jump rope!
+Also, to everyone who’s feeling nervous about the Eiken exam coming up!
+Saying things like “my futon feels hard” means you’re way too nervous!
+But it’s okay! That nervousness is proof that you’ve been preparing so hard.
+Take a deep breath and stretch your body out—it’ll make your mind feel light and relaxed, too!
+Alright, let’s face tomorrow with a smile!
 
-Alright, let’s tackle today with energy!
-
-Today’s Tip: First, make sure to plant your feet firmly on the ground!
+Today’s Tip: If you’re feeling nervous, start by taking a big, deep breath!
 <!-- DISCUSS_COACH_END -->
