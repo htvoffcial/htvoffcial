@@ -806,3 +806,8 @@
 
 - [教えてほしい](https://github.com/htvoffcial/htvoffcial/discussions/219)
   - 空中浮遊する方法教えて“…”
+
+## 2026-08-09
+
+- [ウェ絵、明日は英検だぁ](https://github.com/htvoffcial/htvoffcial/discussions/220)
+  - 英検緊張しすぎて、寝る布団が硬く感じる。“…”
