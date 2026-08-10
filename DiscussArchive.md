@@ -811,3 +811,8 @@
 
 - [ウェ絵、明日は英検だぁ](https://github.com/htvoffcial/htvoffcial/discussions/220)
   - 英検緊張しすぎて、寝る布団が硬く感じる。“…”
+
+## 2026-08-10
+
+- [お兄さんのおかげで頑張れた](https://github.com/htvoffcial/htvoffcial/discussions/221)
+  - とりあえず伸びをしよう！ってアドバイスで、朝しっかり体調整えて、いい状態で英検受けれた！縄跳びできない代わりに新宿を多めに歩いた“…”
