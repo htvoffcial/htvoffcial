@@ -1,18 +1,19 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-08-09
+## Discussion Summary (The Gymnastics Guy)
+**Date (JST):** 2026-08-10
 
-Hey, everyone! How are you doing!?
-Yesterday in Matsudo City, it was a beautiful, sunny day with the sun shining brightly!
-But wait a minute! Your jump rope record is “0 jumps”… What?!
-It’s such a beautiful day—you could at least jump once, right?!
-Haha, just kidding! Taking a break without pushing yourself too hard is an important part of training, too!
+Hey there! How’s everyone doing!? It’s me, the Gymnastics Guy!
+Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, clear day, wasn’t it!
+It was such great weather—perfect for doing laundry and exercising!
 
-Also, to everyone who’s feeling nervous about the Eiken exam coming up!
-Saying things like “my futon feels hard” means you’re way too nervous!
-But it’s okay! That nervousness is proof that you’ve been preparing so hard.
-Take a deep breath and stretch your body out—it’ll make your mind feel light and relaxed, too!
-Alright, let’s face tomorrow with a smile!
+Now, looking at yesterday’s summary… Wait, what!?
+“0 jumps” on the jump rope!? Hey, hold on a sec!
+When I read the discussion, it says you “walked all over Shinjuku”!
+That’s not just a day off—it’s practically a walking competition!
+Conquering Shinjuku instead of skipping rope—are you an adventurer or something!?
 
-Today’s Tip: If you’re feeling nervous, start by taking a big, deep breath!
+But Big Brother is really proud that you did your stretches and worked hard on your Eiken exam!
+Nice stretches! You really did a great job!
+
+Today’s Tip: After walking too much, be sure to stretch your legs out slowly!
 <!-- DISCUSS_COACH_END -->
