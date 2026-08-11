@@ -816,3 +816,8 @@
 
 - [お兄さんのおかげで頑張れた](https://github.com/htvoffcial/htvoffcial/discussions/221)
   - とりあえず伸びをしよう！ってアドバイスで、朝しっかり体調整えて、いい状態で英検受けれた！縄跳びできない代わりに新宿を多めに歩いた“…”
+
+## 2026-08-11
+
+- [そういえば意外と人生でWindows7って触ってないな](https://github.com/htvoffcial/htvoffcial/discussions/222)
+  - Windows Vista世代で生まれて、しばらく触って、いつのまにか10になっているみたいな。 7も8も全然触ってなかったから今度仮装環境で試してみたい“…”
