@@ -365,7 +365,7 @@ def choose_next_time_with_ai(now_dt, sent_text, count):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=True,
-        max_tokens=300,
+        max_tokens=600,
         temperature=1.5,
     )
 
