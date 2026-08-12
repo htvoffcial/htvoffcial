@@ -821,3 +821,10 @@
 
 - [そういえば意外と人生でWindows7って触ってないな](https://github.com/htvoffcial/htvoffcial/discussions/222)
   - Windows Vista世代で生まれて、しばらく触って、いつのまにか10になっているみたいな。 7も8も全然触ってなかったから今度仮装環境で試してみたい“…”
+
+## 2026-08-12
+
+- [OPJGS](https://github.com/htvoffcial/htvoffcial/discussions/224)
+  - # Oniisan Project Goals |目標|内容| |:-----|:------| | 大きな目標 | 人生のエンタメ化 | | マクロな目標 |“…”
+- [お兄さんが稼働し始めてぼちぼち5ヶ月、よく継続してきた。](https://github.com/htvoffcial/htvoffcial/discussions/223)
+  - 何事も継続するのも、協力して活動するのも、一番大切なのは目標設定だね“…”
