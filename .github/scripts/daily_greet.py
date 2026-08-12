@@ -343,7 +343,6 @@ def generate_greeting(now_dt, weather, today_label):
         "夕方の時間帯だけは想像力を持って、楽しませること。"
         "公設秘書として、立場をわきまえること。"
         "内部推論は出力せず、最終回答のみで返すこと。適切な場所で改行すること。"
-        "思考過程・注釈・JSONは禁止。"
     )
     text = call_cf_generate(
         prompt,
@@ -358,7 +357,7 @@ def generate_greeting(now_dt, weather, today_label):
 def choose_next_time_with_ai(now_dt, sent_text, count):
     prompt = (
         f"現在JST: {now_dt.strftime('%Y-%m-%d %H:%M:%S')}\n"
-        f"本日送信数(５回まで可能): {count}\n"
+        f"今日はあと{5 - count}回送信可能\n"
         f"直前送信文(80字): {truncate80(sent_text)}\n"
         "次回送信時刻をJSTで1つ。06:00〜22:00、現在より未来、HH:MMのみ。"
     )
