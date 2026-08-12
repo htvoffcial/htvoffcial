@@ -6,6 +6,9 @@
  and/or modify it under the terms of the Server Side
  Public License, version 1, as published by MongoDB, Inc.
 */
+/*
+- 「昨日のまとめ」に対する優しいツッコミ,任意で！,タイトルと本文の齟齬くらいは無視！（コメディアン寄り）
+*/
 import fs from "node:fs";
 
 const GH_TOKEN = process.env.GH_TOKEN;
@@ -520,7 +523,7 @@ query($owner:String!, $repo:String!, $after:String) {
 要件:
 - 300文字前後（±80文字くらいはOK）
 - 適切な位置で改行(重要)
-- 「昨日のまとめ」に対する優しいツッコミ,任意で！,タイトルと本文の齟齬くらいは無視！（コメディアン寄り）
+- 「昨日のまとめ」に対する優しいお話(コメディアンに)
 - 天気にも一言触れてOK（無理に入れなくてもOK）
 - 「今日の一言」（最後に「今日の一言：...」の形式で1文）
 - 固有名詞やURLは無理に入れなくてOK（入れるなら1つまで）
@@ -539,7 +542,7 @@ ${source}
           { role: "system", content: system },
           { role: "user", content: user },
         ],
-       temperature:0.7,
+       temperature:1.5,
       });
 
       finalText = text;
