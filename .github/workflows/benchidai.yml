@@ -3,6 +3,8 @@ name: Benchidai CF AI Direct Test
 on:
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   print-json-payload:
     runs-on: ubuntu-latest
