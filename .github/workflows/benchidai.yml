@@ -1,0 +1,69 @@
+name: Benchidai CF AI Direct Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-json-payload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Real APIs and Print JSON Payload
+        env:
+          TASKS_TOKEN: ${{ secrets.TASKS_TOKEN }}
+        run: |
+          # 1. 現在時刻（JST）
+          NOW_JST=$(TZ=Asia/Tokyo date +'%Y-%m-%d %H:%M:%S')
+
+          # 2. 今日は何の日 API の取得
+          TODAY_LABEL=$(curl -s "https://harutv.stars.ne.jp/today" | jq -r '.today // ""' | cut -c1-80)
+
+          # 3. 気象庁(JMA) API から松戸（千葉県）の気温・湿度パース
+          JMA_JSON=$(curl -s "https://www.jma.go.jp/bosai/forecast/data/forecast/120000.json")
+          WEATHER_TEMP=$(echo "$JMA_JSON" | grep -oE '(-?[0-9]+)\s*℃' | head -n 1 | tr -d '℃ ' || echo "")
+          WEATHER_HUM=$(echo "$JMA_JSON" | grep -oE '湿度[^0-9]{0,10}([0-9]{1,3})' | head -n 1 | grep -oE '[0-9]{1,3}' || echo "")
+
+          # 4. タスク API の取得
+          TASKS=""
+          if [ -n "$TASKS_TOKEN" ]; then
+            TASKS_JSON=$(curl -s "https://harutv.stars.ne.jp/tasks?token=${TASKS_TOKEN}&api=1")
+            TASKS=$(echo "$TASKS_JSON" | jq -r '.tasks[].title' 2>/dev/null | paste -sd " / " -)
+          fi
+          if [ -z "$TASKS" ]; then
+            TASKS="なし"
+          fi
+
+          # 5. ダミー前回メッセージとカウント設定
+          COUNT=1
+          REMAINS=$((5 - COUNT))
+          SENT_TEXT="本日も公務お疲れ様です。"
+          echo "📥 [取得データ確認]"
+          echo "日時: ${NOW_JST}"
+          echo "何の日: ${TODAY_LABEL}"
+          echo "気温: ${WEATHER_TEMP}℃ / 湿度: ${WEATHER_HUM}%"
+          echo "タスク: ${TASKS}"
+          echo ""
+          jq -n \
+            --arg sys "今日は何の日は、勝手に知識から回答しない。公設秘書として丁寧かつ自然なトーンを保つこと。大げさな表現やポエムのような表現は避け、天候やタスクに合わせた一言添えること。内部推論は出力せず、最終回答のみで返すこと。" \
+            --arg user "現在時刻(JST): ${NOW_JST}\n松戸市の気温(参考): ${WEATHER_TEMP}\n松戸市の湿度(参考): ${WEATHER_HUM}\n今日は何の日: ${TODAY_LABEL}\n今日のタスク: ${TASKS}\n120文字以内の自然な日本語挨拶を1行だけ出力。" \
+            '{
+              messages: [
+                {role: "system", content: $sys},
+                {role: "user", content: $user}
+              ],
+              max_tokens: 1000,
+              temperature: 0.4
+            }'
+
+          echo ""
+          jq -n \
+            --arg sys "内部推論や解説は一切出力せず、HH:MMのみを5文字で返してください。" \
+            --arg user "現在JST: ${NOW_JST}\n本日の送信上限: 5回（今回で${COUNT}回目、残り${REMAINS}回）\n前回送信文(80字): ${SENT_TEXT}\n【重要ルール】\n本日中にあと ${REMAINS} 回送信する必要があるため、現在時刻より後かつ22:00までの時刻を指定してください。\n次回送信時刻をJSTの HH:MM フォーマットのみで1つ回答してください。" \
+            '{
+              messages: [
+                {role: "system", content: $sys},
+                {role: "user", content: $user}
+              ],
+              max_tokens: 300,
+              temperature: 0.3
+            }'
+          echo "=========================================="
