@@ -11,7 +11,7 @@ JST = timezone(timedelta(hours=9))
 MAX_PER_DAY = 5
 WF_DIR = ".github/workflows"
 TIMESTAMP_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})-(\d{2})-(\d{2})-(\d{2})\.yml$")
-DEFAULT_CF_MODEL = "@cf/google/gemma-4-26b-a4b-it"
+DEFAULT_CF_MODEL = "@cf/meta/llama-4-scout-17b-16e-instruct"
 
 
 def now_jst():
