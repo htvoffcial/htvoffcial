@@ -347,7 +347,7 @@ def generate_greeting(now_dt, weather, today_label):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=False,
-        max_tokens=1900,
+        max_tokens=2100,
         temperature=0.4
     )
     return text if text else "おはようございます！よい一日を。"
@@ -356,7 +356,7 @@ def generate_greeting(now_dt, weather, today_label):
 def choose_next_time_with_ai(now_dt, sent_text, count):
     prompt = (
         f"現在JST: {now_dt.strftime('%Y-%m-%d %H:%M:%S')}\n"
-        f"今日あと{5 - count}回送信してください。\n"
+        f"今日あと{5 - count}回送信可能\n"
         f"前回送信文(80字): {truncate80(sent_text)}\n"
         "次回送信時刻をJSTで1つ。06:00〜22:00、現在より未来、HH:MMのみ。"
     )
@@ -365,8 +365,8 @@ def choose_next_time_with_ai(now_dt, sent_text, count):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=True,
-        max_tokens=600,
-        temperature=1.5,
+        max_tokens=100,
+        temperature=0.3,
     )
 
     m = re.search(r"\b([01]\d|2[0-3]):([0-5]\d)\b", out or "")
