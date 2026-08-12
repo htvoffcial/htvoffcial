@@ -168,20 +168,18 @@ def get_remote_timestamp_files_via_api():
 
 
 def get_remote_today_count(today_str):
-    """
-    remoteの timestamp workflow から最新1件を見て、
-    同日なら先頭 #count を返す。異日なら0。
-    """
     files = get_remote_timestamp_files_via_api()
     if not files:
         return 0
 
     latest = files[-1]
     file_date = parse_count_and_date_from_filename(latest["name"])
+    
+    # ワークフローファイルの日付と「今日」が一致しない場合は、
+    # 新しい日の1回目とみなしてカウントを0からスタートする
     if file_date != today_str:
         return 0
 
-    # 先頭行取得
     dl = latest.get("download_url")
     if not dl:
         return 0
@@ -193,6 +191,7 @@ def get_remote_today_count(today_str):
             return int(m.group(1))
     except Exception as e:
         print(f"[WARN] failed to read remote temp workflow first line: {e}")
+        
     return 0
 
 
@@ -348,8 +347,8 @@ def generate_greeting(now_dt, weather, today_label):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=False,
-        max_tokens=2100,
-        temperature=1.5
+        max_tokens=1900,
+        temperature=0.4
     )
     return text if text else "おはようございます！よい一日を。"
 
@@ -357,8 +356,8 @@ def generate_greeting(now_dt, weather, today_label):
 def choose_next_time_with_ai(now_dt, sent_text, count):
     prompt = (
         f"現在JST: {now_dt.strftime('%Y-%m-%d %H:%M:%S')}\n"
-        f"今日はあと{5 - count}回送信可能\n"
-        f"直前送信文(80字): {truncate80(sent_text)}\n"
+        f"今日あと{5 - count}回送信してください。\n"
+        f"前回送信文(80字): {truncate80(sent_text)}\n"
         "次回送信時刻をJSTで1つ。06:00〜22:00、現在より未来、HH:MMのみ。"
     )
     system_prompt = "内部推論を出さず、HH:MMのみ返すこと。"
@@ -366,8 +365,8 @@ def choose_next_time_with_ai(now_dt, sent_text, count):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=True,
-        max_tokens=400,
-        temperature=0.2,
+        max_tokens=300,
+        temperature=1.5,
     )
 
     m = re.search(r"\b([01]\d|2[0-3]):([0-5]\d)\b", out or "")
