@@ -52,23 +52,52 @@ def fetch_today_label():
 
 
 def fetch_matsudo_weather():
+    """
+    気象庁API (120000.json) から千葉県北西部（松戸エリア）の天気と
+    千葉の予想最高気温を安全に取得する関数
+    """
     url = "https://www.jma.go.jp/bosai/forecast/data/forecast/120000.json"
     data = safe_get_json(url)
+
     temp = ""
-    hum = ""
+    weather_text = ""
+
+    # レスポンス形式チェック
+    if not isinstance(data, list) or not data:
+        return {"temperature_c": temp, "weather": weather_text}
 
     try:
-        dump = json.dumps(data, ensure_ascii=False)
-        m_temp = re.search(r'(-?\d+)\s*℃', dump)
-        if m_temp:
-            temp = m_temp.group(1)
-        m_hum = re.search(r'湿度[^0-9]{0,10}(\d{1,3})', dump)
-        if m_hum:
-            hum = m_hum.group(1)
+        time_series = data[0].get("timeSeries", [])
+
+        # 1. 今日の天気テロップ（北西部: 120010）を取得
+        if len(time_series) > 0:
+            for area_data in time_series[0].get("areas", []):
+                if area_data.get("area", {}).get("code") == "120010":
+                    weathers = area_data.get("weathers", [])
+                    if weathers:
+                        # 見やすさのため全角スペースを半角スペースに変換
+                        weather_text = weathers[0].replace("\u3000", " ").strip()
+                    break
+
+        # 2. 予想最高気温（千葉: 45212）を取得
+        if len(time_series) > 2:
+            for area_data in time_series[2].get("areas", []):
+                if area_data.get("area", {}).get("code") == "45212":
+                    temps = area_data.get("temps", [])
+                    # temps[1] に日中の最高気温、temps[0] に最低気温が入る
+                    if len(temps) >= 2 and temps[1]:
+                        temp = f"{temps[1]}℃"
+                    elif len(temps) >= 1 and temps[0]:
+                        temp = f"{temps[0]}℃"
+                    break
+
     except Exception as e:
         print(f"[WARN] parse weather failed: {e}")
 
-    return {"temperature_c": temp, "humidity_pct": hum}
+    return {
+        "temperature_c": temp,
+        "weather": weather_text,
+    }
 
 
 def fetch_task_titles():
@@ -330,9 +359,8 @@ def generate_greeting(now_dt, weather, today_label):
 
     prompt = (
         f"現在時刻(JST): {now_dt.strftime('%Y-%m-%d %H:%M')}\n"
-        f"松戸市の気温(参考): {weather['temperature_c']}\n"
-        f"松戸市の湿度(参考): {weather['humidity_pct']}\n"
-        f"今日は何の日: {today_label}\n"
+        f"松戸市の天気(参考): {weather.get('weather', '不明')}\n"
+        f"松戸市の気温: {weather.get('temperature_c', '不明')}\n"
         f"今日のタスク: {tasks_text}\n"
         "120文字以内の自然な日本語挨拶を1行だけ出力。"
     )
