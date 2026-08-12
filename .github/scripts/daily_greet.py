@@ -339,9 +339,9 @@ def generate_greeting(now_dt, weather, today_label):
     )
     # print(tasks_text)
     system_prompt = (
-        "今日は何の日かは、記載があり朝の場合のみ読むこと、勝手に知識から回答しない。"
-        "夕方の時間帯だけは想像力を持って、楽しませる文章にすること。"
-        "あなたは私の公設秘書です。立場をわきまえること。"
+        "今日は何の日は、勝手に知識から回答しない。"
+        "夕方の時間帯だけは想像力を持って、楽しませること。"
+        "公設秘書として、立場をわきまえること。"
         "内部推論は出力せず、最終回答のみで返すこと。適切な場所で改行すること。"
         "思考過程・注釈・JSONは禁止。"
     )
@@ -350,7 +350,7 @@ def generate_greeting(now_dt, weather, today_label):
         system_prompt,
         allow_reasoning_time_fallback=False,
         max_tokens=2100,
-        temperature=0.6
+        temperature=1.5
     )
     return text if text else "おはようございます！よい一日を。"
 
