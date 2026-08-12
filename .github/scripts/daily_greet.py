@@ -354,18 +354,24 @@ def generate_greeting(now_dt, weather, today_label):
 
 
 def choose_next_time_with_ai(now_dt, sent_text, count):
+    # 今日まだ送信枠が残っているか判定
+    remains_today = MAX_PER_DAY - count
+    
     prompt = (
         f"現在JST: {now_dt.strftime('%Y-%m-%d %H:%M:%S')}\n"
-        f"今日あと{5 - count}回送信可能\n"
+        f"本日の送信上限: {MAX_PER_DAY}回（今回で{count}回目、残り{remains_today}回）\n"
         f"前回送信文(80字): {truncate80(sent_text)}\n"
-        "次回送信時刻をJSTで1つ。06:00〜22:00、現在より未来、HH:MMのみ。"
+        "【重要ルール】\n"
+        f"{'本日中にあと ' + str(remains_today) + ' 回送信する必要があるため、現在時刻より後かつ22:00までの時刻を指定してください。' if remains_today > 0 else '本日の送信は終了したため、明日の06:00〜10:00の間の時刻を指定してください。'}\n"
+        "次回送信時刻をJSTの HH:MM フォーマットのみで1つ回答してください。"
     )
-    system_prompt = "内部推論を出さず、HH:MMのみ返すこと。"
+    system_prompt = "内部推論や解説は一切出力せず、HH:MMのみを5文字で返してください。"
+    
     out = call_cf_generate(
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=True,
-        max_tokens=100,
+        max_tokens=50,
         temperature=0.3,
     )
 
@@ -374,15 +380,29 @@ def choose_next_time_with_ai(now_dt, sent_text, count):
         hh, mm = int(m.group(1)), int(m.group(2))
         hh = min(max(hh, 6), 22)
         candidate = now_dt.replace(hour=hh, minute=mm, second=0, microsecond=0)
+        
+        # 今日まだ送信枠があるのに過去/現在以前の時刻になっちゃった場合は「30分〜1時間後」に補正
         if candidate <= now_dt:
-            candidate += timedelta(days=1)
+            if remains_today > 0 and now_dt.hour < 22:
+                # 今日の22時までの間に再設定（例: 45分後）
+                candidate = now_dt + timedelta(minutes=45)
+                if candidate.hour >= 22:
+                    candidate = candidate.replace(hour=21, minute=59, second=0, microsecond=0)
+            else:
+                # 今日はもう無理なら明日の朝へ
+                candidate = (now_dt + timedelta(days=1)).replace(hour=7, minute=0, second=0, microsecond=0)
+                
         return candidate
 
-    fallback = now_dt + timedelta(hours=3)
-    if fallback.hour < 6:
-        fallback = fallback.replace(hour=6, minute=0, second=0, microsecond=0)
-    if fallback.hour > 22:
-        fallback = (fallback + timedelta(days=1)).replace(hour=6, minute=0, second=0, microsecond=0)
+    # --- バックアップ（フォールバック）処理の改善 ---
+    # AIが失敗した場合も、今日枠が残っていれば1.5時間後、なければ翌朝7時へ
+    if remains_today > 0 and now_dt.hour < 21:
+        fallback = now_dt + timedelta(hours=1, minutes=30)
+        if fallback.hour > 22:
+            fallback = fallback.replace(hour=21, minute=50, second=0, microsecond=0)
+    else:
+        fallback = (now_dt + timedelta(days=1)).replace(hour=7, minute=0, second=0, microsecond=0)
+        
     return fallback
 
 
