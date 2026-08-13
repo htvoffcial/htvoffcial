@@ -828,3 +828,8 @@
   - # Oniisan Project Goals |目標|内容| |:-----|:------| | 大きな目標 | 人生のエンタメ化 | | マクロな目標 |“…”
 - [お兄さんが稼働し始めてぼちぼち5ヶ月、よく継続してきた。](https://github.com/htvoffcial/htvoffcial/discussions/223)
   - 何事も継続するのも、協力して活動するのも、一番大切なのは目標設定だね“…”
+
+## 2026-08-13
+
+- [ひどい雨だった](https://github.com/htvoffcial/htvoffcial/discussions/226)
+  - 何も手につかず1日を終える。ただ、ミニテーブルの片付けは無事終えたのでよし。“…”
