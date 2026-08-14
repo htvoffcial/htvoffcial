@@ -1,18 +1,18 @@
 
-## Discuss Summary (The Gymnastics Instructor)
-**Date (JST):** 2026-08-13
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-08-14
 
-Hey, everyone! How are you all doing!?
-Unfortunately, it rained really hard in Matsudo City yesterday.
-Weather like that can really make you feel sluggish, can’t it?
-It looks like you didn’t manage any jump rope reps either, but that’s okay!
-It’s totally, totally fine to have days like that!
+Hey, everyone! Are you all jumping with energy!?
+It looked like it was raining in Matsudo City yesterday, so it seems you had to skip jump rope.
+But it’s okay! Taking a break is also an important part of the routine for all of you who need to get stronger!
 
-As I was listening to your stories, I heard some of you say, “I couldn’t do anything,” in a slightly sad voice…
-Oh! But you did a great job cleaning up the mini table, didn’t you!
-That’s amazing!! …Wait, just the mini table!? (lol)
-Just kidding! But if you managed to tidy up even that little bit, you’re already today’s champion!
-Let’s keep building up those little “I did it!” moments and jump energetically again tomorrow!
+Also, listen up, everyone!
+I heard about a really fresh “new hairstyle”!
+With the back of the hair cut short and the bangs trimmed even, it looks just like an active athlete with impeccable hygiene—it’s really great!
+…… Huh? But they said, “The direct sunlight was hot”—so what happened to yesterday’s rain, then!? (lol)
+It seems like the weather and their perception are at odds, but that’s just another kind of change!
 
-Today’s Thought: Small successes are the precious seeds that help you jump into tomorrow!
+Alright, just like discovering a new version of yourself, let’s go into today feeling truly happy!
+
+Today’s Quote: When your appearance changes, the world looks all sparkly, too!
 <!-- DISCUSS_COACH_END -->
