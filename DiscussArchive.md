@@ -833,3 +833,8 @@
 
 - [ひどい雨だった](https://github.com/htvoffcial/htvoffcial/discussions/226)
   - 何も手につかず1日を終える。ただ、ミニテーブルの片付けは無事終えたのでよし。“…”
+
+## 2026-08-14
+
+- [髪切ってもらった](https://github.com/htvoffcial/htvoffcial/discussions/227)
+  - 美容室に行ってきましたー！ 今回は襟足短めで、前髪は揃える感じでお願いしました。 にしてもほんとに今日も、台風一過で直射日光が暑かった。“…”
