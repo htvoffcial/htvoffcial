@@ -18,23 +18,42 @@ def now_jst():
     return datetime.now(JST)
 
 
-def safe_get_json(url, timeout=15):
+def request_with_retry(method, url, max_retries=2, wait_seconds=30, **kwargs):
     """
-    GETしてJSONを返す。失敗時はstatus/bodyの一部をログに出して原因特定しやすくする。
+    HTTP通信を指定回数・指定間隔でリトライする共通関数
     """
     status = None
-    body_preview = ""
+    for attempt in range(max_retries + 1):
+        try:
+            r = requests.request(method, url, **kwargs)
+            status = r.status_code
+            r.raise_for_status()
+            return r
+        except Exception as e:
+            body_preview = ""
+            if 'r' in locals() and r is not None and hasattr(r, 'text'):
+                body_preview = (r.text or "")[:200]
+
+            if attempt < max_retries:
+                print(f"[WARN] {method} {url} failed (status={status}): {e} | body={body_preview!r} | Retrying in {wait_seconds}s... ({attempt + 1}/{max_retries})")
+                time.sleep(wait_seconds)
+            else:
+                print(f"[ERROR] {method} {url} failed after {max_retries} retries: {e}")
+                raise
+
+
+def safe_get_json(url, timeout=15):
+    """
+    GETしてJSONを返す。失敗時はリトライを行い、最終的にダメならNoneを返す。
+    """
     try:
-        r = requests.get(url, timeout=timeout)
-        status = r.status_code
-        body_preview = (r.text or "")[:200]
-        r.raise_for_status()
+        r = request_with_retry("GET", url, timeout=timeout)
         if not r.text.strip():
-            print(f"[WARN] empty body from {url} (status={status})")
+            print(f"[WARN] empty body from {url}")
             return None
         return r.json()
     except Exception as e:
-        print(f"[WARN] GET JSON failed: {url} -> {e} | status={status} body={body_preview!r}")
+        print(f"[WARN] GET JSON completely failed: {url} -> {e}")
         return None
 
 
@@ -108,17 +127,7 @@ def fetch_task_titles():
 
     url = f"https://harutv.stars.ne.jp/tasks?token={token}&api=1"
 
-    data = None
-    max_attempts = 3
-    for attempt in range(1, max_attempts + 1):
-        data = safe_get_json(url)
-        if isinstance(data, dict):
-            break
-        # print(f"[WARN] retrying tasks fetch (attempt {attempt}/{max_attempts})")
-        if attempt < max_attempts:
-            time.sleep(2)
-
-    # print(data)
+    data = safe_get_json(url)
     if not isinstance(data, dict):
         return []
 
@@ -176,8 +185,7 @@ def get_remote_timestamp_files_via_api():
         "Accept": "application/vnd.github+json",
     }
     try:
-        r = requests.get(url, headers=headers, timeout=20)
-        r.raise_for_status()
+        r = request_with_retry("GET", url, headers=headers, timeout=20)
         items = r.json()
         out = []
         if isinstance(items, list):
@@ -213,7 +221,8 @@ def get_remote_today_count(today_str):
     if not dl:
         return 0
     try:
-        txt = requests.get(dl, timeout=20).text
+        r = request_with_retry("GET", dl, timeout=20)
+        txt = r.text
         first = txt.splitlines()[0].strip() if txt else ""
         m = re.match(r"^#\s*(\d+)\s*$", first)
         if m:
@@ -320,11 +329,10 @@ def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False,
     }
 
     try:
-        r = requests.post(url, headers=headers, json=body, timeout=60)
-        r.raise_for_status()
+        r = request_with_retry("POST", url, headers=headers, json=body, timeout=60)
         data = r.json()
 
-        text = ""  # 未定義エラー防止のため初期化
+        text = ""
         if "result" in data:
             text = extract_text_from_cf_result(
                 data,
@@ -348,9 +356,13 @@ def post_discord(text):
     if not webhook:
         raise RuntimeError("DISCORD_WEBHOOK_URL is missing")
     payload = {"content": text[:2000]}
-    r = requests.post(webhook, json=payload, timeout=20)
-    r.raise_for_status()
-    print("[INFO] posted to Discord")
+    
+    try:
+        request_with_retry("POST", webhook, json=payload, timeout=20)
+        print("[INFO] posted to Discord")
+    except Exception as e:
+        print(f"[WARN] Discord post failed: {e}")
+        raise
 
 
 def generate_greeting(now_dt, weather, today_label):
@@ -364,7 +376,6 @@ def generate_greeting(now_dt, weather, today_label):
         f"今日のタスク: {tasks_text}\n"
         "120文字以内の自然な日本語挨拶を1行だけ出力。"
     )
-    # print(tasks_text)
     system_prompt = (
         "今日は何の日は、勝手に知識から回答しない。"
         "夕方の時間帯だけは想像力を持って、楽しませること。"
@@ -412,18 +423,15 @@ def choose_next_time_with_ai(now_dt, sent_text, count):
         # 今日まだ送信枠があるのに過去/現在以前の時刻になっちゃった場合は「30分〜1時間後」に補正
         if candidate <= now_dt:
             if remains_today > 0 and now_dt.hour < 22:
-                # 今日の22時までの間に再設定（例: 45分後）
                 candidate = now_dt + timedelta(minutes=45)
                 if candidate.hour >= 22:
                     candidate = candidate.replace(hour=21, minute=59, second=0, microsecond=0)
             else:
-                # 今日はもう無理なら明日の朝へ
                 candidate = (now_dt + timedelta(days=1)).replace(hour=7, minute=0, second=0, microsecond=0)
                 
         return candidate
 
-    # --- バックアップ（フォールバック）処理の改善 ---
-    # AIが失敗した場合も、今日枠が残っていれば1.5時間後、なければ翌朝7時へ
+    # --- バックアップ（フォールバック）処理 ---
     if remains_today > 0 and now_dt.hour < 21:
         fallback = now_dt + timedelta(hours=1, minutes=30)
         if fallback.hour > 22:
@@ -505,9 +513,21 @@ def git_commit_and_push(message):
         # origin に依存せず、PAT付きURLへ直接 push
         push_url = f"https://x-access-token:{token}@github.com/{repo}.git"
         print(f"[DEBUG] pushing to https://x-access-token:***@github.com/{repo}.git")
-        subprocess.run(["git", "push", push_url, "HEAD:main"], check=True)
+        
+        # Git Push も外部通信扱いとしてリトライ制御
+        max_retries = 2
+        for attempt in range(max_retries + 1):
+            try:
+                subprocess.run(["git", "push", push_url, "HEAD:main"], check=True)
+                print("[INFO] pushed workflow changes to remote.")
+                break
+            except subprocess.CalledProcessError as e:
+                if attempt < max_retries:
+                    print(f"[WARN] git push failed: {e}. Retrying in 30s... ({attempt + 1}/{max_retries})")
+                    time.sleep(30)
+                else:
+                    raise
 
-        print("[INFO] pushed workflow changes to remote.")
     except subprocess.CalledProcessError as e:
         print(f"[WARN] git push failed (non-fatal): {e}")
         # 運用優先: 送信自体は成功しているためジョブは落とさない
