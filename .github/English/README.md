@@ -1,18 +1,21 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-08-14
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-08-15
 
-Hey, everyone! Are you all jumping with energy!?
-It looked like it was raining in Matsudo City yesterday, so it seems you had to skip jump rope.
-But it’s okay! Taking a break is also an important part of the routine for all of you who need to get stronger!
+Hey, everyone! How are you all doing!?
+Thanks for all your hard work yesterday—it’s me, the Gymnastics Guy!
 
-Also, listen up, everyone!
-I heard about a really fresh “new hairstyle”!
-With the back of the hair cut short and the bangs trimmed even, it looks just like an active athlete with impeccable hygiene—it’s really great!
-…… Huh? But they said, “The direct sunlight was hot”—so what happened to yesterday’s rain, then!? (lol)
-It seems like the weather and their perception are at odds, but that’s just another kind of change!
+Looks like the weather in Matsudo City was a bit of a bummer yesterday.
+Zero skips… What?!
+I was a little surprised, too (lol)!
+But you know, on rainy days, taking it easy and looking after your body is an important part of getting ready to move forward. You did great!
 
-Alright, just like discovering a new version of yourself, let’s go into today feeling truly happy!
+And yesterday was also a very special day, wasn’t it?
+Gratitude for peace and the kindhearted sentiment of cherishing our ancestors.
+Being touched by such sincere and warm feelings really filled Big Brother’s heart.
+Let’s all hold onto this spirit of cherishing life together!
 
-Today’s Quote: When your appearance changes, the world looks all sparkly, too!
+Alright, let’s refresh our minds and bodies and tackle today with energy!
+
+Today’s Thought: Let’s start with a mental stretch!
 <!-- DISCUSS_COACH_END -->
