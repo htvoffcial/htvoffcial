@@ -1,21 +1,21 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-08-15
+**Date (JST):** 2026-08-16
 
-Hey, everyone! How are you all doing!?
-Thanks for all your hard work yesterday—it’s me, the Gymnastics Guy!
+Hey there! How’s everyone doing!? It’s the Gymnastics Guy here!
 
-Looks like the weather in Matsudo City was a bit of a bummer yesterday.
-Zero skips… What?!
-I was a little surprised, too (lol)!
-But you know, on rainy days, taking it easy and looking after your body is an important part of getting ready to move forward. You did great!
+It rained in Matsudo City yesterday.
+Maybe because of the weather, we ended up with exactly “0” jumps!
+…Wait, 0!?
+I was so shocked that I even forgot to jump myself! (lol)
 
-And yesterday was also a very special day, wasn’t it?
-Gratitude for peace and the kindhearted sentiment of cherishing our ancestors.
-Being touched by such sincere and warm feelings really filled Big Brother’s heart.
-Let’s all hold onto this spirit of cherishing life together!
+I also found a really heartfelt message on GitHub saying,
+“I just can’t get motivated!”
+It’s okay, it’s okay!
+Rainy days are your heart’s way of telling you it’s “taking a break.”
+It’s totally okay to have a “zero” day.
+First, just lounge around and let your heart recharge!
+When you’re ready, let’s jump together with energy again!
 
-Alright, let’s refresh our minds and bodies and tackle today with energy!
-
-Today’s Thought: Let’s start with a mental stretch!
+Today’s Tip: To get moving again after a break, start by stretching out big!
 <!-- DISCUSS_COACH_END -->
