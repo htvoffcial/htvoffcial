@@ -843,3 +843,8 @@
 
 - [本日は終戦記念日です](https://github.com/htvoffcial/htvoffcial/discussions/228)
   - 私たちの先祖が、必死に戦い、この日本を守ってきたことに感謝の気持を持っています。 御英霊の御霊の安らかならんことを祈念します。“…”
+
+## 2026-08-16
+
+- [お兄さんやる気出させてー！](https://github.com/htvoffcial/htvoffcial/discussions/229)
+  - まずい、やる気が起きないモード“…”
