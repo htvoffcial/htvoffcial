@@ -848,3 +848,8 @@
 
 - [お兄さんやる気出させてー！](https://github.com/htvoffcial/htvoffcial/discussions/229)
   - まずい、やる気が起きないモード“…”
+
+## 2026-08-17
+
+- [最近予定立て込みすぎ](https://github.com/htvoffcial/htvoffcial/discussions/230)
+  - 後回しにしがちなのもなんとかしたい お兄さん！どうすればいい？“…”
