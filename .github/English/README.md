@@ -5,14 +5,14 @@
 Hey there! How’s everyone doing!? It’s the Gymnastics Guy here!
 
 It rained in Matsudo City yesterday.
-Maybe because of the weather, we ended up with exactly “0” jumps!
-…Wait, 0!?
-I was so shocked that I even forgot to jump myself! (lol)
+Maybe because of the weather, we ended up with exactly “0” skips!
+…Wait, 0 skips!?
+I was so shocked I even forgot to jump myself! (lol)
 
 I also found a really heartfelt message on GitHub saying,
 “I just can’t get motivated!”
 It’s okay, it’s okay!
-Rainy days are your heart’s way of telling you it’s “taking a break.”
+Rainy days are your heart’s way of telling you, “Time for a break.”
 It’s totally okay to have a “zero” day.
 First, just lounge around and let your heart recharge!
 When you’re ready, let’s jump together with energy again!
