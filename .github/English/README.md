@@ -1,21 +1,21 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-08-16
+**Date (JST):** 2026-08-17
 
-Hey there! How’s everyone doing!? It’s the Gymnastics Guy here!
+Hey there! How’s everyone doing!? It’s me, the Gymnastics Guy!!
 
-It rained in Matsudo City yesterday.
-Maybe because of the weather, we ended up with exactly “0” skips!
-…Wait, 0 skips!?
-I was so shocked I even forgot to jump myself! (lol)
+Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, clear day!
+You did 1,021 skips!? …Wow, that’s just too amazing!
+If I tried to do that, my legs would be shaking like crazy~!
 
-I also found a really heartfelt message on GitHub saying,
-“I just can’t get motivated!”
-It’s okay, it’s okay!
-Rainy days are your heart’s way of telling you, “Time for a break.”
-It’s totally okay to have a “zero” day.
-First, just lounge around and let your heart recharge!
-When you’re ready, let’s jump together with energy again!
+Now then, on GitHub, there was a slightly heartbreaking post saying,
+“My schedule is so packed that I end up putting things off.”
+Ah, I totally get that! It’s easy to just think, “I’ll do it later,”
+and slip right into nap mode, isn’t it!
 
-Today’s Tip: To get moving again after a break, start by stretching out big!
+But it’s okay! When that happens, take a deep breath,
+and start with a small step—like, “I’ll just do this much first!”
+One step at a time, slowly—that’s perfectly fine!
+
+Today’s Tip: First, take a deep breath and focus on just one thing right in front of you!
 <!-- DISCUSS_COACH_END -->
