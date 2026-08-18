@@ -853,3 +853,8 @@
 
 - [最近予定立て込みすぎ](https://github.com/htvoffcial/htvoffcial/discussions/230)
   - 後回しにしがちなのもなんとかしたい お兄さん！どうすればいい？“…”
+
+## 2026-08-18
+
+- [今日は結局家にこもって事前課題書いてた](https://github.com/htvoffcial/htvoffcial/discussions/231)
+  - お兄さん思ったより頭いいんや“…”
