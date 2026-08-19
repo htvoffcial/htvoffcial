@@ -858,3 +858,8 @@
 
 - [今日は結局家にこもって事前課題書いてた](https://github.com/htvoffcial/htvoffcial/discussions/231)
   - お兄さん思ったより頭いいんや“…”
+
+## 2026-08-19
+
+- [頭の中は受験の文字しかない](https://github.com/htvoffcial/htvoffcial/discussions/232)
+  - 依存症からの抜け方知りたい(医師法上お兄さんは答えちゃダメね、そだねーくらいで流して)“…”
