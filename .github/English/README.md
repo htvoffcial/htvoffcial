@@ -1,20 +1,21 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** August 18, 2026
+**Date (JST):** 2026-08-19
 
-Hey, everyone! Are you all full of energy!?
+Hey, everyone! How are you all doing!? It’s the Gymnastics Guy here!
+Yesterday in Matsudo City, the sun was shining brightly—it was a beautiful, sunny day! It was awesome!
 
-Yesterday in Matsudo, the sun was shining brightly and it was a beautiful, sunny day!
-Even with weather like that… Wait, “0 jumps” on the jump rope!?
-Maybe the jump rope overslept? Just kidding!
+But I only managed “0” jumps with the jump rope… What?! Not even once!?
+Just kidding! Sometimes, it’s important to take a break and just wait patiently!
+But tomorrow, let’s definitely try to do at least one jump—or even just a tiny bit—okay?
 
-But the fact that you worked hard on your assignments at home
-is really cool—great job!
-That positive realization—“I might be smarter than I thought!”—
-is something even your big brother gives a huge, huge, HUGE thumbs-up to!
+Also, I heard some of you are really worried about your entrance exams.
+As for how to break free from that anxiety… I’m not a doctor, so
+I can’t give you a proper answer, but I’ll be right there beside you,
+nodding my head as hard as I can and saying, “Yeah, I know! That must be tough!”
 
-Let’s give both our brains and bodies a good rest and turn that into energy for tomorrow!
-All right, let’s be full of energy again tomorrow… Let’s go!
+When your head feels like it’s about to explode, stop for a moment and take a big stretch!
+Okay, are you ready? On the count of three, stretch!
 
-Today’s Thought: Let’s be surprised by our own talents!
+Today’s Tip: Every once in a while, let’s give our brains a break, too!
 <!-- DISCUSS_COACH_END -->
