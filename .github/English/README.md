@@ -19,3 +19,8 @@ Okay, are you ready? On the count of three, stretch!
 
 Today’s Tip: Every once in a while, let’s give our brains a break, too!
 <!-- DISCUSS_COACH_END -->
+
+
+```
+0+9f+301+1342+9dd=?
+```
