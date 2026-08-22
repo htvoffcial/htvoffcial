@@ -1,18 +1,20 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-08-21
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-08-22
 
-Hey there! How’s everyone doing!?
-Yesterday in Matsudo City, the sun was shining brightly—it was a beautiful, clear day!
-Looks like you skipped jump rope practice… I see!
-Well, I guess you just didn’t have time to jump rope! (lol)
+Hey there! Is everyone full of energy!?
 
-I heard that a whopping 15 guests came to watch the club activities!
-That nervous anxiety—“I wonder if anyone will actually show up…”—was completely put to rest, just like a perfect landing!
-Waaah! That’s amazing! Everyone, let’s give a big round of applause together! Clap, clap, clap!
-You’ve turned your anxiety into courage—you’re already a champion with your heart all stretched out and ready to go!
+It was drizzling in Matsudo yesterday, wasn’t it?
+It looks like you skipped rope jumping today, but on rainy days, it’s a smart strategy not to push yourself too hard and just relax at home!
+That “zero jumps” is actually a crucial recharge period to build up power for jumping even higher next time!
+It’s all good—you’re all set!
 
-Alright, let’s fill our hearts and bellies today and tackle the day with energy!
+And! There was some really surprising news yesterday!
+Apparently, Haruharu has been officially certified as a “right-handed thrower”!
+What!? They actually certify something like that too!? (lol)
+Ahaha, that’s amazing! Having a certification number and everything—it’s so professional!
 
-Today’s Thought: If you’ve worked hard to prepare, a wonderful encounter is waiting for you!
+Alright, let’s all go through today with big smiles on our faces!
+
+Today’s Tip: On rainy days, let’s stretch inside the house!
 <!-- DISCUSS_COACH_END -->
