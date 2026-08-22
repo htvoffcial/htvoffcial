@@ -873,3 +873,8 @@
 
 - [無事、見学に15人ほど来てくれた](https://github.com/htvoffcial/htvoffcial/discussions/234)
   - 部活動見学の対応してて、集まるか不安でしたが、結果往来ということで！“…”
+
+## 2026-08-22
+
+- [右投げ。](https://github.com/htvoffcial/htvoffcial/discussions/235)
+  - はるはる さんを右投げと正式に弊社が認定しました。 認定番号：20260822-70CM https://miginage.com/nintei 君も認定しよう“…”
