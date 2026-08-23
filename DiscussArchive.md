@@ -878,3 +878,8 @@
 
 - [右投げ。](https://github.com/htvoffcial/htvoffcial/discussions/235)
   - はるはる さんを右投げと正式に弊社が認定しました。 認定番号：20260822-70CM https://miginage.com/nintei 君も認定しよう“…”
+
+## 2026-08-23
+
+- [模試模試](https://github.com/htvoffcial/htvoffcial/discussions/236)
+  - 北区から帰宅、模試行ってきたけど短パンの受験者自分含め3名しか観測しなかった“…”
