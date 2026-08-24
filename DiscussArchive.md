@@ -883,3 +883,10 @@
 
 - [模試模試](https://github.com/htvoffcial/htvoffcial/discussions/236)
   - 北区から帰宅、模試行ってきたけど短パンの受験者自分含め3名しか観測しなかった“…”
+
+## 2026-08-24
+
+- [お兄さん](https://github.com/htvoffcial/htvoffcial/discussions/238)
+  - 俺を甘やかさないでくれ“…”
+- [食べ過ぎ](https://github.com/htvoffcial/htvoffcial/discussions/237)
+  - 朝は白飯卵焼き、昼はチャーシュー入りゴーヤチャンプルー、夜はキムチもずくと焼シャケ。バタースコッチ、美味すぎた。あれは罪の味だわ。“…”
