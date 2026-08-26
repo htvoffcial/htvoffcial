@@ -895,3 +895,8 @@
 
 - [時計とカレンダー見ると気分落ち込む](https://github.com/htvoffcial/htvoffcial/discussions/239)
   - 助けてお兄さん！受験のストレスで鬱か何か知らんが脳がフリーズする！※医学的なアドバイスは無しで“…”
+
+## 2026-08-26
+
+- [模試の見直ししてた](https://github.com/htvoffcial/htvoffcial/discussions/240)
+  - やっぱ記述は厳しい“…”
