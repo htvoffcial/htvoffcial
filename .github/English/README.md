@@ -1,19 +1,21 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-08-25
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-08-26
 
-Hey, everyone! Are you all full of energy!? ✨
+Hey there, everyone! How’s it going?!
+Yesterday in Matsudo City, the sky cleared up bright and sunny—it was such a wonderful day!
 
-Yesterday in Matsudo City, the weather was absolutely lovely and sunny! ☀️
-But wait a minute—what’s this!? You only skipped rope “0 times”!?
-I couldn’t help but go “Whoops!” right then and there! 😂
-But you know, taking a break is also a great way to “warm up your mind.”
-Instead of regretting what you couldn’t do, save your energy for tomorrow!
+But wait a minute!
+Is it really true that your jump rope record was “0 jumps”?!
+I was so surprised, my eyes practically popped out of my head like I was doing a handstand!
+…Just kidding! It’s totally fine to have a day to just take it easy and relax every once in a while!
 
-Also… I noticed some of you are worried that your “brain freezes up” when it comes to exams.
-Ahh~, that’s such a frustrating feeling—it’s just like trying to jump with all your might and then getting stuck in midair. 💦
-In moments like that, it’s okay not to force yourself to keep going!
-First, take a big, deep breath and let the tension in your shoulders just melt away!
+Also, to everyone who’s been working hard reviewing their mock exams!
+Essay-style questions are just like tricky balancing acts—they rarely go exactly as planned, right?
+I totally get that feeling of thinking, “Whoa~, this is hard~!”
+But just by facing yourself head-on like that, you’re already a gold medalist in my book!
 
-Today’s Tip: It’s okay if you get stuck! Take a deep breath first and be kind to yourself!
+Don’t rush—just move forward one step at a time, at your own pace!
+
+Today’s Tip: When you run into a tough problem, first take a deep breath, smile, and let’s go!
 <!-- DISCUSS_COACH_END -->
