@@ -900,3 +900,8 @@
 
 - [模試の見直ししてた](https://github.com/htvoffcial/htvoffcial/discussions/240)
   - やっぱ記述は厳しい“…”
+
+## 2026-08-27
+
+- [消化器が暴走する夢](https://github.com/htvoffcial/htvoffcial/discussions/241)
+  - 変な夢みた、片付けしてて、物陰にあった何かわからない細長い箱を持ち上げると、消化器が入っていて、ピンが外れて消火剤がそこらに飛び散るっていう夢…“…”
