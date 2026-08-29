@@ -1,24 +1,20 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-08-27
+**Date (JST):** 2026-08-28
 
-Hey there! How’s everyone doing!? It’s the Gymnastics Guy!
+Hey everyone! How are you all doing!? It’s me, the Gymnastics Guy!
+Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, clear day, wasn’t it!
+I bet it was a really nice day, right?
 
-The weather in Matsudo City was pretty lousy yesterday, wasn’t it?
-To everyone who couldn’t go outside because of the rain and ended up with 0 skips—
-It’s okay, okay! Days like that happen!
-(…But don’t just fall right into a nap after that! Hahaha!)
+But… wait a minute!?
+Your jump count is showing 0 jumps!
+Taking a break is an important part of getting ready,
+but next time, let’s definitely try jumping together with Big Brother! (lol)
 
-By the way, yesterday was really strange—
-someone had a dream that was a bit of a “BOOM!”
-For fire extinguisher foam to go flying everywhere while you’re cleaning up—
-is it a “fire extinguisher” or a “fire extinguisher”!?
-Either way, that’s a total panic in the middle of cleaning!
-It sounds like it would even give your stomach a jolt!
+Meanwhile, I saw some news on GitHub about a show that really made my heart skip a beat!
+The title is “Unhealthy”… The name is so blunt, it actually surprised me!
+It sounds kind of interesting to analyze how people miss their chance to exercise,
+but let’s make sure we don’t miss our chance—let’s jump right in and get moving!
 
-But you know, even a surprising dream like that—
-let’s turn it into a laugh and start the day with energy!
-Come on, let’s get moving today and make our minds sparkle, too!
-
-Today’s Tip: No matter how weird your dream is, when you wake up, start by stretching out with a big yawn!
+Today’s Tip: Don’t miss your chance! When you see it, act right away!
 <!-- DISCUSS_COACH_END -->
