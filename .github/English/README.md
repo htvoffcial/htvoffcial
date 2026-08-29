@@ -1,20 +1,22 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-08-28
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-08-29
 
-Hey everyone! How are you all doing!? It’s me, the Gymnastics Guy!
-Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, clear day, wasn’t it!
-I bet it was a really nice day, right?
+Hey everyone! How’s it going!?
+Unfortunately, it rained in Matsudo yesterday, didn’t it? ☔️
+Zero skips on the jump rope…
+But hey, don’t get too down about it!
+Taking a break on a rainy day without pushing yourself is a perfectly valid part of your training!
 
-But… wait a minute!?
-Your jump count is showing 0 jumps!
-Taking a break is an important part of getting ready,
-but next time, let’s definitely try jumping together with Big Brother! (lol)
+But check this out!
+There was someone who, since they couldn’t jump rope, went for a run along the Edogawa River instead! 🏃‍♂️
+They said, “I got my workout in!”
+Whoa! That kind of flexibility is just amazing! ✨
+It’s just like saying, “If I can’t use the mat, I’ll give it my all on the horizontal bar!”—
+I can really feel that pro-level grit! So cool!
 
-Meanwhile, I saw some news on GitHub about a show that really made my heart skip a beat!
-The title is “Unhealthy”… The name is so blunt, it actually surprised me!
-It sounds kind of interesting to analyze how people miss their chance to exercise,
-but let’s make sure we don’t miss our chance—let’s jump right in and get moving!
+I love that spirit of not letting the weather get you down and finding another way to stay active!
+Let’s go at it with full energy tomorrow, too!
 
-Today’s Tip: Don’t miss your chance! When you see it, act right away!
+Today’s Thought: Even when plans change, become a genius at finding new ways to have fun!
 <!-- DISCUSS_COACH_END -->
