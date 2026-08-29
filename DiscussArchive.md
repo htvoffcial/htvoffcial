@@ -910,3 +910,8 @@
 
 - [新　密着番組「不健康」](https://github.com/htvoffcial/htvoffcial/discussions/242)
   - この番組は、はるはるさんの1日で完全に運動するタイミングをミスってる事による影響を、私の主観とともに分析していきます。“…”
+
+## 2026-08-29
+
+- [今日は江戸川をランニング](https://github.com/htvoffcial/htvoffcial/discussions/243)
+  - 縄跳びできなかった分ね運動しといた“…”
