@@ -915,3 +915,8 @@
 
 - [今日は江戸川をランニング](https://github.com/htvoffcial/htvoffcial/discussions/243)
   - 縄跳びできなかった分ね運動しといた“…”
+
+## 2026-08-30
+
+- [8月の終わり、なんか切ない](https://github.com/htvoffcial/htvoffcial/discussions/244)
+  - 雨で外出れなかったので、庭の花に水やって家にいた。“…”
