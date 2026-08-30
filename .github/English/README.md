@@ -1,22 +1,14 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-08-29
+## Discuss Roundup (The Gymnastics Instructor)
+**Date (JST):** 2026-08-30
 
-Hey everyone! How’s it going!?
-Unfortunately, it rained in Matsudo yesterday, didn’t it? ☔️
-Zero skips on the jump rope…
-But hey, don’t get too down about it!
-Taking a break on a rainy day without pushing yourself is a perfectly valid part of your training!
+Hey there, everyone! How are you all doing!?
+It looks like Matsudo City was listed as “sunny” according to the AMeDAS forecast yesterday, but I heard some of you said, “It rained, so I couldn’t go out”… Oops! I wonder if the weather and you got lost while working together!?
 
-But check this out!
-There was someone who, since they couldn’t jump rope, went for a run along the Edogawa River instead! 🏃‍♂️
-They said, “I got my workout in!”
-Whoa! That kind of flexibility is just amazing! ✨
-It’s just like saying, “If I can’t use the mat, I’ll give it my all on the horizontal bar!”—
-I can really feel that pro-level grit! So cool!
+But you know, spending your time watering the flowers in your garden—that really warms my heart! I’m sure the flowers are saying “Thank you!” for your kindness, too!
+I totally understand how bittersweet it feels to see August coming to an end! Let’s hold that bittersweet feeling close and turn it into energy for tomorrow!
 
-I love that spirit of not letting the weather get you down and finding another way to stay active!
-Let’s go at it with full energy tomorrow, too!
+You didn’t do any jump rope today, but that just shows you got plenty of rest! Alright, make up for it today by showing us some big jumps!
 
-Today’s Thought: Even when plans change, become a genius at finding new ways to have fun!
+Today’s Thought: Let’s turn even our sad feelings into kindness for the flowers!
 <!-- DISCUSS_COACH_END -->
