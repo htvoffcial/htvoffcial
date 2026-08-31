@@ -1,14 +1,16 @@
 
-## Discuss Roundup (The Gymnastics Instructor)
-**Date (JST):** 2026-08-30
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-08-31
 
-Hey there, everyone! How are you all doing!?
-It looks like Matsudo City was listed as “sunny” according to the AMeDAS forecast yesterday, but I heard some of you said, “It rained, so I couldn’t go out”… Oops! I wonder if the weather and you got lost while working together!?
+Hey everyone! How are you all doing!? It’s your Gymnastics Brother here!
 
-But you know, spending your time watering the flowers in your garden—that really warms my heart! I’m sure the flowers are saying “Thank you!” for your kindness, too!
-I totally understand how bittersweet it feels to see August coming to an end! Let’s hold that bittersweet feeling close and turn it into energy for tomorrow!
+Yesterday in Matsudo City, it was such a lovely, sunny day, wasn’t it? Even the sun was beaming!
+But when I heard that the jump rope count was “0 times,” I couldn’t help but want to call out, “Heyyy!”
+The jump rope might have been feeling a little lonely, thinking, “Huh, is it not coming today?” Just kidding!
+But getting plenty of rest to recharge your energy is an important part of your warm-up routine, too. Let’s take it easy on ourselves every once in a while!
 
-You didn’t do any jump rope today, but that just shows you got plenty of rest! Alright, make up for it today by showing us some big jumps!
+Also, I’ve received some heartfelt requests like, “Please extend August by six more days!” I get it—I totally feel your pain, and I’m with you all the way!
+But hey, a new month is here! Take a deep breath and let’s step forward with energy!
 
-Today’s Thought: Let’s turn even our sad feelings into kindness for the flowers!
+Today’s Quote: Jump into the new month with your biggest smile!
 <!-- DISCUSS_COACH_END -->
