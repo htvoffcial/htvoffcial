@@ -920,3 +920,8 @@
 
 - [8月の終わり、なんか切ない](https://github.com/htvoffcial/htvoffcial/discussions/244)
   - 雨で外出れなかったので、庭の花に水やって家にいた。“…”
+
+## 2026-08-31
+
+- [さらば、愛しの8月よ](https://github.com/htvoffcial/htvoffcial/discussions/245)
+  - 皆さんお疲れ様でした。あと6日くらい延長してくれてもいいのに。さあ、社会が動き出しますよ“…”
