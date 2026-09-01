@@ -925,3 +925,8 @@
 
 - [さらば、愛しの8月よ](https://github.com/htvoffcial/htvoffcial/discussions/245)
   - 皆さんお疲れ様でした。あと6日くらい延長してくれてもいいのに。さあ、社会が動き出しますよ“…”
+
+## 2026-09-01
+
+- [秋雨前線の到来と、冬のお兄さんの衣替え完了！重厚なクリスマスカラーパレットに](https://github.com/htvoffcial/htvoffcial/discussions/246)
+  - みあなさま、いかがお過ごしでしょうか。9月1日、はるはる体操のお兄さんのメインステージ(conversations.harutv.me)にて、お兄さんが衣替えを“…”
