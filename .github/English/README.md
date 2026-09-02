@@ -1,24 +1,20 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-09-01
+**Date (JST):** 2026-09-02
 
-Alright! How’s everyone doing!?
+Hey there! How’s everyone doing!? It’s me, the Gymnastics Guy!
+Yesterday in Matsudo City, the weather was really nice and sunny, wasn’t it!
 
-Yesterday in Matsudo City, it was a beautiful, sunny day with the sun shining brightly!
-But you know, there’s just one little thing that’s been bugging me…
-Apparently, I only did “0” jumps with the jump rope!
-Whaaaat?! With such a beautiful sunny day, how could that happen~!
-Were you just lounging around at home? Or did the jump rope go missing!? (lol)
+But… wait a minute!? Your jump count is showing “0” now!
+Come on! That’s not fair! I really wanted you to jump at least once!
+But it’s okay—if you got a good rest, let’s go full steam ahead today!
 
-Also, I found some really exciting news!
-Apparently, Big Brother has already finished switching out his wardrobe!
-And the new theme is “Christmas colors”!
-…Wait a minute! It’s still September!?
-You’re sprinting so fast through the seasons that even Big Brother is surprised!
-But be sure to look forward to the main stage with his new look, too!
+Also, I found some really wonderful news.
+From now on, the “Moon-Viewing Big Brother” colors—indigo and straw yellow—are going to change things up!
+Wow, it suddenly feels so stylish—it really makes you feel the autumn night sky.
+I’m going to stand up straight and tall, just as sharp as those colors!
 
-Alright, let’s get moving today and welcome fall!
-Time to get ready!
+Alright, let’s go with a smile today!
 
-Today’s Tip: Before you get a head start on the season, let’s start with some warm-up exercises!
+Today’s Tip: First, just hold your jump rope and smile!
 <!-- DISCUSS_COACH_END -->
