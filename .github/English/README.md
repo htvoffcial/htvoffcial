@@ -1,20 +1,21 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-09-02
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-09-03
 
-Hey there! How’s everyone doing!? It’s me, the Gymnastics Guy!
-Yesterday in Matsudo City, the weather was really nice and sunny, wasn’t it!
+Hey there! How’s everyone doing!?
+Let’s take a look at yesterday’s roundup!
 
-But… wait a minute!? Your jump count is showing “0” now!
-Come on! That’s not fair! I really wanted you to jump at least once!
-But it’s okay—if you got a good rest, let’s go full steam ahead today!
+Yesterday in Matsudo City, the sun was shining brightly—it was a beautiful, sunny day!
+It was such nice weather—I bet it felt great, didn’t it?
 
-Also, I found some really wonderful news.
-From now on, the “Moon-Viewing Big Brother” colors—indigo and straw yellow—are going to change things up!
-Wow, it suddenly feels so stylish—it really makes you feel the autumn night sky.
-I’m going to stand up straight and tall, just as sharp as those colors!
+Whoa, you didn’t do any jumping rope?
+Come on now! Were your muscles saying, “I want a day off today~”?
+…Just kidding! Taking time to rest your body is an important way to recharge your energy for what’s next. Nice rest!
 
-Alright, let’s go with a smile today!
+Some of you even posted on GitHub saying, “I did my best today!”
+You’re getting used to school now, and it won’t be long until that long-awaited Saturday!
+Keep it up, and let’s move forward one step at a time!
+Alright, let’s go at it with energy today!
 
-Today’s Tip: First, just hold your jump rope and smile!
+Today’s Thought: It’s totally okay to have a day now and then where you just keep your feet on the ground!
 <!-- DISCUSS_COACH_END -->
