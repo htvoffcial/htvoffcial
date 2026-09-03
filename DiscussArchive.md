@@ -935,3 +935,8 @@
 
 - [明日から25日までは、お兄さんのカラーパレットをお月見お兄さんにします。](https://github.com/htvoffcial/htvoffcial/discussions/247)
   - 秋といえば満月。夜空の天体を眺めているような風情ある藍色と優しい麦わら色の配色。9月の穏やかな空気の訪れをお知らせします。“…”
+
+## 2026-09-03
+
+- [お疲れさん](https://github.com/htvoffcial/htvoffcial/discussions/248)
+  - 今日も頑張ってきました あと1日で土日、久々の学校にもなれたわ“…”
