@@ -1,21 +1,20 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-09-03
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-09-04
 
-Hey there! How’s everyone doing!?
-Let’s take a look at yesterday’s roundup!
+Alright, everyone! Are you all full of energy!?
+The weather in Matsudo City wasn’t great yesterday—unfortunately, it rained.
 
-Yesterday in Matsudo City, the sun was shining brightly—it was a beautiful, sunny day!
-It was such nice weather—I bet it felt great, didn’t it?
+So we took a break from jumping rope—zero times!
+“Wait, you didn’t jump at all!”
+You might be tempted to say that, but deciding to take a break when you see it’s raining
+is actually really smart “risk management”! Way to go—great call!
 
-Whoa, you didn’t do any jumping rope?
-Come on now! Were your muscles saying, “I want a day off today~”?
-…Just kidding! Taking time to rest your body is an important way to recharge your energy for what’s next. Nice rest!
+Also, here’s a slightly heartbreaking cry from the heart that came in via Discussions.
+Maybe you’ve been looking at social media too much and your mind’s getting tired?
+Comparing yourself to others and ending up hating yourself means your mind is overworked!
+Don’t focus on someone on the screen—focus all your attention on yourself right here, right now!
+Now, take a deep breath and give yourself a high-five!
 
-Some of you even posted on GitHub saying, “I did my best today!”
-You’re getting used to school now, and it won’t be long until that long-awaited Saturday!
-Keep it up, and let’s move forward one step at a time!
-Alright, let’s go at it with energy today!
-
-Today’s Thought: It’s totally okay to have a day now and then where you just keep your feet on the ground!
+Today’s Tip: Close your social media apps and jump with all your might toward the view right in front of you!
 <!-- DISCUSS_COACH_END -->
