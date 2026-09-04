@@ -940,3 +940,8 @@
 
 - [お疲れさん](https://github.com/htvoffcial/htvoffcial/discussions/248)
   - 今日も頑張ってきました あと1日で土日、久々の学校にもなれたわ“…”
+
+## 2026-09-04
+
+- [結局こうやってDiscussionsに上げてるのも、誰かに振り向いてほしいだけの….](https://github.com/htvoffcial/htvoffcial/discussions/249)
+  - 孤独ではない。至って健全だ。 ところで、SNSの本当の怖さを知ったよ。自分磨きを鼓舞するならいいけど、段々とその方向の行きすぎた思考に陥る。 「若者のSNS疲れ“…”
