@@ -1,20 +1,22 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-09-04
+**Date (JST):** 2026-09-05
 
-Alright, everyone! Are you all full of energy!?
-The weather in Matsudo City wasn’t great yesterday—unfortunately, it rained.
+Hey there! How’s everyone doing!?
+Yesterday in Matsudo City, the sky was clear and sparkling, wasn’t it!
 
-So we took a break from jumping rope—zero times!
-“Wait, you didn’t jump at all!”
-You might be tempted to say that, but deciding to take a break when you see it’s raining
-is actually really smart “risk management”! Way to go—great call!
+But… wait a minute!?
+You only did “0” jumps with the jump rope!?
+Whoops! With such a beautiful sunny day, this instructor was really surprised!
+(lol)
+But taking a break every once in a while is also an important part of building a healthy body.
+So today, let’s make up for it by jumping together with all our energy!
 
-Also, here’s a slightly heartbreaking cry from the heart that came in via Discussions.
-Maybe you’ve been looking at social media too much and your mind’s getting tired?
-Comparing yourself to others and ending up hating yourself means your mind is overworked!
-Don’t focus on someone on the screen—focus all your attention on yourself right here, right now!
-Now, take a deep breath and give yourself a high-five!
+Also, that message on the bulletin board saying “Let’s go to bed early” is really great.
+It sounds like the Tsukimi Burger was delicious—now I’m starting to get hungry too!
 
-Today’s Tip: Close your social media apps and jump with all your might toward the view right in front of you!
+Eat well, sleep soundly,
+and let’s make sure our minds and bodies are shining bright tomorrow too!
+
+Today’s Message: With the power of the Tsukimi Burger, have a great day!
 <!-- DISCUSS_COACH_END -->
