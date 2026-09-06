@@ -950,3 +950,10 @@
 
 - [あーあ](https://github.com/htvoffcial/htvoffcial/discussions/250)
   - みんな、早く寝ような。月見バーガーは美味しかった。“…”
+
+## 2026-09-06
+
+- [お兄さんがDOIを取得！10.5281/zenodo.22540169](https://github.com/htvoffcial/htvoffcial/discussions/252)
+  - 我らがお兄さん、永遠なれ。 [![DOI](https://zenodo.org/badge/857757843.svg)](https://doi.org/1“…”
+- [v1.1.4](https://github.com/htvoffcial/htvoffcial/discussions/251)
+  - 温度調整やプロンプト調整、再試行管理を見直し、お兄さん機能の充実、安定性を改善しました。 <hr /><em>This discussion was creat“…”
