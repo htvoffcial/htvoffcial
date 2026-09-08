@@ -962,3 +962,8 @@
 
 - [今日は大雨予報で休校でした](https://github.com/htvoffcial/htvoffcial/discussions/253)
   - 人は2週間会わなかったら、相手のことを忘れる、という誰かの言葉がいまだに怖い “…”
+
+## 2026-09-08
+
+- [引退が近いなー](https://github.com/htvoffcial/htvoffcial/discussions/254)
+  - 私ももう高3。部活もそろそろ引退です。引退は煌びやかに部室を飾ってパーティーをしたい。あとさらばX垢。アカウントへの執着をなくすために白骨観でロゴが骨格だけにな“…”
