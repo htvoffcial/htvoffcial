@@ -1,23 +1,18 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** September 7, 2026
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-09-08
 
-Heyyyy! How’s everyone doing!?
-Unfortunately, it was rainy in Matsudo City yesterday.
+Hey everyone! How are you all doing!?
+Unfortunately, it was rainy in Matsudo City yesterday!
+It looks like you didn’t get to do any jump rope either, but on rainy days, don’t push yourself—just relax at home and let your body rest.
+That’s a perfectly valid form of “recovery training,” too! No doubt about it! (lol)
 
-“0 jumps” on the jump rope…
-Huh, was it really “0”!? (lol)
-But it’s okay! Rather than forcing yourself to jump and falling down,
-getting a good night’s sleep at home to recharge your energy
-is a really important part of your “warm-up” too!
+Anyway, looking back at yesterday’s posts, I saw a high school senior who’s about to retire from their club activities.
+It’s so wonderful that they want to throw a sparkling party!
+But imagining their account logo turning into “skeleton”...
+That image is a little too intense! It actually gave me a little jolt! (lol)
+I’m rooting for you with all my heart—that spirit of letting go of the past and diving into a new chapter of your life!
+Let’s take big steps toward this new stage!
 
-Also, I heard a story that made me a little sad.
-“If we don’t see each other for two weeks, I’ll forget you”—that’s just too sad!
-But don’t worry—our bond won’t get wet in the rain,
-and once our hearts are connected, they won’t fade away that easily!
-
-So, what kind of mood are you starting today with?
-I want to see everyone’s smiles! Ready, go!
-
-Today’s Message: If you’re afraid of forgetting, let’s greet each other with all our hearts every day!
+Today’s Tip: Before taking on a new challenge, take a deep breath first!
 <!-- DISCUSS_COACH_END -->
