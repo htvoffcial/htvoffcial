@@ -972,3 +972,8 @@
 
 - [さあ、スタートラインに立とう](https://github.com/htvoffcial/htvoffcial/discussions/255)
   - 大雨の中今日も帰ってきました。いよいよ明日は、何とは言わないが2大イベント。これでゴールテープを切って、同時にスタートラインに着くんだ。ああ、人生ってなんなんだ“…”
+
+## 2026-09-10
+
+- [お疲れ様ー、3年諸君](https://github.com/htvoffcial/htvoffcial/discussions/256)
+  - 無事、写真も取れたし、郵便も送れたので、ほぼ完璧“…”
