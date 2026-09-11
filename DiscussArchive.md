@@ -977,3 +977,8 @@
 
 - [お疲れ様ー、3年諸君](https://github.com/htvoffcial/htvoffcial/discussions/256)
   - 無事、写真も取れたし、郵便も送れたので、ほぼ完璧“…”
+
+## 2026-09-11
+
+- [色々落ち着いた金曜日！最近のハマってる曲](https://github.com/htvoffcial/htvoffcial/discussions/257)
+  - さよぽにのいつか夢でと、ハスピエの深海前夜って曲にハマってる“…”
