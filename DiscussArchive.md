@@ -982,3 +982,8 @@
 
 - [色々落ち着いた金曜日！最近のハマってる曲](https://github.com/htvoffcial/htvoffcial/discussions/257)
   - さよぽにのいつか夢でと、ハスピエの深海前夜って曲にハマってる“…”
+
+## 2026-09-12
+
+- [縄跳び忘れてた](https://github.com/htvoffcial/htvoffcial/discussions/258)
+  - ごめんお兄さん、叱ってくれ“…”
