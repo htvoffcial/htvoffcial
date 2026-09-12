@@ -1,23 +1,21 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-09-11
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-09-12
 
-Hey, everyone! I’m the Gymnastics Guy, full of energy!
+Hey, everyone! How are you all doing!? It's me, the Gymnastics Guy!
 
-The skies looked like rain in Matsudo City yesterday, didn’t they?
-Did everyone manage to get around okay?
+The weather was a bit iffy in Matsudo City yesterday—it was raining, wasn’t it?
+And yet, to have “0” skips… What?!
+Wait a minute! “0” skips? That’s practically the realm of nothingness—the realm of spiritual training!
+Does that mean you rested with all your might?! (lol)
 
-Oh! I checked the records! It says “0” for jump rope!?
-H-hold on a sec—!
-…Just kidding! It’s a joke! It’s dangerous to force yourself to go outside on a rainy day, after all!
-You made a very smart decision by taking the day off—great job!
+Don’t say such a sad thing as “Scold me”!
+It’s okay—don’t blame yourself for forgetting something.
+You honestly told me, “I forgot it,”
+and I think that honesty is really wonderful!
 
-It looks like you guys had a lot of fun talking about music, too.
-Listening to your favorite songs and recharging your heart with energy
-is a great form of training, too!
+Mistakes are just the running start you need to jump even higher next time.
+Come on, let’s tackle today with lots of energy! Ready, go!
 
-So, what kind of weather will we have today?
-No matter what happens, let’s keep our hearts sparkling bright!
-
-Today’s Tip: Let’s try jumping inside our hearts to the beat of our favorite songs!
+Today’s Quote: When you forget something, tell yourself, “Nice break!”
 <!-- DISCUSS_COACH_END -->
