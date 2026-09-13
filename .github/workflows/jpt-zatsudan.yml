@@ -1,0 +1,28 @@
+name: jpt-zatsudan
+
+on:
+  workflow_dispatch:
+  schedule:
+    # JST 09:00
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: read
+  discussions: write
+
+jobs:
+  post-zatsudan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Post random sentence to Discussions
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node .github/scripts/post_jpt_zatsudan.mjs
