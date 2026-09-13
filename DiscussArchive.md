@@ -987,3 +987,10 @@
 
 - [縄跳び忘れてた](https://github.com/htvoffcial/htvoffcial/discussions/258)
   - ごめんお兄さん、叱ってくれ“…”
+
+## 2026-09-13
+
+- [明日からまた学校や](https://github.com/htvoffcial/htvoffcial/discussions/270)
+  - 体育祭練習も始まるわ！お兄さんこれから指導よろしく頼むで！さて、今日は作業しながら新しくいい曲見つけたんだけど、ハスピエの「グラフィティー」って曲。軽快なリズム“…”
+- [イツメンの簡単な片思いと軽い夕方を乗り遅れる](https://github.com/htvoffcial/htvoffcial/discussions/269)
+  - イツメンの簡単な片思いと軽い夕方を乗り遅れる。しかも、下校のエモな作業はちょっともどかしいっぽい。“…”
