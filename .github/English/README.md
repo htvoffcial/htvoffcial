@@ -1,21 +1,18 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-09-12
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-09-13
 
-Hey, everyone! How are you all doing!? It's me, the Gymnastics Guy!
+Hey there! How’s everyone doing!?
+Yesterday in Matsudo, the sun was shining bright and it was a beautiful, clear day!
+But zero skips…? Wait, what?! (lol)
+Maybe the jump rope ran away somewhere?
 
-The weather was a bit iffy in Matsudo City yesterday—it was raining, wasn’t it?
-And yet, to have “0” skips… What?!
-Wait a minute! “0” skips? That’s practically the realm of nothingness—the realm of spiritual training!
-Does that mean you rested with all your might?! (lol)
+School’s back in session, and sports festival practice is finally kicking off!
+It makes me a little shy when you ask me, “Please coach us!” but I’ll cheer you on with all my might!
+Let’s move to the beat of that great music you taught us and really get into it!
 
-Don’t say such a sad thing as “Scold me”!
-It’s okay—don’t blame yourself for forgetting something.
-You honestly told me, “I forgot it,”
-and I think that honesty is really wonderful!
+Also, I’ve been getting some heartfelt love stories and those emotional evening vibes.
+It can be frustrating at times, but let’s turn all those feelings into energy for tomorrow!
 
-Mistakes are just the running start you need to jump even higher next time.
-Come on, let’s tackle today with lots of energy! Ready, go!
-
-Today’s Quote: When you forget something, tell yourself, “Nice break!”
+Today’s message: Give your mind and body a rest every once in a while, and let’s jump around with energy again starting tomorrow!
 <!-- DISCUSS_COACH_END -->
