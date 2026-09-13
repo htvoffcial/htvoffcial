@@ -229,7 +229,7 @@ function buildTitle(sentence) {
     if (clean.includes("？") || clean.includes("?")) {
       return `${firstSentence}？`;
     }
-    return `【雑談】${firstSentence}`;
+    return `${firstSentence}`;
   }
 
   // 長い場合のフォールバック（不自然に文字を切らず、語尾に…を付与）
