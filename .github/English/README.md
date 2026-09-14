@@ -1,18 +1,20 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-09-13
+**Date (JST):** 2026-09-14
 
-Hey there! How’s everyone doing!?
-Yesterday in Matsudo, the sun was shining bright and it was a beautiful, clear day!
-But zero skips…? Wait, what?! (lol)
-Maybe the jump rope ran away somewhere?
+Hey, everyone! How are you all doing!? ☀️
 
-School’s back in session, and sports festival practice is finally kicking off!
-It makes me a little shy when you ask me, “Please coach us!” but I’ll cheer you on with all my might!
-Let’s move to the beat of that great music you taught us and really get into it!
+The weather in Matsudo was absolutely beautiful yesterday, wasn’t it!
+I heard you jumped rope 21 times? Way to go!
+Wait, isn’t that number a little too low!? (lol)
+Tomorrow, let’s go all out and jump like crazy with a big “Yay!”
 
-Also, I’ve been getting some heartfelt love stories and those emotional evening vibes.
-It can be frustrating at times, but let’s turn all those feelings into energy for tomorrow!
+Also, I stumbled upon a slightly sketchy post on GitHub titled “Instagram’s Algorithm Is Way Too Powerful!”
+Don’t put so much pressure on yourself by worrying about “gambling in the future”! (lol)
+Instead of getting all worked up staring at your phone screen, it’s way, way healthier to get your body moving with some jump rope
+and work up a refreshing sweat!
 
-Today’s message: Give your mind and body a rest every once in a while, and let’s jump around with energy again starting tomorrow!
+Alright, let’s not forget to smile today and give it our all!
+
+Today’s Tip: Before you move a finger, take a big, deep breath first!
 <!-- DISCUSS_COACH_END -->
