@@ -999,3 +999,10 @@
 
 - [Instagramやべえwハマりすぎる](https://github.com/htvoffcial/htvoffcial/discussions/272)
   - これ、どの機能を触っても(リールとかに限定されず)、アルゴリズムによって私がコントロールされてるほどに都合よくはまり込む。 多分俺将来ギャンブルやっちゃだめなタ“…”
+
+## 2026-09-15
+
+- [体育館はso hot](https://github.com/htvoffcial/htvoffcial/discussions/274)
+  - 初の40人41脚、2歩目がなかなか揃わず苦戦してた。走れるようになりたいね。あとは、文化祭のアシスタント頑張ります！“…”
+- [補習を愚痴り合うときのぎこちないアイスはかりリアル](https://github.com/htvoffcial/htvoffcial/discussions/273)
+  - 補習を愚痴り合うときのぎこちないアイスはかりリアル。だから、両思いを見るときの穏やかな電車もきついって感じ。“…”
