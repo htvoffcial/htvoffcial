@@ -1,19 +1,18 @@
 
-## Discuss Summary (The Gymnastics Instructor)
-**Date (JST):** 2026-09-15
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-09-16
 
-Hey, everyone! How are you all doing?
-It rained in Matsudo City yesterday. We had to skip jump rope, but
-reading your reports really got me fired up!
+Hey there! Is everyone full of energy!?
+Unfortunately, it rained in Matsudo City yesterday.
+We had to skip jump rope, but taking time to rest your body is also an important part of “preparing” for what’s next!
 
-Can you believe it?! Apparently, you guys took on the “40 People, 41 Legs” challenge!?
-Once you take that first step, it’s already a “mass migration”!
-Keeping everyone in step is about as hard as walking on clouds,
-but seeing you all working together like that—it’s really cool!
+Online, I saw some really cool aspirations from you guys—like wanting to “get yourself in order and stay positive”!
+Don’t say things like “I feel like a loser in life.” You’re already guaranteed a gold medal in your heart just for working hard to improve yourself!
 
-I also feel a little wistful about the ice cream during study hall…
-But even those awkward moments are precious treasures that you’ll laugh about together later!
-Be sure to recharge with something sweet between study sessions!
+Also, about that story with the shoe rack and clothes… um, it was a little too bizarre—my brain was working so hard it started to overheat! (lol)
+But that kind of sensitivity—seeing everyday life in such a unique way—is truly wonderful!
 
-Today’s Thought: On rainy days, try jumping in your heart!
+Now, give yesterday’s you a big pat on the back, and let’s charge through another new day with energy!
+
+Today’s Thought: Once you’re ready to get yourself in order, the best show of your life will begin at any moment!
 <!-- DISCUSS_COACH_END -->
