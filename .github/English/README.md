@@ -1,18 +1,23 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-09-17
+**Date (JST):** 2026-09-18
 
-Hey there! How’s everyone doing!?
-Yesterday in Matsudo City, the weather was absolutely beautiful and sunny!
-But “0 jumps” on the jump rope…!
-Come on, did you maybe leave the rope somewhere by accident!?
-Let’s get back to jumping energetically starting tomorrow!
+Hey everyone! How’s it going!?
+Yesterday in Matsudo City, the sun was shining brightly—it was a perfect, sunny day!
+On a day like this, you just can’t help but want to run outside, right?
 
-Also, I found some cheerful news on GitHub!
-I heard the Matsutaka Festival is happening! I can’t stop getting excited!
-Also, there was a story about how happy someone was to be able to talk with a friend…
-Saying “I forgot how to talk” sounds just like the kind of shy reaction you’d get from an uncle you haven’t seen in ages!
-But you’re truly wonderful for taking that gentle first step like that!
+Well then, let’s check yesterday’s jump rope record!
+……Whoa!? Can you believe it? It’s “0 jumps”!!
+What!? No way!!
 
-Today’s Thought: Let’s turn those little moments of happiness into energy and tackle today with enthusiasm!
+But hey, no need to be that surprised!
+When I heard the story, it turns out you’ve been going all out—between class, club activities, and the cultural festival—
+to the point where your head’s spinning!
+So, of course you didn’t have any energy left for jumping rope!
+
+You looked so cool running through the cultural festival at full speed!
+Give yourself a big pat on the back, and let’s refresh both your mind and body today!
+Alright, let’s go at it with plenty of energy tomorrow too!
+
+Today’s Tip: Getting plenty of rest is also a valuable part of training!
 <!-- DISCUSS_COACH_END -->
