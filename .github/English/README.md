@@ -1,19 +1,18 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-09-19
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-09-20
 
-Hey everyone! Are you all full of energy!?
-It rained in Matsudo yesterday, so we had to skip jump rope.
-But it’s okay! Taking a break without pushing yourself is an important warm-up to set you up for your next jump!
+Hey there! How’s everyone doing!?
+Unfortunately, it rained in Matsudo City yesterday.
+You didn’t manage a single jump rope rep? That’s totally fine—no problem at all!
+If you’d forced yourself to jump in the rain, you might’ve slipped and fallen spectacularly right alongside me!
+Safety first—you did great taking a proper rest!
 
-GitHub was overflowing with the passion of everyone who worked so efficiently at the cultural festival!
-Making guests smile with such quick movements—it’s just like a fluid performance!
-Let’s cherish that passion forever!
+I could see your sincere desire to “do something about it” on GitHub, too.
+Saying “I’m a complete failure” sounds way too much like a samurai! (lol)
+But you know, the way you’re taking a good, hard look at how you live your life is really cool!
+Even muscles get stronger while they’re resting.
+Don’t rush it—let’s start by stretching your mind first!
 
-Oh, but I couldn’t help but make a little joke about that strange study room where people completely ignore their “lunch boxes”! Hahaha!
-
-Alright, even on a rainy day, let’s keep our hearts sparkling and bright!
-Let’s tackle today with energy!
-
-Today’s Tip: The source of your energy is eating well and getting plenty of sleep!
+Today’s Thought: Resting is an important part of training, too!
 <!-- DISCUSS_COACH_END -->
