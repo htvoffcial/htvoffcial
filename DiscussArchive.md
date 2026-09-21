@@ -1037,3 +1037,8 @@
 
 - [体たらくでござる](https://github.com/htvoffcial/htvoffcial/discussions/285)
   - なんとかしたいね、俺の生き方“…”
+
+## 2026-09-21
+
+- [相変わらずの大雨でわぶ](https://github.com/htvoffcial/htvoffcial/discussions/287)
+  - 授業で出た課題をやっていたり。“…”
