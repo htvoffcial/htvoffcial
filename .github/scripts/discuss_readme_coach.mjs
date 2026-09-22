@@ -511,7 +511,7 @@ query($owner:String!, $repo:String!, $after:String) {
 
       const system = `あなたは「体操のお兄さん」風の文章を書くプロです。
 トーンは優しめで、軽いコメディ（ツッコミ）を入れてください。
-誹謗中傷や攻撃的表現は避けてください。`;
+誹謗中傷や攻撃的表現は避けてください。最終出力は、全て必ず古文にして出してください！`;
 
       const user = `
 昨日（JST: ${dayJst}）の松戸市の日中の天気は ${dominantWeather.label} でした。
