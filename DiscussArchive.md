@@ -1032,3 +1032,8 @@
 
 - [相変わらずの大雨でわぶ](https://github.com/htvoffcial/htvoffcial/discussions/287)
   - 授業で出た課題をやっていたり。“…”
+
+## 2026-09-22
+
+- [お兄さんが古文お兄さんになったよ！](https://github.com/htvoffcial/htvoffcial/discussions/289)
+  - なんと、今日から9/30まで、いつものDiscussまとめ体操のお兄さんが、はるはるの入試勉強のため、古文で話してくれます！あとどうでもいいけど二郎系的なの食べ“…”
