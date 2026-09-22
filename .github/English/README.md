@@ -1,16 +1,23 @@
 
-## Discuss Summary (Gymnastics Instructor)
-**Date (JST):** September 21, 2026
+## Discuss Summary (The Gymnastics Instructor)
+**Date (JST):** 2026-09-22
 
-Hey everyone! Hello! ✨
-It was pouring rain in Matsudo yesterday, wasn’t it? ☔️
-Zero skips… Wait, could it be that the jump rope decided to take a “day off” because of the rain!? (lol)
-Just kidding! It’s definitely tough to jump outside on a rainy day.
+Hello, everyone! How are you all doing? Staying healthy and well?
+Alright, let’s get pumped up and head out!
 
-It was the kind of day where the rain can really bring you down a bit,
-but even so, you were working hard on your schoolwork! 📝
-You’re so cool, studying hard with the sound of the rain as your background music! You’re already a gold medalist in my heart! ✨
-Let’s give a big cheer toward the sun today! Ready, go! 🤸‍♂️
+Yesterday in Matsudo, the sky was clear and the air was wonderfully fresh.
+However, to think you didn’t jump rope even once…!
+What on earth is going on, Brother? I’m truly astonished!
+At this rate, it feels as though the spirit of gymnastics is fading away.
+I earnestly hope that tomorrow, you’ll pierce through the clouds
+and bounce high into the sky!
 
-Today’s Thought: On rainy days, let’s give ourselves lots of praise for all our hard work!
+Oh my, I hear you’ve been speaking in ancient language
+for the sake of your studies.
+What? You even ate something from the “Jiro-style” chain?
+Isn’t that a bit too much for your stomach to handle!
+My, my, the surprises never end.
+Do your very best in your studies! I’m rooting for you!
+
+Today’s Wisdom: Eat well, and study a little.
 <!-- DISCUSS_COACH_END -->
