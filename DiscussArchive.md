@@ -992,8 +992,6 @@
 
 - [明日からまた学校や](https://github.com/htvoffcial/htvoffcial/discussions/270)
   - 体育祭練習も始まるわ！お兄さんこれから指導よろしく頼むで！さて、今日は作業しながら新しくいい曲見つけたんだけど、ハスピエの「グラフィティー」って曲。軽快なリズム“…”
-- [イツメンの簡単な片思いと軽い夕方を乗り遅れる](https://github.com/htvoffcial/htvoffcial/discussions/269)
-  - イツメンの簡単な片思いと軽い夕方を乗り遅れる。しかも、下校のエモな作業はちょっともどかしいっぽい。“…”
 
 ## 2026-09-14
 
@@ -1004,20 +1002,14 @@
 
 - [体育館はso hot](https://github.com/htvoffcial/htvoffcial/discussions/274)
   - 初の40人41脚、2歩目がなかなか揃わず苦戦してた。走れるようになりたいね。あとは、文化祭のアシスタント頑張ります！“…”
-- [補習を愚痴り合うときのぎこちないアイスはかりリアル](https://github.com/htvoffcial/htvoffcial/discussions/273)
-  - 補習を愚痴り合うときのぎこちないアイスはかりリアル。だから、両思いを見るときの穏やかな電車もきついって感じ。“…”
 
 ## 2026-09-16
 
 - [若干人生負け感](https://github.com/htvoffcial/htvoffcial/discussions/276)
   - 人より幸せになりたいとは思わないけど、なるべく自分の身はしっかり整えて、どんな瞬間でもやる気に昇華したい。“…”
-- [下駄箱をぶっちゃけるときの広い制服は大切](https://github.com/htvoffcial/htvoffcial/discussions/275)
-  - 下駄箱をぶっちゃけるときの広い制服は大切。だから、街を自習するときの便利な夕方はかわいい。しかも、三者面談の心地いい他撮りを見ると書くすぎる。“…”
 
 ## 2026-09-17
 
-- [明後日松高祭の一般公開あるってよ](https://github.com/htvoffcial/htvoffcial/discussions/279)
-  - 県立松戸高校で、文化祭の松高祭があるらしい！ お兄さんも紹介してあげて！“…”
 - [とても良いことがあって、それが本当に嬉しかった](https://github.com/htvoffcial/htvoffcial/discussions/278)
   - 久しぶりに前の学年でクラス一緒だった友達と話せた。なんとなく、話しかけ方忘れてたから、感謝。“…”
 
@@ -1030,8 +1022,6 @@
 
 - [文化祭黒字、みんなありがとう](https://github.com/htvoffcial/htvoffcial/discussions/283)
   - 自分は、一般公開で朝からシフトの食品担当だったけど、速やかにお客様に提供できるように、しっかり素早くオーダーを捌いたり、細かい作業動線にも気を使ったつもり。 少“…”
-- [天気を見つかるときの不穏な自習室は暖かい](https://github.com/htvoffcial/htvoffcial/discussions/282)
-  - 天気を見つかるときの不穏な自習室は暖かい。でも、先輩を行くときの早いお弁当も既読無視する気がする。“…”
 
 ## 2026-09-20
 
