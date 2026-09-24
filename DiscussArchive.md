@@ -1042,3 +1042,10 @@
 
 - [久々に電車乗った](https://github.com/htvoffcial/htvoffcial/discussions/291)
   - 2週間ぶりくらいに電車に乗りました。まあ、それと言った面白いこともなく、無事に目的地を往復できたので良かった。腹筋は60回。“…”
+
+## 2026-09-24
+
+- [成人してしばらく経った](https://github.com/htvoffcial/htvoffcial/discussions/294)
+  - 選管からお祝いのお手紙が来ました！粋なことしてくれますね！“…”
+- [顧みる](https://github.com/htvoffcial/htvoffcial/discussions/293)
+  - 継続可能なコンテンツは、時より迷走していないか、自分を見つめ直す時間も必要みたいだ・“…”
