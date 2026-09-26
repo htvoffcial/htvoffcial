@@ -1054,3 +1054,8 @@
 
 - [お兄さんへ](https://github.com/htvoffcial/htvoffcial/discussions/296)
   - お兄さんは何時起きですか、お風呂は寝る2時間前に入っていますか、偏食になっていませんか、肉ばっかり食べないでね“…”
+
+## 2026-09-26
+
+- [だいぶ冷えてきたね](https://github.com/htvoffcial/htvoffcial/discussions/298)
+  - そろそろ、赤外線ヒーターを出そうかと思った。“…”
