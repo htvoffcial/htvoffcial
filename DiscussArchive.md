@@ -1059,3 +1059,8 @@
 
 - [だいぶ冷えてきたね](https://github.com/htvoffcial/htvoffcial/discussions/298)
   - そろそろ、赤外線ヒーターを出そうかと思った。“…”
+
+## 2026-09-27
+
+- [あなたは赤組？白組？](https://github.com/htvoffcial/htvoffcial/discussions/300)
+  - お兄さんは高校の体育祭覚えてる？リレーには参加しないと思うけど、それ以外の種目で、諦めずに最後まで努力して活躍したいね。“…”
