@@ -1064,3 +1064,8 @@
 
 - [あなたは赤組？白組？](https://github.com/htvoffcial/htvoffcial/discussions/300)
   - お兄さんは高校の体育祭覚えてる？リレーには参加しないと思うけど、それ以外の種目で、諦めずに最後まで努力して活躍したいね。“…”
+
+## 2026-09-28
+
+- [速度制限128kbpsでも聴ける音楽ストリーミングサービス作った！](https://github.com/htvoffcial/htvoffcial/discussions/302)
+  - ジャケ写は極限圧縮AVIF、音源はOpus 6kbpsをUDPの自作コンテナで配信！音質はAMラジオ以下！“…”
