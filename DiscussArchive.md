@@ -1069,3 +1069,10 @@
 
 - [速度制限128kbpsでも聴ける音楽ストリーミングサービス作った！](https://github.com/htvoffcial/htvoffcial/discussions/302)
   - ジャケ写は極限圧縮AVIF、音源はOpus 6kbpsをUDPの自作コンテナで配信！音質はAMラジオ以下！“…”
+
+## 2026-09-29
+
+- [お兄さんをさくらのインターネットのインフラに載せ替えたよ！](https://github.com/htvoffcial/htvoffcial/discussions/304)
+  - 今回、最新のお兄さんの視聴やお便りの投稿ができる、「お兄さんサーバー」への道が増えたよ！ 負荷分散と、キャッシュでより快適な視聴体験を提供できるようになったかな“…”
+- [しかし、昨日の理不尽な休日はくだらない](https://github.com/htvoffcial/htvoffcial/discussions/303)
+  - しかし、昨日の理不尽な休日はくだらない。でも、昼の惜しい通知を見ると自撮りするっぽい。“…”
