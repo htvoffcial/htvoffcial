@@ -1,21 +1,20 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-09-30
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-10-01
 
-Hey there! I hope you’re all doing great!
+Hey! How’s everyone doing!?
+The weather in Matsudo City yesterday was absolutely beautiful, with the sun shining brightly!
 
-Unfortunately, it rained in Matsudo yesterday.
-It looks like we had to skip jump rope, but don’t feel too down about it!
-Giving your body a rest is also an important part of getting ready for tomorrow!
-…Wait, was it really “0 times”!? You’re going to end up a little out of shape! (lol)
+But… wait a minute!?
+You did “0” jumps yesterday… T-that’s a huge surprise for me, guys~!
+Maybe you were just playing tag with the jump rope? (lol)
 
-Also, regarding “Classical Japanese Mode,” which everyone was looking forward to (?),
-it wrapped up successfully as planned! Clap, clap, clap!
-With all those difficult words, did I leave you all a bit bewildered?
-From now on, I’ll be back to my usual energetic self,
-so let’s make sure to use this mode properly and have fun with it!
+In yesterday’s discussion, someone asked a really cool question: “How do you do a backflip?”
+Oh, a backflip! That’s awesome!
+But you know, I’m a little worried about you trying a backflip right off the bat.
 
-So, how should we get moving today?
+Let’s start by getting your body ready with some jump rope!
+Let’s take it one step at a time and work our way up slowly! Promise me!
 
-Today’s Quote: People who know how to rest well are the ones who really know how to exercise!
+Today’s Tip: Let’s start by jumping rope 10 times!
 <!-- DISCUSS_COACH_END -->
