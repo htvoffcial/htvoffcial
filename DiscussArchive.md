@@ -1081,3 +1081,8 @@
 
 - [お兄さん古文モード一旦終了](https://github.com/htvoffcial/htvoffcial/discussions/306)
   - 予定通り、古典学習用のお兄さんの古文モードは終了しました！これからも、活用を間違えたりしないように気をつけていこう！“…”
+
+## 2026-10-01
+
+- [いつもありがとう](https://github.com/htvoffcial/htvoffcial/discussions/308)
+  - バク宙ってどうやってやるの？“…”
