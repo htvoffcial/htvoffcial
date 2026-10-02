@@ -1,20 +1,25 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-10-01
+**Date (JST):** 2026-10-02
 
-Hey! How’s everyone doing!?
-The weather in Matsudo City yesterday was absolutely beautiful, with the sun shining brightly!
+Hey, everyone! Are you all full of energy!? It’s me, the Gymnastics Guy!
 
-But… wait a minute!?
-You did “0” jumps yesterday… T-that’s a huge surprise for me, guys~!
-Maybe you were just playing tag with the jump rope? (lol)
+Yesterday in Matsudo City, it was a sparkling, sunny day, wasn’t it!
+Perfect weather for being outdoors—it’s the best!
 
-In yesterday’s discussion, someone asked a really cool question: “How do you do a backflip?”
-Oh, a backflip! That’s awesome!
-But you know, I’m a little worried about you trying a backflip right off the bat.
+…Wait a minute!?
+No jump rope today!? Zero times!?
+Come on now, I’m really surprised here~!
 
-Let’s start by getting your body ready with some jump rope!
-Let’s take it one step at a time and work our way up slowly! Promise me!
+But you know, taking a proper break is also an important part of “mental warm-ups.”
+It’s important to rest your body every once in a while and recharge your energy!
 
-Today’s Tip: Let’s start by jumping rope 10 times!
+Also, I found a really great quote on GitHub.
+“Keep your pride low, but your confidence high.”
+Wow~, that’s so cool!! It’s just like when you’re trying to clear a high horizontal bar, isn’t it?
+
+If your pride is too high, your body gets all stiff and tense, but if you have confidence, you can jump high as many times as you want!
+Let’s all believe in ourselves and take a big step forward!
+
+Today’s Tip: Don’t forget to work on your confidence today, too!
 <!-- DISCUSS_COACH_END -->
