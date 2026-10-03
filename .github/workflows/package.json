@@ -1,0 +1,30 @@
+{
+  "name": "@oniisan/htvoffcial",
+  "version": "0.1.0",
+  "description": "GitHub automation scripts for the Taiso no Oniisan project",
+  "type": "module",
+  "private": false,
+  "bin": {
+    "discuss-readme-coach": "./discuss_readme_coach.mjs",
+    "post-jpt-zatsudan": "./post_jpt_zatsudan.mjs",
+    "translate-discuss-coach-deepl": "./translate-discuss-coach-deepl.mjs",
+    "translates1": "./translates1.js"
+  },
+  "files": [
+    "*.mjs",
+    "*.js",
+    "!node_modules"
+  ],
+  "scripts": {
+    "test": "node --test || true"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "github-actions",
+    "automation",
+    "discussions"
+  ],
+  "license": "SSPL-1.0"
+}
