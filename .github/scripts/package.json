@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "description": "はるはる体操のお兄さんシステム、GitHub Actions用のWorkflowが必要です。 - If you want to get started, you'll need a workflow file.GitHub automation scripts for the Taiso no Oniisan project",
   "repository":"https://github.com/htvoffcial/htvoffcial",
-  "publishConfig": {
-  "registry": "https://npm.pkg.github.com"
-  },
   "type": "module",
   "private": false,
   "bin": {
