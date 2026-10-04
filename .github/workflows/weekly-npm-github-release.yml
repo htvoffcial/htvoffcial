@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  packages: write
 
 concurrency:
   group: weekly-release
@@ -26,7 +27,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          registry-url: https://registry.npmjs.org
 
       - name: Configure git user
         run: |
@@ -34,13 +34,16 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Install dependencies
+        working-directory: .github/scripts
         run: |
-          cd .github/scripts
           if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
             npm ci
           else
             npm install
           fi
+
+      - name: Copy root README
+        run: cp README.md .github/scripts/README.md
 
       - name: Build
         run: npm --prefix .github/scripts run build --if-present
@@ -48,10 +51,10 @@ jobs:
       - name: Test
         run: npm --prefix .github/scripts test --if-present
 
-      - name: Bump version and create tag
+      - name: Bump version
         id: version
+        working-directory: .github/scripts
         run: |
-          cd .github/scripts
           NEW_TAG=$(npm version patch -m "chore(release): %s [skip ci]")
           echo "new_tag=${NEW_TAG}" >> "$GITHUB_OUTPUT"
           echo "new_version=${NEW_TAG#v}" >> "$GITHUB_OUTPUT"
@@ -61,20 +64,41 @@ jobs:
           git push origin HEAD
           git push origin --tags
 
-      - name: Verify npm auth and registry
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          cd .github/scripts
-          npm whoami
-          npm config get registry
+      # -------------------------
+      # GitHub Packages
+      # -------------------------
 
-      - name: Publish to npm
+      - name: Configure GitHub Packages
+        working-directory: .github/scripts
+        run: |
+          echo "@oniisan:registry=https://npm.pkg.github.com" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to GitHub Packages
+        working-directory: .github/scripts
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # -------------------------
+      # npmjs.com
+      # -------------------------
+
+      - name: Configure npmjs
+        working-directory: .github/scripts
+        run: |
+          echo "@oniisan:registry=https://registry.npmjs.org" > .npmrc
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          cd .github/scripts
-          npm publish --access public
+
+      - name: Publish to npmjs.com
+        working-directory: .github/scripts
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
