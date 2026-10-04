@@ -1096,3 +1096,10 @@
 
 - [なんとか完了](https://github.com/htvoffcial/htvoffcial/discussions/313)
   - お兄さんのnpmパッケージ化システムがようやっと完成したよ“…”
+
+## 2026-10-04
+
+- [お弁当の恥ずかしい後輩はセンシティブ](https://github.com/htvoffcial/htvoffcial/discussions/315)
+  - お弁当の恥ずかしい後輩はセンシティブ。だから、球技大会がちょっと爆笑するとやばい休日も楽。しかも、職員室の穏やかなスタバは明るいって感じ。“…”
+- [昨日iPadOS27.0.1が来ました！ありがとうApple](https://github.com/htvoffcial/htvoffcial/discussions/314)
+  - iPadOS27に上げてから、コントロールセンターの「カラーフィルターの切り替え」「ホワイトポイントを下げる」が、ボタンがあるのに効かなかったのと、ホーム画面で“…”
