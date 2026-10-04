@@ -1,14 +1,14 @@
-name: Weekly npm, PyPI and GitHub Release
+name: Weekly npm and GitHub Release
 
 on:
- # schedule:
- #   - cron: "0 0 * * 0"
+  schedule:
+    # 毎週日曜日 09:00 JST
+    - cron: "0 0 * * 0"
   workflow_dispatch:
 
 permissions:
   contents: write
   packages: write
-  id-token: write
 
 concurrency:
   group: weekly-release
@@ -20,172 +20,211 @@ jobs:
 
     steps:
       # ========================================
-      # Checkout
+      # 1. Checkout
       # ========================================
-
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       # ========================================
-      # Node.js
+      # 2. Node.js
       # ========================================
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
       # ========================================
-      # Git configuration
+      # 3. Git settings
       # ========================================
-
-      - name: Configure git user
+      - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       # ========================================
-      # Prepare npm package
+      # 4. Install dependencies
       # ========================================
-
-      - name: Install npm dependencies
+      - name: Install dependencies
         working-directory: .github/scripts
         run: |
-          if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
-            npm ci
-          else
-            npm install
-          fi
+          npm install
 
-      - name: Copy root README
+      # ========================================
+      # 5. Copy root README into npm package
+      # ========================================
+      - name: Copy README
         run: |
           cp README.md .github/scripts/README.md
 
-      - name: Fix npm package metadata
+      # ========================================
+      # 6. Determine next version
+      #
+      # package.json:
+      #   @oniisan/htvoffcial
+      #
+      # npmjs.com:
+      #   @oniisan/htvoffcial
+      #
+      # GitHub Packages:
+      #   @htvoffcial/htvoffcial
+      # ========================================
+      - name: Bump package version
         working-directory: .github/scripts
-        run: npm pkg fix
+        run: |
+          npm version patch --no-git-tag-version
 
-      # ========================================
-      # Build & Test
-      # ========================================
-
-      - name: Build
-        run: npm --prefix .github/scripts run build --if-present
-
-      - name: Test
-        run: npm --prefix .github/scripts test --if-present
-
-      # ========================================
-      # Version
-      # ========================================
-
-      - name: Bump version
+      - name: Read release version
         id: version
         working-directory: .github/scripts
         run: |
-          NEW_TAG=$(npm version patch -m "chore(release): %s [skip ci]")
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
 
-          echo "new_tag=${NEW_TAG}" >> "$GITHUB_OUTPUT"
-          echo "new_version=${NEW_TAG#v}" >> "$GITHUB_OUTPUT"
-
-          echo "Release tag: ${NEW_TAG}"
-          echo "Release version: ${NEW_TAG#v}"
-
-      # ========================================
-      # Push version commit + tag
-      # ========================================
-
-      - name: Push release commit and tag
-        run: |
-          git push origin HEAD
-          git push origin --tags
+          echo "========================================"
+          echo "Release version: $VERSION"
+          echo "Release tag:     v$VERSION"
+          echo "========================================"
 
       # ========================================
-      # GitHub Packages
-      # Package name:
-      # @htvoffcial/htvoffcial
+      # 7. Test
       # ========================================
-
-      - name: Prepare GitHub Packages
+      - name: Run tests
         working-directory: .github/scripts
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          npm test
+
+      # ========================================
+      # 8. Prepare npmjs.com package
+      # ========================================
+      - name: Prepare npmjs.com package
+        run: |
+          rm -rf release-npm
+          mkdir -p release-npm
+
+          cp -R .github/scripts/. release-npm/
+
+          cd release-npm
+
+          npm pkg set name="@oniisan/htvoffcial"
+          npm pkg set publishConfig.registry="https://registry.npmjs.org"
+
+          rm -f .npmrc
+
+          cat > .npmrc <<'EOF'
+          @oniisan:registry=https://registry.npmjs.org/
+          //registry.npmjs.org/:_authToken=${NPM_TOKEN}
+          EOF
+
+          echo "npmjs package:"
+          npm pkg get name
+          npm pkg get version
+          npm pkg get publishConfig
+
+      # ========================================
+      # 9. Publish npmjs.com
+      # ========================================
+      - name: Publish to npmjs.com
+        working-directory: release-npm
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm publish --access public
+
+      # ========================================
+      # 10. Prepare GitHub Packages package
+      # ========================================
+      - name: Prepare GitHub Packages package
+        run: |
+          rm -rf release-github
+          mkdir -p release-github
+
+          cp -R .github/scripts/. release-github/
+
+          cd release-github
+
           npm pkg set name="@htvoffcial/htvoffcial"
           npm pkg set publishConfig.registry="https://npm.pkg.github.com"
 
-          echo "@htvoffcial:registry=https://npm.pkg.github.com" > .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
+          rm -f .npmrc
 
+          cat > .npmrc <<'EOF'
+          @htvoffcial:registry=https://npm.pkg.github.com
+          //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+          EOF
+
+          echo "GitHub Packages package:"
+          npm pkg get name
+          npm pkg get version
+          npm pkg get publishConfig
+
+      # ========================================
+      # 11. Publish GitHub Packages
+      # ========================================
       - name: Publish to GitHub Packages
-        working-directory: .github/scripts
+        working-directory: release-github
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm publish
 
       # ========================================
-      # npmjs.com
-      # Package name:
-      # @oniisan/htvoffcial
+      # 12. Commit version change
       # ========================================
-
-      - name: Prepare npmjs.com
-        working-directory: .github/scripts
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Commit version bump
         run: |
-          npm pkg set name="@oniisan/htvoffcial"
-          npm pkg set publishConfig.registry="https://registry.npmjs.org"
+          git add .github/scripts/package.json
+          git add .github/scripts/README.md
 
-          echo "@oniisan:registry=https://registry.npmjs.org" > .npmrc
-          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: release v${{ steps.version.outputs.version }}"
+          fi
 
-      - name: Publish to npmjs.com
-        working-directory: .github/scripts
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # ========================================
+      # 13. Create Git tag automatically
+      # ========================================
+      - name: Create Git tag
         run: |
-          npm publish --access public
+          TAG="${{ steps.version.outputs.tag }}"
+
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "ERROR: Tag $TAG already exists."
+            exit 1
+          fi
+
+          git tag -a "$TAG" -m "Release $TAG"
 
       # ========================================
-      # Python / PyPI
-      # Package name:
-      # htvoffcial
+      # 14. Push commit + tag
       # ========================================
-
-   #   - name: Setup Python
-  #      uses: actions/setup-python@v5
-   #     with:
- #         python-version: "3.x"
-
-  #    - name: Copy root README for PyPI
-#        run: |
- #         cp README.md python/README.md
-
-  #    - name: Build Python package
-   #     working-directory: python
- #       run: |
- #         python -m pip install --upgrade build
-  #        python -m build
-
- #     - name: Publish to PyPI
-  #      uses: pypa/gh-action-pypi-publish@release/v1
-  #      with:
-   #       packages-dir: python/dist/
+      - name: Push commit and tag
+        run: |
+          git push origin HEAD
+          git push origin "${{ steps.version.outputs.tag }}"
 
       # ========================================
-      # GitHub Release
+      # 15. Create GitHub Release
       # ========================================
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.version.outputs.new_tag }}
-          name: Release ${{ steps.version.outputs.new_tag }}
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Release ${{ steps.version.outputs.tag }}
           generate_release_notes: true
-          files: |
-            .github/scripts/*.tgz
-            python/dist/*
+          body: |
+            ## 🚀 htvoffcial ${{ steps.version.outputs.tag }}
+
+            Automated release by GitHub Actions.
+
+            ### 📦 Published packages
+
+            - npmjs.com: `@oniisan/htvoffcial@${{ steps.version.outputs.version }}`
+            - GitHub Packages: `@htvoffcial/htvoffcial@${{ steps.version.outputs.version }}`
+
+            ### 🤖 Automation
+
+            This release was automatically created by the weekly release workflow.
