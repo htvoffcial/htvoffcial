@@ -1,13 +1,14 @@
-name: Weekly npm and GitHub Release
+name: Weekly npm, PyPI and GitHub Release
 
 on:
-  schedule:
-    - cron: '0 0 * * 0'
+ # schedule:
+ #   - cron: "0 0 * * 0"
   workflow_dispatch:
 
 permissions:
   contents: write
   packages: write
+  id-token: write
 
 concurrency:
   group: weekly-release
@@ -18,22 +19,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # ========================================
+      # Checkout
+      # ========================================
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      # ========================================
+      # Node.js
+      # ========================================
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
+      # ========================================
+      # Git configuration
+      # ========================================
+
       - name: Configure git user
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Install dependencies
+      # ========================================
+      # Prepare npm package
+      # ========================================
+
+      - name: Install npm dependencies
         working-directory: .github/scripts
         run: |
           if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
@@ -43,7 +60,16 @@ jobs:
           fi
 
       - name: Copy root README
-        run: cp README.md .github/scripts/README.md
+        run: |
+          cp README.md .github/scripts/README.md
+
+      - name: Fix npm package metadata
+        working-directory: .github/scripts
+        run: npm pkg fix
+
+      # ========================================
+      # Build & Test
+      # ========================================
 
       - name: Build
         run: npm --prefix .github/scripts run build --if-present
@@ -51,54 +77,108 @@ jobs:
       - name: Test
         run: npm --prefix .github/scripts test --if-present
 
+      # ========================================
+      # Version
+      # ========================================
+
       - name: Bump version
         id: version
         working-directory: .github/scripts
         run: |
           NEW_TAG=$(npm version patch -m "chore(release): %s [skip ci]")
+
           echo "new_tag=${NEW_TAG}" >> "$GITHUB_OUTPUT"
           echo "new_version=${NEW_TAG#v}" >> "$GITHUB_OUTPUT"
+
+          echo "Release tag: ${NEW_TAG}"
+          echo "Release version: ${NEW_TAG#v}"
+
+      # ========================================
+      # Push version commit + tag
+      # ========================================
 
       - name: Push release commit and tag
         run: |
           git push origin HEAD
           git push origin --tags
 
-      # -------------------------
+      # ========================================
       # GitHub Packages
-      # -------------------------
+      # Package name:
+      # @htvoffcial/htvoffcial
+      # ========================================
 
-      - name: Configure GitHub Packages
+      - name: Prepare GitHub Packages
         working-directory: .github/scripts
-        run: |
-          echo "@oniisan:registry=https://npm.pkg.github.com" > .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm pkg set name="@htvoffcial/htvoffcial"
+          npm pkg set publishConfig.registry="https://npm.pkg.github.com"
+
+          echo "@htvoffcial:registry=https://npm.pkg.github.com" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
 
       - name: Publish to GitHub Packages
         working-directory: .github/scripts
-        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # -------------------------
-      # npmjs.com
-      # -------------------------
-
-      - name: Configure npmjs
-        working-directory: .github/scripts
         run: |
-          echo "@oniisan:registry=https://registry.npmjs.org" > .npmrc
-          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
+          npm publish
+
+      # ========================================
+      # npmjs.com
+      # Package name:
+      # @oniisan/htvoffcial
+      # ========================================
+
+      - name: Prepare npmjs.com
+        working-directory: .github/scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm pkg set name="@oniisan/htvoffcial"
+          npm pkg set publishConfig.registry="https://registry.npmjs.org"
+
+          echo "@oniisan:registry=https://registry.npmjs.org" > .npmrc
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
 
       - name: Publish to npmjs.com
         working-directory: .github/scripts
-        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm publish --access public
+
+      # ========================================
+      # Python / PyPI
+      # Package name:
+      # htvoffcial
+      # ========================================
+
+   #   - name: Setup Python
+  #      uses: actions/setup-python@v5
+   #     with:
+ #         python-version: "3.x"
+
+  #    - name: Copy root README for PyPI
+#        run: |
+ #         cp README.md python/README.md
+
+  #    - name: Build Python package
+   #     working-directory: python
+ #       run: |
+ #         python -m pip install --upgrade build
+  #        python -m build
+
+ #     - name: Publish to PyPI
+  #      uses: pypa/gh-action-pypi-publish@release/v1
+  #      with:
+   #       packages-dir: python/dist/
+
+      # ========================================
+      # GitHub Release
+      # ========================================
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -106,3 +186,6 @@ jobs:
           tag_name: ${{ steps.version.outputs.new_tag }}
           name: Release ${{ steps.version.outputs.new_tag }}
           generate_release_notes: true
+          files: |
+            .github/scripts/*.tgz
+            python/dist/*
