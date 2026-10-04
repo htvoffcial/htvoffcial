@@ -1,6 +1,6 @@
 {
   "name": "@oniisan/htvoffcial",
-  "version": "0.1.0",
+  "version": "1.1.4",
   "description": "はるはる体操のお兄さんシステム、GitHub Actions用のWorkflowが必要です。 - If you want to get started, you'll need a workflow file.GitHub automation scripts for the Taiso no Oniisan project",
   "repository":"https://github.com/htvoffcial/htvoffcial",
   "type": "module",
@@ -8,8 +8,7 @@
   "bin": {
     "discuss-readme-coach": "./discuss_readme_coach.mjs",
     "post-jpt-zatsudan": "./post_jpt_zatsudan.mjs",
-    "translate-discuss-coach-deepl": "./translate-discuss-coach-deepl.mjs",
-    "translates1": "./translates1.js"  
+    "translate-discuss-coach-deepl": "./translate-discuss-coach-deepl.mjs"  
   },
   "files": [
     "*.mjs",
