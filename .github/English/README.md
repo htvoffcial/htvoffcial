@@ -1,19 +1,18 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-10-05
+**Date (JST):** 2026-10-06
 
-Hey, everyone! How are you doing!?
-Unfortunately, it rained in Matsudo City yesterday. Since you couldn’t go outside, I hope you were able to relax properly at home!
+Hey there! How’s everyone doing!?
+The sun was shining so beautifully in Matsudo City yesterday, wasn’t it!
+But wait…? My jump rope count is showing 0!?
+What?! I was all set and ready to go, but no jump rope today!? …Well, rest is an important part of training, after all! (lol)
 
-I definitely heard what you said about jumping rope zero times! …What!? Zero times—really!?
-Hahaha! It’s important to give your muscles a rest with some “rest days” every now and then!
-But before the jump rope gets lonely and starts crying, let’s have fun jumping together again starting tomorrow!
+Also, in yesterday’s story, there was a kid who mixed up fur seals and sea lions!
+I get it, I get it—they’re both so cute!
+But once you see a sea lion’s unique movements and rhythm, you just can’t help but get hooked!
+Even I felt like joining in, going “Ooh-ooh-ooh” and turning my head along with them!
 
-Also, I got a really sharp question!
-“Don’t you ever get sleepy during class?”
-Hmm, that’s a good point! Actually, even I sometimes find myself dozing off…!
-But you know what? When that happens, I secretly do a “mental stretch”!
-I straighten my back nice and straight, and cast a “Snap!” spell on myself. You guys should try it, too!
+Alright, let’s give it our all today—both mind and body—and keep smiling!
 
-Today’s Tip: When you’re sleepy, take a big, deep breath to perk yourself right up!
+Today’s Tip: When you make a mistake, just think of it as a “new discovery!”
 <!-- DISCUSS_COACH_END -->
