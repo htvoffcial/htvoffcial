@@ -1108,3 +1108,8 @@
 
 - [zzz💤](https://github.com/htvoffcial/htvoffcial/discussions/317)
   - まじで、お兄さんは授業中眠くなったりしないの？お兄さんならどうしてた？ “…”
+
+## 2026-10-06
+
+- [昨日の今日まで、オットセイとアシカを間違えてた….](https://github.com/htvoffcial/htvoffcial/discussions/319)
+  - インスタはアシカの動画しか流れてこないんだけど、(高速首前後x10〜15)→深呼吸(鼻息/荒い)x2→(頭回しx7)→「オッオッオッオッオッ」 みたいな動作が、“…”
