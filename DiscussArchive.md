@@ -1118,3 +1118,8 @@
 
 - [縄跳び行方不明](https://github.com/htvoffcial/htvoffcial/discussions/321)
   - 最近できてなかったのは、しばらくやってなくてどこにおいたか分からなかったためです、、“…”
+
+## 2026-10-08
+
+- [お兄さんが好きな場所教えて！](https://github.com/htvoffcial/htvoffcial/discussions/323)
+  - 近くにあったら行ってみたいから、おすすめあれば！“…”
