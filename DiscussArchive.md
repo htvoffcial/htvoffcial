@@ -1123,3 +1123,8 @@
 
 - [お兄さんが好きな場所教えて！](https://github.com/htvoffcial/htvoffcial/discussions/323)
   - 近くにあったら行ってみたいから、おすすめあれば！“…”
+
+## 2026-10-09
+
+- [今朝は普通に寒かったな！](https://github.com/htvoffcial/htvoffcial/discussions/325)
+  - 体温めるためにしっかり室内で運動もしておいたよ！“…”
