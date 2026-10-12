@@ -1140,3 +1140,8 @@
 
 - [蚊が出る季節](https://github.com/htvoffcial/htvoffcial/discussions/329)
   - 今年も来ちゃいましたね。なかなか寝れん！“…”
+
+## 2026-10-12
+
+- [みんなで南極にお手紙を送ろう](https://github.com/htvoffcial/htvoffcial/discussions/331)
+  - 毎年11月に日本を出発する南極観測船「しらせ」に、10月13日〜17日までのお兄さんのまとめをハガキに印刷して、はるはるが送るよ！ 興味がある人は投稿してみてね“…”
