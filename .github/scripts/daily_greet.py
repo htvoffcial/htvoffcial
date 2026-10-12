@@ -355,7 +355,7 @@ def post_discord(text):
     webhook = os.getenv("DISCORD_WEBHOOK_URL", "")
     if not webhook:
         raise RuntimeError("DISCORD_WEBHOOK_URL is missing")
-    payload = {"content": text[:2000]}
+    payload = {"content": text[:2000]+"以上第一秘書より。<@1559150830555369545>へ"}
     
     try:
         request_with_retry("POST", webhook, json=payload, timeout=20)
