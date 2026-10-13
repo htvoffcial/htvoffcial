@@ -1145,3 +1145,8 @@
 
 - [みんなで南極にお手紙を送ろう](https://github.com/htvoffcial/htvoffcial/discussions/331)
   - 毎年11月に日本を出発する南極観測船「しらせ」に、10月13日〜17日までのお兄さんのまとめをハガキに印刷して、はるはるが送るよ！ 興味がある人は投稿してみてね“…”
+
+## 2026-10-13
+
+- [お兄さんが好きな焼き鳥は？](https://github.com/htvoffcial/htvoffcial/discussions/333)
+  - 皮？モモ？つくね？“…”
