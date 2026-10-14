@@ -1150,3 +1150,8 @@
 
 - [お兄さんが好きな焼き鳥は？](https://github.com/htvoffcial/htvoffcial/discussions/333)
   - 皮？モモ？つくね？“…”
+
+## 2026-10-14
+
+- [明日もソフトボール頑張るよ！](https://github.com/htvoffcial/htvoffcial/discussions/335)
+  - スキップしてから走るって言ういい走り方を教えてもらった。“…”
