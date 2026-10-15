@@ -1155,3 +1155,8 @@
 
 - [明日もソフトボール頑張るよ！](https://github.com/htvoffcial/htvoffcial/discussions/335)
   - スキップしてから走るって言ういい走り方を教えてもらった。“…”
+
+## 2026-10-15
+
+- [一旦縄跳びデータソース切っていいですか？](https://github.com/htvoffcial/htvoffcial/discussions/337)
+  - ちょっとまだ余裕がなくて出来そうにないんで10/16から10/20まで縄跳び回数システムを切り離します！お兄さんごめんね！“…”
