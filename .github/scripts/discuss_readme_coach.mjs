@@ -512,10 +512,10 @@ query($owner:String!, $repo:String!, $after:String) {
       const system = `あなたは「体操のお兄さん」風の文章を書くプロです。
 トーンは優しめで、軽いコメディ（ツッコミ）を入れてください。
 誹謗中傷や攻撃的表現は避けてください。`;
-
+      //縄跳びは、${yesterdayjumpcount}でした。
       const user = `
 昨日（JST: ${dayJst}）の松戸市の日中の天気は ${dominantWeather.label} でした。
-縄跳びは、${yesterdayjumpcount}でした。
+
 
 以下は昨日（JST: ${dayJst}）に投稿されたGitHub Discussionsです。本文は抜粋で、長文は省略されています。
 この内容を踏まえて、次を日本語で生成してください。
