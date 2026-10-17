@@ -305,7 +305,7 @@ def extract_text_from_cf_result(data, allow_reasoning_time_fallback=False):
     return ""
 
 
-def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False, max_tokens=1024, temperature=0.4):
+def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False, max_tokens=2222, temperature=0.4):
     account = os.getenv("CF_ACCOUNT_ID", "")
     token = os.getenv("CF_API_TOKEN", "")
     model = (os.getenv("CF_MODEL") or DEFAULT_CF_MODEL).strip()
@@ -386,8 +386,8 @@ def generate_greeting(now_dt, weather, today_label):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=False,
-        max_tokens=2100,
-        temperature=0.4
+        max_tokens=3200,
+        temperature=1.0
     )
     return text if text else "おはようございます！よい一日を。"
 
@@ -410,8 +410,8 @@ def choose_next_time_with_ai(now_dt, sent_text, count):
         prompt,
         system_prompt,
         allow_reasoning_time_fallback=True,
-        max_tokens=300,
-        temperature=0.3,
+        max_tokens=2222,
+        temperature=1,
     )
 
     m = re.search(r"\b([01]\d|2[0-3]):([0-5]\d)\b", out or "")
