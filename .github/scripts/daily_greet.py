@@ -305,7 +305,10 @@ def extract_text_from_cf_result(data, allow_reasoning_time_fallback=False):
     return ""
 
 
-def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False, max_tokens=2222, temperature=0.4):
+def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False, max_tokens=2222, temperature=0.4, max_retries=2):
+    """
+    Cloudflare AI APIを呼び出し、結果が空(None)だった場合は指定回数リトライするよう強化
+    """
     account = os.getenv("CF_ACCOUNT_ID", "")
     token = os.getenv("CF_API_TOKEN", "")
     model = (os.getenv("CF_MODEL") or DEFAULT_CF_MODEL).strip()
@@ -328,27 +331,42 @@ def call_cf_generate(prompt, system_prompt, allow_reasoning_time_fallback=False,
         "temperature": temperature,
     }
 
-    try:
-        r = request_with_retry("POST", url, headers=headers, json=body, timeout=60)
-        data = r.json()
+    # AIの回答が空だった場合のやり直し（リトライ）ループ
+    for attempt in range(max_retries + 1):
+        try:
+            r = request_with_retry("POST", url, headers=headers, json=body, timeout=60)
+            data = r.json()
 
-        text = ""
-        if "result" in data:
-            text = extract_text_from_cf_result(
-                data,
-                allow_reasoning_time_fallback=allow_reasoning_time_fallback
-            )
-        else:
-            print(f"[WARN] CF response has no 'result' key. keys={list(data.keys())}")
+            text = ""
+            if "result" in data:
+                text = extract_text_from_cf_result(
+                    data,
+                    allow_reasoning_time_fallback=allow_reasoning_time_fallback
+                )
+            else:
+                print(f"[WARN] CF response has no 'result' key. keys={list(data.keys())}")
 
-        if text.strip():
-            return text.strip()
+            if text.strip():
+                return text.strip()
 
-        print(f"[WARN] CF parsed but no usable text. raw_result={str(data.get('result'))[:300]!r}")
-        return ""
-    except Exception as e:
-        print(f"[WARN] CF generate failed: {e}")
-        return ""
+            # 回答が空だった場合
+            print(f"[WARN] CF parsed but no usable text. raw_result={str(data.get('result'))[:150]!r}")
+            
+            if attempt < max_retries:
+                print(f"[INFO] AI returned empty text. Retrying in 5 seconds... ({attempt + 1}/{max_retries})")
+                time.sleep(5)
+                continue
+            
+            # リトライ上限到達時は空文字を返す（呼び出し元でフォールバックさせる）
+            return ""
+
+        except Exception as e:
+            if attempt < max_retries:
+                print(f"[WARN] CF generate failed: {e}. Retrying... ({attempt + 1}/{max_retries})")
+                time.sleep(5)
+            else:
+                print(f"[WARN] CF generate completely failed after {max_retries} retries: {e}")
+                return ""
 
 
 def post_discord(text):
