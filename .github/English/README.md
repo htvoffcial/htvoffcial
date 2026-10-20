@@ -1,23 +1,21 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-10-19
+**Date (JST):** 2026-10-20
 
-Hey there! Is everyone hopping around with energy!?
-Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, clear day!
-It was the perfect weather for exercising outside!
+Alright, everyone! Let’s stay energetic!
+Yesterday in Matsudo City, the sun was shining brightly under a clear blue sky! It was such a wonderful day, wasn’t it?
 
-Now, looking back at yesterday’s recap…
-It seems like it was a day full of “foodie” moments and “nostalgia”!
+Now then, let’s take a peek at how everyone was doing yesterday…
+“I totally bombed the test”?! …Wait a minute!!
+Don’t be so hard on yourself—here, take a deep breath! Breathe in, breathe out!
 
-Getting swept away by a convenience store ad for oden—
-even a guy in training like me can’t resist that!
-Let’s recharge our hearts with energy, just like that warm oden!
+Chemistry, Japanese history… with so much to memorize piled up, did your head feel like
+it was spinning in a never-ending series of backflips?
+But you know what? You’re so cool for facing these tough challenges head-on!
+During math class, too, everyone was working hard at their own pace, and it really warmed my heart.
 
-And then, there was the talk about the school playground and track suits!
-Whoa, wait a minute! You’re getting all sentimental all of a sudden!
-With such an emotional post, even I couldn’t help but lose my balance—I couldn’t even do a handstand!
+Whether it’s building muscle or gaining knowledge, don’t push yourself too hard—steady, consistent effort is the best way to go!
+Alright, let’s tackle today with a bright, cheerful attitude!
 
-Let’s cherish our memories and tackle today with energy!
-
-Today’s motto: When you get hungry, it’s time for some squats!
+Today’s Tip: After your test, give yourself plenty of praise and treat yourself to something delicious!
 <!-- DISCUSS_COACH_END -->
