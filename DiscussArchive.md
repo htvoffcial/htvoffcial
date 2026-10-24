@@ -1199,3 +1199,8 @@
 
 - [ミートソース選び](https://github.com/htvoffcial/htvoffcial/discussions/352)
   - 手作りする方が安いのか、3kg缶を買うのが安いのか…“…”
+
+## 2026-10-24
+
+- [ガウス・ボンネの定理](https://github.com/htvoffcial/htvoffcial/discussions/354)
+  - ガウス・ボンネの定理ってなにに使うんだろ 2π*オイラー標数“…”
