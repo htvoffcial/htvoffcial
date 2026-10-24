@@ -1,0 +1,52 @@
+name: Post Oniisan message to Nostr
+
+# README.md の DISCUSS_COACH セクション（体操のお兄さんのメッセージ）を
+# 毎日 13:00 (JST) に専用 Nostr アカウントから自動投稿する。
+# GitHub Actions の cron は UTC 指定なので、13:00 JST = 04:00 UTC。
+# ※ GitHub の仕様上、スケジュール実行は数分〜十数分遅れることがある。
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: '重複チェックを無視して投稿する'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nostr-daily
+  cancel-in-progress: false
+
+jobs:
+  post-to-nostr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install "pynostr==0.7.0" "websocket-client>=1.8"
+
+      - name: Post DISCUSS_COACH section to Nostr
+        env:
+          # リポジトリの Settings > Secrets and variables > Actions に
+          # NOSTR_NSEC という名前で、専用アカウントの nsec を登録すること。
+          NOSTR_NSEC: ${{ secrets.NOSTR_NSEC }}
+        run: |
+          if [ "${{ inputs.force }}" = "true" ]; then
+            python scripts/post_to_nostr.py --force
+          else
+            python scripts/post_to_nostr.py
+          fi
