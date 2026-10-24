@@ -41,6 +41,7 @@ RELAYS = [
     "wss://relay.nostr.net",
     "wss://yabu.me",
     "wss://relay.snort.social",
+    "wss://nostr-relay.haruharutv.jp",
 ]
 
 START_MARKER = "<!-- DISCUSS_COACH_START -->"
