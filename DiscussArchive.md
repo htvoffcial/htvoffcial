@@ -1204,3 +1204,8 @@
 
 - [ガウス・ボンネの定理](https://github.com/htvoffcial/htvoffcial/discussions/354)
   - ガウス・ボンネの定理ってなにに使うんだろ 2π*オイラー標数“…”
+
+## 2026-10-25
+
+- [雨が続くね、模試申し込まなきゃ](https://github.com/htvoffcial/htvoffcial/discussions/356)
+  - 総合型はだいたいみんな11月頭に結果出るらしい。わしもそう。一般の勉強も進めないと“…”
