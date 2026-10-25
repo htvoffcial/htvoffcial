@@ -46,7 +46,7 @@ jobs:
           NOSTR_NSEC: ${{ secrets.NOSTR_NSEC }}
         run: |
           if [ "${{ inputs.force }}" = "true" ]; then
-            python scripts/post_to_nostr.py --force
+            python .github/scripts/post_to_nostr.py --force
           else
-            python scripts/post_to_nostr.py
+            python .github/scripts/post_to_nostr.py
           fi
