@@ -1,22 +1,20 @@
 
 ## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-10-25
+**Date (JST):** 2026-10-26
 
-Heyyyy! Everyone! How are you all doing!?
-It was raining steadily in Matsudo City yesterday, wasn’t it? ☔️
-It was a little gloomy outside—I hope that didn’t put you all in a gloomy mood, too?
+Hey, everyone! How are you doing? It’s Big Brother here! 🌟
+Looks like it rained in Matsudo City yesterday.
+When you go outside, don’t forget your umbrella so you don’t catch a cold!
 
-Well, well! When I took a peek at what was going on yesterday,
-I saw a ton of exam-related posts flying around—
-“Mock exams! Comprehensive admissions! General entrance exams!”—
-so much exam info came my way! 💪
-Whoa, even I was so surprised I almost did a cartwheel! Haha
+I was really surprised by what you all did yesterday!
+I heard you backed up the whole “Brother” onto CDs and hard drives!?
+Wow~! Am I really a file worth saving that much, “Brother”~!? (lol)
+But please take care of the real, flesh-and-blood “Brother” too, not just the digital data!
 
-But you know, that just shows how hard everyone is working
-to sprint toward their future.
-That’s a really, really wonderful thing! ✨
-I get that you might be feeling anxious, but first, take a deep breath,
-and let’s move forward in a steady rhythm, one step at a time!
+Also, some of you wrote about having mixed feelings.
+Did things end up feeling a little bittersweet?
+That’s exactly when you should take a deep breath and stretch your body out!
+It’ll refresh both your mind and body!
 
-Today’s Tip: Take a big, deep breath and blow your worries away!
+Today’s Tip: Let’s leap right over our worries, just like we would a vaulting box!
 <!-- DISCUSS_COACH_END -->
