@@ -1209,3 +1209,10 @@
 
 - [雨が続くね、模試申し込まなきゃ](https://github.com/htvoffcial/htvoffcial/discussions/356)
   - 総合型はだいたいみんな11月頭に結果出るらしい。わしもそう。一般の勉強も進めないと“…”
+
+## 2026-10-26
+
+- [お兄さんをバックアップ](https://github.com/htvoffcial/htvoffcial/discussions/358)
+  - お兄さんを今日、約200日分オーディオCD化と、カレンダー形式のリポジトリをgitごとbundleにしてCDに記録、あとお兄さん全行程をHDDにbundleとm“…”
+- [職員室を共感するときの気まずい進捗はかり満足](https://github.com/htvoffcial/htvoffcial/discussions/357)
+  - 職員室を共感するときの気まずい進捗はかり満足。だから、時間を冷やかすときの真剣な他撮りも切ないって感じ。“…”
