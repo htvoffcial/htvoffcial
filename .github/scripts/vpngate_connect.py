@@ -33,6 +33,9 @@ LIST_URLS = [
     "http://www.vpngate.net/api/iphone/",
 ]
 MAX_ATTEMPTS = 6
+# Server that worked on 2026-10-29; always tried first. If it disappears
+# from the VPN Gate list or is unreachable, fall back to Score order.
+PINNED = [("public-vpn-155", "219.100.37.110")]
 CONNECT_WAIT_SEC = 45
 OVPN_PATH = "/tmp/vpngate.ovpn"
 LOG_PATH = "/tmp/openvpn.log"
@@ -58,12 +61,22 @@ def read_log() -> str:
         return ""
 
 
+COUNTRY_CHECK_URLS = [
+    "https://ipinfo.io/country",
+    "https://ipapi.co/country/",
+    "https://ifconfig.co/country-iso",
+]
+
+
 def exit_country() -> str:
-    try:
-        return fetch("https://ipinfo.io/country", timeout=15).strip()
-    except Exception as e:
-        print(f"  country check failed: {e}")
-        return ""
+    # The lookup services sometimes refuse or rate-limit requests coming
+    # from shared VPN exits (403/429); try several before giving up.
+    for url in COUNTRY_CHECK_URLS:
+        try:
+            return fetch(url, timeout=15).strip()
+        except Exception as e:
+            print(f"  country check via {url} failed: {e}")
+    return ""
 
 
 def try_connect(row) -> bool:
@@ -127,7 +140,14 @@ def main() -> int:
     jp = [r for r in rows
           if r.get("CountryShort") == "JP" and r.get("OpenVPN_ConfigData_Base64")]
     jp.sort(key=score, reverse=True)
-    print(f"Japanese VPN Gate candidates: {len(jp)}")
+
+    def is_pinned(r) -> bool:
+        host = r.get("#HostName") or r.get("HostName") or ""
+        return any(host == h or r.get("IP") == ip for h, ip in PINNED)
+
+    pinned = [r for r in jp if is_pinned(r)]
+    jp = pinned + [r for r in jp if not is_pinned(r)]
+    print(f"Japanese VPN Gate candidates: {len(jp)} (pinned first: {len(pinned)})")
 
     for row in jp[:MAX_ATTEMPTS]:
         try:
