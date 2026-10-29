@@ -15,6 +15,9 @@ Behaviour:
 
 Only signed, public Nostr events traverse the VPN; the secret key never
 leaves the Actions runner.
+
+Note: the OpenVPN log file is created by root (via sudo) with restrictive
+permissions, so it is read back through `sudo cat`, never opened directly.
 """
 import base64
 import csv
@@ -46,6 +49,15 @@ def kill_openvpn() -> None:
     time.sleep(2)
 
 
+def read_log() -> str:
+    try:
+        r = subprocess.run(["sudo", "cat", LOG_PATH],
+                           capture_output=True, text=True, timeout=10)
+        return r.stdout or ""
+    except Exception:
+        return ""
+
+
 def exit_country() -> str:
     try:
         return fetch("https://ipinfo.io/country", timeout=15).strip()
@@ -63,8 +75,7 @@ def try_connect(row) -> bool:
     cfg += "\nredirect-gateway def1\n"
     with open(OVPN_PATH, "w") as f:
         f.write(cfg)
-    if os.path.exists(LOG_PATH):
-        os.remove(LOG_PATH)
+    subprocess.run(["sudo", "rm", "-f", LOG_PATH], capture_output=True)
     print(f"Trying {host} ({ip}) ...")
     subprocess.run(
         ["sudo", "openvpn", "--config", OVPN_PATH, "--connect-timeout", "20",
@@ -73,19 +84,21 @@ def try_connect(row) -> bool:
     )
     deadline = time.time() + CONNECT_WAIT_SEC
     while time.time() < deadline:
-        try:
-            with open(LOG_PATH, errors="replace") as f:
-                log = f.read()
-            if "Initialization Sequence Completed" in log:
-                country = exit_country()
-                print(f"  connected; exit country = {country or 'unknown'}")
-                return country == "JP"
-            if "AUTH_FAILED" in log or "Exiting due to fatal error" in log:
-                print("  fatal error in openvpn log")
-                return False
-        except FileNotFoundError:
-            pass
+        log = read_log()
+        if "AUTH_FAILED" in log or "Exiting due to fatal error" in log:
+            print("  fatal error in openvpn log")
+            return False
+        if "Initialization Sequence Completed" in log:
+            country = exit_country()
+            print(f"  connected; exit country = {country or 'unknown'}")
+            return country == "JP"
         time.sleep(3)
+    # Fallback: even if the log could not be read, a Japanese exit IP
+    # means the tunnel is up and doing what we need.
+    country = exit_country()
+    if country == "JP":
+        print("  connected (confirmed by exit country check)")
+        return True
     print("  timed out")
     return False
 
