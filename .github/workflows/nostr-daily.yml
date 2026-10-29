@@ -4,6 +4,10 @@ name: Post Oniisan message to Nostr
 # 毎日 13:00 (JST) に専用 Nostr アカウントから自動投稿する。
 # GitHub Actions の cron は UTC 指定なので、13:00 JST = 04:00 UTC。
 # ※ GitHub の仕様上、スケジュール実行は数分〜十数分遅れることがある。
+#
+# 投稿前に VPN Gate の日本サーバーへ OpenVPN 接続し、日本の IP から
+# リレーへ投稿する（yabu.me が海外 IP からの書き込みを破棄するため）。
+# 接続できない場合も、VPN なしで投稿を続行する。
 
 on:
   schedule:
@@ -25,7 +29,7 @@ concurrency:
 jobs:
   post-to-nostr:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25
 
     steps:
       - name: Checkout
@@ -39,6 +43,15 @@ jobs:
       - name: Install dependencies
         run: pip install "pynostr==0.7.0" "websocket-client>=1.8"
 
+      - name: Install OpenVPN
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq openvpn
+
+      - name: Connect to VPN Gate (Japan)
+        id: vpngate
+        run: python .github/scripts/vpngate_connect.py
+
       - name: Post DISCUSS_COACH section to Nostr
         env:
           # リポジトリの Settings > Secrets and variables > Actions に
@@ -50,3 +63,7 @@ jobs:
           else
             python .github/scripts/post_to_nostr.py
           fi
+
+      - name: Disconnect VPN Gate
+        if: always()
+        run: sudo pkill openvpn || true
