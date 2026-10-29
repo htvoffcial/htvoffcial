@@ -6,9 +6,10 @@ post leaves from a Japanese IP address (some relays, e.g. yabu.me, drop
 writes from non-Japanese IPs).
 
 Behaviour:
-  - Downloads the public VPN Gate server list, picks Japanese servers by
-    Score, and tries to connect to each in turn (up to MAX_ATTEMPTS).
-  - After each attempt, verifies the exit IP's country via ipinfo.io.
+  - Downloads the public VPN Gate server list, picks Japanese servers
+    (a pinned favourite first, then by Score) and connects to one.
+  - Success means the OpenVPN tunnel is established; the exit country is
+    not verified (all candidates are Japanese servers by construction).
   - On success, leaves OpenVPN running in the background and exits 0.
   - On total failure, exits 0 as well (with a warning) so the workflow can
     continue without VPN; posting to the other relays still works.
@@ -61,24 +62,6 @@ def read_log() -> str:
         return ""
 
 
-COUNTRY_CHECK_URLS = [
-    "https://ipinfo.io/country",
-    "https://ipapi.co/country/",
-    "https://ifconfig.co/country-iso",
-]
-
-
-def exit_country() -> str:
-    # The lookup services sometimes refuse or rate-limit requests coming
-    # from shared VPN exits (403/429); try several before giving up.
-    for url in COUNTRY_CHECK_URLS:
-        try:
-            return fetch(url, timeout=15).strip()
-        except Exception as e:
-            print(f"  country check via {url} failed: {e}")
-    return ""
-
-
 def try_connect(row) -> bool:
     host = row.get("#HostName") or row.get("HostName") or "?"
     ip = row.get("IP") or "?"
@@ -102,16 +85,9 @@ def try_connect(row) -> bool:
             print("  fatal error in openvpn log")
             return False
         if "Initialization Sequence Completed" in log:
-            country = exit_country()
-            print(f"  connected; exit country = {country or 'unknown'}")
-            return country == "JP"
+            print("  connected (tunnel established)")
+            return True
         time.sleep(3)
-    # Fallback: even if the log could not be read, a Japanese exit IP
-    # means the tunnel is up and doing what we need.
-    country = exit_country()
-    if country == "JP":
-        print("  connected (confirmed by exit country check)")
-        return True
     print("  timed out")
     return False
 
@@ -152,7 +128,7 @@ def main() -> int:
     for row in jp[:MAX_ATTEMPTS]:
         try:
             if try_connect(row):
-                print("VPN Gate connected with a Japanese exit IP.")
+                print("VPN Gate connected (pinned/candidate is a Japanese server).")
                 out = os.environ.get("GITHUB_OUTPUT")
                 if out:
                     with open(out, "a") as f:
