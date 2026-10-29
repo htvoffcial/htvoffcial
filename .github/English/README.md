@@ -1,17 +1,21 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-10-28
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-10-29
 
-Hey everyone! How are you all doing? 1, 2, 3!
-Yesterday in Matsudo, the sun was shining bright and it was a super sunny day, wasn’t it!
-Even though the sun was shining so brightly, it was only 16 degrees outside…!?
-Wait, wait a minute! Aren’t those temperature swings a little too extreme!?
-It feels just like riding a roller coaster, doesn’t it!
+Alright! Everyone! How are you all doing!?
+Yesterday in Matsudo City, the sun was shining brightly—it was a beautiful, clear day!
+It was such a wonderful day that it made you want to go outside and move your body to your heart’s content!
 
-But you know, instead of panicking, you decided to eat some “steaming hot pork miso soup” before heading out…
-You’re so smart! That’s a perfect plan—I’m totally impressed! High five!
-It seems like the wind was strong and the air was dry, so make sure to stay hydrated.
-Since you’re so well-prepared, I know you’ll be just fine today!
+Now, let’s take a look at yesterday’s highlights!
+There were friends swinging their bats with all their might, passionately focusing on their own growth!
+Saying, “I feel a bit childish”—that’s actually the first step toward becoming a future hero!
+That attitude of taking preparation seriously… man, you’re just too cool—it really moves me!
 
-Today’s Tip: Let’s warm up both our hearts and bodies with some hot food!
+And then, when things get tough, sipping some bubble tea and leisurely pedaling along the way to school…
+Hey, wait a minute—that contrast between action and relaxation is a little too extreme! (lol)
+But taking time to recharge is also super important for keeping your mind in the right place!
+
+Alright, let’s all keep smiling today, too!
+
+Today’s Quote: A bubble tea after giving it your all is definitely the best reward!
 <!-- DISCUSS_COACH_END -->
