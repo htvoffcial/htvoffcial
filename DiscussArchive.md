@@ -1247,3 +1247,8 @@
 
 - [【予告】8ヶ月記念企画（11/14）について](https://github.com/htvoffcial/htvoffcial/discussions/369)
   - 【予告】3/14の運用開始から8ヶ月記念の11/14は、いつもGemma4が書くお兄さんコメントを、はるはる氏が書いちゃいます！“…”
+
+## 2026-11-02
+
+- [総合型選抜、合格させていただきました](https://github.com/htvoffcial/htvoffcial/discussions/371)
+  - `支えてくださった皆さん、ありがとうございました。`“…”
