@@ -64,6 +64,17 @@ jobs:
             python .github/scripts/post_to_nostr.py
           fi
 
+      - name: Post DISCUSS_COACH section to Bluesky
+        env:
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+        run: |
+          if [ "${{ inputs.force }}" = "true" ]; then
+            python .github/scripts/post_to_bluesky.py --force
+          else
+            python .github/scripts/post_to_bluesky.py
+          fi
+
       - name: Disconnect VPN Gate
         if: always()
         run: sudo pkill openvpn || true
