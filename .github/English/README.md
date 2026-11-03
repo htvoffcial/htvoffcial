@@ -1,24 +1,21 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-11-01
+**Date (JST):** 2026-11-02
 
-Hey everyone! How are you all doing!?
-Yesterday in Matsudo City, the sky was clear and sparkling, wasn’t it!
-Did you all get to move your bodies to your heart’s content under the sun? ☀️
+Hey there! How’s everyone doing!? ✨
 
-Now, taking a look at yesterday’s recap… Wait, what!?
-I’ve got some surprising news!
-For the 8-month anniversary event on November 14,
-Haruharu-san is going to be writing
-the comments that I usually write!
+I took a peek at yesterday’s Discussions and found some really exciting news!
+Can you believe it? Someone actually got accepted through the comprehensive selection process! Congratulations!! 👏
 
-H-hold on a second!
-Does that mean I won’t be in the picture anymore!? (lol)
-This sudden switch really caught Big Brother off guard! 💦
+All the hard work you’ve put in over the years has finally paid off in the best possible way.
+Those feelings of “thank you” toward the friends who supported you…
+I’m so moved, I feel like I might start crying while doing a handstand!
+(Wait a minute!? If I’m doing a handstand, my tears will come out of my nose! Haha)
 
-But I can’t stop getting excited
-just thinking about what kind of comment we’ll get!
-Let’s all celebrate together! Ready, go!
+It looks like it rained in Matsudo City yesterday,
+but I’m sure the sky was sending down a “blessing rain” to celebrate everyone’s acceptance!
 
-Today’s Tip: When you’re surprised, take a deep breath and do some squats!
+As we head toward this new stage, let’s start tomorrow full of energy—One, two, three!
+
+Today’s Quote: Turn your gratitude into power and take a big leap into a new world!
 <!-- DISCUSS_COACH_END -->
