@@ -1,21 +1,20 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-11-02
+**Date (JST):** 2026-11-03
 
-Hey there! How’s everyone doing!? ✨
+Hey there! How’s everyone doing!?
+Yesterday in Matsudo City, it was a really lovely, sunny day, wasn’t it!
+The sun was beaming down, smiling and watching over all of you!
 
-I took a peek at yesterday’s Discussions and found some really exciting news!
-Can you believe it? Someone actually got accepted through the comprehensive selection process! Congratulations!! 👏
+Now then, let’s take a look at yesterday’s recap…
+Huh!? “Voluntary Development Ban Week” has begun!
+What?! You’re actually banning development!?
+And the reason is to go all out for college entrance exams…!
+It’s kind of like a martial artist sealing away their most powerful move to focus on training!
 
-All the hard work you’ve put in over the years has finally paid off in the best possible way.
-Those feelings of “thank you” toward the friends who supported you…
-I’m so moved, I feel like I might start crying while doing a handstand!
-(Wait a minute!? If I’m doing a handstand, my tears will come out of my nose! Haha)
+That’s a little too stoic for me~! Man, that really surprised me!
+But that attitude of disciplining yourself to reach your goal is really cool!
+Don’t push yourself too hard, eat well, and let’s go for that acceptance!
 
-It looks like it rained in Matsudo City yesterday,
-but I’m sure the sky was sending down a “blessing rain” to celebrate everyone’s acceptance!
-
-As we head toward this new stage, let’s start tomorrow full of energy—One, two, three!
-
-Today’s Quote: Turn your gratitude into power and take a big leap into a new world!
+Today’s Thought: Let’s give a round of applause to our stoic selves!
 <!-- DISCUSS_COACH_END -->
