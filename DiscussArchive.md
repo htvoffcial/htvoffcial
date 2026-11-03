@@ -1252,3 +1252,8 @@
 
 - [総合型選抜、合格させていただきました](https://github.com/htvoffcial/htvoffcial/discussions/371)
   - `支えてくださった皆さん、ありがとうございました。`“…”
+
+## 2026-11-03
+
+- [自主的な開発禁止週間始まりました](https://github.com/htvoffcial/htvoffcial/discussions/373)
+  - これまでもなるべく開発時間は減らしてきましたが、もはや、大学受験に向け大詰めで文字通り1秒たりとも無駄にできないため、GitHub Discussions以外の“…”
