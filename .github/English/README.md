@@ -1,20 +1,18 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-11-03
+**Date (JST):** 2026-11-04
 
-Hey there! How’s everyone doing!?
-Yesterday in Matsudo City, it was a really lovely, sunny day, wasn’t it!
-The sun was beaming down, smiling and watching over all of you!
+Well then! I hope everyone’s doing great!?
 
-Now then, let’s take a look at yesterday’s recap…
-Huh!? “Voluntary Development Ban Week” has begun!
-What?! You’re actually banning development!?
-And the reason is to go all out for college entrance exams…!
-It’s kind of like a martial artist sealing away their most powerful move to focus on training!
+It rained in Matsudo yesterday, didn’t it? When it’s gloomy outside, it can kind of bring you down, right?
 
-That’s a little too stoic for me~! Man, that really surprised me!
-But that attitude of disciplining yourself to reach your goal is really cool!
-Don’t push yourself too hard, eat well, and let’s go for that acceptance!
+So, looking at yesterday’s recap… Whoa! Hey, everyone!
+Your words are a little heavy! (lol)
 
-Today’s Thought: Let’s give a round of applause to our stoic selves!
+The fries at karaoke took forever, or a bunch of annoying things piled up… Ahaha! I get it—that happens all the time!
+But hey, you can’t say things like “it’s over”! Let’s look on the bright side: even the time you spend waiting for fries is a chance to work on your abs!
+
+Let’s turn those little “annoyances” into big laughs and jump into tomorrow with energy!
+
+Today’s Tip: Until the fries arrive, let’s do some squats to work on our core!
 <!-- DISCUSS_COACH_END -->
