@@ -1,18 +1,22 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-11-04
+**Date (JST):** 2026-11-05
 
-Well then! I hope everyone’s doing great!?
+Hey there, everyone! Are you all full of energy?
+It rained in Matsudo City yesterday, didn’t it?
+It was gloomy outside, but let’s keep our spirits sparkling bright!
 
-It rained in Matsudo yesterday, didn’t it? When it’s gloomy outside, it can kind of bring you down, right?
+Looking at yesterday’s recap…
+Whoa! There’s someone sound asleep at their desk, right in front of a blank sheet of paper!
+Hahaha! Good job!
+But to all you students preparing for exams: while sleeping does give you energy, let’s keep our eyes wide open and give it our all when we’re awake!
+…I just can’t help but want to tease you a little!
 
-So, looking at yesterday’s recap… Whoa! Hey, everyone!
-Your words are a little heavy! (lol)
+Also, did you hear that “Tapioca” in our classroom is “serious”!?
+Come on, Tapioca! You don’t have to be so uptight—it’s okay!
+Let’s all have fun and dance around, wiggling and jiggling!
 
-The fries at karaoke took forever, or a bunch of annoying things piled up… Ahaha! I get it—that happens all the time!
-But hey, you can’t say things like “it’s over”! Let’s look on the bright side: even the time you spend waiting for fries is a chance to work on your abs!
+No matter what, smile and count 1, 2, 3!
 
-Let’s turn those little “annoyances” into big laughs and jump into tomorrow with energy!
-
-Today’s Tip: Until the fries arrive, let’s do some squats to work on our core!
+Today’s Tip: When you get sleepy, stretch your arms way up to refresh yourself!
 <!-- DISCUSS_COACH_END -->
