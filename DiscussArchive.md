@@ -1262,3 +1262,10 @@
 
 - [カラオケの遅いポテトや面倒な放課後を見ると終わる](https://github.com/htvoffcial/htvoffcial/discussions/374)
   - カラオケの遅いポテトや面倒な放課後を見ると終わる。そして、コンビニのめんどくさい本垢は本当に退屈なすぎる。“…”
+
+## 2026-11-05
+
+- [白紙のルーズリーフを前に焦りを隠せない受験生](https://github.com/htvoffcial/htvoffcial/discussions/376)
+  - 机について思いっきり寝てた“…”
+- [ルーズリーフの広い夜って本当に不穏だよね](https://github.com/htvoffcial/htvoffcial/discussions/375)
+  - ルーズリーフの広い夜って本当に不穏だよね。だから、教室のかわいいタピオカも真剣なって感じ。“…”
