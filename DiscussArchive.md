@@ -1269,3 +1269,8 @@
   - 机について思いっきり寝てた“…”
 - [ルーズリーフの広い夜って本当に不穏だよね](https://github.com/htvoffcial/htvoffcial/discussions/375)
   - ルーズリーフの広い夜って本当に不穏だよね。だから、教室のかわいいタピオカも真剣なって感じ。“…”
+
+## 2026-11-06
+
+- [超活発な日だった](https://github.com/htvoffcial/htvoffcial/discussions/378)
+  - とても走りました、豚汁が美味しかったです“…”
