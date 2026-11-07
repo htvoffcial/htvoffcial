@@ -1274,3 +1274,8 @@
 
 - [超活発な日だった](https://github.com/htvoffcial/htvoffcial/discussions/378)
   - とても走りました、豚汁が美味しかったです“…”
+
+## 2026-11-07
+
+- [ふくらはぎ張ってる](https://github.com/htvoffcial/htvoffcial/discussions/380)
+  - 筋肉痛ではなさげ、まあいいや。 本当、進路関係は大変よ！手続き多いし！なんですか？これに奨学金のもろもろも乗っかってくるんですか？ 厳しいって！“…”
