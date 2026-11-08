@@ -1,19 +1,21 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-11-07
+**Date (JST):** 2026-11-08
 
-Well then! I hope everyone’s smiling and full of energy!
-Yesterday in Matsudo City, the sun was shining brightly and it was a beautiful, sunny day! ☀️
+Hey, everyone! Did you all manage to do your laundry with a smile!?
+Yesterday in Matsudo City, the sun was shining brightly—it was a beautiful, clear day!
+It was such a wonderful day, wasn’t it!
 
-Listening to what everyone had to say yesterday… “My calves are tight,” you say!?
-Could it be that you all sprinted so hard yesterday that even I might not be able to keep up!? (lol)
+But wait—it seems things got a little hectic online!
+“Tomorrow’s high will be 10 degrees!?”—it sounds like everyone’s going to freeze!
+On top of that, there’s even a strangely specific calculation saying,
+“There’s a 63% chance you won’t be able to get out of bed!” (lol)
 
-Anyway, with all the college application procedures and scholarship stuff…
-This is like trying to clear a vaulting box without a mat—it’s a really tough challenge!
-I totally get how you feel like screaming, “Why is this so hard?!”—I’m right there with you!
+To make such an accurate prediction—could this person be a math genius!?
+When it’s so cold you can’t move, start by wiggling your fingertips while still under the covers!
+No need to force yourself to jump out of bed! Take it slow, really slow!
 
-But it’s okay. Let’s take it one small step at a time!
-First, take a deep breath and gently stretch out those muscles!
+Alright, let’s tackle today with energy!
 
-Today’s Tip: When things get tough, take a deep breath and go for it!
+Today’s Tip: Don’t let that 63% number get you down—start with some fist-and-open-hand exercises!
 <!-- DISCUSS_COACH_END -->
