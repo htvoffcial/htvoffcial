@@ -1284,3 +1284,8 @@
 
 - [明日最高気温10度ってマジすか？](https://github.com/htvoffcial/htvoffcial/discussions/382)
   - 寒すぎて布団から出れない可能性が63%“…”
+
+## 2026-11-09
+
+- [最近カロリー取りまくってる](https://github.com/htvoffcial/htvoffcial/discussions/384)
+  - お腹がもうパンパンだったのに、父と一緒に鍋のうどんを食べました。“…”
