@@ -1289,3 +1289,8 @@
 
 - [最近カロリー取りまくってる](https://github.com/htvoffcial/htvoffcial/discussions/384)
   - お腹がもうパンパンだったのに、父と一緒に鍋のうどんを食べました。“…”
+
+## 2026-11-10
+
+- [極寒の一日、煮物が私を支えてくれる。](https://github.com/htvoffcial/htvoffcial/discussions/386)
+  - はっきり申し上げて、朝から散々な1日を予想していたけど、天気と同じように午後にかけて良いことが起きるようになってありがたかった。“…”
