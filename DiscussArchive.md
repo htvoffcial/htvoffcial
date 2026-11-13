@@ -1304,3 +1304,8 @@
 
 - [今日イチの絶景](https://github.com/htvoffcial/htvoffcial/discussions/390)
   - 朝一番の体育で見たホームランは、すごく気持ちが良かった“…”
+
+## 2026-11-13
+
+- [マジうまかったスイートポテト](https://github.com/htvoffcial/htvoffcial/discussions/392)
+  - 調理実習で50分間、なかなか立ち回りは難しかったけど、最終的にいい感じのスイーツができましたね。卵黄を塗って焼いた焦げ目も良かった。“…”
