@@ -1,18 +1,21 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-11-13
+**Date (JST):** 2026-11-14
 
-Hey there, everyone! Are you all full of energy!? ✨
-Yesterday in Matsudo City, the sun was shining brightly—it was a beautiful day! It was the perfect day for some exercise, don’t you think?
 
-Now, looking at everyone’s posts from yesterday…
-Whoa! I just found some super delicious, sweet~ news! 😋
-It’s about the sweet potatoes you all worked so hard on for a full 50 minutes during cooking class.
+Hey, everyone! How are you all doing?
+Haruharu-nii is doing great too!!
+Anyway, here’s yesterday’s roundup! It was a really nice, sunny day in Matsudo City yesterday, wasn’t it?
+Did you get to stretch outside?
 
-“It was hard to get the timing right,” you say?
-Hahaha! Just like in gymnastics, positioning and coordinating your movements can be tricky when cooking, too! (lol)
-But that golden brown color—achieved by brushing on egg yolk and baking until perfectly crisp—must have looked absolutely magical.
-Your hard work paid off in the form of something delicious—congratulations! Nice sweet potatoes! ✨
+There was a really delicious-looking and wonderful post on GitHub Discussions!
+Enjoying a sandwich and a latte at Doutor—and the fillings spilling out were the best, right?
+It looks just like the belly of a guy who doesn’t do gymnastics at all! Haha
 
-Today’s Thought: Staying focused until the very end is what creates the most brilliant results!
+And after eating a chestnut Mont Blanc until his belly was bursting, Big Brother was almost about to turn into a sugar fairy!
+But he said he was really happy!
+
+Let’s start today with energy: One, two, three!
+
+Today’s Tip: Whether it’s a sandwich or a delicious Mont Blanc, eat it while imagining yourself as a sugar fairy!
 <!-- DISCUSS_COACH_END -->
