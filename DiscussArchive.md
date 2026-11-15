@@ -1309,3 +1309,8 @@
 
 - [マジうまかったスイートポテト](https://github.com/htvoffcial/htvoffcial/discussions/392)
   - 調理実習で50分間、なかなか立ち回りは難しかったけど、最終的にいい感じのスイーツができましたね。卵黄を塗って焼いた焦げ目も良かった。“…”
+
+## 2026-11-15
+
+- [愛しい私の休日よ、まだ去るな](https://github.com/htvoffcial/htvoffcial/discussions/396)
+  - 今日晴れてたら外出たんだけどなー“…”
