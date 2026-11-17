@@ -1,20 +1,25 @@
 
-## Discuss Summary (The Gymnastics Guy)
-**Date (JST):** 2026-11-15
+## Discuss Roundup (The Gymnastics Guy)
+**Date (JST):** 2026-11-16
 
-Hey there, everyone! How’s everyone doing!? It’s me, the Gymnastics Guy!
-According to the AMeDAS forecast, it rained in Matsudo City yesterday, didn’t it? ☔️
-I wonder if the sky was crying a little, too?
+Hey there! How’s everyone doing!?
+It was a really nice, sunny day in Matsudo City yesterday, wasn’t it!
+Alright, let’s take a big, deep breath facing the sun!
 
-“If it had been sunny, I would’ve gone out!”
-I totally heard that heartbreaking cry, guys!
-I get it—I know exactly how you feel! On days off, you just want to
-jump around to your heart’s content with the sun shining!
+Now then, let’s take a look at yesterday’s recap!
+Oh my, it looks like there was quite the challenge.
+“Switching certificates using only a pass”…
+Wait a minute! Is that magic or what!? (lol)
 
-I get the urge to shout, “Oh, beloved day off, don’t leave me yet!” but
-if you chase after your day off and end up tripping inside your house, that’d be a disaster! Haha
-On rainy days, let’s relax at home, stretch our hearts,
-and recharge our energy for tomorrow!
+Switching over natively in a flash
+without changing the hostname or port!
+It’s like jumping over a vaulting box, doing a somersault in midair, and landing—
+such a technical and mysterious move!
+But it’s those “weird (but totally awesome!)” ideas
+that lead to new discoveries!
 
-Today’s Thought: Even on rainy days, let your heart jump toward the sun!
+Let’s all cherish that sense of excitement
+and give it our all as we move forward! One, two, three!
+
+Today’s Thought: The courage to question conventional wisdom opens up a whole new world!
 <!-- DISCUSS_COACH_END -->
