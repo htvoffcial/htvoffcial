@@ -1,25 +1,21 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-11-16
+**Date (JST):** 2026-11-17
 
-Hey there! How’s everyone doing!?
-It was a really nice, sunny day in Matsudo City yesterday, wasn’t it!
-Alright, let’s take a big, deep breath facing the sun!
+Alright! Everyone! Are you all full of energy!?
+It rained in Matsudo City yesterday, didn’t it? For those of you who couldn’t go out,
+I hope you were able to relax at home.
 
-Now then, let’s take a look at yesterday’s recap!
-Oh my, it looks like there was quite the challenge.
-“Switching certificates using only a pass”…
-Wait a minute! Is that magic or what!? (lol)
+Anyway, yesterday’s topic was “The ADHD Siege”!
+It’s such a cool name—it sounds like something you’d find in an RPG against a powerful enemy!
+Describing a loss of concentration as being “under siege”—
+your imaginations are so rich and wonderful!
 
-Switching over natively in a flash
-without changing the hostname or port!
-It’s like jumping over a vaulting box, doing a somersault in midair, and landing—
-such a technical and mysterious move!
-But it’s those “weird (but totally awesome!)” ideas
-that lead to new discoveries!
+But you know, according to the latest research, it turns out that was actually just a lack of sleep
+and poor task management…
+What!? So it wasn’t an epic battle—it was just a soldier who overslept!? (lol)
 
-Let’s all cherish that sense of excitement
-and give it our all as we move forward! One, two, three!
+When that happens, don’t push yourself too hard—first, get a good night’s sleep to recharge your body!
 
-Today’s Thought: The courage to question conventional wisdom opens up a whole new world!
+Today’s Takeaway: Forget cool theories—get a good night’s sleep first!
 <!-- DISCUSS_COACH_END -->
