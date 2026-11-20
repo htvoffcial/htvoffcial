@@ -1334,3 +1334,8 @@
 
 - [文化祭がまた買うと、あやしいスマホはチル](https://github.com/htvoffcial/htvoffcial/discussions/402)
   - 文化祭がまた買うと、あやしいスマホはチル。だから、両思いのセンチメンタルな筆箱もいるって感じ。“…”
+
+## 2026-11-20
+
+- [お久しぶりです](https://github.com/htvoffcial/htvoffcial/discussions/404)
+  - ２日ほど狂文にお付き合いいただきありがとうございました。今日からまたはるはるがお送りします。“…”
