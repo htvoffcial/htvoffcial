@@ -1339,3 +1339,10 @@
 
 - [お久しぶりです](https://github.com/htvoffcial/htvoffcial/discussions/404)
   - ２日ほど狂文にお付き合いいただきありがとうございました。今日からまたはるはるがお送りします。“…”
+
+## 2026-11-21
+
+- [国会図書館で読んだラズパイマガジン](https://github.com/htvoffcial/htvoffcial/discussions/406)
+  - 前に行った国会図書館で読んだラズパイマガジンの、Armなどのアーキテクチャが解説されてた数ページ、めっちゃ面白かった。RP2350の特徴とか、Cortex M4“…”
+- [モバ充を飲むときのセンシティブなファミチキは悲しい](https://github.com/htvoffcial/htvoffcial/discussions/405)
+  - モバ充を飲むときのセンシティブなファミチキは悲しい。でも、雨を始めるときのエグい制服ディズニーも聞き返す気がする。“…”
