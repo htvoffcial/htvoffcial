@@ -1,0 +1,51 @@
+name: Concat File History
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_file:
+        description: "連結したいファイルのパス"
+        required: true
+        default: "README.md"
+
+jobs:
+  concat-history:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # 全履歴を取得
+
+      - name: Generate concatenated history
+        run: |
+          FILE="${{ github.event.inputs.target_file }}"
+          OUTPUT="history_${FILE//\//_}.txt"
+
+          echo "=== File History for $FILE ===" > "$OUTPUT"
+          echo "" >> "$OUTPUT"
+
+          # コミット一覧を古い順に取得
+          COMMITS=$(git log --pretty=format:"%H" -- "$FILE" | tac)
+
+          for COMMIT in $COMMITS; do
+            echo "----------------------------------------" >> "$OUTPUT"
+            echo "Commit: $COMMIT" >> "$OUTPUT"
+            echo "Date:   $(git show -s --format=%ci $COMMIT)" >> "$OUTPUT"
+            echo "" >> "$OUTPUT"
+
+            # そのコミット時点のファイル内容を追加
+            git show "$COMMIT:$FILE" >> "$OUTPUT" 2>/dev/null || echo "[File missing in this commit]" >> "$OUTPUT"
+
+            echo "" >> "$OUTPUT"
+          done
+
+          echo "Generated: $OUTPUT"
+          ls -lh "$OUTPUT"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: concatenated-history
+          path: history_*.txt

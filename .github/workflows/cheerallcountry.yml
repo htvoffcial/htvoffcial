@@ -1,0 +1,123 @@
+name: Record README colon content to CSV
+
+on:
+  schedule:
+    # 17:50 JST = 08:50 UTC
+    - cron: "50 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cheerallcountry-csv
+  cancel-in-progress: false
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update cheerallcountry.csv
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          README_FILE=".github/English/README.md"
+          OUT_FILE=".github/content/cheerallcountry.csv"
+          COUNTRY_FILE=".github/assets/countries.csv"
+
+          if [[ ! -f "$README_FILE" ]]; then
+            echo "README file not found: $README_FILE" >&2
+            exit 1
+          fi
+
+          mkdir -p "$(dirname "$OUT_FILE")"
+
+          # Ensure output exists with header
+          if [[ ! -f "$OUT_FILE" ]]; then
+            echo "code,content" > "$OUT_FILE"
+          fi
+
+          # Ensure countries list exists. If absent, create a minimal list.
+          if [[ ! -f "$COUNTRY_FILE" ]]; then
+            cat > "$COUNTRY_FILE" <<'EOF'
+          name,code
+          Japan,jp
+          United States,us
+          United Kingdom,gb
+          Canada,ca
+          Australia,au
+          Germany,de
+          France,fr
+          Italy,it
+          Spain,es
+          Russian Federation, ru
+          EOF
+          fi
+
+          # Extract "Today’s Message:" line content from README.
+          # - We look for the last line containing ':' before the end marker.
+          # - Fall back to the last non-empty line containing ':' if marker isn't present.
+          if grep -q "DISCUSS_COACH_END" "$README_FILE"; then
+            value_line="$(awk '
+              /DISCUSS_COACH_END/ {exit}
+              /:/ {last=$0}
+              END {print last}
+            ' "$README_FILE")"
+          else
+            value_line="$(grep -v -E '^[[:space:]]*$' "$README_FILE" | grep ':' | tail -n 1 || true)"
+          fi
+
+          if [[ -z "${value_line:-}" ]]; then
+            echo "Failed to find a message line containing ':' in $README_FILE" >&2
+            exit 1
+          fi
+
+          value="${value_line##*:}"
+          # trim leading/trailing whitespace
+          value="$(echo "$value" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+
+          # CSV-escape the content (double-quote wrap + escape internal quotes)
+          value_escaped="$(printf '%s' "$value" | sed 's/"/""/g')"
+
+          # Randomly choose one country code from countries.csv (skip header)
+          # countries.csv is "code,country" so code is column 1.
+          code="$(tail -n +2 "$COUNTRY_FILE" | awk -F',' 'NF>=2 {print $1}' | shuf -n 1 | tr '[:upper:]' '[:lower:]' | tr -d '\r')"
+          if [[ -z "$code" ]]; then
+            echo "Failed to select a country code." >&2
+            exit 1
+          fi
+
+          # Upsert row with proper CSV quoting for content.
+          tmp="$(mktemp)"
+          awk -F',' -v OFS=',' -v code="$code" -v content="$value_escaped" '
+            BEGIN{found=0}
+            NR==1 {print; next}
+            $1==code {print code, "\"" content "\""; found=1; next}
+            {print}
+            END{ if(!found) print code, "\"" content "\"" }
+          ' "$OUT_FILE" > "$tmp"
+          mv "$tmp" "$OUT_FILE"
+
+          echo "Recorded: $code -> $value"
+
+      - name: Commit and push
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add .github/content/cheerallcountry.csv .github/assets/countries.csv
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update cheerallcountry.csv"
+          git push

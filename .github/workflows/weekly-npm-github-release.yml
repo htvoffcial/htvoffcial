@@ -1,0 +1,230 @@
+name: Weekly npm and GitHub Release
+
+on:
+  schedule:
+    # 毎週日曜日 09:00 JST
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: write
+
+concurrency:
+  group: weekly-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ========================================
+      # 1. Checkout
+      # ========================================
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ========================================
+      # 2. Node.js
+      # ========================================
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # ========================================
+      # 3. Git settings
+      # ========================================
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      # ========================================
+      # 4. Install dependencies
+      # ========================================
+      - name: Install dependencies
+        working-directory: .github/scripts
+        run: |
+          npm install
+
+      # ========================================
+      # 5. Copy root README into npm package
+      # ========================================
+      - name: Copy README
+        run: |
+          cp README.md .github/scripts/README.md
+
+      # ========================================
+      # 6. Determine next version
+      #
+      # package.json:
+      #   @oniisan/htvoffcial
+      #
+      # npmjs.com:
+      #   @oniisan/htvoffcial
+      #
+      # GitHub Packages:
+      #   @htvoffcial/htvoffcial
+      # ========================================
+      - name: Bump package version
+        working-directory: .github/scripts
+        run: |
+          npm version patch --no-git-tag-version
+
+      - name: Read release version
+        id: version
+        working-directory: .github/scripts
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+
+          echo "========================================"
+          echo "Release version: $VERSION"
+          echo "Release tag:     v$VERSION"
+          echo "========================================"
+
+      # ========================================
+      # 7. Test
+      # ========================================
+      - name: Run tests
+        working-directory: .github/scripts
+        run: |
+          npm test
+
+      # ========================================
+      # 8. Prepare npmjs.com package
+      # ========================================
+      - name: Prepare npmjs.com package
+        run: |
+          rm -rf release-npm
+          mkdir -p release-npm
+
+          cp -R .github/scripts/. release-npm/
+
+          cd release-npm
+
+          npm pkg set name="@oniisan/htvoffcial"
+          npm pkg set publishConfig.registry="https://registry.npmjs.org"
+
+          rm -f .npmrc
+
+          cat > .npmrc <<'EOF'
+          @oniisan:registry=https://registry.npmjs.org/
+          //registry.npmjs.org/:_authToken=${NPM_TOKEN}
+          EOF
+
+          echo "npmjs package:"
+          npm pkg get name
+          npm pkg get version
+          npm pkg get publishConfig
+
+      # ========================================
+      # 9. Publish npmjs.com
+      # ========================================
+      - name: Publish to npmjs.com
+        working-directory: release-npm
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm publish --access public
+
+      # ========================================
+      # 10. Prepare GitHub Packages package
+      # ========================================
+      - name: Prepare GitHub Packages package
+        run: |
+          rm -rf release-github
+          mkdir -p release-github
+
+          cp -R .github/scripts/. release-github/
+
+          cd release-github
+
+          npm pkg set name="@htvoffcial/htvoffcial"
+          npm pkg set publishConfig.registry="https://npm.pkg.github.com"
+
+          rm -f .npmrc
+
+          cat > .npmrc <<'EOF'
+          @htvoffcial:registry=https://npm.pkg.github.com
+          //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+          EOF
+
+          echo "GitHub Packages package:"
+          npm pkg get name
+          npm pkg get version
+          npm pkg get publishConfig
+
+      # ========================================
+      # 11. Publish GitHub Packages
+      # ========================================
+      - name: Publish to GitHub Packages
+        working-directory: release-github
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm publish
+
+      # ========================================
+      # 12. Commit version change
+      # ========================================
+      - name: Commit version bump
+        run: |
+          git add .github/scripts/package.json
+          git add .github/scripts/README.md
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: release v${{ steps.version.outputs.version }}"
+          fi
+
+      # ========================================
+      # 13. Create Git tag automatically
+      # ========================================
+      - name: Create Git tag
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "ERROR: Tag $TAG already exists."
+            exit 1
+          fi
+
+          git tag -a "$TAG" -m "Release $TAG"
+
+      # ========================================
+      # 14. Push commit + tag
+      # ========================================
+      - name: Push commit and tag
+        run: |
+          git push origin HEAD
+          git push origin "${{ steps.version.outputs.tag }}"
+
+      # ========================================
+      # 15. Create GitHub Release
+      # ========================================
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Release ${{ steps.version.outputs.tag }}
+          generate_release_notes: true
+          body: |
+            ## 🚀 htvoffcial ${{ steps.version.outputs.tag }}
+
+            Automated release by GitHub Actions.
+
+            ### 📦 Published packages
+
+            - npmjs.com: `@oniisan/htvoffcial@${{ steps.version.outputs.version }}`
+            - GitHub Packages: `@htvoffcial/htvoffcial@${{ steps.version.outputs.version }}`
+
+            ### 🤖 Automation
+
+            This release was automatically created by the weekly release workflow.

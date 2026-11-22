@@ -1,0 +1,10 @@
+version: 2
+updates:
+  # 1. GitHub Actions の更新をチェック (自作ボット用)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly" # 週に一度、生真面目に見回ります
+    labels:
+      - "dependencies"
+      - "security"

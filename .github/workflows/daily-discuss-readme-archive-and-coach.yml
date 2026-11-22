@@ -1,0 +1,173 @@
+# Copyright (C) 2026 htvoffcial
+# SPDX-License-Identifier: SSPL-1.0
+#
+# This program is free software: you can use, redistribute,
+# and/or modify it under the terms of the Server Side
+# Public License, version 1, as published by MongoDB, Inc.
+
+name: Daily Discuss Archive & README Coach
+
+on:
+  schedule:
+    # JST 0:00 (UTC 15:00)
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+
+# PATを使用するため、一部の権限はトークン側に依存しますが、
+# ワークフロー自体の権限設定も残しておきます。
+permissions:
+  contents: write
+  discussions: read
+
+jobs:
+  archive-and-coach:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          # 【重要】GitHub Actionsの自動実行制限を回避するため、
+          # secrets.GITHUB_TOKEN ではなく作成した PAT を使用します。
+          token: ${{ secrets.MY_PAT }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      # Step 1: DiscussArchive.md に昨日分を追記
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      - name: Fetch yesterday's discussions (JST) and append to DiscussArchive.md
+        env:
+          # GraphQL操作にも PAT を使用するように変更
+          GH_TOKEN: ${{ secrets.MY_PAT }}
+        run: |
+          set -euo pipefail
+
+          TARGET_JST=$(TZ=Asia/Tokyo date -d 'yesterday' '+%Y-%m-%d')
+          UTC_START=$(date -u -d "${TARGET_JST}T00:00:00+09:00" '+%Y-%m-%dT%H:%M:%SZ')
+          UTC_END=$(date -u -d "${TARGET_JST}T23:59:59+09:00" '+%Y-%m-%dT%H:%M:%SZ')
+
+          OWNER="${{ github.repository_owner }}"
+          REPO="${{ github.repository }}"
+          REPO="${REPO##*/}"
+
+          ARCHIVE="DiscussArchive.md"
+          SECTION="## ${TARGET_JST}"
+
+          if [ ! -f "$ARCHIVE" ]; then
+            printf '# Discuss Archive\n\n' > "$ARCHIVE"
+          fi
+
+          if grep -qF "$SECTION" "$ARCHIVE"; then
+            echo "Section for ${TARGET_JST} already exists. Skipping."
+            exit 0
+          fi
+
+          GQL_QUERY='query($owner:String!, $repo:String!, $after:String) {
+            repository(owner:$owner, name:$repo) {
+              discussions(first:100, after:$after, orderBy:{field:CREATED_AT, direction:DESC}) {
+                pageInfo { hasNextPage endCursor }
+                nodes { title url body createdAt }
+              }
+            }
+          }'
+
+          OUT=""
+          CURSOR=""
+
+          while true; do
+            if [ -n "$CURSOR" ]; then
+              PAYLOAD=$(jq -n \
+                --arg q "$GQL_QUERY" \
+                --arg owner "$OWNER" \
+                --arg repo "$REPO" \
+                --arg cursor "$CURSOR" \
+                '{query: $q, variables: {owner: $owner, repo: $repo, after: $cursor}}')
+            else
+              PAYLOAD=$(jq -n \
+                --arg q "$GQL_QUERY" \
+                --arg owner "$OWNER" \
+                --arg repo "$REPO" \
+                '{query: $q, variables: {owner: $owner, repo: $repo}}')
+            fi
+
+            RESPONSE=$(curl -s -X POST https://api.github.com/graphql \
+              -H "Authorization: bearer $GH_TOKEN" \
+              -H "Content-Type: application/json" \
+              -d "$PAYLOAD")
+
+            if echo "$RESPONSE" | jq -e '.errors? | length > 0' >/dev/null; then
+              echo "GraphQL returned errors:"
+              echo "$RESPONSE" | jq -r '.errors[].message'
+              exit 1
+            fi
+
+            NEW=$(echo "$RESPONSE" | jq -r \
+              --arg start "$UTC_START" \
+              --arg end "$UTC_END" \
+              '
+              .data.repository.discussions.nodes[]
+              | select(.createdAt >= $start and .createdAt <= $end)
+              | "- [\(.title)](\(.url))\n  - " +
+                (
+                  (.body // "")
+                  | gsub("[\r\n]+"; " ")
+                  | gsub("[[:space:]]+"; " ")
+                  | .[0:80]
+                  + "\u201c\u2026\u201d"
+                )
+              ')
+
+            if [ -n "$NEW" ]; then
+              OUT="${OUT}${NEW}"$'\n'
+            fi
+
+            HAS_NEXT=$(echo "$RESPONSE" | jq -r '.data.repository.discussions.pageInfo.hasNextPage')
+            OLDEST=$(echo "$RESPONSE" | jq -r '.data.repository.discussions.nodes | if length > 0 then last.createdAt else "" end')
+
+            if [ "$HAS_NEXT" != "true" ] || [ -z "$OLDEST" ] || [[ "$OLDEST" < "$UTC_START" ]]; then
+              break
+            fi
+
+            CURSOR=$(echo "$RESPONSE" | jq -r '.data.repository.discussions.pageInfo.endCursor')
+          done
+
+          OUT=$(printf '%s' "$OUT" | sed 's/[[:space:]]*$//')
+          if [ -z "$OUT" ]; then
+            echo "No discussions found for ${TARGET_JST}. Skipping."
+            exit 0
+          fi
+
+          printf '\n%s\n\n%s\n' "$SECTION" "$OUT" >> "$ARCHIVE"
+          echo "Archive updated for ${TARGET_JST}."
+
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      # Step 2: README を Coach テキストで更新
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      - name: Update README with yesterday discuss coach text
+        env:
+          # node スクリプト内でも PAT を使用するように変更
+          GH_TOKEN: ${{ secrets.MY_PAT }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: node .github/scripts/discuss_readme_coach.mjs
+
+      # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      # Step 3: まとめて1回だけ push
+      # ━━━━━━━━━━━━━━━━━━━━━━━━���━━━━━━━━━━━━━━━━━━━
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add DiscussArchive.md README.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "docs: archive + coach $(TZ=Asia/Tokyo date -d 'yesterday' '+%Y-%m-%d')"
+          # ここで push されるコミットは PAT によるものになるため、
+          # GitHub Pages デプロイ用のワークフローが自動的にトリガーされます。
+          git push origin main

@@ -1,0 +1,78 @@
+name: Search Oniisan
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: "yyyy/mm/dd または mm/dd（年省略時は実行年）"
+        required: true
+        default: "01/01"
+
+permissions:
+  contents: read
+
+jobs:
+  search-oniisan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Show file at target timestamp (DISCUSS_COACH extraction & merge output)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          RAW_DATE='${{ github.event.inputs.target_date }}'
+
+          if [[ "$RAW_DATE" =~ ^[0-9]{4}/(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])$ ]]; then
+            TARGET_DATE="$RAW_DATE"
+          elif [[ "$RAW_DATE" =~ ^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])$ ]]; then
+            TARGET_DATE="$(date -u +%Y)/$RAW_DATE"
+          else
+            echo "Input format error: use yyyy/mm/dd or mm/dd"
+            exit 1
+          fi
+
+          if ! date -d "${TARGET_DATE//\//-}" >/dev/null 2>&1; then
+            echo "Invalid date: $TARGET_DATE"
+            exit 1
+          fi
+
+          TARGET_TS="$(date -u -d "${TARGET_DATE//\//-} 23:59:59" +"%Y-%m-%dT%H:%M:%SZ")"
+
+          FILE_A="README.md"
+          FILE_B=".github/English/README.md"
+
+          COMMIT_A="$(git log -1 --format=%H --before="$TARGET_TS" -- "$FILE_A" || true)"
+          COMMIT_B="$(git log -1 --format=%H --before="$TARGET_TS" -- "$FILE_B" || true)"
+
+          if [[ -z "$COMMIT_A" && -z "$COMMIT_B" ]]; then
+            echo "Could not find past commit for either file at/before $TARGET_DATE"
+            exit 1
+          fi
+
+          echo "========== search-oniisan =========="
+          echo "Target date: $TARGET_DATE"
+
+          CONTENTS=""
+
+          if [[ -n "$COMMIT_A" ]]; then
+            COACH_PART="$(git show "${COMMIT_A}:${FILE_A}" | awk '/<!-- DISCUSS_COACH_START -->/{flag=1;next}/<!-- DISCUSS_COACH_END -->/{flag=0}flag')"
+            if [[ -n "$COACH_PART" ]]; then
+              CONTENTS+="<<<< 原文 >>>>\n"
+              CONTENTS+="$COACH_PART\n\n"
+            else
+              CONTENTS+="<<<< お兄さん以外 >>>>\n\n"
+            fi
+          fi
+
+          if [[ -n "$COMMIT_B" ]]; then
+            CONTENTS+="<<<< 英語版 >>>>\n"
+            CONTENTS+="$(git show "${COMMIT_B}:${FILE_B}")\n\n"
+          fi
+
+          echo -e "$CONTENTS"

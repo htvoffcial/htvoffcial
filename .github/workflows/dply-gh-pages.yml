@@ -1,0 +1,44 @@
+# Copyright (C) 2026 htvoffcial
+# SPDX-License-Identifier: SSPL-1.0
+#
+# This program is free software: you can use, redistribute,
+# and/or modify it under the terms of the Server Side
+# Public License, version 1, as published by MongoDB, Inc.
+
+name: Simple Sync to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+
+      - name: Prepare Files for Deployment
+        run: |
+          # 公開用の一時フォルダを作成
+          mkdir -p deploy_dist
+          
+          # .git や .github を除いて main の全ファイルをコピー
+          rsync -av --exclude='.git' --exclude='.github' ./ deploy_dist/
+          
+          # CNAMEファイルを強制的に作成（または上書き）
+          echo "r1.harutv.me" > deploy_dist/CNAME
+          
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy_dist
+          publish_branch: gh-pages
+          enable_jekyll: true
+          force_orphan: true
+          commit_message: "🚀 Sync from main and Update CNAME [skip ci]"
