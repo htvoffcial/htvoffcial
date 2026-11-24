@@ -1351,3 +1351,8 @@
 
 - [ドメイン移管できて、超ハッピー](https://github.com/htvoffcial/htvoffcial/discussions/408)
   - 維持費ががくんと下がりました、が！海外加盟店利用の手数料が数%乗ってて結構痛手でした！“…”
+
+## 2026-11-23
+
+- [天井に英文法貼ったよ！](https://github.com/htvoffcial/htvoffcial/discussions/410)
+  - 朝起きた時、寝る時よく見えるから、第五文型とかが勝手に頭に入ってくるって算段よ！“…”
