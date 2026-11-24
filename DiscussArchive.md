@@ -1356,3 +1356,8 @@
 
 - [天井に英文法貼ったよ！](https://github.com/htvoffcial/htvoffcial/discussions/410)
   - 朝起きた時、寝る時よく見えるから、第五文型とかが勝手に頭に入ってくるって算段よ！“…”
+
+## 2026-11-24
+
+- [“熱唱”系お兄さん](https://github.com/htvoffcial/htvoffcial/discussions/412)
+  - 今日は卒業の歌の練習をしてきたよ！全力で歌いすぎて喉が痛かったよ！“…”
