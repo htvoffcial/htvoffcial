@@ -1,21 +1,21 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-11-22
+**Date (JST):** 2026-11-23
 
-Hey, everyone! Are you all full of energy!?
-Yesterday in Matsudo City, the weather was absolutely beautiful and sunny!
-It was a day that sparkled just like the sun!
+Hey, everyone! How are you all doing!?
+Yesterday in Matsudo City, the sun was shining brightly—it was a perfect, sunny day!
 
-Now, onto yesterday’s news!
-We received some happy news from GitHub—they successfully transferred their domain and said they’re “super happy!”
-Way to go! Let’s all high-five!!
+Anyway, here’s a recap of yesterday!
+Believe it or not, there was someone so dedicated that they stuck grammar rules all over their ceiling—
+so they’d see them whether they were going to sleep or waking up!
 
-But, but, but—! Hold on a sec!
-Even though our maintenance fees dropped significantly, it looks like some international transaction fees have hit us hard—it’s like, “Ouch!”
-What?! Just when we were feeling so happy, we’ve got a little—no, actually, a pretty big—setback…! (lol)
+To have the fifth sentence pattern just pop into your head on its own…
+It’s almost like your brain is doing “English Grammar Exercises” at full speed while you sleep!
+But be careful not to bump your head on the ceiling while you’re still half-asleep!
+Hahaha!
 
-But it’s okay! Let’s brush off even these little trials with our smiles!
-Let’s go full steam ahead tomorrow too!!
+It’s great to be motivated to study,
+but getting plenty of rest is also really important!
 
-Today’s Quote: Let’s ride out even unexpected fees with the momentum of a tumble!
+Today’s tip: At night, instead of studying grammar, count the stars and get a good night’s sleep!
 <!-- DISCUSS_COACH_END -->
