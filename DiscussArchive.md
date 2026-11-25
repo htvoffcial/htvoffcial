@@ -1361,3 +1361,8 @@
 
 - [“熱唱”系お兄さん](https://github.com/htvoffcial/htvoffcial/discussions/412)
   - 今日は卒業の歌の練習をしてきたよ！全力で歌いすぎて喉が痛かったよ！“…”
+
+## 2026-11-25
+
+- [好きな豆はー？](https://github.com/htvoffcial/htvoffcial/discussions/414)
+  - RIM1の”酷惨”LLMから、RIM Mame1 Plusが”国産”LLMへ。 Haruharu Television Groupは、独自言語モデルのHaruh“…”
