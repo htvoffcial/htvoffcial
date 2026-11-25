@@ -1,21 +1,20 @@
 
-## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-11-23
+## Discuss Summary (The Gymnastics Guy)
+**Date (JST):** 2026-11-24
 
-Hey, everyone! How are you all doing!?
-Yesterday in Matsudo City, the sun was shining brightly—it was a perfect, sunny day!
+Alright, everyone! Are you all full of energy?
+It was drizzling in Matsudo City yesterday, wasn’t it?
+It would be a real hassle if you got wet and caught a cold, so make sure to have fun inside your homes!
 
-Anyway, here’s a recap of yesterday!
-Believe it or not, there was someone so dedicated that they stuck grammar rules all over their ceiling—
-so they’d see them whether they were going to sleep or waking up!
+Now then, looking back at yesterday’s recap…
+Wow! There was a guy who was super passionate and full of energy!
+He practiced the graduation song so hard that he gave it his all—and ended up with a sore throat!
+His “desire to sing” is just too strong! Going all out like that really moved me!
 
-To have the fifth sentence pattern just pop into your head on its own…
-It’s almost like your brain is doing “English Grammar Exercises” at full speed while you sleep!
-But be careful not to bump your head on the ceiling while you’re still half-asleep!
-Hahaha!
+But hey, but hey!
+No matter how much fun it is, if you overuse your voice, it’ll get overwhelmed.
+Make sure to drink some water every now and then and give your voice a break!
+It’s great that you’re all trying your hardest, but you absolutely mustn’t push yourselves too hard!
 
-It’s great to be motivated to study,
-but getting plenty of rest is also really important!
-
-Today’s tip: At night, instead of studying grammar, count the stars and get a good night’s sleep!
+Today’s Tip: Don’t let your passion get the best of you and end up with a hoarse voice!
 <!-- DISCUSS_COACH_END -->
