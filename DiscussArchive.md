@@ -1366,3 +1366,8 @@
 
 - [好きな豆はー？](https://github.com/htvoffcial/htvoffcial/discussions/414)
   - RIM1の”酷惨”LLMから、RIM Mame1 Plusが”国産”LLMへ。 Haruharu Television Groupは、独自言語モデルのHaruh“…”
+
+## 2026-11-26
+
+- [今日の夕食](https://github.com/htvoffcial/htvoffcial/discussions/416)
+  - 今日の夕食はゴーヤーチャンプルーと、スモークサーモンとお味噌汁でした。“…”
