@@ -1,22 +1,19 @@
 
 ## Discuss Roundup (The Gymnastics Guy)
-**Date (JST):** 2026-11-25
+**Date (JST):** 2026-11-26
 
-Alright! How’s everyone doing?!
+Hey, everyone! How are you all doing!?
+Yesterday in Matsudo City, we had the most amazing sunny day with the sun shining brightly!
+Did you get to play outside a lot?
 
-Yesterday in Matsudo City, it was bright and sunny!
-It was the perfect day for a walk and some outdoor stretching!
+Alright, it’s time to wrap up yesterday!
+Everyone’s dinner: goya champuru, smoked salmon, and miso soup!
+…Wait a minute—!?
+That sounds incredibly lavish, doesn’t it!? (lol)
+The bitter melon is packed with vitamins, and the salmon takes it to the next level in style!
+It’s just like a royal banquet!
+But finishing off with miso soup for that comforting feeling—it’s so well-balanced and wonderful!
+Let’s eat our fill again tomorrow and jump with all our might!
 
-Now, let’s recap yesterday’s news!
-Finally! A new member of the Haruharu RIM family, “Mame1 Plus,” has arrived!
-
-The previous model was a bit thrilling and exciting,
-but it’s made a huge leap forward—surprisingly—into a very reliable “domestic bean”!
-Even though its name is the cute “Mame” (bean), it’s actually a super-powerful model with a 1,500M-scale capacity!
-It’s just like a muscular monster that looks small and cute on the outside but has rock-hard abs on the inside!
-That’s the kind of “bean” it is! lol
-
-You can access it via the web or Telegram, so everyone should give it a try!
-
-Today’s Thought: No matter how small something may seem, let’s always appreciate the power inside!
+Today’s Thought: A well-balanced meal is the key to a healthy body!
 <!-- DISCUSS_COACH_END -->
