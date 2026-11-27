@@ -1371,3 +1371,8 @@
 
 - [今日の夕食](https://github.com/htvoffcial/htvoffcial/discussions/416)
   - 今日の夕食はゴーヤーチャンプルーと、スモークサーモンとお味噌汁でした。“…”
+
+## 2026-11-27
+
+- [先輩のだる重い赤点はセンチメンタル](https://github.com/htvoffcial/htvoffcial/discussions/417)
+  - 先輩のだる重い赤点はセンチメンタル。それなら、ポテトを片付ける。だから、クラスメイトの自由なご飯は明るいって感じ。“…”
